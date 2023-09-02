@@ -7,8 +7,8 @@ namespace Stats.ScriptableObjects
     [CreateAssetMenu(fileName = "PlayerStatsData", menuName = "ScriptableObject/Stats/Player", order = 0)]
     public class PlayerStatsData : ScriptableObject
     {
-        [FormerlySerializedAs("_playerStats")] [SerializeField] private List<Stat> _stats;
+        [FormerlySerializedAs("_playerStats")] [SerializeField] private List<StatData> _stats;
 
-        public List<Stat> Stats => _stats;
+        public List<StatData> Stats => _stats;
     }
 }

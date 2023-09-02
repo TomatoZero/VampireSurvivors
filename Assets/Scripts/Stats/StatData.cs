@@ -22,7 +22,9 @@ namespace Stats
         }
 
 
-        public StatData() { }
+        public StatData()
+        {
+        }
 
         public StatData(Stats stat, int value)
         {

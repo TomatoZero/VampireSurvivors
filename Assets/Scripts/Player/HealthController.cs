@@ -19,7 +19,8 @@ namespace Player
 
         private void Start()
         {
-            Debug.Log($"_maxHealth {_maxHealth} _recovery {_recovery}");
+            _currentHealth = _maxHealth;
+            InvokeHealthChaneEvent();
         }
 
         public void Heal(float hp)
@@ -35,11 +36,11 @@ namespace Player
 
             if (_currentHealth > _maxHealth)
                 _currentHealth = _maxHealth;
-        
-            _playerHealthChangeEvent.Invoke(_currentHealth);
+
+            InvokeHealthChaneEvent();
         }
         
-        public void TakeDamage(int hp)
+        public void TakeDamage(float hp)
         {
             if (hp < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Player hp less or equal zero");
@@ -48,21 +49,23 @@ namespace Player
             TryTurnOnRecover();
 
             if(_currentHealth <= 0) _playerDie.Invoke();
-            
-            _playerHealthChangeEvent.Invoke(hp);
+
+            InvokeHealthChaneEvent();
         }
         
         public void UpdateStatsEventHandler(PlayerStats newStats)
         {
             _maxHealth = newStats.GetStatByName(Stats.Stats.MaxHealth).Value;
             _recovery = newStats.GetStatByName(Stats.Stats.Recovery).Value;
+
+            InvokeHealthChaneEvent();
             
             Debug.Log($"_maxHealth {_maxHealth} _recovery {_recovery}");
         }
 
         private void TryTurnOfRecover()
         {
-            if(!_isRecovering) return;
+            if(!_isRecovering || _recovery == 0) return;
             
             StopCoroutine(RecoverHpPerSecond());
             _isRecovering = false;
@@ -70,7 +73,7 @@ namespace Player
 
         private void TryTurnOnRecover()
         {
-            if(_isRecovering) return;
+            if(_isRecovering || _recovery == 0) return;
             
             StartCoroutine(RecoverHpPerSecond());
             _isRecovering = true;
@@ -83,6 +86,13 @@ namespace Player
                 yield return new WaitForSeconds(1);
                 Heal(_recovery);
             }
+        }
+
+        private void InvokeHealthChaneEvent()
+        {
+            // Debug.Log($"{_currentHealth} / {_maxHealth} = {_currentHealth / _maxHealth}");
+            
+            _playerHealthChangeEvent.Invoke(_currentHealth / _maxHealth);
         }
     }
 }

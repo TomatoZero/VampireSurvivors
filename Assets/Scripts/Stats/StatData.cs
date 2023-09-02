@@ -7,7 +7,7 @@ namespace Stats
     public class StatData : ICloneable
     {
         [SerializeField] private Stats _stat;
-        [SerializeField] private int _value;
+        [SerializeField] private float _value;
 
         public Stats Stat
         {
@@ -15,7 +15,7 @@ namespace Stats
             set => _stat = value;
         }
 
-        public int Value
+        public float Value
         {
             get => _value;
             set => _value = value;
@@ -26,7 +26,7 @@ namespace Stats
         {
         }
 
-        public StatData(Stats stat, int value)
+        public StatData(Stats stat, float value)
         {
             _stat = stat;
             _value = value;

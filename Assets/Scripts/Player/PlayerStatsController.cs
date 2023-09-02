@@ -15,11 +15,11 @@ namespace Player
         private void Awake()
         {
             _stats = new PlayerStats(_playerStatsData);
+            _statsUpdateEvent.Invoke(_stats);
         }
 
         private void Start()
         {
-            _statsUpdateEvent.Invoke(_stats);
         }
 
         public void SetStatByName(Stats.Stats stats, int value)

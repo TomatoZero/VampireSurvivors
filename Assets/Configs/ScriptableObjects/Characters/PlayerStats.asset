@@ -19,3 +19,5 @@ MonoBehaviour:
     _value: 0
   - _stat: 10
     _value: 5
+  - _stat: 1
+    _value: 1

@@ -40,12 +40,14 @@ namespace Player
             InvokeHealthChaneEvent();
         }
         
-        public void TakeDamage(float hp)
+        public void TakeDamage(float damage)
         {
-            if (hp < 0) throw new ArgumentException();
+            if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Player hp less or equal zero");
             
-            _currentHealth -= hp;
+            Debug.Log($"damage {damage}");
+            
+            _currentHealth -= damage;
             TryTurnOnRecover();
 
             if(_currentHealth <= 0) _playerDie.Invoke();

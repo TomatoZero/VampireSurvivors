@@ -7,6 +7,7 @@ namespace Player
 {
     public class MovementController : MonoBehaviour
     {
+        [SerializeField] private Rigidbody2D _rigidbody;
         [FormerlySerializedAs("_speed")] [SerializeField] private float _defaultSpeed;
         
         private Vector2 _moveDirection;
@@ -14,7 +15,11 @@ namespace Player
 
         private void FixedUpdate()
         {
-            transform.Translate(_moveDirection.normalized * ((_defaultSpeed + _speedPlus) * Time.fixedDeltaTime));
+            // transform.Translate(_moveDirection.normalized * ((_defaultSpeed + _speedPlus) * Time.fixedDeltaTime));
+            
+            var newPos = _rigidbody.position + _moveDirection.normalized * ((_defaultSpeed + _speedPlus) * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(newPos);
+            
         }
 
         public void MoveEventHandler(InputAction.CallbackContext context)

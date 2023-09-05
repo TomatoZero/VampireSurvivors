@@ -2,6 +2,6 @@
 {
     public interface IUpdateStats
     {
-        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance);
+        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance);
     }
 }

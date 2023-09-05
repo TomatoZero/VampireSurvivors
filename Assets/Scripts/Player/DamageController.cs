@@ -19,7 +19,7 @@ namespace Player
             _takeDamageEvent.Invoke(damage - _armor);
         }
 
-        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
         {
             _armor = newStatsInstance.GetStatByName(Stats.Stats.Armor).Value;
         }

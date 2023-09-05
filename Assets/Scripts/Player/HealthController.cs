@@ -55,7 +55,7 @@ namespace Player
             InvokeHealthChaneEvent();
         }
         
-        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
         {
             _maxHealth = newStatsInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
             _recovery = newStatsInstance.GetStatByName(Stats.Stats.Recovery).Value;

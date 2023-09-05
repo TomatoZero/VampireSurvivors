@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
+    [RequireComponent(typeof(EnemyStatsController))]
     public class EnemyWeaponControl : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private LayerMask _playerLayer;
@@ -32,9 +33,9 @@ namespace Enemy
             }
         }
 
-        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
         {
-            throw new System.NotImplementedException();
+            _damage = newStatsInstance.GetStatByName(Stats.Stats.Amount).Value;
         }
     }
 }

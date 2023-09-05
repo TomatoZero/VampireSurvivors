@@ -1,7 +1,6 @@
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -24,10 +23,10 @@ namespace Player
             _moveDirection = context.ReadValue<Vector2>();
         }
 
-        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
         {
             float speedStatPercent = newStatsInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
             _speed = (DefaultSpeed * speedStatPercent) / 100;
         }
-    }    
+    }
 }

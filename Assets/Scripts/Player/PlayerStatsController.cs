@@ -8,14 +8,14 @@ namespace Player
     public class PlayerStatsController : MonoBehaviour
     {
         [SerializeField] private PlayerStatsData _playerStatsData;
-        [SerializeField] private UnityEvent<PlayerStats> _statsUpdateEvent;
+        [SerializeField] private UnityEvent<PlayerStatsInstance> _statsUpdateEvent;
 
-        private PlayerStats _stats;
+        private PlayerStatsInstance _statsInstance;
 
         private void Awake()
         {
-            _stats = new PlayerStats(_playerStatsData);
-            _statsUpdateEvent.Invoke(_stats);
+            _statsInstance = new PlayerStatsInstance(_playerStatsData);
+            _statsUpdateEvent.Invoke(_statsInstance);
         }
 
         private void Start()
@@ -24,7 +24,7 @@ namespace Player
 
         public void SetStatByName(Stats.Stats stats, int value)
         {
-            _stats.SetStatByName(stats, value);
+            _statsInstance.SetStatByName(stats, value);
         }
         
     }

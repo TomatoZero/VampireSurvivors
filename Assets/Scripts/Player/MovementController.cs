@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 namespace Player
 {
-    public class MovementController : MonoBehaviour
+    public class MovementController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private Rigidbody2D _rigidbody;
 
@@ -24,9 +24,9 @@ namespace Player
             _moveDirection = context.ReadValue<Vector2>();
         }
 
-        public void UpdateStatsEventHandler(PlayerStats newStats)
+        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
         {
-            float speedStatPercent = newStats.GetStatByName(Stats.Stats.MoveSpeed).Value;
+            float speedStatPercent = newStatsInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
             _speed = (DefaultSpeed * speedStatPercent) / 100;
         }
     }    

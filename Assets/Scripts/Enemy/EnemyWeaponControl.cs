@@ -1,9 +1,10 @@
 ﻿using Interface;
+using Stats.Instances;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyWeaponControl : MonoBehaviour
+    public class EnemyWeaponControl : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private LayerMask _playerLayer;
 
@@ -29,6 +30,11 @@ namespace Enemy
                     damageController.TakeDamage(_damage);
                 }
             }
+        }
+
+        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

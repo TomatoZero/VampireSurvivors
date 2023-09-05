@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 namespace Player
 {
-    public class HealthController : MonoBehaviour
+    public class HealthController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private UnityEvent<float> _playerHealthChangeEvent;
         [SerializeField] private UnityEvent _playerDie;
@@ -55,10 +55,10 @@ namespace Player
             InvokeHealthChaneEvent();
         }
         
-        public void UpdateStatsEventHandler(PlayerStats newStats)
+        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
         {
-            _maxHealth = newStats.GetStatByName(Stats.Stats.MaxHealth).Value;
-            _recovery = newStats.GetStatByName(Stats.Stats.Recovery).Value;
+            _maxHealth = newStatsInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
+            _recovery = newStatsInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
             InvokeHealthChaneEvent();
             

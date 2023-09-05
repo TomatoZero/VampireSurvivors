@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Player
 {
-    public class DamageController : MonoBehaviour, IDamageable
+    public class DamageController : MonoBehaviour, IDamageable, IUpdateStats
     {
         [SerializeField] private UnityEvent<float> _takeDamageEvent;
         [SerializeField] private LayerMask _enemyLayer;
@@ -19,9 +19,9 @@ namespace Player
             _takeDamageEvent.Invoke(damage - _armor);
         }
 
-        public void UpdateStatsEventHandler(PlayerStats newStats)
+        public void UpdateStatsEventHandler(PlayerStatsInstance newStatsInstance)
         {
-            _armor = newStats.GetStatByName(Stats.Stats.Armor).Value;
+            _armor = newStatsInstance.GetStatByName(Stats.Stats.Armor).Value;
         }
     }
 }

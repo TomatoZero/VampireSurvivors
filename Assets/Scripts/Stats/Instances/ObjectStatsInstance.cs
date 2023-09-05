@@ -3,20 +3,18 @@ using Stats.ScriptableObjects;
 
 namespace Stats.Instances
 {
-    public class PlayerStats
+    public abstract class ObjectStatsInstance
     {
-        private PlayerStatsData _playerStatsData;
-        private List<StatData> _currentStats;
+        private protected ObjectStatsData _playerStatsData;
+        private protected List<StatData> _currentStats;
 
-        public List<StatData> CurrentStats => _currentStats;
-
-        public PlayerStats(PlayerStatsData playerStatsData)
+        public ObjectStatsInstance(ObjectStatsData statsData)
         {
-            _playerStatsData = playerStatsData;
+            _playerStatsData = statsData;
             CopyStats();
         }
-
-        public StatData GetStatByName(Stats stat)
+        
+        public virtual StatData GetStatByName(Stats stat)
         {
             foreach (var statData in _currentStats)
             {
@@ -26,14 +24,14 @@ namespace Stats.Instances
             return new StatData();
         }
 
-        public void SetStatByName(Stats stat, int value)
+        public virtual void SetStatByName(Stats stat, int value)
         {
             foreach (var statData in _currentStats)
             {
                 if (statData.Stat.Equals(stat)) statData.Value = value;
             }
         }
-
+        
         private void CopyStats()
         {
             _currentStats = new List<StatData>();

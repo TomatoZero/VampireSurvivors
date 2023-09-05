@@ -8,18 +8,15 @@ namespace Player
     public class MovementController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidbody;
-        [FormerlySerializedAs("_speed")] [SerializeField] private float _defaultSpeed;
-        
+
+        private const float DefaultSpeed = 10;
         private Vector2 _moveDirection;
-        private float _speedPlus;
+        private float _speed;
 
         private void FixedUpdate()
         {
-            // transform.Translate(_moveDirection.normalized * ((_defaultSpeed + _speedPlus) * Time.fixedDeltaTime));
-            
-            var newPos = _rigidbody.position + _moveDirection.normalized * ((_defaultSpeed + _speedPlus) * Time.fixedDeltaTime);
+            var newPos = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(newPos);
-            
         }
 
         public void MoveEventHandler(InputAction.CallbackContext context)
@@ -30,9 +27,7 @@ namespace Player
         public void UpdateStatsEventHandler(PlayerStats newStats)
         {
             float speedStatPercent = newStats.GetStatByName(Stats.Stats.MoveSpeed).Value;
-            _speedPlus = (_defaultSpeed * speedStatPercent) / 100;
-            
-            Debug.Log($"sped plus {_speedPlus}");
+            _speed = (DefaultSpeed * speedStatPercent) / 100;
         }
     }    
 }

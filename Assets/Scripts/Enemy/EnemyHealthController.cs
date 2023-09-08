@@ -38,5 +38,10 @@ namespace Enemy
 
             if(_currentHealth <= 0) _enemyDie.Invoke();
         }
+
+        public void Die()
+        {
+            Destroy(gameObject);
+        }
     }
 }

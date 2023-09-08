@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d19e1bb94e8e349b629ad96712e650, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
-  _name: 
-  _stats: []
+  _stats:
+  - _stat: 0
+    _value: 100
+  - _stat: 1
+    _value: 10
+  - _stat: 2
+    _value: 50
+  - _stat: 14
+    _value: 0
+  _name: Bat

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
+using Interface;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Player
 {
-    public class HealthController : MonoBehaviour, IUpdateStats
+    public class HealthController : MonoBehaviour, IUpdateStats, IHealth
     {
         [SerializeField] private UnityEvent<float> _playerHealthChangeEvent;
         [SerializeField] private UnityEvent _playerDie;

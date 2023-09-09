@@ -7,8 +7,8 @@ namespace Enemy
     public class EnemyMovementController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private Rigidbody2D _rigidbody;
-        [SerializeField] private Transform _player;
-
+        
+        private Transform _player;
         private const float DefaultSpeed = 10;
 
         private Vector2 _nextPosition;
@@ -21,6 +21,11 @@ namespace Enemy
             _moveDirection = (_player.position - transform.position).normalized;
             _nextPosition = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_nextPosition);
+        }
+
+        public void SetPlayer(Transform player)
+        {
+            _player = player;
         }
 
         public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)

@@ -20,6 +20,8 @@
         Magnet,
         Luck,
         Greed,
-        Skip
+        Skip,
+        Damage,
+        Pierce
     }
 }

@@ -7,10 +7,22 @@ namespace Stats.Instances
     {
         public List<StatData> CurrentStats => _currentStats;
         
-        private WeaponStatsData PlayerStatsData => (WeaponStatsData)_playerStatsData;
+        private WeaponStatsData WeaponStatsData => (WeaponStatsData)_playerStatsData;
 
         public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {
+        }
+
+        public override void SetStatByName(Stats stat, int value)
+        {
+            if(CheckIgnore(stat)) return;
+            
+            base.SetStatByName(stat, value);
+        }
+
+        private bool CheckIgnore(Stats stat)
+        {
+            return WeaponStatsData.IgnoreStat.Contains(stat);
         }
     }
 }

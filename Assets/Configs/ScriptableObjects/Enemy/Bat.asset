@@ -20,5 +20,5 @@ MonoBehaviour:
   - _stat: 2
     _value: 50
   - _stat: 14
-    _value: 0
+    _value: 1
   _name: Bat

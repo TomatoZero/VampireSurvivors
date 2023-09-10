@@ -1,4 +1,5 @@
-﻿using Stats.Instances;
+﻿using System;
+using Stats.Instances;
 using UnityEngine;
 
 namespace Enemy
@@ -15,6 +16,15 @@ namespace Enemy
         private Vector2 _moveDirection;
 
         private float _speed;
+
+        private void Awake()
+        {
+            _player = transform;
+        }
+
+        private void Start()
+        {
+        }
 
         private void FixedUpdate()
         {

@@ -1,12 +1,15 @@
+using System.Collections.Generic;
 using Stats.ScriptableObjects;
-using UnityEngine;
 
 namespace Stats.Instances
 {
     public class WeaponInstance : ObjectStatsInstance
     {
+        public List<StatData> CurrentStats => _currentStats;
         
-        public WeaponInstance(ObjectStatsData statsData) : base(statsData)
+        private WeaponStatsData PlayerStatsData => (WeaponStatsData)_playerStatsData;
+
+        public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {
         }
     }

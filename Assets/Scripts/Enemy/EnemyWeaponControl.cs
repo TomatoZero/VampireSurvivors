@@ -33,9 +33,9 @@ namespace Enemy
             }
         }
 
-        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            _damage = newStatsInstance.GetStatByName(Stats.Stats.Amount).Value;
+            _damage = newInstance.GetStatByName(Stats.Stats.Amount).Value;
         }
     }
 }

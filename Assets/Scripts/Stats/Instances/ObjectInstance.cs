@@ -3,14 +3,14 @@ using Stats.ScriptableObjects;
 
 namespace Stats.Instances
 {
-    public abstract class ObjectStatsInstance
+    public abstract class ObjectInstance
     {
-        private protected ObjectStatsData _playerStatsData;
+        private protected ObjectStatsData _statsData;
         private protected List<StatData> _currentStats;
 
-        public ObjectStatsInstance(ObjectStatsData statsData)
+        public ObjectInstance(ObjectStatsData statsData)
         {
-            _playerStatsData = statsData;
+            _statsData = statsData;
             CopyStats();
         }
         
@@ -36,7 +36,7 @@ namespace Stats.Instances
         {
             _currentStats = new List<StatData>();
 
-            foreach (var stat in _playerStatsData.Stats)
+            foreach (var stat in _statsData.Stats)
                 _currentStats.Add((StatData)stat.Clone());
         }
     }

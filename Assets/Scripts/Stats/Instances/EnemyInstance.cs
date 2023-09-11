@@ -3,11 +3,11 @@ using Stats.ScriptableObjects;
 
 namespace Stats.Instances
 {
-    public class EnemyStatsInstance : ObjectStatsInstance
+    public class EnemyInstance : ObjectInstance
     {
         public List<StatData> CurrentStats => _currentStats;
 
-        public EnemyStatsInstance(EnemyStatsData statsData) : base(statsData)
+        public EnemyInstance(EnemyStatsData statsData) : base(statsData)
         {
         }
     }

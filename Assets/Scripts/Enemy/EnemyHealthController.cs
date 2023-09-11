@@ -13,9 +13,9 @@ namespace Enemy
         private float _maxHealth;
         private float _currentHealth;
         
-        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            _maxHealth = newStatsInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
+            _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
         }
         
         public void Heal(float hp)

@@ -8,14 +8,14 @@ namespace Enemy
     public class EnemyStatsController : MonoBehaviour
     {
         [SerializeField] private EnemyStatsData _enemyStatsData;
-        [SerializeField] private UnityEvent<EnemyStatsInstance> _statsUpdateEvent;
+        [SerializeField] private UnityEvent<EnemyInstance> _statsUpdateEvent;
 
-        private EnemyStatsInstance _statsInstance;
+        private EnemyInstance _instance;
 
         private void Awake()
         {
-            _statsInstance = new EnemyStatsInstance(_enemyStatsData);
-            _statsUpdateEvent.Invoke(_statsInstance);
+            _instance = new EnemyInstance(_enemyStatsData);
+            _statsUpdateEvent.Invoke(_instance);
         }
     }
 }

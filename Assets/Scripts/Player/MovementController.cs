@@ -23,9 +23,9 @@ namespace Player
             _moveDirection = context.ReadValue<Vector2>();
         }
 
-        public void UpdateStatsEventHandler(ObjectStatsInstance newStatsInstance)
+        public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            float speedStatPercent = newStatsInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
+            float speedStatPercent = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
             _speed = (DefaultSpeed * speedStatPercent) / 100;
         }
     }

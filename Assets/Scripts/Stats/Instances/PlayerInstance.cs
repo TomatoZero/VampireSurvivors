@@ -3,12 +3,12 @@ using Stats.ScriptableObjects;
 
 namespace Stats.Instances
 {
-    public class PlayerStatsInstance : ObjectStatsInstance
+    public class PlayerInstance : ObjectInstance
     {
         private int _lvl;
         public List<StatData> CurrentStats => _currentStats;
 
-        public PlayerStatsInstance(PlayerStatsData playerStatsData) : base(playerStatsData)
+        public PlayerInstance(PlayerStatsData playerStatsData) : base(playerStatsData)
         {
         }
     }

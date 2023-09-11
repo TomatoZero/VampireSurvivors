@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using Stats.ScriptableObjects;
-
+        
 namespace Stats.Instances
 {
-    public class WeaponInstance : ObjectStatsInstance
+    public class WeaponInstance : ObjectInstance
     {
-        public List<StatData> CurrentStats => _currentStats;
+        public List<StatData> CurrentStats => _currentStats;        
         
-        private WeaponStatsData WeaponStatsData => (WeaponStatsData)_playerStatsData;
+        private WeaponStatsData WeaponStatsData => (WeaponStatsData)_statsData;
 
         public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {

@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 using Stats.ScriptableObjects;
-        
+
 namespace Stats.Instances
 {
     public class WeaponInstance : ObjectInstance
     {
-        public List<StatData> CurrentStats => _currentStats;        
-        
+        public List<StatData> CurrentStats => _currentStats;
+
         private WeaponStatsData WeaponStatsData => (WeaponStatsData)_statsData;
 
         public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {
         }
 
-        public override void SetStatByName(Stats stat, int value)
+        public override void SetStatByName(Stats stat, float value)
         {
-            if(CheckIgnore(stat)) return;
+            if (CheckIgnore(stat)) return;
             
             base.SetStatByName(stat, value);
         }

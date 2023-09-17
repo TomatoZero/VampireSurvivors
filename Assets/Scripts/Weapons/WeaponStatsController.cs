@@ -1,4 +1,5 @@
-﻿using Stats.Instances;
+﻿using Interface;
+using Stats.Instances;
 using Stats.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;

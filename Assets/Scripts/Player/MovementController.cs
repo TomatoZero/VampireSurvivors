@@ -1,3 +1,4 @@
+using Interface;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.InputSystem;

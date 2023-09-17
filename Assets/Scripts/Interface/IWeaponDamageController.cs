@@ -2,6 +2,6 @@
 {
     public interface IWeaponDamageController
     {
-        public void Damage();
+        public void Damage(IDamageable damageable);
     }
 }

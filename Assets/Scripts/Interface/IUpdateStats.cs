@@ -1,4 +1,6 @@
-﻿namespace Stats.Instances
+﻿using Stats.Instances;
+
+namespace Interface
 {
     public interface IUpdateStats
     {

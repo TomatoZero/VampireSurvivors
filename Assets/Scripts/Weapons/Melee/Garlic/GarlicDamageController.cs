@@ -10,7 +10,6 @@ namespace Weapons.Melee.Garlic
     {
         [SerializeField] private LayerMask _enemyAndWeapon;
 
-        private bool _canDamage;
         private float _defaultDamage;
         private float _damage;
 
@@ -20,17 +19,32 @@ namespace Weapons.Melee.Garlic
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (!_canDamage) return;
-
-            if (((1 << other.gameObject.layer) & _enemyAndWeapon) != 0)
-            {
-                if (other.gameObject.TryGetComponent(out IDamageable damageController)) Damage(damageController);
-            }
+            // if (!_canDamage) return;
+            //
+            // if (((1 << other.gameObject.layer) & _enemyAndWeapon) != 0)
+            // {
+            //     Debug.Log($"enemy hit {other.gameObject.name}");
+            //     if (other.gameObject.TryGetComponent(out IDamageable damageController)) Damage(damageController);
+            // }
         }
 
         public void Damage(IDamageable damageable)
         {
             damageable.TakeDamage(_damage);
+        }
+
+        public void Damage(Collider2D[] enemy)
+        {
+            foreach (var oneEnemy in enemy)
+            {
+                if (oneEnemy.gameObject.TryGetComponent(out IDamageable damageController)) Damage(damageController);
+            }
+        }
+
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            var weaponInstance = (WeaponInstance)newInstance;
+            _defaultDamage = weaponInstance.GetStatByName(Stats.Stats.Damage).Value;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
@@ -40,20 +54,18 @@ namespace Weapons.Melee.Garlic
             SetStat(ref _damage, _defaultDamage, newInstance.GetStatByName(Stats.Stats.Damage).Value);
         }
 
-        public void AllowDamageEventHandler()
-        {
-            _canDamage = true;
-        }
-
-        public void ForbidDamageEventHandler()
-        {
-            _canDamage = false;
-        }
-
+        // public void AllowDamageEventHandler()
+        // {
+        //     _canDamage = true;
+        // }
+        //
+        // public void ForbidDamageEventHandler()
+        // {
+        //     _canDamage = false;
+        // }
+        
         private void SetStat(ref float variable, float defaultValue, float addPercent)
         {
-            if (variable <= 0) throw new ArgumentOutOfRangeException(nameof(variable));
-
             var addValue = (defaultValue * addPercent) / 100;
             variable = defaultValue + addValue;
         }

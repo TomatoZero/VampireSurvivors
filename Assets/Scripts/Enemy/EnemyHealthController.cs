@@ -16,6 +16,7 @@ namespace Enemy
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
+            _currentHealth = _maxHealth;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
@@ -39,6 +40,7 @@ namespace Enemy
             if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Enemy hp less or equal zero");
             
+            Debug.Log($"income damage {damage}");
             _currentHealth -= damage;
 
             if(_currentHealth <= 0) _enemyDie.Invoke();
@@ -46,6 +48,7 @@ namespace Enemy
 
         public void Die()
         {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5481473773550966399}
   - component: {fileID: 1965635460351017860}
   - component: {fileID: 7060518623316448801}
+  - component: {fileID: 5509264651093906407}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7029371290155515856
 SpriteRenderer:
@@ -165,6 +166,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStatsData: {fileID: 11400000, guid: 50fe6551ce2f3754bb792e0746fcaaba, type: 2}
+  _setupStatsEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5481473773550966399}
+        m_TargetAssemblyTypeName: Enemy.EnemyWeaponControl, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1965635460351017860}
+        m_TargetAssemblyTypeName: Enemy.EnemyMovementController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7060518623316448801}
+        m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5509264651093906407}
+        m_TargetAssemblyTypeName: Enemy.EnemyDamageController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _statsUpdateEvent:
     m_PersistentCalls:
       m_Calls:
@@ -182,6 +234,30 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1965635460351017860}
         m_TargetAssemblyTypeName: Enemy.EnemyMovementController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7060518623316448801}
+        m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5509264651093906407}
+        m_TargetAssemblyTypeName: Enemy.EnemyDamageController, Assembly-CSharp
         m_MethodName: UpdateStatsEventHandler
         m_Mode: 0
         m_Arguments:
@@ -220,7 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3705887431967156318}
-  _player: {fileID: 0}
 --- !u!114 &7060518623316448801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +315,33 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5509264651093906407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931309193437794864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b81b146210ed3f4cbda546e518e4282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _takeDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7060518623316448801}
+        m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

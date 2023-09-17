@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c029ee6ecd10f5468a2268e9bb4681d, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  _name: 
   _stats:
   - _stat: 0
     _value: 100
@@ -21,3 +22,5 @@ MonoBehaviour:
     _value: 5
   - _stat: 1
     _value: 0
+  - _stat: 3
+    _value: 100

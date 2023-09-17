@@ -23,6 +23,17 @@ namespace Weapons.Melee
             
         }
 
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            var weaponInstance = (WeaponInstance)newInstance;
+
+            _defaultDuration = weaponInstance.GetStatByName(Stats.Stats.Duration).Value;
+            _defaultCountdown = weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value;
+
+            _duration = new WaitForSeconds(_defaultDuration);
+            _countdown = new WaitForSeconds(_defaultCountdown);
+        }
+
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             StopTimer();
@@ -34,10 +45,17 @@ namespace Weapons.Melee
             StartTimer();
         }
 
+        public void StartCountdownTimer()
+        {
+            StartCoroutine(CountdownTimer());
+        }
+
         private void SetStat(out WaitForSeconds variable, float defaultValue, float addPercent)
         {
             var addValue = (defaultValue * addPercent) / 100;
             variable = new WaitForSeconds(defaultValue + addValue);
+            
+            StartTimer();
         }
 
         private void StopTimer()
@@ -48,7 +66,7 @@ namespace Weapons.Melee
 
         private void StartTimer()
         {
-            StopCoroutine(Timer());
+            StartCoroutine(Timer());
         }
         
         private IEnumerator Timer()
@@ -60,6 +78,12 @@ namespace Weapons.Melee
                 _stopDamageEvent.Invoke();
                 yield return _countdown;
             }
+        }
+
+        private IEnumerator CountdownTimer()
+        {
+            yield return _countdown;
+            _dealDamageEvent.Invoke();
         }
     }
 }

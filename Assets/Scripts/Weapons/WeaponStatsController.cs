@@ -9,6 +9,7 @@ namespace Weapons
     public class WeaponStatsController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private WeaponStatsData _statsData;
+        [SerializeField] private UnityEvent<WeaponInstance> _setupStatData;
         [SerializeField] private UnityEvent<WeaponInstance> _updateStatData;
 
         private WeaponInstance _instance;
@@ -16,7 +17,12 @@ namespace Weapons
         private void Awake()
         {
             _instance = new WeaponInstance(_statsData);
-            _updateStatData.Invoke(_instance);
+        }
+
+        public void SetupStatEventHandler(ObjectInstance playerInstance)
+        {
+            _setupStatData.Invoke(_instance);
+            UpdateStatsEventHandler(playerInstance);
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)

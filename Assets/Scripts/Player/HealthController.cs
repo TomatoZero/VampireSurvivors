@@ -55,15 +55,21 @@ namespace Player
 
             InvokeHealthChaneEvent();
         }
-        
+
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
+            _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
+
+            InvokeHealthChaneEvent();
+        }
+
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
             InvokeHealthChaneEvent();
-            
-            Debug.Log($"_maxHealth {_maxHealth} _recovery {_recovery}");
         }
 
         private void TryTurnOfRecover()
@@ -93,8 +99,6 @@ namespace Player
 
         private void InvokeHealthChaneEvent()
         {
-            // Debug.Log($"{_currentHealth} / {_maxHealth} = {_currentHealth / _maxHealth}");
-            
             _playerHealthChangeEvent.Invoke(_currentHealth / _maxHealth);
         }
     }

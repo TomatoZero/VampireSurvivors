@@ -17,6 +17,11 @@ namespace Enemy
             _takeDamageEvent.Invoke(damage - _armor);
         }
 
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            _armor = newInstance.GetStatByName(Stats.Stats.Armor).Value;
+        }
+
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _armor = newInstance.GetStatByName(Stats.Stats.Armor).Value;

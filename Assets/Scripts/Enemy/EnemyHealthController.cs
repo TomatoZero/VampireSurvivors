@@ -12,7 +12,12 @@ namespace Enemy
         
         private float _maxHealth;
         private float _currentHealth;
-        
+
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
+        }
+
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;

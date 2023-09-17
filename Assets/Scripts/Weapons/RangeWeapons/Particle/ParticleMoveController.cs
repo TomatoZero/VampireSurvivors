@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Weapons
+namespace Weapons.ShootWeapons.Particle
 {
     public class ParticleMoveController : MonoBehaviour
     {

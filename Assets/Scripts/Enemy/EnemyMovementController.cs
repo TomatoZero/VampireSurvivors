@@ -38,6 +38,12 @@ namespace Enemy
             _player = player;
         }
 
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.Speed).Value;
+            _speed = (DefaultSpeed * speedStatPercent) / 100;
+        }
+
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             var speedStatPercent = newInstance.GetStatByName(Stats.Stats.Speed).Value;

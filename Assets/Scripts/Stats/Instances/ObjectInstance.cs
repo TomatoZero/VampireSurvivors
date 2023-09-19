@@ -13,6 +13,16 @@ namespace Stats.Instances
             _statsData = statsData;
             CopyStats();
         }
+
+        public virtual StatData GetDefaultStatByName(Stats stat)
+        {
+            foreach (var statData in _statsData.Stats)
+            {
+                if (statData.Stat.Equals(stat)) return statData;
+            }
+
+            return new StatData();
+        }
         
         public virtual StatData GetStatByName(Stats stat)
         {

@@ -22,6 +22,8 @@
         Greed,
         Skip,
         Damage,
-        Pierce
+        Pierce,
+        Chance,
+        CriticalHitMultiplier
     }
 }

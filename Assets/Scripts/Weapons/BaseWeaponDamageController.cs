@@ -6,6 +6,11 @@ namespace Weapons
 {
     public abstract class BaseWeaponDamageController : MonoBehaviour, IUpdateStats
     {
+        private float _criticalHitChanceDefault;
+        private float _criticalHitChance;
+
+        private float _criticalHitMultiplier;
+
         private float _defaultDamage;
         private float _damage;
 
@@ -22,24 +27,37 @@ namespace Weapons
 
         public virtual void Damage(IDamageable damageable)
         {
-            damageable.TakeDamage(_damage);
+            if (TryMakeCriticalHit()) damageable.TakeDamage(_damage * _criticalHitMultiplier);
+            else damageable.TakeDamage(_damage);
         }
 
         public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var weaponInstance = (WeaponInstance)newInstance;
             _defaultDamage = weaponInstance.GetStatByName(Stats.Stats.Damage).Value;
+            _criticalHitChance = weaponInstance.GetStatByName(Stats.Stats.Chance).Value;
+            _criticalHitMultiplier = weaponInstance.GetStatByName(Stats.Stats.CriticalHitMultiplier).Value;
         }
 
         public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             SetStat(ref _damage, _defaultDamage, newInstance.GetStatByName(Stats.Stats.Damage).Value);
+            _criticalHitChance = newInstance.GetStatByName(Stats.Stats.Chance).Value;
         }
 
         protected virtual void SetStat(ref float variable, float defaultValue, float addPercent)
         {
             var addValue = (defaultValue * addPercent) / 100;
             variable = defaultValue + addValue;
+        }
+
+        private bool TryMakeCriticalHit()
+        {
+            var result = Random.value * 100;
+            if (result >= _criticalHitChance || result == 100)
+                return true;
+            else
+                return false;
         }
     }
 }

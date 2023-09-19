@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Bat
   _stats:
   - _stat: 0
-    _value: 20
+    _value: 10
   - _stat: 1
     _value: 0
   - _stat: 2

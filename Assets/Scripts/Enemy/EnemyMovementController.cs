@@ -41,13 +41,13 @@ namespace Enemy
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.Speed).Value;
+            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.ProjectilesSpeed).Value;
             _speed = (DefaultSpeed * speedStatPercent) / 100;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.Speed).Value;
+            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.ProjectilesSpeed).Value;
             _speed = (DefaultSpeed * speedStatPercent) / 100;
         }
     }

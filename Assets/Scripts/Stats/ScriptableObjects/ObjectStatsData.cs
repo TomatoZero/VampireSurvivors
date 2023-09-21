@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Stats.ScriptableObjects
 {
@@ -7,10 +8,10 @@ namespace Stats.ScriptableObjects
     public class ObjectStatsData : ScriptableObject
     {
         [SerializeField] private string _name;
-        [SerializeField] private List<StatData> _stats;
-
-        public List<StatData> Stats => _stats;
-
+        [SerializeField] private List<StatData> _defaultStatsData;
+        
         public string Name => _name;
+
+        public List<StatData> DefaultStatsData => _defaultStatsData;
     }
 }

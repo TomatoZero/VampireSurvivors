@@ -12,12 +12,12 @@ namespace Stats.Instances
         public ObjectInstance(ObjectStatsData statsData)
         {
             _statsData = statsData;
-            CopyStats();
+            SetupStat();
         }
 
         public virtual StatData GetDefaultStatByName(Stats stat)
         {
-            foreach (var statData in _statsData.Stats)
+            foreach (var statData in _statsData.DefaultStatsData)
             {
                 if (statData.Stat.Equals(stat)) return statData;
             }
@@ -47,12 +47,12 @@ namespace Stats.Instances
                 if (statData.Stat.Equals(stat)) statData.Value = value;
             }
         }
-        
-        private void CopyStats()
+
+        protected virtual void SetupStat()
         {
             _currentStats = new List<StatData>();
 
-            foreach (var stat in _statsData.Stats)
+            foreach (var stat in _statsData.DefaultStatsData)
                 _currentStats.Add((StatData)stat.Clone());
         }
     }

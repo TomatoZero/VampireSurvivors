@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Interface;
 using Stats.Instances;
 using UnityEngine;
@@ -13,25 +12,14 @@ namespace Weapons.Melee
         [SerializeField] private UnityEvent _stopDamageEvent;
 
         private WaitForSeconds _duration;
-        private float _defaultDuration;
-
         private WaitForSeconds _countdown;
-        private float _defaultCountdown;
-
-        private void Start()
-        {
-            
-        }
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var weaponInstance = (WeaponInstance)newInstance;
 
-            _defaultDuration = weaponInstance.GetStatByName(Stats.Stats.Duration).Value;
-            _defaultCountdown = weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value;
-
-            _duration = new WaitForSeconds(_defaultDuration);
-            _countdown = new WaitForSeconds(_defaultCountdown);
+            _duration = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Duration).Value);
+            _countdown = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value);
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
@@ -39,23 +27,15 @@ namespace Weapons.Melee
             StopTimer();
             var weaponInstance = (WeaponInstance)newInstance;
 
-            SetStat(out _duration, _defaultDuration, weaponInstance.GetStatByName(Stats.Stats.Duration).Value);
-            SetStat(out _countdown, _defaultCountdown, weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value);
-            
+            _duration = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Duration).Value);
+            _countdown = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value);
+
             StartTimer();
         }
 
         public void StartCountdownTimer()
         {
             StartCoroutine(CountdownTimer());
-        }
-
-        private void SetStat(out WaitForSeconds variable, float defaultValue, float addPercent)
-        {
-            var addValue = (defaultValue * addPercent) / 100;
-            variable = new WaitForSeconds(defaultValue + addValue);
-            
-            StartTimer();
         }
 
         private void StopTimer()
@@ -68,7 +48,7 @@ namespace Weapons.Melee
         {
             StartCoroutine(Timer());
         }
-        
+
         private IEnumerator Timer()
         {
             while (true)

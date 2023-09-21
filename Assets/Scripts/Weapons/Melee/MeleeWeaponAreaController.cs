@@ -13,8 +13,6 @@ namespace Weapons.Melee
         [SerializeField] private protected UnityEvent _startCountdownEventHandler;
 
         private protected bool CanDamage;
-
-        private protected float DefaultArea;
         private protected float Area;
 
         protected abstract void OnTriggerStay2D(Collider2D other);
@@ -32,22 +30,14 @@ namespace Weapons.Melee
         public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var weaponInstance = (WeaponInstance)newInstance;
-
-            DefaultArea = weaponInstance.GetStatByName(Stats.Stats.Area).Value;
-            Area = DefaultArea;
+            Area = weaponInstance.GetStatByName(Stats.Stats.Area).Value;
         }
 
         public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            var weaponInstance = (WeaponInstance)newInstance;
-            SetStat(ref Area, DefaultArea, weaponInstance.GetStatByName(Stats.Stats.Area).Value);
+            SetupStatEventHandler(newInstance);
         }
 
-        protected virtual void SetStat(ref float variable, float defaultValue, float addPercent)
-        {
-            var addValue = (defaultValue * addPercent) / 100;
-            variable = defaultValue + addValue;
-        }
 
         protected abstract Collider2D[] ScanForEnemy();
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Interface;
+﻿using Interface;
 using Stats.Instances;
 using UnityEngine;
 
@@ -9,9 +8,8 @@ namespace Enemy
     public class EnemyMovementController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private Rigidbody2D _rigidbody;
-        
+
         private Transform _player;
-        private const float DefaultSpeed = 10;
 
         private Vector2 _nextPosition;
         private Vector2 _moveDirection;
@@ -21,10 +19,6 @@ namespace Enemy
         private void Awake()
         {
             _player = transform;
-        }
-
-        private void Start()
-        {
         }
 
         private void FixedUpdate()
@@ -41,14 +35,12 @@ namespace Enemy
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.ProjectilesSpeed).Value;
-            _speed = (DefaultSpeed * speedStatPercent) / 100;
+            _speed = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            var speedStatPercent = newInstance.GetStatByName(Stats.Stats.ProjectilesSpeed).Value;
-            _speed = (DefaultSpeed * speedStatPercent) / 100;
+            _speed = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
         }
     }
 }

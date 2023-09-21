@@ -59,8 +59,10 @@ namespace Player
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
+            _currentHealth = _maxHealth;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
+            Debug.Log($"max {_maxHealth} current health {_currentHealth}");
             InvokeHealthChaneEvent();
         }
 

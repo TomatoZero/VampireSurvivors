@@ -9,7 +9,6 @@ namespace Player
     {
         [SerializeField] private Rigidbody2D _rigidbody;
 
-        private const float DefaultSpeed = 10;
         private Vector2 _moveDirection;
         private float _speed;
 
@@ -26,14 +25,13 @@ namespace Player
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            float speedStatPercent = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
-            _speed = (DefaultSpeed * speedStatPercent) / 100;
+            _speed = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
+            Debug.Log($"move speed {_speed}");
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            float speedStatPercent = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
-            _speed = (DefaultSpeed * speedStatPercent) / 100;
+            _speed = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
         }
     }
 }

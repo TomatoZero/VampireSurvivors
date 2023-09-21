@@ -10,7 +10,6 @@ namespace Weapons.Melee.Garlic
         private void Awake()
         {
             _scale = transform.localScale;
-            DefaultArea = _scale.y;
             CanDamage = true;
         }
 
@@ -31,18 +30,19 @@ namespace Weapons.Melee.Garlic
         public override void SetupStatEventHandler(ObjectInstance newInstance)
         {
             base.SetupStatEventHandler(newInstance);
-            transform.localScale += new Vector3(Area - DefaultArea, Area - DefaultArea, 0);
-        }
-
-        public override void UpdateStatsEventHandler(ObjectInstance newInstance)
-        {
-            base.UpdateStatsEventHandler(newInstance);
-            transform.localScale += new Vector3(Area - DefaultArea, Area - DefaultArea, 0);
+            UpdateLocalScale();
         }
 
         protected override Collider2D[] ScanForEnemy()
         {
             return Physics2D.OverlapCircleAll(transform.position, _scale.y / 2, _enemyAndWeapon);
+        }
+
+        private void UpdateLocalScale()
+        {
+            var scale = transform.localScale.y;
+            transform.localScale -= new Vector3(scale, scale, 0);
+            transform.localScale += new Vector3(Area, Area, 0);
         }
     }
 }

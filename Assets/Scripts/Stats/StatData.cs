@@ -36,5 +36,10 @@ namespace Stats
         {
             return new StatData(_stat, _value);
         }
+
+        public override string ToString()
+        {
+            return $"stat {_stat} value {_value}";
+        }
     }
 }

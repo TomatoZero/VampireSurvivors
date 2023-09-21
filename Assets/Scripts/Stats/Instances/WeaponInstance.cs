@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Stats.ScriptableObjects;
+using UnityEngine;
 
 namespace Stats.Instances
 {
@@ -25,8 +26,12 @@ namespace Stats.Instances
                 {
                     bonus.Value += addValue;
                     UpdateStatWithBonus(stat, bonus.Value);
+                    return;
                 }
             }
+            
+            _currentBonus.Add(new StatData(stat, addValue));
+            UpdateStatWithBonus(stat, addValue);
         }
 
         public StatData GetStatBonus(Stats stats)

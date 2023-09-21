@@ -1,4 +1,5 @@
-﻿using Interface;
+﻿using System;
+using Interface;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
@@ -31,7 +32,9 @@ namespace Weapons.Melee
         public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var weaponInstance = (WeaponInstance)newInstance;
-            SetStat(ref Area, DefaultArea, weaponInstance.GetStatByName(Stats.Stats.Area).Value);
+
+            DefaultArea = weaponInstance.GetStatByName(Stats.Stats.Area).Value;
+            Area = DefaultArea;
         }
 
         public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)

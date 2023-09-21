@@ -30,6 +30,8 @@ namespace Weapons.Melee.Garlic
 
         public override void SetupStatEventHandler(ObjectInstance newInstance)
         {
+            base.SetupStatEventHandler(newInstance);
+            transform.localScale += new Vector3(Area - DefaultArea, Area - DefaultArea, 0);
         }
 
         public override void UpdateStatsEventHandler(ObjectInstance newInstance)

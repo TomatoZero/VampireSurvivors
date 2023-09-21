@@ -5,6 +5,7 @@ namespace Stats.Instances
 {
     public abstract class ObjectInstance
     {
+        //TODO: default stat data, _statsData > _bonusStatData
         private protected ObjectStatsData _statsData;
         private protected List<StatData> _currentStats;
 

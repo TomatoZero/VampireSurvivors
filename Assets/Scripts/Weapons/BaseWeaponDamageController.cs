@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public abstract class BaseWeaponDamageController : MonoBehaviour, IUpdateStats
+    public class BaseWeaponDamageController : MonoBehaviour, IUpdateStats
     {
         private float _criticalHitChanceDefault;
         private float _criticalHitChance;
@@ -34,8 +34,13 @@ namespace Weapons
         public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var weaponInstance = (WeaponInstance)newInstance;
+            
             _defaultDamage = weaponInstance.GetStatByName(Stats.Stats.Damage).Value;
-            _criticalHitChance = weaponInstance.GetStatByName(Stats.Stats.Chance).Value;
+            _damage = _defaultDamage;
+            
+            _criticalHitChanceDefault = weaponInstance.GetStatByName(Stats.Stats.Chance).Value;
+            _criticalHitChance = _criticalHitChanceDefault;
+            
             _criticalHitMultiplier = weaponInstance.GetStatByName(Stats.Stats.CriticalHitMultiplier).Value;
         }
 
@@ -53,8 +58,13 @@ namespace Weapons
 
         private bool TryMakeCriticalHit()
         {
+            Debug.Log($"crit hit chance {_criticalHitChance}");
+            
             var result = Random.value * 100;
-            if (result >= _criticalHitChance || result == 100)
+            
+            Debug.Log($"roll {result}");
+            
+            if (result <= _criticalHitChance)
                 return true;
             else
                 return false;

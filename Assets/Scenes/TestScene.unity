@@ -312,6 +312,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
+      propertyPath: _setupStatData.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
+      propertyPath: _updateStatData.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _setupStatData.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1607100693}
@@ -322,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _setupStatData.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1607100695}
+      objectReference: {fileID: 1607100699}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _updateStatData.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -334,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _updateStatData.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1607100695}
+      objectReference: {fileID: 1607100699}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _setupStatData.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -385,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _setupStatData.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Weapons.Melee.Garlic.GarlicDamageController, Assembly-CSharp
+      value: Weapons.BaseWeaponDamageController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _updateStatData.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -397,7 +405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _updateStatData.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Weapons.Melee.Garlic.GarlicDamageController, Assembly-CSharp
+      value: Weapons.BaseWeaponDamageController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3507945380370831046, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _setupStatData.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -440,9 +448,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5271642463339395286, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
+      propertyPath: _hitEnemyEventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271642463339395286, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _hitEnemyEventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1607100695}
+      objectReference: {fileID: 1607100699}
     - target: {fileID: 5271642463339395286, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _hitEnemyEventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -469,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5271642463339395286, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _hitEnemyEventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Weapons.Melee.Garlic.GarlicDamageController, Assembly-CSharp
+      value: Weapons.BaseWeaponDamageController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5271642463339395286, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: _startCountdownEventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -845,7 +857,7 @@ MonoBehaviour:
         m_CallState: 2
   _enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!50 &243864184
 Rigidbody2D:
   serializedVersion: 4
@@ -2448,15 +2460,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0abaef72d1752d409d56055889323e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1607100695 stripped
+--- !u!114 &1607100699 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2890174158103635031, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1944439569384977884, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
   m_PrefabInstance: {fileID: 236071469}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc0cce984d268944a8d23dba7c538b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c0ed9b9ba73be9449f639887a75527e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1630951816

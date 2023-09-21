@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8065749759187161417}
   - component: {fileID: 1724061877586474396}
   - component: {fileID: 4205420817632591701}
-  - component: {fileID: 2890174158103635031}
+  - component: {fileID: 1944439569384977884}
   - component: {fileID: 5271642463339395286}
   - component: {fileID: 1643335886358325290}
   m_Layer: 0
@@ -123,7 +123,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2890174158103635031
+--- !u!114 &1944439569384977884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,12 +132,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4452338702395981614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc0cce984d268944a8d23dba7c538b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c0ed9b9ba73be9449f639887a75527e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyAndWeapon:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &5271642463339395286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +147,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0abaef72d1752d409d56055889323e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyAndWeapon:
+    serializedVersion: 2
+    m_Bits: 8
+  _hitEnemyEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1944439569384977884}
+        m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _startCountdownEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1643335886358325290}
+        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponTimer, Assembly-CSharp
+        m_MethodName: StartCountdownTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1643335886358325290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +195,8 @@ MonoBehaviour:
   _dealDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2890174158103635031}
-        m_TargetAssemblyTypeName: Weapons.Melee.Garlic.GarlicDamageController, Assembly-CSharp
+      - m_Target: {fileID: 5271642463339395286}
+        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponAreaController, Assembly-CSharp
         m_MethodName: AllowDamageEventHandler
         m_Mode: 1
         m_Arguments:
@@ -180,8 +210,8 @@ MonoBehaviour:
   _stopDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2890174158103635031}
-        m_TargetAssemblyTypeName: Weapons.Melee.Garlic.GarlicDamageController, Assembly-CSharp
+      - m_Target: {fileID: 5271642463339395286}
+        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponAreaController, Assembly-CSharp
         m_MethodName: ForbidDamageEventHandler
         m_Mode: 1
         m_Arguments:
@@ -223,7 +253,7 @@ Transform:
   m_Children:
   - {fileID: 8065749759187161417}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3507945380370831046
 MonoBehaviour:
@@ -238,6 +268,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statsData: {fileID: 11400000, guid: 90ce1f3ffe7941548b30683608ea0601, type: 2}
+  _setupStatData:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _updateStatData:
     m_PersistentCalls:
       m_Calls:

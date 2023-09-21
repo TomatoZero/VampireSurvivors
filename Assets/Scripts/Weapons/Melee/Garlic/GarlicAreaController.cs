@@ -21,7 +21,6 @@ namespace Weapons.Melee.Garlic
             {
                 CanDamage = false;
                 var enemyInside = ScanForEnemy();
-                Debug.Log($"enemyInside {enemyInside.Length}");
                 _hitEnemyEventHandler.Invoke(enemyInside);
                 _startCountdownEventHandler.Invoke();
             }

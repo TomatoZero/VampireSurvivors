@@ -25,8 +25,8 @@ namespace Stats.Instances
 
         protected override void SetupStat()
         {
+            base.SetupStat();
             _currentBonus = new List<StatData>();
-            CurrentStats = new List<StatData>();
 
             foreach (var bonus in PlayerStatsData.BonusStats)
             {
@@ -66,8 +66,6 @@ namespace Stats.Instances
                     newValue = defaultValue + bonusValue;
                     SetStatByName(stat, newValue);
                     break;
-                default:
-                    throw new ArgumentException();
             }
         }
     }

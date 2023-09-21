@@ -93,7 +93,7 @@ namespace Stats.Instances
             }
             else if (statData.Stat == Stats.Chance)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Stat Chance is unacceptable");
             }
 
             return true;
@@ -103,9 +103,8 @@ namespace Stats.Instances
         {
             var defaultChance = GetDefaultStatByName(Stats.Chance);
             var newChance = statData.Value * defaultChance.Value;
-            var newChanceStat = new StatData(Stats.Chance, newChance);
 
-            base.SetStat(newChanceStat);
+            base.SetStatByName(Stats.Chance, newChance);
         }
 
         private bool CheckIgnore(Stats stat)

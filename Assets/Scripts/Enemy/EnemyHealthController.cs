@@ -40,7 +40,6 @@ namespace Enemy
             if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Enemy hp less or equal zero");
             
-            Debug.Log($"income damage {damage}");
             _currentHealth -= damage;
 
             if(_currentHealth <= 0) _enemyDie.Invoke();

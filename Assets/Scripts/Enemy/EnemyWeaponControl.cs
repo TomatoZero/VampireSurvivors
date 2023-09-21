@@ -9,7 +9,7 @@ namespace Enemy
     {
         [SerializeField] private LayerMask _playerLayer;
 
-        private float _damage = 5;
+        private float _damage;
 
         private void OnCollisionEnter2D(Collision2D other)
         {
@@ -35,12 +35,12 @@ namespace Enemy
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            _damage = newInstance.GetStatByName(Stats.Stats.Amount).Value;
+            _damage = newInstance.GetStatByName(Stats.Stats.Damage).Value;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            _damage = newInstance.GetStatByName(Stats.Stats.Amount).Value;
+            _damage = newInstance.GetStatByName(Stats.Stats.Damage).Value;
         }
     }
 }

@@ -46,16 +46,8 @@ namespace Weapons
 
         private bool TryMakeCriticalHit()
         {
-            Debug.Log($"crit hit chance {_criticalHitChance}");
-            
             var result = Random.value * 100;
-            
-            Debug.Log($"roll {result}");
-            
-            if (result <= _criticalHitChance)
-                return true;
-            else
-                return false;
+            return result <= _criticalHitChance;
         }
     }
 }

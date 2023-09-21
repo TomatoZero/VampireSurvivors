@@ -8,7 +8,6 @@ namespace Player
     public class DamageController : MonoBehaviour, IDamageable, IUpdateStats
     {
         [SerializeField] private UnityEvent<float> _takeDamageEvent;
-        [SerializeField] private LayerMask _enemyLayer;
 
         private float _armor;
 

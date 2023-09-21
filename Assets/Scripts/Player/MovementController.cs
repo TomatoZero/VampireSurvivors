@@ -26,7 +26,6 @@ namespace Player
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _speed = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;
-            Debug.Log($"move speed {_speed}");
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)

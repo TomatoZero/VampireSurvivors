@@ -46,8 +46,6 @@ namespace Player
             if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Player hp less or equal zero");
             
-            // Debug.Log($"damage {damage}");
-            
             _currentHealth -= damage;
             TryTurnOnRecover();
 
@@ -62,7 +60,6 @@ namespace Player
             _currentHealth = _maxHealth;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
-            Debug.Log($"max {_maxHealth} current health {_currentHealth}");
             InvokeHealthChaneEvent();
         }
 

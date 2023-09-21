@@ -32,7 +32,12 @@ namespace Weapons
 
             foreach (var statData in currentStats)
             {
-                _instance.SetStat(statData);   
+                if(statData.Stat == Stats.Stats.Luck) _instance.SetStatByName(statData.Stat, statData.Value);   
+            }
+
+            foreach (var bonus in playerInstance.CurrentBonus)
+            {
+                _instance.AddValueToBonus(bonus.Stat, bonus.Value);
             }
             
             _updateStatData.Invoke(_instance);

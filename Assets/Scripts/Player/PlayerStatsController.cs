@@ -25,7 +25,8 @@ namespace Player
 
         public void SetStatByName(Stats.Stats stats, int value)
         {
-            _instance.SetStatByName(stats, value);
+            //TODO: change to SetBonusByName
+            // _instance.SetStatByName(stats, value);
         }
         
     }

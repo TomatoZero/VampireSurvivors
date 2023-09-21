@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Stats.ScriptableObjects;
 
 namespace Stats.Instances
@@ -11,8 +12,10 @@ namespace Stats.Instances
         public List<StatData> CurrentStats
         {
             get => _currentStats;
-            set => _currentStats = value;
+            private set => _currentStats = value;
         }
+
+        public List<StatData> CurrentBonus => _currentBonus;
 
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
 
@@ -22,7 +25,7 @@ namespace Stats.Instances
 
         protected override void SetupStat()
         {
-            _currentStats = new List<StatData>();
+            _currentBonus = new List<StatData>();
             CurrentStats = new List<StatData>();
 
             foreach (var bonus in PlayerStatsData.BonusStats)
@@ -32,17 +35,19 @@ namespace Stats.Instances
 
             foreach (var currentBonus in _currentBonus)
             {
-                SetupBonusStat(currentBonus);
+                UpdateStatWithBonus(currentBonus);
             }
         }
 
-        private void SetupBonusStat(StatData bonusStatData)
+        //TODO: method for update bonus stat
+        
+        private void UpdateStatWithBonus(StatData bonusStatData)
         {
             var defaultValue = GetDefaultStatByName(bonusStatData.Stat).Value;
-            SetupBonusStat(bonusStatData.Stat, bonusStatData.Value, defaultValue);
+            UpdateStatWithBonus(bonusStatData.Stat, bonusStatData.Value, defaultValue);
         }
 
-        private void SetupBonusStat(Stats stat, float bonusValue, float defaultValue)
+        private void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
         {
             float newValue = 0;
             switch (stat)
@@ -61,13 +66,9 @@ namespace Stats.Instances
                     newValue = defaultValue + bonusValue;
                     SetStatByName(stat, newValue);
                     break;
+                default:
+                    throw new ArgumentException();
             }
-        }
-
-        private float CalculateNewValue(float defaultValue, float addPercent)
-        {
-            var addValue = (defaultValue * addPercent) / 100;
-            return defaultValue + addValue;
         }
     }
 }

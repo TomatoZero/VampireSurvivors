@@ -14,7 +14,6 @@
         Banish,
         Recovery,
         MoveSpeed,
-        Might,
         Duration,
         Amount,
         Magnet,

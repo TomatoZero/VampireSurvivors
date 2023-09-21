@@ -35,7 +35,7 @@ namespace Stats.Instances
             return new StatData();
         }
 
-        public virtual void SetStat(StatData statData)
+        protected virtual void SetStat(StatData statData)
         {
             SetStatByName(statData.Stat, statData.Value);
         }
@@ -54,6 +54,12 @@ namespace Stats.Instances
 
             foreach (var stat in _statsData.DefaultStatsData)
                 _currentStats.Add((StatData)stat.Clone());
+        }
+        
+        protected float CalculateNewValue(float defaultValue, float addPercent)
+        {
+            var addValue = (defaultValue * addPercent) / 100;
+            return defaultValue + addValue;
         }
     }
 }

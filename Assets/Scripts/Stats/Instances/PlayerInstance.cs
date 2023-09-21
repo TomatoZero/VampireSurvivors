@@ -53,12 +53,12 @@ namespace Stats.Instances
             switch (stat)
             {
                 case Stats.MaxHealth:
-                case Stats.Armor:
                 case Stats.MoveSpeed:
                 case Stats.Recovery:
                     newValue = CalculateNewValue(defaultValue, bonusValue);
                     SetStatByName(stat, newValue);
                     break;
+                case Stats.Armor:
                 case Stats.Luck:
                 case Stats.Growth:
                 case Stats.Greed:

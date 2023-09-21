@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   _name: Bat
-  _stats:
+  _defaultStatsData:
   - _stat: 0
     _value: 10
-  - _stat: 1
-    _value: 0
-  - _stat: 2
-    _value: 50
-  - _stat: 14
+  - _stat: 11
+    _value: 5
+  - _stat: 18
     _value: 1

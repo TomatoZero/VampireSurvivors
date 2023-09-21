@@ -12,17 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c029ee6ecd10f5468a2268e9bb4681d, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  _name: 
-  _stats:
+  _name: Test character
+  _defaultStatsData:
   - _stat: 0
     _value: 100
-  - _stat: 11
-    _value: 120
-  - _stat: 10
-    _value: 5
   - _stat: 1
     _value: 0
+  - _stat: 11
+    _value: 10
+  - _stat: 10
+    _value: 0
+  - _stat: 15
+    _value: 10
+  _bonusStats:
   - _stat: 3
     _value: 100
-  - _stat: 16
-    _value: 10
+  - _stat: 18
+    _value: 100
+  - _stat: 1
+    _value: 100

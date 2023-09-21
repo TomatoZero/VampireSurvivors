@@ -495,6 +495,14 @@ PrefabInstance:
       propertyPath: _startCountdownEventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8065749759187161417, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065749759187161417, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8574417197398531673, guid: 5807b943f56a4064fb1bcc0025ede35c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -855,9 +863,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!50 &243864184
 Rigidbody2D:
   serializedVersion: 4

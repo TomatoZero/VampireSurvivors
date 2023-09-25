@@ -1,7 +1,6 @@
 ﻿using Interface;
 using Stats.Instances;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Weapons.RangeWeapons.Particle;
 
 namespace Weapons.RangeWeapons
@@ -10,8 +9,10 @@ namespace Weapons.RangeWeapons
     {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _particlesParent;
-        
+
         private int _amount;
+        public int Amount => _amount;
+        
 
         public abstract void Shoot();
 

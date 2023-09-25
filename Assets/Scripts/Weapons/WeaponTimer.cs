@@ -4,9 +4,9 @@ using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Weapons.Melee
+namespace Weapons
 {
-    public class MeleeWeaponTimer : MonoBehaviour, IUpdateStats
+    public class WeaponTimer : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private UnityEvent _dealDamageEvent;
         [SerializeField] private UnityEvent _stopDamageEvent;

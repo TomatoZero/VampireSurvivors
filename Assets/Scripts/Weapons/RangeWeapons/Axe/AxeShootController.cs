@@ -8,15 +8,8 @@ namespace Weapons.RangeWeapons.Axe
         {
             for (int i = 0; i < Amount; i++)
             {
-                var moveDirection = GetRandomShootDirection();
-                CreateInstance(moveDirection);
+                CreateInstance();
             }
-        }
-
-        private protected override Vector2 GetRandomShootDirection()
-        {
-            var value = (int)Random.value;
-            return new Vector2(value, 0);
         }
     }
 }

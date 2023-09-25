@@ -3,13 +3,14 @@ using Interface;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Weapons
 {
     public class WeaponTimer : MonoBehaviour, IUpdateStats
     {
-        [SerializeField] private UnityEvent _dealDamageEvent;
-        [SerializeField] private UnityEvent _stopDamageEvent;
+        [FormerlySerializedAs("_dealDamageEvent")] [SerializeField] private UnityEvent _countdownEvent;
+        [FormerlySerializedAs("_stopDamageEvent")] [SerializeField] private UnityEvent _durationEvent;
 
         private WaitForSeconds _duration;
         private WaitForSeconds _countdown;
@@ -37,10 +38,15 @@ namespace Weapons
         {
             StartCoroutine(CountdownTimer());
         }
+        
+        public void StartDurationTimer()
+        {
+            StartCoroutine(CountdownTimer());
+        }
 
         private void StopTimer()
         {
-            _stopDamageEvent.Invoke();
+            _durationEvent.Invoke();
             StopCoroutine(Timer());
         }
 
@@ -53,9 +59,9 @@ namespace Weapons
         {
             while (true)
             {
-                _dealDamageEvent.Invoke();
+                _countdownEvent.Invoke();
                 yield return _duration;
-                _stopDamageEvent.Invoke();
+                _durationEvent.Invoke();
                 yield return _countdown;
             }
         }
@@ -63,7 +69,13 @@ namespace Weapons
         private IEnumerator CountdownTimer()
         {
             yield return _countdown;
-            _dealDamageEvent.Invoke();
+            _countdownEvent.Invoke();
+        }
+
+        private IEnumerator DurationTimer()
+        {
+            yield return _duration;
+            _durationEvent.Invoke();
         }
     }
 }

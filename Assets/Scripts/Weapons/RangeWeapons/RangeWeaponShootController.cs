@@ -10,37 +10,37 @@ namespace Weapons.RangeWeapons
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _particlesParent;
 
+        private WeaponInstance _instance;
+
         private int _amount;
-        public int Amount => _amount;
-        
+
+        protected int Amount => _amount;
+
 
         public abstract void Shoot();
 
-        private protected abstract Vector2 GetRandomShootDirection();
-
-        private protected virtual void CreateInstance(Vector2 moveDirection)
+        private protected virtual void CreateInstance()
         {
-            var instance = Instantiate(_prefab, _particlesParent);
-            SetUpInstance(instance);
+            var instance = Instantiate(_prefab, transform.position, Quaternion.identity, _particlesParent);
+            SetUpParticle(instance);
         }
 
-        private protected virtual void SetUpInstance(GameObject instance)
+        private protected virtual void SetUpParticle(GameObject instance)
         {
-            var particleMoveController = instance.GetComponent<ParticleMoveController>();
+            var particle = instance.GetComponent<ParticleStatsController>();
+            particle.Setup(_instance);
         }
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            var weaponInstance = (WeaponInstance)newInstance;
-
-            _amount = (int)weaponInstance.GetStatByName(Stats.Stats.Amount).Value;
+            _instance = (WeaponInstance)newInstance;
+            _amount = (int)_instance.GetStatByName(Stats.Stats.Amount).Value;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            var weaponInstance = (WeaponInstance)newInstance;
-
-            _amount = (int)weaponInstance.GetStatByName(Stats.Stats.Amount).Value;
+            _instance = (WeaponInstance)newInstance;
+            _amount = (int)_instance.GetStatByName(Stats.Stats.Amount).Value;
         }
     }
 }

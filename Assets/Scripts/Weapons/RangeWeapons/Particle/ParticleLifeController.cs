@@ -18,6 +18,13 @@ namespace Weapons.RangeWeapons.Particle
             _particleLifetime = new WaitForSeconds(1);
         }
 
+        public void DestroyImmediately()
+        {
+            StopCoroutine(DestroyObject());
+            gameObject.SetActive(false);
+            DestroyParticleEvent.Invoke(gameObject);
+        }
+        
         private IEnumerator DestroyObject()
         {
             yield return _particleLifetime;

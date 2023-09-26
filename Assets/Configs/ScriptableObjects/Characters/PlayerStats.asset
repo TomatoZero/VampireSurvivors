@@ -18,16 +18,16 @@ MonoBehaviour:
     _value: 100
   - _stat: 1
     _value: 0
-  - _stat: 11
+  - _stat: 12
     _value: 10
-  - _stat: 10
+  - _stat: 11
     _value: 0
-  - _stat: 15
+  - _stat: 16
     _value: 10
   _bonusStats:
-  - _stat: 3
+  - _stat: 4
     _value: 100
-  - _stat: 18
+  - _stat: 19
     _value: 100
   - _stat: 1
     _value: 100

@@ -1,4 +1,7 @@
-﻿using Interface;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Interface;
 using Stats.Instances;
 using UnityEngine;
 using Weapons.RangeWeapons.Particle;
@@ -9,35 +12,84 @@ namespace Weapons.RangeWeapons
     {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _particlesParent;
-
+        
         private WeaponInstance _instance;
-
         private int _amount;
 
-        protected int Amount => _amount;
+        private Queue _unusedParticles;
+        
+        private protected GameObject Prefab
+        {
+            get => _prefab;
+            set => _prefab = value;
+        }
+        private protected Transform ParticlesParent
+        {
+            get => _particlesParent;
+            set => _particlesParent = value;
+        }
+        private protected WeaponInstance Instance
+        {
+            get => _instance;
+            set => _instance = value;
+        }
+        private protected int Amount
+        {
+            get => _amount;
+            set => _amount = value;
+        }
 
+        private void Awake()
+        { }
 
         public abstract void Shoot();
 
         private protected virtual void CreateInstance()
         {
-            var instance = Instantiate(_prefab, transform.position, Quaternion.identity, _particlesParent);
-            SetUpParticle(instance);
+            if (_unusedParticles is null)
+                _unusedParticles = new Queue();
+            
+            if(_unusedParticles.Count == 0)
+            {
+                var instance = Instantiate(_prefab, transform.position, Quaternion.identity, _particlesParent);
+                SetUpParticle(instance);
+            }
+            else
+            {
+                var particle = (GameObject)_unusedParticles.Dequeue();
+                UpdateParticle(particle);
+            }
         }
 
         private protected virtual void SetUpParticle(GameObject instance)
         {
             var particle = instance.GetComponent<ParticleStatsController>();
+            var lifeController = instance.GetComponent<ParticleLifeController>();
+            
+            lifeController.DestroyParticleEvent += ParticleDieEventHandler;
             particle.Setup(_instance);
         }
+        
+        private protected virtual void UpdateParticle(GameObject instance)
+        {
+            var particle = instance.GetComponent<ParticleStatsController>();
+            instance.SetActive(true);
+            instance.transform.position = transform.position;
+            particle.UpdateStats(_instance);
+        }
 
-        public void SetupStatEventHandler(ObjectInstance newInstance)
+        private protected virtual void ParticleDieEventHandler(GameObject particle)
+        {
+            _unusedParticles.Enqueue(particle);
+        }
+
+        public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _instance = (WeaponInstance)newInstance;
             _amount = (int)_instance.GetStatByName(Stats.Stats.Amount).Value;
         }
 
-        public void UpdateStatsEventHandler(ObjectInstance newInstance)
+        public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _instance = (WeaponInstance)newInstance;
             _amount = (int)_instance.GetStatByName(Stats.Stats.Amount).Value;

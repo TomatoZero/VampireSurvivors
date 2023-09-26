@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4265190344617249155}
   - component: {fileID: 5369289360016627658}
   - component: {fileID: 875113163730756501}
+  - component: {fileID: 6405975046243751356}
   m_Layer: 0
   m_Name: AxeWeapon
   m_TagString: Untagged
@@ -129,3 +130,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 7871751393751394548, guid: 39045379ddc3a024181c6d4c150fea49, type: 3}
   _particlesParent: {fileID: 0}
+--- !u!114 &6405975046243751356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173521597630425951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461121ab70350724aafe4274f7ac6870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countdownEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 875113163730756501}
+        m_TargetAssemblyTypeName: Weapons.RangeWeapons.Axe.AxeShootController, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _durationEvent:
+    m_PersistentCalls:
+      m_Calls: []

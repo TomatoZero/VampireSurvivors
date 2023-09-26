@@ -5,6 +5,7 @@
         MaxHealth,
         Armor,
         ProjectilesSpeed,
+        ProjectilesInterval,
         Area,
         Cooldown,
         Revival,

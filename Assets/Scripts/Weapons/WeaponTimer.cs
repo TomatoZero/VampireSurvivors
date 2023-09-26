@@ -48,6 +48,8 @@ namespace Weapons
         {
             _durationEvent.Invoke();
             StopCoroutine(Timer());
+            StopCoroutine(CountdownTimer());
+            StopCoroutine(DurationTimer());
         }
 
         private void StartTimer()

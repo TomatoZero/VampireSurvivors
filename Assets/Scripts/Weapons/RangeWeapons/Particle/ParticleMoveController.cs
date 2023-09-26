@@ -16,15 +16,18 @@ namespace Weapons.RangeWeapons.Particle
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            var weapon = (WeaponInstance)newInstance;
-
-            _speed = weapon.GetStatByName(Stats.Stats.ProjectilesSpeed).Value;
-            Move();
+            GetStatFromInstance(newInstance);
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
-        {}
-        
-        
+        {
+            GetStatFromInstance(newInstance);
+        }
+
+        private void GetStatFromInstance(ObjectInstance newInstance)
+        {
+            _speed = newInstance.GetStatByName(Stats.Stats.ProjectilesSpeed).Value;
+            Move();
+        }
     }
 }

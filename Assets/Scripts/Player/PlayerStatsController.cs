@@ -14,13 +14,12 @@ namespace Player
         private PlayerInstance _instance;
 
         private void Awake()
-        {
-            _instance = new PlayerInstance(_playerStatsData);
-            _setupStatsEvent.Invoke(_instance);
-        }
+        {}
 
         private void Start()
         {
+            _instance = new PlayerInstance(_playerStatsData);
+            _setupStatsEvent.Invoke(_instance);
         }
 
         public void SetStatByName(Stats.Stats stats, int value)

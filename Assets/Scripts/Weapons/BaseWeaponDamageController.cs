@@ -30,7 +30,7 @@ namespace Weapons
         public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var weaponInstance = (WeaponInstance)newInstance;
-            
+           
             _damage = weaponInstance.GetStatByName(Stats.Stats.Damage).Value;
             _criticalHitChance = weaponInstance.GetStatByName(Stats.Stats.Chance).Value;
             _criticalHitMultiplier = weaponInstance.GetStatByName(Stats.Stats.CriticalHitMultiplier).Value;

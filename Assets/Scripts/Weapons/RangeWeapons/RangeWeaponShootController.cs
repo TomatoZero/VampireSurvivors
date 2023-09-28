@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Interface;
 using Stats.Instances;
 using UnityEngine;
+using UnityEngine.Events;
 using Weapons.RangeWeapons.Particle;
 
 namespace Weapons.RangeWeapons
@@ -12,12 +11,13 @@ namespace Weapons.RangeWeapons
     {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _particlesParent;
-        
+        [SerializeField] private UnityEvent _startTimerEvent;
+
         private WeaponInstance _instance;
         private int _amount;
 
         private Queue _unusedParticles;
-        
+
         private protected GameObject Prefab
         {
             get => _prefab;
@@ -38,9 +38,15 @@ namespace Weapons.RangeWeapons
             get => _amount;
             set => _amount = value;
         }
+        private protected UnityEvent StartTimerEvent
+        {
+            get => _startTimerEvent;
+            set => _startTimerEvent = value;
+        }
 
-        private void Awake()
-        { }
+        private protected virtual void Awake()
+        {
+        }
 
         public abstract void Shoot();
 
@@ -48,8 +54,8 @@ namespace Weapons.RangeWeapons
         {
             if (_unusedParticles is null)
                 _unusedParticles = new Queue();
-            
-            if(_unusedParticles.Count == 0)
+
+            if (_unusedParticles.Count == 0)
             {
                 var instance = Instantiate(_prefab, transform.position, Quaternion.identity, _particlesParent);
                 SetUpParticle(instance);
@@ -65,11 +71,11 @@ namespace Weapons.RangeWeapons
         {
             var particle = instance.GetComponent<ParticleStatsController>();
             var lifeController = instance.GetComponent<ParticleLifeController>();
-            
+
             lifeController.DestroyParticleEvent += ParticleDieEventHandler;
             particle.Setup(_instance);
         }
-        
+
         private protected virtual void UpdateParticle(GameObject instance)
         {
             var particle = instance.GetComponent<ParticleStatsController>();
@@ -87,6 +93,7 @@ namespace Weapons.RangeWeapons
         {
             _instance = (WeaponInstance)newInstance;
             _amount = (int)_instance.GetStatByName(Stats.Stats.Amount).Value;
+            _startTimerEvent.Invoke();
         }
 
         public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)

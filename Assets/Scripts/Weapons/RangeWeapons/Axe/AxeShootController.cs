@@ -8,7 +8,7 @@ namespace Weapons.RangeWeapons.Axe
     {
         private WaitForSeconds _projectileInterval;
         
-        private void Awake()
+        private protected override void Awake()
         {
             _projectileInterval = new WaitForSeconds(.2f);
         }
@@ -25,6 +25,7 @@ namespace Weapons.RangeWeapons.Axe
                 CreateInstance();
                 yield return _projectileInterval;
             }
+            StartTimerEvent.Invoke();
         }
 
         // private protected override void CreateInstance()

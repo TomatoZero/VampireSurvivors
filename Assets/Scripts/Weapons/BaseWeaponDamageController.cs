@@ -12,7 +12,10 @@ namespace Weapons
 
         public virtual void Damage(Collider2D[] enemy)
         {
-            foreach (var oneEnemy in enemy) Damage(oneEnemy);
+            foreach (var oneEnemy in enemy)
+            {
+                if(oneEnemy is not null) Damage(oneEnemy);
+            }
         }
 
         public virtual void Damage(Collider2D enemy)

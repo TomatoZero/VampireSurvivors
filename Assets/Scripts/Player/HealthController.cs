@@ -43,12 +43,15 @@ namespace Player
         
         public void TakeDamage(float damage)
         {
+            Debug.Log($"damage {damage}");
             if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Player hp less or equal zero");
             
             _currentHealth -= damage;
             TryTurnOnRecover();
-
+            
+            Debug.Log($"current health {_currentHealth}");
+            
             if(_currentHealth <= 0) _playerDie.Invoke();
 
             InvokeHealthChaneEvent();

@@ -38,7 +38,11 @@ namespace Enemy
         public void TakeDamage(float damage)
         {
             if (damage < 0) throw new ArgumentException();
-            if (_currentHealth <= 0) throw new Exception("Enemy hp less or equal zero");
+            if (_currentHealth <= 0)
+            {
+                Debug.LogWarning("Enemy hp less or equal zero");
+                return;
+            }
             
             _currentHealth -= damage;
 

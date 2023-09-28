@@ -11,7 +11,7 @@ namespace Weapons
         private float _damage;
 
         public virtual void Damage(Collider2D[] enemy)
-        {
+        {           
             foreach (var oneEnemy in enemy)
             {
                 if(oneEnemy is not null) Damage(oneEnemy);
@@ -20,6 +20,8 @@ namespace Weapons
 
         public virtual void Damage(Collider2D enemy)
         {
+            if(enemy == null) return;
+            
             if (enemy.gameObject.TryGetComponent(out IDamageable damageController))
                 Damage(damageController);
         }

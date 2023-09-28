@@ -35,7 +35,7 @@ namespace Weapons.RangeWeapons.Particle
             set => _pierce = value;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (((1 << other.gameObject.layer) & _enemyAndWeapon) != 0)
             {

@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Stats.ScriptableObjects;
 
 namespace Stats.Instances
 {
-    public class PlayerInstance : ObjectInstance
+    public class PlayerInstance : PowerUpInstance
     {
-        private int _lvl;
-        private List<StatData> _currentBonus;
-
-        public List<StatData> CurrentStats
-        {
-            get => _currentStats;
-            private set => _currentStats = value;
-        }
-
-        public List<StatData> CurrentBonus => _currentBonus;
-
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
 
         public PlayerInstance(PlayerStatsData playerStatsData) : base(playerStatsData)
@@ -26,28 +14,20 @@ namespace Stats.Instances
         protected override void SetupStat()
         {
             base.SetupStat();
-            _currentBonus = new List<StatData>();
+            CurrentBonus = new List<StatData>();
 
             foreach (var bonus in PlayerStatsData.BonusStats)
             {
-                _currentBonus.Add((StatData)bonus.Clone());
+                CurrentBonus.Add((StatData)bonus.Clone());
             }
 
-            foreach (var currentBonus in _currentBonus)
+            foreach (var currentBonus in CurrentBonus)
             {
-                UpdateStatWithBonus(currentBonus);
+                UpdateStatWithBonus(currentBonus.Stat, currentBonus.Value);
             }
         }
 
-        //TODO: method for update bonus stat
-        
-        private void UpdateStatWithBonus(StatData bonusStatData)
-        {
-            var defaultValue = GetDefaultStatByName(bonusStatData.Stat).Value;
-            UpdateStatWithBonus(bonusStatData.Stat, bonusStatData.Value, defaultValue);
-        }
-
-        private void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
+        private protected override void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
         {
             float newValue = 0;
             switch (stat)

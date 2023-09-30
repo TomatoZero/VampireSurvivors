@@ -1,52 +1,20 @@
 using System;
 using System.Collections.Generic;
 using Stats.ScriptableObjects;
-using UnityEngine;
 
 namespace Stats.Instances
 {
-    public class WeaponInstance : ObjectInstance
+    public class WeaponInstance : PowerUpInstance
     {
-        //TODO: BonusStats but without default bonus stats
-        private List<StatData> _currentBonus;
-
-        public List<StatData> CurrentStats => _currentStats;
-
         private WeaponStatsData WeaponStatsData => (WeaponStatsData)_statsData;
 
         public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {
         }
 
-        public void AddValueToBonus(Stats stat, float addValue)
-        {
-            foreach (var bonus in _currentBonus)
-            {
-                if (bonus.Stat == stat)
-                {
-                    bonus.Value += addValue;
-                    UpdateStatWithBonus(stat, bonus.Value);
-                    return;
-                }
-            }
-            
-            _currentBonus.Add(new StatData(stat, addValue));
-            UpdateStatWithBonus(stat, addValue);
-        }
-
-        public StatData GetStatBonus(Stats stats)
-        {
-            foreach (var bonus in _currentBonus)
-            {
-                if (bonus.Stat == stats) return bonus;
-            }
-
-            return new StatData();
-        }
-
         protected override void SetupStat()
         {
-            _currentBonus = new List<StatData>();
+            CurrentBonus = new List<StatData>();
             base.SetupStat();
         }
 
@@ -63,13 +31,7 @@ namespace Stats.Instances
             base.SetStatByName(stat, value);
         }
 
-        private void UpdateStatWithBonus(Stats stat, float bonusValue)
-        {
-            var defaultValue = GetDefaultStatByName(stat).Value;
-            UpdateStatWithBonus(stat, bonusValue, defaultValue);
-        }
-        
-        private void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
+        private protected override void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
         {
             float newValue = 0;
             switch (stat)
@@ -88,7 +50,7 @@ namespace Stats.Instances
                     break;
             }
         }
-        
+
         private bool CheckExceptions(StatData statData)
         {
             if (statData.Stat == Stats.Luck)

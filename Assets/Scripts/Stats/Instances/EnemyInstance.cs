@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Stats.ScriptableObjects;
 
 namespace Stats.Instances
@@ -9,6 +10,11 @@ namespace Stats.Instances
 
         public EnemyInstance(EnemyStatsData statsData) : base(statsData)
         {
+        }
+
+        public override void LevelUp()
+        {
+            throw new Exception("Enemy shouldn't have level up");
         }
     }
 }

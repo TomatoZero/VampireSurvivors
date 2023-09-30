@@ -1,5 +1,4 @@
-﻿using System;
-using Interface;
+﻿using Interface;
 using Stats.Instances;
 using UnityEngine;
 using Weapons;
@@ -9,7 +8,7 @@ namespace DefaultNamespace
     public class Inventory : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private WeaponStatsController[] _weapons;
-
+        
         private delegate void StatsUpdate(PlayerInstance instance);
 
         private event StatsUpdate SetupStatEvent;

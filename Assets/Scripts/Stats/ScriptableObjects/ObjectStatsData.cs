@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Stats.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "StatsData", menuName = "ScriptableObject/Stats/StatsData", order = 3)]
+    [CreateAssetMenu(fileName = "ObjectStatsData", menuName = "ScriptableObject/Stats/ObjectStatsData", order = 3)]
     public class ObjectStatsData : ScriptableObject
     {
         [SerializeField] private string _name;
         [SerializeField] private List<StatData> _defaultStatsData;
-        
-        public string Name => _name;
+        [SerializeField] private List<LevelUpBonuses> _levelUpBonuses;
 
+        public string Name => _name;
         public List<StatData> DefaultStatsData => _defaultStatsData;
+        public List<LevelUpBonuses> LevelUpBonuses => _levelUpBonuses;
+        public int MaxLvl => _levelUpBonuses.Count + 1;
     }
 }

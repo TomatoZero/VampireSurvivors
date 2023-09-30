@@ -5,9 +5,9 @@ namespace Stats.Instances
 {
     public abstract class ObjectInstance
     {
-        //TODO: default stat data, _statsData > _bonusStatData
         private protected ObjectStatsData _statsData;
         private protected List<StatData> _currentStats;
+        private protected int _currentLvl = 1;
 
         public ObjectInstance(ObjectStatsData statsData)
         {
@@ -35,6 +35,8 @@ namespace Stats.Instances
             return new StatData();
         }
 
+        public abstract void LevelUp();
+        
         protected virtual void SetStat(StatData statData)
         {
             SetStatByName(statData.Stat, statData.Value);

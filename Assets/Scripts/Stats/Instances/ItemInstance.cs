@@ -1,9 +1,15 @@
-﻿using Stats.ScriptableObjects;
+﻿using System;
+using System.Collections.Generic;
+using Stats.ScriptableObjects;
+using UnityEngine;
 
 namespace Stats.Instances
 {
+    [Serializable]
     public class ItemInstance : ObjectInstance
     {
+        public List<StatData> CurrentStats => _currentStats;
+
         public ItemInstance(ObjectStatsData statsData) : base(statsData)
         {
             

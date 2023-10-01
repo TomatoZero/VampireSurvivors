@@ -577,7 +577,7 @@ Transform:
   m_Children:
   - {fileID: 2092652665}
   - {fileID: 818073540}
-  - {fileID: 1897772148}
+  - {fileID: 1630951817}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2067,7 +2067,7 @@ GameObject:
   - component: {fileID: 1630951817}
   - component: {fileID: 1630951818}
   m_Layer: 6
-  m_Name: Weapons
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2080,15 +2080,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630951816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 655701978}
   - {fileID: 236071470}
   - {fileID: 205056804}
-  m_Father: {fileID: 1897772148}
+  m_Father: {fileID: 243864180}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1630951818
@@ -2103,10 +2103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5133b47afdefd184095cdefe4b298da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _updateStatsEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _weapons:
   - {fileID: 655701982}
   - {fileID: 1786381053}
   - {fileID: 205056805}
+  _items: []
 --- !u!1 &1692078619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,38 +2153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d736f9ecbccbccf48b12640b1ae54e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1897772147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1897772148}
-  m_Layer: 6
-  m_Name: Inventory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1897772148
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1897772147}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1630951817}
-  m_Father: {fileID: 243864180}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967017966
 GameObject:
   m_ObjectHideFlags: 0

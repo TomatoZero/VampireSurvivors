@@ -19,6 +19,11 @@ namespace Weapons
             _instance = new WeaponInstance(_statsData);
         }
 
+        public void LevelUp()
+        {
+            _instance.LevelUp();
+        }
+        
         public void SetupStatEventHandler(ObjectInstance playerInstance)
         {
             _setupStatData.Invoke(_instance);

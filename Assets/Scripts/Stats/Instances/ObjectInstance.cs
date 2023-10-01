@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Stats.ScriptableObjects;
 
 namespace Stats.Instances
 {
+    [Serializable]
     public abstract class ObjectInstance
     {
         private protected ObjectStatsData _statsData;

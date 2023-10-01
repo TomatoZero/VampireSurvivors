@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebf0b8a9aecabe4b8922c3b262dd27d, type: 3}
   m_Name: Pummarola
   m_EditorClassIdentifier: 
-  _name: 
-  _defaultStatsData: []
-  _levelUpBonuses: []
+  _name: Pummarola
+  _defaultStatsData:
+  - _stat: 11
+    _value: 0.2
+  _levelUpBonuses:
+  - _bonusStat:
+    - _stat: 11
+      _value: 0.2
+  - _bonusStat:
+    - _stat: 11
+      _value: 0.2
+  - _bonusStat:
+    - _stat: 11
+      _value: 0.2
+  - _bonusStat:
+    - _stat: 11
+      _value: 0.2

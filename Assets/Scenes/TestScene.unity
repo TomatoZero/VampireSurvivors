@@ -831,6 +831,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _inventory: {fileID: 1630951818}
 --- !u!114 &243864182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,17 +1150,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2058289707653460534, guid: a56a73a8e88839c41ba6152b060e0980, type: 3}
   m_PrefabInstance: {fileID: 877270921}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &655701982 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4265190344617249155, guid: a56a73a8e88839c41ba6152b060e0980, type: 3}
-  m_PrefabInstance: {fileID: 877270921}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d736f9ecbccbccf48b12640b1ae54e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &696407214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173521597630425951, guid: a56a73a8e88839c41ba6152b060e0980, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2419,9 +2409,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _weapons:
-  - {fileID: 655701982}
   - {fileID: 1786381053}
   - {fileID: 205056805}
+  _itemsData:
+  - {fileID: 11400000, guid: 308a7c87b7640c649874de5888e7e985, type: 2}
+  - {fileID: 11400000, guid: 62b82c9ffca611741b2518eeb23d901e, type: 2}
+  - {fileID: 11400000, guid: 9aacef5c63b5e1244af8af2af255f938, type: 2}
   _items: []
 --- !u!1 &1692078619
 GameObject:

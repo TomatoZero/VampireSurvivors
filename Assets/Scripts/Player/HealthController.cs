@@ -60,8 +60,6 @@ namespace Player
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
             _currentHealth = _maxHealth;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
-
-            Debug.Log($"Setup recovery {_recovery}");
             
             InvokeHealthChaneEvent();
         }
@@ -71,8 +69,6 @@ namespace Player
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
-            Debug.Log($"Update recovery {_recovery}");
-            
             InvokeHealthChaneEvent();
         }
 

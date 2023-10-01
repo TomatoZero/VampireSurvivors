@@ -24,10 +24,5 @@ MonoBehaviour:
     _value: 0
   - _stat: 16
     _value: 10
-  _bonusStats:
-  - _stat: 4
-    _value: 100
-  - _stat: 19
-    _value: 100
-  - _stat: 1
-    _value: 100
+  _levelUpBonuses: []
+  _bonusStats: []

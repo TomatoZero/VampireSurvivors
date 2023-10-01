@@ -17,20 +17,20 @@ namespace Weapons.Melee.LightningRing
 
         private int _amount;
         private int _area;
-        
-        private Collider2D[] _enemyLightningHit;
+
+        private Vector2[] _enemyLightningHitPosition;
         private List<Collider2D> _allEnemyLightningHit;
 
         private protected void Awake()
         {
-            _enemyLightningHit = Array.Empty<Collider2D>();
+            _enemyLightningHitPosition = Array.Empty<Vector2>();
             _allEnemyLightningHit = new List<Collider2D>();
         }
 
         public void Shoot()
         {
             ScanForEnemyOnScreen();
-            
+
             if (_allEnemyLightningHit is null || _allEnemyLightningHit.Count == 0)
             {
                 _startTimerEvent.Invoke();
@@ -45,28 +45,49 @@ namespace Weapons.Melee.LightningRing
         {
             _allEnemyLightningHit = new List<Collider2D>();
             var allEnemyAtScreen = Physics2D.OverlapBoxAll(transform.position, _boxSize, 0, _layerMask);
-            
-            if(allEnemyAtScreen is null || allEnemyAtScreen.Length == 0)
+
+            if (allEnemyAtScreen is null || allEnemyAtScreen.Length == 0)
             {
                 _allEnemyLightningHit = new List<Collider2D>();
                 return;
             }
-            
-            var step = allEnemyAtScreen.Length / _amount;
-            
-            for (int i = 0, j = 0; i < allEnemyAtScreen.Length - 1 || j < _amount ; i += step, j++)
+
+            AddEnemyTarget(allEnemyAtScreen);
+            AddEnemyAroundTarget();
+        }
+
+        private void AddEnemyTarget(Collider2D[] enemyAtScreen)
+        {
+            if (enemyAtScreen.Length < _amount)
             {
-                _enemyLightningHit[j] = allEnemyAtScreen[i];
+                for (int i = 0; i < enemyAtScreen.Length - 1; i++)
+                {
+                    _enemyLightningHitPosition[i] = enemyAtScreen[i].transform.position;
+                }
+
+                return;
             }
 
+            var step = enemyAtScreen.Length / _amount;
+
+            for (int i = 0, j = 0; j < _amount & i < enemyAtScreen.Length - 1; i += step, j++)
+            {
+                _enemyLightningHitPosition[j] = enemyAtScreen[i].transform.position;
+            }
+        }
+
+        private void AddEnemyAroundTarget()
+        {
             Collider2D[] additionalEnemy;
             
-            foreach (var lightningHit in _enemyLightningHit)
+            for (int i = 0; i < _amount; i++)
             {
-                additionalEnemy = ScanForEnemyInCircle(lightningHit.transform.position);
+                if(_enemyLightningHitPosition[i].Equals(null)) continue;
                 
-                if(additionalEnemy.Length == 0) continue;
-                
+                additionalEnemy = ScanForEnemyInCircle(_enemyLightningHitPosition[i]);
+
+                if (additionalEnemy.Length == 0) continue;
+
                 _allEnemyLightningHit.AddRange(additionalEnemy);
             }
         }
@@ -80,7 +101,7 @@ namespace Weapons.Melee.LightningRing
         {
             _amount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = (int)newInstance.GetStatByName(Stats.Stats.Area).Value;
-            _enemyLightningHit = new Collider2D[_amount];
+            _enemyLightningHitPosition = new Vector2[_amount];
             _startTimerEvent.Invoke();
         }
 
@@ -88,7 +109,7 @@ namespace Weapons.Melee.LightningRing
         {
             _amount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = (int)newInstance.GetStatByName(Stats.Stats.Area).Value;
-            _enemyLightningHit = new Collider2D[_amount];
+            _enemyLightningHitPosition = new Vector2[_amount];
         }
     }
 }

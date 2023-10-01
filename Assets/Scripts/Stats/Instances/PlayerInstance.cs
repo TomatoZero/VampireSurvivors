@@ -15,6 +15,23 @@ namespace Stats.Instances
             }
         }
 
+        public override void LevelUp()
+        {
+            if (_statsData.MaxLvl >= _currentLvl) return;
+
+            if ((_currentLvl + 1) % 10 == 0)
+            {
+                var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 1];
+
+                foreach (var statData in lvlUpStatsData.BonusStat)
+                {
+                    AddValueToBonus(statData.Stat, statData.Value);
+                }
+            }
+
+            _currentLvl++;
+        }
+
         protected override void SetupStat()
         {
             base.SetupStat();

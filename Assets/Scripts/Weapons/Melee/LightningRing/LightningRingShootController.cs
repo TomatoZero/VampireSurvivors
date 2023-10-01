@@ -65,8 +65,6 @@ namespace Weapons.Melee.LightningRing
             {
                 additionalEnemy = ScanForEnemyInCircle(lightningHit.transform.position);
                 
-                Debug.Log($"additionalEnemy {additionalEnemy.Length} ");
-                
                 if(additionalEnemy.Length == 0) continue;
                 
                 _allEnemyLightningHit.AddRange(additionalEnemy);

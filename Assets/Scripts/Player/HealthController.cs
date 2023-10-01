@@ -43,14 +43,12 @@ namespace Player
         
         public void TakeDamage(float damage)
         {
-            Debug.Log($"damage {damage}");
             if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Player hp less or equal zero");
             
             _currentHealth -= damage;
-            TryTurnOnRecover();
             
-            Debug.Log($"current health {_currentHealth}");
+            TryTurnOnRecover();
             
             if(_currentHealth <= 0) _playerDie.Invoke();
 
@@ -63,6 +61,8 @@ namespace Player
             _currentHealth = _maxHealth;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
+            Debug.Log($"Setup recovery {_recovery}");
+            
             InvokeHealthChaneEvent();
         }
 
@@ -71,6 +71,8 @@ namespace Player
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
 
+            Debug.Log($"Update recovery {_recovery}");
+            
             InvokeHealthChaneEvent();
         }
 

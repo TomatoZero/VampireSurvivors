@@ -7,8 +7,12 @@ namespace Stats.Instances
     {
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
 
-        public PlayerInstance(PlayerStatsData playerStatsData) : base(playerStatsData)
+        public PlayerInstance(PlayerStatsData playerStatsData, List<StatData> bonusFromItems) : base(playerStatsData)
         {
+            foreach (var bonusFromItem in bonusFromItems)
+            {
+                AddValueToBonus(bonusFromItem.Stat, bonusFromItem.Value);
+            }
         }
 
         protected override void SetupStat()
@@ -34,10 +38,10 @@ namespace Stats.Instances
             {
                 case Stats.MaxHealth:
                 case Stats.MoveSpeed:
-                case Stats.Recovery:
                     newValue = CalculateNewValue(defaultValue, bonusValue);
                     SetStatByName(stat, newValue);
                     break;
+                case Stats.Recovery:
                 case Stats.Armor:
                 case Stats.Luck:
                 case Stats.Growth:

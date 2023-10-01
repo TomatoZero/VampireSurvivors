@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Interface;
 using Stats;
 using Stats.Instances;
+using Stats.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 using Weapons;
@@ -13,12 +15,21 @@ namespace DefaultNamespace
         [SerializeField] private UnityEvent _updateStatsEvent;
         
         [SerializeField] private List<WeaponStatsController> _weapons;
+        [SerializeField] private List<ObjectStatsData> _itemsData;
         [SerializeField] private List<ItemInstance> _items;
         
         private delegate void StatsUpdate(PlayerInstance instance);
 
         private event StatsUpdate SetupStatEvent;
         private event StatsUpdate UpdateStatEvent;
+
+        private void Awake()
+        {
+            foreach (var data in _itemsData)
+            {
+                AddItem(new ItemInstance(data));
+            }
+        }
 
         private void OnEnable()
         {
@@ -57,11 +68,32 @@ namespace DefaultNamespace
 
             foreach (var item in _items)
             {
-                
+                foreach (var itemCurrentStat in item.CurrentStats)
+                {
+                    var statId = FindStatIdInList(allBonus, itemCurrentStat.Stat);
+                    
+                    if(statId == -1)
+                    {
+                        allBonus.Add((StatData)itemCurrentStat.Clone());
+                        continue;
+                    }
+                    
+                    allBonus[statId].Value += itemCurrentStat.Value;
+                }
             }
             
-            return new List<StatData>();
-        } 
+            return allBonus;
+        }
+
+        private int FindStatIdInList(List<StatData> list, Stats.Stats stat)
+        {
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                if (list[i].Stat == stat) return i;
+            }
+
+            return -1;
+        }
         
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {

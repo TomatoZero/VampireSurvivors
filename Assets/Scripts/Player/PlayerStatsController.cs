@@ -1,4 +1,5 @@
-﻿using Stats.Instances;
+﻿using DefaultNamespace;
+using Stats.Instances;
 using Stats.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +11,8 @@ namespace Player
         [SerializeField] private PlayerStatsData _playerStatsData;
         [SerializeField] private UnityEvent<PlayerInstance> _setupStatsEvent;
         [SerializeField] private UnityEvent<PlayerInstance> _statsUpdateEvent;
-
+        [SerializeField] private Inventory _inventory;
+        
         private PlayerInstance _instance;
 
         private void Awake()
@@ -18,7 +20,8 @@ namespace Player
 
         private void Start()
         {
-            _instance = new PlayerInstance(_playerStatsData);
+            var itemBonus = _inventory.GetAllItemBonuses();
+            _instance = new PlayerInstance(_playerStatsData, itemBonus);
             _setupStatsEvent.Invoke(_instance);
         }
 
@@ -27,6 +30,6 @@ namespace Player
             //TODO: change to SetBonusByName
             // _instance.SetStatByName(stats, value);
         }
-        
+           
     }
 }

@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace UI.LevelUpMenu
 {
     public class ProgressionPanel : MonoBehaviour
     {
-        [SerializeField] private List<OptionController> _options;
+        [SerializeField] private BonusPanel _bonusPanel;
     }
 }

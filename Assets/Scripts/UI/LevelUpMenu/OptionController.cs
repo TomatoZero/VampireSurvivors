@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using UI.Structs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,28 +12,12 @@ namespace UI.LevelUpMenu
         [SerializeField] private TMP_Text _level;
         [SerializeField] private TMP_Text _description;
 
-        public Image Ico
+        public void SetData(BonusData data)
         {
-            get => _ico;
-            set => _ico = value;
-        }
-
-        public TMP_Text Name
-        {
-            get => _name;
-            set => _name = value;
-        }
-
-        public TMP_Text Level
-        {
-            get => _level;
-            set => _level = value;
-        }
-
-        public TMP_Text Description
-        {
-            get => _description;
-            set => _description = value;
+            _ico = data.Ico;
+            _name.text = data.Name;
+            _level.text = data.Level;
+            _description.text = data.Description;
         }
     }
 }

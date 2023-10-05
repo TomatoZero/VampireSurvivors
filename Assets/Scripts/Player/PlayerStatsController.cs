@@ -1,4 +1,6 @@
-﻿using DefaultNamespace;
+﻿using System.Collections.Generic;
+using DefaultNamespace;
+using Stats;
 using Stats.Instances;
 using Stats.ScriptableObjects;
 using UnityEngine;
@@ -25,11 +27,16 @@ namespace Player
             _setupStatsEvent.Invoke(_instance);
         }
 
-        public void SetStatByName(Stats.Stats stats, int value)
+        public void LevelUp()
         {
-            //TODO: change to SetBonusByName
-            // _instance.SetStatByName(stats, value);
+            _instance.LevelUp();
+            _statsUpdateEvent.Invoke(_instance);
         }
-           
+
+        public void AddBonusesEventHandler(List<StatData> bonusFromNewItem)
+        {
+            _instance.AddBonusesFromItem(bonusFromNewItem);
+            _statsUpdateEvent.Invoke(_instance);
+        }
     }
 }

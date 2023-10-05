@@ -24,8 +24,15 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            _newerUsed = new List<ObjectStatsData>();
+            _currentWeaponAndItems = new List<ObjectInstance>();
 
+            foreach (var weapon in _inventory.Weapons)
+            {
+                _currentWeaponAndItems.Add(weapon.Instance);
+            }
+            
+            _newerUsed = new List<ObjectStatsData>();
+            
             foreach (var item in _weaponsAndItems.Items)
             {
                 _newerUsed.Add(item);
@@ -52,7 +59,7 @@ namespace DefaultNamespace
         {
             foreach (var instance in _currentWeaponAndItems)
             {
-                if (instance.StatsData.Name == item.Name)
+                if (instance.StatsData.Name == item.StatsData.Name)
                 {
                     LevelUpItem(item);
                     return;
@@ -60,7 +67,7 @@ namespace DefaultNamespace
             }
             
             var removeItem = (from itemName in _newerUsed
-                where itemName.Name == item.Name
+                where itemName.Name == item.StatsData.Name
                 select itemName).First();
 
             if (removeItem is null)
@@ -87,19 +94,27 @@ namespace DefaultNamespace
 
         private void LevelUpItem(BonusData item)
         {
-            if (item.IsWeapon) _inventory.LevelUpWeapon(item.Name);
-            else _inventory.LevelUpItem(item.Name);
+            if (item.IsWeapon) _inventory.LevelUpWeapon(item.StatsData.Name);
+            else _inventory.LevelUpItem(item.StatsData.Name);
         }
 
         private void AddNewItem(BonusData item)
         {
+            Debug.Log($"pefab name {item.StatsData.Name}");
             if (item.IsWeapon)
             {
-                _loadFromAsset.LoadPrefab("weapons", item.Name);
+                var prefab = _loadFromAsset.LoadPrefab("weapons", item.StatsData.Name);
+                AddNewWeapon(prefab);
+            }
+            else
+            {
+                var data = (ObjectStatsData)_loadFromAsset.LoadScriptableObject("weaponscriptableobjects", item.StatsData.Name);
+                var itemInstance = new ItemInstance(data);
+                _inventory.AddItem(itemInstance);
             }
         }
         
-        private void AddWeapon(GameObject prefab)
+        private void AddNewWeapon(GameObject prefab)
         {
             var weapon = Instantiate(prefab, _inventoryObject.position, Quaternion.identity, _inventoryObject);
             var statController = weapon.GetComponent<WeaponStatsController>();

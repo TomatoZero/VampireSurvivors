@@ -1,6 +1,8 @@
-﻿using TMPro;
+﻿using Stats;
+using TMPro;
 using UI.Structs;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI.LevelUpMenu
@@ -11,13 +13,33 @@ namespace UI.LevelUpMenu
         [SerializeField] private TMP_Text _name;
         [SerializeField] private TMP_Text _level;
         [SerializeField] private TMP_Text _description;
-
-        public void SetData(BonusData data)
+        [SerializeField] private Button _button;
+        
+        private BonusData _data;
+        
+        public void SetData(BonusData data, ProgressionPanel.SelectBonusDelegate bonus)
         {
-            _ico.sprite = data.Ico;
-            _name.text = data.Name;
-            _level.text = data.Level;
-            _description.text = data.Description;
+            _data = data;
+            _ico.sprite = data.StatsData.Ico;
+            _name.text = data.StatsData.Name;
+            _level.text = data.StatsData.ToString();
+
+            if (data.Level == 0) _description.text = $"New weapon {data.StatsData.Name}";
+            else _description.text = ConvertStatDataToDescription(data.StatsData.LevelUpBonuses[data.Level - 1]);
+
+            _button.onClick.AddListener( () => bonus(_data));
+        }
+
+        private string ConvertStatDataToDescription(LevelUpBonuses stat)
+        {
+            var description = "";
+
+            foreach (var statData in stat.BonusStat)
+            {
+                description += $"Add {statData.Value} to {statData.Stat}";
+            }
+
+            return description;
         }
     }
 }

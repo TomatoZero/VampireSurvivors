@@ -11,17 +11,15 @@ namespace DefaultNamespace
 
         private void OnEnable()
         {
-            _assetBundleManifestPath = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+            _assetBundleManifestPath = $"{Application.streamingAssetsPath}/StreamingAssets";
             _assetBundlePath =
-                Path.Combine(Application.streamingAssetsPath, "AssetBundles", "weaponsassetbundle");
-            _assetBundleFolderPath = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+                Path.Combine(Application.streamingAssetsPath, "weaponsassetbundle");
+            _assetBundleFolderPath = Path.Combine(Application.streamingAssetsPath);
         }
 
         public GameObject LoadPrefab(string bundleName, string prefabName)
         {
-            _assetBundlePath =
-                Path.Combine(Application.streamingAssetsPath, "AssetBundles", bundleName);
-            _assetBundleFolderPath = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+            SetupPath(bundleName, prefabName);
             
             var assetBundle = LoadFromDisk();
             
@@ -33,9 +31,23 @@ namespace DefaultNamespace
             return LoadPrefab(assetBundle, prefabName);
         }
 
+        public ScriptableObject LoadScriptableObject(string bundleName, string objectName)
+        {
+            SetupPath(bundleName, objectName);
+            var assetBundle = LoadFromDisk();
+            
+            if (assetBundle == null) {
+                Debug.Log("Failed to load AssetBundle!");
+                return null;
+            }
+
+            return LoadScriptableObject(assetBundle, objectName);
+        }
+
         private AssetBundle LoadFromDisk()
         {
             LoadDependencies("weaponsassetbundle");
+            Debug.LogWarning(_assetBundlePath);
             return AssetBundle.LoadFromFile(_assetBundlePath);
         }
 
@@ -56,6 +68,17 @@ namespace DefaultNamespace
         private GameObject LoadPrefab(AssetBundle myLoadedAssetBundle, string fileName)
         {
             return myLoadedAssetBundle.LoadAsset<GameObject>(fileName);
+        }
+
+        private ScriptableObject LoadScriptableObject(AssetBundle myLoadedAssetBundle, string fileName)
+        {
+            return myLoadedAssetBundle.LoadAsset<ScriptableObject>(fileName);
+        }
+
+        private void SetupPath(string bundleName, string prefabName)
+        {
+            _assetBundlePath = $"{Application.streamingAssetsPath}/{bundleName}";
+            _assetBundleFolderPath = $"{Application.streamingAssetsPath}";
         }
     }
 }

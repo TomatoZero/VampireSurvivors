@@ -8,14 +8,15 @@ namespace UI.LevelUpMenu
     {
         [SerializeField] private List<OptionController> _options;
 
-        public void SetBonus(BonusData[] data)
+        public void SetBonus(BonusData[] data, ProgressionPanel.SelectBonusDelegate selectBonus)
         {
-            if(data is null)
+            if (data is null)
             {
                 Debug.LogWarning($"Bonus data is null");
                 return;
             }
-            if(data.Length != _options.Count)
+
+            if (data.Length != _options.Count)
             {
                 Debug.LogWarning($"Data length and _options count are not equal");
                 return;
@@ -23,8 +24,9 @@ namespace UI.LevelUpMenu
 
             for (int i = 0; i < _options.Count; i++)
             {
-                _options[i].SetData(data[i]);
+                _options[i].SetData(data[i], selectBonus);
             }
         }
+        
     }
 }

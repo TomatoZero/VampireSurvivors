@@ -15,6 +15,14 @@ namespace Stats.Instances
             }
         }
 
+        public virtual void AddBonusesFromItem(List<StatData> bonusFromItems)
+        {
+            foreach (var bonusFromItem in bonusFromItems)
+            {
+                AddValueToBonus(bonusFromItem.Stat, bonusFromItem.Value);
+            }
+        }
+        
         public override void LevelUp()
         {
             if (_statsData.MaxLvl >= _currentLvl) return;

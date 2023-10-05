@@ -13,7 +13,7 @@ namespace DefaultNamespace
 {
     public class Inventory : MonoBehaviour, IUpdateStats
     {
-        [SerializeField] private UnityEvent _updateStatsEvent;
+        [SerializeField] private UnityEvent<List<StatData>> _updateStatsEvent;
         
         [SerializeField] private List<WeaponStatsController> _weapons;
         [SerializeField] private List<ItemInstance> _items;
@@ -45,7 +45,7 @@ namespace DefaultNamespace
         public void AddItem(ItemInstance item)
         {
             _items.Add(item);
-            _updateStatsEvent.Invoke();
+            _updateStatsEvent.Invoke(item.CurrentStats);
         }
 
         public void AddWeapon(WeaponStatsController weapon)

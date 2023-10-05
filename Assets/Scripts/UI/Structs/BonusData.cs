@@ -1,32 +1,46 @@
 ﻿using Stats;
-using UnityEngine.UI;
+using Stats.ScriptableObjects;
+using UnityEngine;
 
 namespace UI.Structs
 {
     public struct BonusData
     {
-        private Image _ico;
-        private string _name;
-        private string _level;
-        private string _description;
+        private readonly Sprite _ico;
+        private readonly string _name;
+        private readonly string _level;
+        private readonly string _description;
+        private readonly bool _isWeapon;
 
-        public Image Ico => _ico;
+        public Sprite Ico => _ico;
         public string Name => _name;
         public string Level => _level;
         public string Description => _description;
+        public bool IsWeapon => _isWeapon;
 
-        public BonusData(Image ico, string name, int level, StatData statData)
+        public BonusData(ObjectStatsData data, int newLevel)
         {
-            _ico = ico;
-            _name = name;
-            _level = $"New level {level}";
+            _ico = data.Ico;
+            _name = data.Name;
+            _level = $"New level {newLevel}";
             _description = "";
-            _description = ConvertStatDataToDescription(statData);
-        }
+            
+            _isWeapon = (data is WeaponStatsData);
 
-        private string ConvertStatDataToDescription(StatData stat)
+            if (newLevel == 0) _description = $"New weapon {data.Name}";
+            else _description = ConvertStatDataToDescription(data.LevelUpBonuses[newLevel - 1]);
+        }
+        
+        private string ConvertStatDataToDescription(LevelUpBonuses stat)
         {
-            return $"Add {stat.Value} to {stat.Stat}";
+            var description = "";
+
+            foreach (var statData in stat.BonusStat)
+            {
+                description += $"Add {statData.Value} to {statData.Stat}";
+            }
+
+            return description;
         }
     }
 }

@@ -14,8 +14,15 @@ namespace Weapons
 
         private WeaponInstance _instance;
 
+        public WeaponInstance Instance => _instance;
+
         private void Awake()
         {
+            if(_statsData is null)
+            {
+                return;
+            }
+            
             _instance = new WeaponInstance(_statsData);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Interface;
 using Stats;
 using Stats.Instances;
@@ -15,7 +16,6 @@ namespace DefaultNamespace
         [SerializeField] private UnityEvent _updateStatsEvent;
         
         [SerializeField] private List<WeaponStatsController> _weapons;
-        [SerializeField] private List<ObjectStatsData> _itemsData;
         [SerializeField] private List<ItemInstance> _items;
         
         private delegate void StatsUpdate(PlayerInstance instance);
@@ -23,12 +23,14 @@ namespace DefaultNamespace
         private event StatsUpdate SetupStatEvent;
         private event StatsUpdate UpdateStatEvent;
 
+        private PlayerInstance _playerInstance;
+
+        public List<WeaponStatsController> Weapons => _weapons;
+        public List<ItemInstance> Items => _items;
+        
+
         private void Awake()
         {
-            foreach (var data in _itemsData)
-            {
-                AddItem(new ItemInstance(data));
-            }
         }
 
         private void OnEnable()
@@ -46,20 +48,37 @@ namespace DefaultNamespace
             _updateStatsEvent.Invoke();
         }
 
+        public void AddWeapon(WeaponStatsController weapon)
+        {
+            AddWeapon(weapon, _playerInstance);
+        }
+        
         public void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
         {
             _weapons.Add(weapon);
+            
+            SetupStatEvent += weapon.SetupStatEventHandler;
+            UpdateStatEvent += weapon.UpdateStatsEventHandler;
+            
             weapon.SetupStatEventHandler(playerInstance);
         }
 
-        public void LevelUpItem(int id)
+        public void LevelUpItem(string name)
         {
-            _items[id].LevelUp();
+            var levelUpItem = (from item in _items
+                where item.StatsData.Name == name
+                select item).First();
+
+            levelUpItem.LevelUp();
         }
 
-        public void LevelUpWeapon(int id)
+        public void LevelUpWeapon(string name)
         {
-            _weapons[id].LevelUp();
+            var levelUpWeapon = (from weapon in _weapons
+                where weapon.Instance.StatsData.Name == name
+                select weapon).First();
+
+            levelUpWeapon.LevelUp();
         }
 
         public List<StatData> GetAllItemBonuses()
@@ -97,12 +116,14 @@ namespace DefaultNamespace
         
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            SetupStatEvent?.Invoke((PlayerInstance)newInstance);
+            _playerInstance = (PlayerInstance)newInstance;
+            SetupStatEvent?.Invoke(_playerInstance);
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            UpdateStatEvent?.Invoke((PlayerInstance)newInstance);
+            _playerInstance = (PlayerInstance)newInstance;
+            UpdateStatEvent?.Invoke(_playerInstance);
         }
     }
 }

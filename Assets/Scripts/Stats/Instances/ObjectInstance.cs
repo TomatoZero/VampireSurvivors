@@ -11,6 +11,10 @@ namespace Stats.Instances
         private protected List<StatData> _currentStats;
         private protected int _currentLvl = 1;
 
+        public ObjectStatsData StatsData => _statsData;
+        public int CurrentLvl => _currentLvl;
+        public int MaxLevel => _statsData.MaxLvl;
+
         public ObjectInstance(ObjectStatsData statsData)
         {
             _statsData = statsData;

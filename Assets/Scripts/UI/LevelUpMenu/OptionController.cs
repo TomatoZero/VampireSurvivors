@@ -14,7 +14,7 @@ namespace UI.LevelUpMenu
 
         public void SetData(BonusData data)
         {
-            _ico = data.Ico;
+            _ico.sprite = data.Ico;
             _name.text = data.Name;
             _level.text = data.Level;
             _description.text = data.Description;

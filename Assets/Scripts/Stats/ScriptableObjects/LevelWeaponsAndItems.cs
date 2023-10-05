@@ -8,5 +8,9 @@ namespace Stats.ScriptableObjects
     {
         [SerializeField] private List<WeaponStatsData> _weapons;
         [SerializeField] private List<ObjectStatsData> _items;
+
+        public List<WeaponStatsData> Weapons => _weapons;
+
+        public List<ObjectStatsData> Items => _items;
     }
 }

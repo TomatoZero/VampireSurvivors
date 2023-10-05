@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1edb25991ddf845b85a89d747c07b4, type: 3}
   m_Name: LightningRing
   m_EditorClassIdentifier: 
+  _ico: {fileID: 0}
   _name: Lightning Ring
   _defaultStatsData:
   - _stat: 19
@@ -22,4 +23,34 @@ MonoBehaviour:
     _value: 2
   - _stat: 5
     _value: 4.5
+  _levelUpBonuses:
+  - _bonusStat:
+    - _stat: 14
+      _value: 1
+  - _bonusStat:
+    - _stat: 4
+      _value: 100
+    - _stat: 19
+      _value: 10
+  - _bonusStat:
+    - _stat: 4
+      _value: 100
+    - _stat: 19
+      _value: 10
+  - _bonusStat:
+    - _stat: 4
+      _value: 100
+    - _stat: 19
+      _value: 10
+  - _bonusStat:
+    - _stat: 14
+      _value: 1
+  - _bonusStat:
+    - _stat: 4
+      _value: 100
+    - _stat: 19
+      _value: 10
+  - _bonusStat:
+    - _stat: 14
+      _value: 1
   _ignoreStat: 020000000d000000

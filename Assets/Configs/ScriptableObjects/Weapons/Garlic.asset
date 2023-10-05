@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1edb25991ddf845b85a89d747c07b4, type: 3}
   m_Name: Garlic
   m_EditorClassIdentifier: 
+  _ico: {fileID: 0}
   _name: Garlic
   _defaultStatsData:
   - _stat: 19
@@ -22,4 +23,40 @@ MonoBehaviour:
     _value: 0
   - _stat: 5
     _value: 1.3
+  _levelUpBonuses:
+  - _bonusStat:
+    - _stat: 4
+      _value: 40
+    - _stat: 19
+      _value: 2
+  - _bonusStat:
+    - _stat: 5
+      _value: -0.1
+    - _stat: 19
+      _value: 1
+  - _bonusStat:
+    - _stat: 4
+      _value: 20
+    - _stat: 19
+      _value: 1
+  - _bonusStat:
+    - _stat: 11
+      _value: -0.1
+    - _stat: 19
+      _value: 2
+  - _bonusStat:
+    - _stat: 4
+      _value: 20
+    - _stat: 19
+      _value: 1
+  - _bonusStat:
+    - _stat: 11
+      _value: -0.1
+    - _stat: 19
+      _value: 1
+  - _bonusStat:
+    - _stat: 4
+      _value: 20
+    - _stat: 19
+      _value: 1
   _ignoreStat: 0f0000000e00000003000000

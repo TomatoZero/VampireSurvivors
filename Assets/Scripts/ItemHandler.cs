@@ -17,6 +17,7 @@ namespace DefaultNamespace
         [SerializeField] private LevelWeaponsAndItems _weaponsAndItems;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private Transform _inventoryObject;
+        [SerializeField] private LoadFromAssetBundle _loadFromAsset;
 
         private List<ObjectInstance> _currentWeaponAndItems;
         private List<ObjectStatsData> _newerUsed;
@@ -92,7 +93,10 @@ namespace DefaultNamespace
 
         private void AddNewItem(BonusData item)
         {
-            //TODO: AddnewItem
+            if (item.IsWeapon)
+            {
+                _loadFromAsset.LoadPrefab("weapons", item.Name);
+            }
         }
         
         private void AddWeapon(GameObject prefab)

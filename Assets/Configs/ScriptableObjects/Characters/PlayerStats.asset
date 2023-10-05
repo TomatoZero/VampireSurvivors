@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c029ee6ecd10f5468a2268e9bb4681d, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  _ico: {fileID: 0}
   _name: Test character
   _defaultStatsData:
   - _stat: 0
@@ -24,5 +25,48 @@ MonoBehaviour:
     _value: 0
   - _stat: 16
     _value: 10
-  _levelUpBonuses: []
-  _bonusStats: []
+  _levelUpBonuses:
+  - _bonusStat:
+    - _stat: 19
+      _value: 5
+    - _stat: 12
+      _value: 5
+    - _stat: 8
+      _value: 5
+  - _bonusStat:
+    - _stat: 19
+      _value: 5
+    - _stat: 12
+      _value: 5
+    - _stat: 8
+      _value: 5
+  - _bonusStat:
+    - _stat: 19
+      _value: 5
+    - _stat: 12
+      _value: 5
+    - _stat: 8
+      _value: 5
+  - _bonusStat:
+    - _stat: 19
+      _value: 5
+    - _stat: 12
+      _value: 5
+    - _stat: 8
+      _value: 5
+  - _bonusStat:
+    - _stat: 19
+      _value: 5
+    - _stat: 12
+      _value: 5
+    - _stat: 8
+      _value: 5
+  _bonusStats:
+  - _stat: 0
+    _value: 10
+  - _stat: 19
+    _value: 10
+  - _stat: 12
+    _value: 10
+  - _stat: 8
+    _value: 10

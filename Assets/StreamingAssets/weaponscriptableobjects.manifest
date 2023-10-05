@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 3670708772
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 99572167e7b297246041f517c714851c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2e4547278868f155bdb204cd08b60593
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 6d1edb25991ddf845b85a89d747c07b4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Stats.LevelUpBonuses
+- AssemblyName: Assembly-CSharp
+  ClassName: Stats.StatData
+Assets:
+- Assets/Configs/ScriptableObjects/Weapons/Axe.asset
+- Assets/Configs/ScriptableObjects/Weapons/LightningRing.asset
+- Assets/Configs/ScriptableObjects/Weapons/Garlic.asset
+Dependencies: []

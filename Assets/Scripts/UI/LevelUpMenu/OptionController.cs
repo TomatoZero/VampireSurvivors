@@ -1,4 +1,5 @@
-﻿using Stats;
+﻿using System;
+using Stats;
 using TMPro;
 using UI.Structs;
 using UnityEngine;
@@ -16,18 +17,30 @@ namespace UI.LevelUpMenu
         [SerializeField] private Button _button;
         
         private BonusData _data;
+
+        public void SetupButtonClick(ProgressionPanel.SelectBonusDelegate bonus)
+        {
+            _button.onClick.AddListener( () => bonus(_data));
+        }
         
-        public void SetData(BonusData data, ProgressionPanel.SelectBonusDelegate bonus)
+        public void SetData(BonusData data)
         {
             _data = data;
             _ico.sprite = data.StatsData.Ico;
             _name.text = data.StatsData.Name;
             _level.text = data.StatsData.ToString();
 
-            if (data.Level == 0) _description.text = $"New weapon {data.StatsData.Name}";
-            else _description.text = ConvertStatDataToDescription(data.StatsData.LevelUpBonuses[data.Level - 1]);
 
-            _button.onClick.AddListener( () => bonus(_data));
+            try
+            {
+                if (data.Level == 0) _description.text = $"New weapon {data.StatsData.Name}";
+                else _description.text = ConvertStatDataToDescription(data.StatsData.LevelUpBonuses[data.Level - 1]);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Debug.LogError($"Level {data.Level - 1}");
+                throw;
+            }
         }
 
         private string ConvertStatDataToDescription(LevelUpBonuses stat)

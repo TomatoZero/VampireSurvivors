@@ -1,4 +1,5 @@
-﻿using UI.Structs;
+﻿using System;
+using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,10 +12,15 @@ namespace UI.LevelUpMenu
 
         public delegate void SelectBonusDelegate(BonusData bonus);
 
+        private void Awake()
+        {
+            _bonusPanel.SetupButtonsClick(SelectBonus);
+        }
+
         public void SetupUpgradesEventHandler(BonusData[] upgrade)
         {
             gameObject.SetActive(true);
-            _bonusPanel.SetBonus(upgrade, SelectBonus);
+            _bonusPanel.SetBonus(upgrade);
         }
 
         public void SelectBonus(BonusData bonus)

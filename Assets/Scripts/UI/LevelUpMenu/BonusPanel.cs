@@ -8,7 +8,15 @@ namespace UI.LevelUpMenu
     {
         [SerializeField] private List<OptionController> _options;
 
-        public void SetBonus(BonusData[] data, ProgressionPanel.SelectBonusDelegate selectBonus)
+        public void SetupButtonsClick(ProgressionPanel.SelectBonusDelegate selectBonus)
+        {
+            foreach (var option in _options)
+            {
+                option.SetupButtonClick(selectBonus);
+            }
+        }
+        
+        public void SetBonus(BonusData[] data)
         {
             if (data is null)
             {
@@ -24,7 +32,7 @@ namespace UI.LevelUpMenu
 
             for (int i = 0; i < _options.Count; i++)
             {
-                _options[i].SetData(data[i], selectBonus);
+                _options[i].SetData(data[i]);
             }
         }
         

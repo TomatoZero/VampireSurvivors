@@ -25,12 +25,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            _currentWeaponAndItems = new List<ObjectInstance>();
-
-            foreach (var weapon in _inventory.Weapons)
-            {
-                _currentWeaponAndItems.Add(weapon.Instance);
-            }
+            GetCurrentWeaponsAndItems();
 
             _newerUsed = new List<ObjectStatsData>();
 
@@ -56,8 +51,11 @@ namespace DefaultNamespace
             }
         }
 
+        
         public void UpgradeEventHandler(BonusData item)
         {
+            Debug.LogWarning($"Item: {item.StatsData.Name} Level: {item.Level}");
+            GetCurrentWeaponsAndItems();
             foreach (var instance in _currentWeaponAndItems)
             {
                 if (instance.StatsData.Name == item.StatsData.Name)
@@ -94,6 +92,21 @@ namespace DefaultNamespace
             _showUpgradeEvent.Invoke(upgrades);
         }
 
+        private void GetCurrentWeaponsAndItems()
+        {
+            _currentWeaponAndItems = new List<ObjectInstance>();
+
+            foreach (var weapon in _inventory.Weapons)
+            {
+                _currentWeaponAndItems.Add(weapon.Instance);
+            }
+            
+            foreach (var item in _inventory.Items)
+            {
+                _currentWeaponAndItems.Add(item);
+            }
+        }
+        
         private void LevelUpItem(BonusData item)
         {
             if (item.IsWeapon) _inventory.LevelUpWeapon(item.StatsData.Name);
@@ -102,7 +115,6 @@ namespace DefaultNamespace
 
         private void AddNewItem(BonusData item)
         {
-            Debug.Log($"pefab name {item.StatsData.Name}");
             if (item.IsWeapon)
             {
                 var prefab = _loadFromAsset.LoadPrefab("weapons",
@@ -111,9 +123,7 @@ namespace DefaultNamespace
             }
             else
             {
-                var data = (ObjectStatsData)_loadFromAsset.LoadScriptableObject("weaponscriptableobjects",
-                    $"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}.asset");
-                var itemInstance = new ItemInstance(data);
+                var itemInstance = new ItemInstance(item.StatsData);
                 _inventory.AddItem(itemInstance);
             }
         }

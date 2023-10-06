@@ -19,7 +19,9 @@ namespace Stats.Instances
         {
             if(_statsData.MaxLvl <= _currentLvl) return;
             
-            var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 2];
+            // Debug.Log($"_statsData.LevelUpBonuses[{_currentLvl - 1}] = {_statsData.LevelUpBonuses[_currentLvl - 1].BonusStat[0].Value}");
+            
+            var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 1];
 
             foreach (var statData in lvlUpStatsData.BonusStat)
             {

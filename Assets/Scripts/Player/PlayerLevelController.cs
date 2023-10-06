@@ -24,7 +24,6 @@ namespace Player
             }
             
             var currentXpInPercent = CalculateXpInPercent();
-            Debug.Log($"currentXpInPercent {currentXpInPercent}");
             _xpChangeEvent.Invoke(currentXpInPercent);
         }
         

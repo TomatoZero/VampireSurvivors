@@ -44,12 +44,13 @@ namespace DefaultNamespace
         {
             _items.Add(item);
             _updateStatsEvent.Invoke(item.CurrentStats);
+            _endSetupStatsEvent.Invoke();
         }
 
         public void AddWeapon(WeaponStatsController weapon)
         {
             AddWeapon(weapon, _playerInstance);
-            
+            _endSetupStatsEvent.Invoke();
         }
 
         public void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
@@ -69,6 +70,7 @@ namespace DefaultNamespace
                 select item).First();
 
             levelUpItem.LevelUp();
+            _endSetupStatsEvent.Invoke();
         }
 
         public void LevelUpWeapon(string name)
@@ -78,6 +80,7 @@ namespace DefaultNamespace
                 select weapon).First();
 
             levelUpWeapon.LevelUp();
+            _endSetupStatsEvent.Invoke();
         }
 
         public List<StatData> GetAllItemBonuses()

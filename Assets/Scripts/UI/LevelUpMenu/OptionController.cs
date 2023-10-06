@@ -26,7 +26,7 @@ namespace UI.LevelUpMenu
             _data = data;
             _ico.sprite = data.StatsData.Ico;
             _name.text = data.StatsData.Name;
-            _level.text = data.StatsData.ToString();
+            _level.text = $"New level: {data.Level}";
 
             if (data.Level == 0) _description.text = $"New weapon {data.StatsData.Name}";
             else _description.text = ConvertStatDataToDescription(data.StatsData.LevelUpBonuses[data.Level - 2]);

@@ -54,7 +54,6 @@ namespace DefaultNamespace
         
         public void UpgradeEventHandler(BonusData item)
         {
-            Debug.LogWarning($"Item: {item.StatsData.Name} Level: {item.Level}");
             GetCurrentWeaponsAndItems();
             foreach (var instance in _currentWeaponAndItems)
             {
@@ -144,6 +143,7 @@ namespace DefaultNamespace
 
         private List<BonusData> FindPossibleUpgradeInInventory()
         {
+            GetCurrentWeaponsAndItems();
             var canBeUpgraded = new List<BonusData>();
 
             foreach (var item in _currentWeaponAndItems)
@@ -152,7 +152,7 @@ namespace DefaultNamespace
 
                 canBeUpgraded.Add(new BonusData(item.StatsData, item.CurrentLvl + 1));
             }
-
+            
             return canBeUpgraded;
         }
 

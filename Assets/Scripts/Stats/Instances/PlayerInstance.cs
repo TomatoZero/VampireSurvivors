@@ -25,7 +25,7 @@ namespace Stats.Instances
         
         public override void LevelUp()
         {
-            if (_statsData.MaxLvl >= _currentLvl) return;
+            if (_statsData.MaxLvl <= _currentLvl) return;
 
             if ((_currentLvl + 1) % 10 == 0)
             {

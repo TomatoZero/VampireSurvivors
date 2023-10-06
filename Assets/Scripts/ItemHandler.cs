@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace.StaticClass;
 using Stats.Instances;
 using Stats.ScriptableObjects;
 using UI.Structs;
@@ -30,9 +31,9 @@ namespace DefaultNamespace
             {
                 _currentWeaponAndItems.Add(weapon.Instance);
             }
-            
+
             _newerUsed = new List<ObjectStatsData>();
-            
+
             foreach (var item in _weaponsAndItems.Items)
             {
                 _newerUsed.Add(item);
@@ -43,7 +44,7 @@ namespace DefaultNamespace
                 if (IsContainInWeapons(item)) continue;
                 _newerUsed.Add(item);
             }
-            
+
             bool IsContainInWeapons(ObjectStatsData item)
             {
                 foreach (var weapon in _inventory.Weapons)
@@ -65,16 +66,17 @@ namespace DefaultNamespace
                     return;
                 }
             }
-            
+
             var removeItem = (from itemName in _newerUsed
                 where itemName.Name == item.StatsData.Name
                 select itemName).First();
 
             if (removeItem is null)
             {
-                throw new NullReferenceException("Upgrade item have to ber some where in _currentWeaponAndItems or in _newerUsed");
+                throw new NullReferenceException(
+                    "Upgrade item have to ber some where in _currentWeaponAndItems or in _newerUsed");
             }
-            
+
             _newerUsed.Remove(removeItem);
             AddNewItem(item);
         }
@@ -103,17 +105,19 @@ namespace DefaultNamespace
             Debug.Log($"pefab name {item.StatsData.Name}");
             if (item.IsWeapon)
             {
-                var prefab = _loadFromAsset.LoadPrefab("weapons", item.StatsData.Name);
+                var prefab = _loadFromAsset.LoadPrefab("weapons",
+                    $"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}.prefab");
                 AddNewWeapon(prefab);
             }
             else
             {
-                var data = (ObjectStatsData)_loadFromAsset.LoadScriptableObject("weaponscriptableobjects", item.StatsData.Name);
+                var data = (ObjectStatsData)_loadFromAsset.LoadScriptableObject("weaponscriptableobjects",
+                    $"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}.asset");
                 var itemInstance = new ItemInstance(data);
                 _inventory.AddItem(itemInstance);
             }
         }
-        
+
         private void AddNewWeapon(GameObject prefab)
         {
             var weapon = Instantiate(prefab, _inventoryObject.position, Quaternion.identity, _inventoryObject);
@@ -150,7 +154,7 @@ namespace DefaultNamespace
             {
                 canBeUpgraded.Add(new BonusData(data, 0));
             }
-            
+
             return canBeUpgraded;
         }
 

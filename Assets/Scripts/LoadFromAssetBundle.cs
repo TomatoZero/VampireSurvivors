@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -8,6 +9,13 @@ namespace DefaultNamespace
         private string _assetBundlePath;
         private string _assetBundleFolderPath;
         private string _assetBundleManifestPath;
+
+        private List<AssetBundle> _loadedAssetBundles;
+
+        private void Awake()
+        {
+            _loadedAssetBundles = new List<AssetBundle>();
+        }
 
         private void OnEnable()
         {
@@ -19,34 +27,50 @@ namespace DefaultNamespace
 
         public GameObject LoadPrefab(string bundleName, string prefabName)
         {
-            SetupPath(bundleName, prefabName);
-            
-            var assetBundle = LoadFromDisk();
-            
-            if (assetBundle == null) {
-                Debug.Log("Failed to load AssetBundle!");
-                return new GameObject();
+            var assetBundle = FindFromLoaded(bundleName);
+
+            if (assetBundle is null)
+            {
+                SetupPath(bundleName, prefabName);
+                assetBundle = LoadFromDisk(bundleName);
+
+                if (assetBundle == null)
+                {
+                    Debug.Log("Failed to load AssetBundle!");
+                    return new GameObject();
+                }
+
+                _loadedAssetBundles.Add(assetBundle);
             }
-            
-            return LoadPrefab(assetBundle, prefabName);
+
+            var prefab = LoadPrefab(assetBundle, prefabName);
+            return prefab;
         }
 
         public ScriptableObject LoadScriptableObject(string bundleName, string objectName)
         {
-            SetupPath(bundleName, objectName);
-            var assetBundle = LoadFromDisk();
-            
-            if (assetBundle == null) {
-                Debug.Log("Failed to load AssetBundle!");
-                return null;
+            var assetBundle = FindFromLoaded(bundleName);
+
+            if (assetBundle is null)
+            {
+                SetupPath(bundleName, objectName);
+                assetBundle = LoadFromDisk(bundleName);
+
+                if (assetBundle == null)
+                {
+                    Debug.Log("Failed to load AssetBundle!");
+                    return null;
+                }
             }
 
-            return LoadScriptableObject(assetBundle, objectName);
+            var scriptable = LoadScriptableObject(assetBundle, objectName);
+            // UnloadDependencies();
+            return scriptable;
         }
 
-        private AssetBundle LoadFromDisk()
+        private AssetBundle LoadFromDisk(string bundleName)
         {
-            LoadDependencies("weaponsassetbundle");
+            _loadedAssetBundles.Add(LoadDependencies(bundleName));
             Debug.LogWarning(_assetBundlePath);
             return AssetBundle.LoadFromFile(_assetBundlePath);
         }
@@ -59,12 +83,32 @@ namespace DefaultNamespace
             var dependencies = manifest.GetAllDependencies(dependenciesFor);
             foreach (var dependency in dependencies)
             {
-                AssetBundle.LoadFromFile(Path.Combine(_assetBundleFolderPath, dependency));
+                _loadedAssetBundles.Add(AssetBundle.LoadFromFile($"{_assetBundleFolderPath}/{dependency}"));
             }
 
             return weaponManifest;
         }
-        
+
+        private void UnloadDependencies()
+        {
+            foreach (var bundle in _loadedAssetBundles)
+            {
+                bundle.UnloadAsync(false);
+            }
+
+            _loadedAssetBundles = new List<AssetBundle>();
+        }
+
+        private AssetBundle FindFromLoaded(string name)
+        {
+            foreach (var bundle in _loadedAssetBundles)
+            {
+                if (bundle.name == name) return bundle;
+            }
+
+            return null;
+        }
+
         private GameObject LoadPrefab(AssetBundle myLoadedAssetBundle, string fileName)
         {
             return myLoadedAssetBundle.LoadAsset<GameObject>(fileName);

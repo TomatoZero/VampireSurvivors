@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 751067560
+CRC: 2987651633
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a230b5d0587901432268b98f60819d0
+    Hash: 2f653bb6feba8c05e6d831ca616f5f95
   TypeTreeHash:
     serializedVersion: 2
     Hash: e872f443f30bcdff40d55de3c24cd733
@@ -42,6 +42,8 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Stats.LevelUpBonuses
 - AssemblyName: Assembly-CSharp
   ClassName: Stats.StatData
 - AssemblyName: UnityEngine.CoreModule

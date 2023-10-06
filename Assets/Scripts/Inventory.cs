@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Interface;
 using Stats;
 using Stats.Instances;
-using Stats.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 using Weapons;
@@ -14,10 +12,10 @@ namespace DefaultNamespace
     public class Inventory : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private UnityEvent<List<StatData>> _updateStatsEvent;
-        
+        [SerializeField] private UnityEvent _endSetupStatsEvent;
         [SerializeField] private List<WeaponStatsController> _weapons;
         [SerializeField] private List<ItemInstance> _items;
-        
+
         private delegate void StatsUpdate(PlayerInstance instance);
 
         private event StatsUpdate SetupStatEvent;
@@ -27,7 +25,7 @@ namespace DefaultNamespace
 
         public List<WeaponStatsController> Weapons => _weapons;
         public List<ItemInstance> Items => _items;
-        
+
 
         private void Awake()
         {
@@ -51,15 +49,16 @@ namespace DefaultNamespace
         public void AddWeapon(WeaponStatsController weapon)
         {
             AddWeapon(weapon, _playerInstance);
+            
         }
-        
+
         public void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
         {
             _weapons.Add(weapon);
-            
+
             SetupStatEvent += weapon.SetupStatEventHandler;
             UpdateStatEvent += weapon.UpdateStatsEventHandler;
-            
+
             weapon.SetupStatEventHandler(playerInstance);
         }
 
@@ -90,17 +89,17 @@ namespace DefaultNamespace
                 foreach (var itemCurrentStat in item.CurrentStats)
                 {
                     var statId = FindStatIdInList(allBonus, itemCurrentStat.Stat);
-                    
-                    if(statId == -1)
+
+                    if (statId == -1)
                     {
                         allBonus.Add((StatData)itemCurrentStat.Clone());
                         continue;
                     }
-                    
+
                     allBonus[statId].Value += itemCurrentStat.Value;
                 }
             }
-            
+
             return allBonus;
         }
 
@@ -113,7 +112,7 @@ namespace DefaultNamespace
 
             return -1;
         }
-        
+
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _playerInstance = (PlayerInstance)newInstance;

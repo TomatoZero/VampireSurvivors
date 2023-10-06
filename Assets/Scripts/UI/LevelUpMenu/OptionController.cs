@@ -27,8 +27,12 @@ namespace UI.LevelUpMenu
             _ico.sprite = data.StatsData.Ico;
             _name.text = data.StatsData.Name;
             _level.text = $"New level: {data.Level}";
-
-            if (data.Level == 0) _description.text = $"New weapon {data.StatsData.Name}";
+            
+            if (data.Level == 0)
+            {
+                _level.text = "";
+                _description.text = $"New weapon {data.StatsData.Name}";
+            }
             else _description.text = ConvertStatDataToDescription(data.StatsData.LevelUpBonuses[data.Level - 2]);
         }
 
@@ -38,7 +42,7 @@ namespace UI.LevelUpMenu
 
             foreach (var statData in stat.BonusStat)
             {
-                description += $"Add {statData.Value} to {statData.Stat}";
+                description += $"Add {statData.Value} to {statData.Stat}\n";
             }
 
             return description;

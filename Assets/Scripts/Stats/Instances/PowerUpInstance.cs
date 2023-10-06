@@ -12,7 +12,7 @@ namespace Stats.Instances
             get => _currentStats;
             private protected set => _currentStats = value;
         }
-        
+
         public List<StatData> CurrentBonus
         {
             get => _currentBonus;
@@ -27,7 +27,7 @@ namespace Stats.Instances
         {
             if (_statsData.MaxLvl <= _currentLvl) return;
 
-            var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 2];
+            var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 1];
 
             foreach (var statData in lvlUpStatsData.BonusStat)
             {

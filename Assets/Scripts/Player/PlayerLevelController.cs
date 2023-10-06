@@ -7,6 +7,7 @@ namespace Player
     {
         [SerializeField] private UnityEvent _levelUpEvent;
         [SerializeField] private UnityEvent _levelUpEndEvent;
+        [SerializeField] private UnityEvent<float> _xpChangeEvent;  
 
         private int _currentLevel = 1;
         private int _currentXp;
@@ -21,6 +22,10 @@ namespace Player
                 _currentXp -= _nextLevelXpRequire;
                 LevelUp();
             }
+            
+            var currentXpInPercent = CalculateXpInPercent();
+            Debug.Log($"currentXpInPercent {currentXpInPercent}");
+            _xpChangeEvent.Invoke(currentXpInPercent);
         }
         
         public void LevelUp()
@@ -50,5 +55,7 @@ namespace Player
                 _nextLevelXpRequire += 16;
             }
         }
+
+        private float CalculateXpInPercent() => (((float)_currentXp) / _nextLevelXpRequire);
     }
 }

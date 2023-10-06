@@ -71,7 +71,6 @@ namespace DefaultNamespace
         private AssetBundle LoadFromDisk(string bundleName)
         {
             _loadedAssetBundles.Add(LoadDependencies(bundleName));
-            Debug.LogWarning(_assetBundlePath);
             return AssetBundle.LoadFromFile(_assetBundlePath);
         }
 

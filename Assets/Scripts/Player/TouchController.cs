@@ -1,4 +1,5 @@
-﻿using PickUpItems.Gem;
+﻿using System;
+using PickUpItems.Gem;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,11 +11,11 @@ namespace Player
         [SerializeField] private UnityEvent<int> _xpGainEvent;
 
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
             if (((1 << other.gameObject.layer) & _pickUpItemLayer) != 0)
             {
-                CompareTag(other);
+                CompareTag(other.collider);
             }
         }
 

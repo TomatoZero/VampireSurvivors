@@ -13,7 +13,8 @@ namespace DefaultNamespace
         [SerializeField] private Transform _player;
         [SerializeField] private GameObject _enemyPrefab;
         [SerializeField] private List<Transform> _spawners;
-
+        [SerializeField] private GemSpawner _gemSpawner;
+        
         private int _enemyCount;
         private int _enemyCountPerSpawn;
         private WaitForSeconds _delay;
@@ -55,7 +56,7 @@ namespace DefaultNamespace
         {
             var spawnPos = GetRandomPos();
             spawnPos.z = 0;
-            var instance = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity , transform).GetComponent<EnemyMovementController>();
+            var instance = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity , transform);
             SetUpInstance(instance);
         }
 
@@ -65,9 +66,12 @@ namespace DefaultNamespace
             return _spawners[x].position;
         }
 
-        private void SetUpInstance(EnemyMovementController enemy)
+        private void SetUpInstance(GameObject instance)
         {
-            enemy.SetPlayer(_player);
+            var moveController = instance.GetComponent<EnemyMovementController>();
+            moveController.SetPlayer(_player);
+            var healthController = instance.GetComponent<EnemyHealthController>();
+            healthController.AddDieListener(_gemSpawner.Spawn);
         }
     }
 }

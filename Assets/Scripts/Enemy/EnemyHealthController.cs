@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace;
 using Interface;
 using Stats.Instances;
 using UnityEngine;
@@ -8,10 +9,12 @@ namespace Enemy
 {
     public class EnemyHealthController : MonoBehaviour, IUpdateStats, IHealth
     {
-        [SerializeField] private UnityEvent _enemyDie;
+        [SerializeField] private UnityEvent<Vector3> _enemyDie;
         
         private float _maxHealth;
         private float _currentHealth;
+
+        public UnityEvent<Vector3> EnemyDie => _enemyDie;
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
@@ -46,13 +49,18 @@ namespace Enemy
             
             _currentHealth -= damage;
 
-            if(_currentHealth <= 0) _enemyDie.Invoke();
+            if(_currentHealth <= 0) _enemyDie.Invoke(transform.position);
         }
 
         public void Die()
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
+        }
+
+        public void AddDieListener(GemSpawner.SpawnGem method)
+        {
+            _enemyDie.AddListener(_ => method(transform.position));
         }
     }
 }

@@ -7,7 +7,8 @@ namespace DefaultNamespace
     public class GemSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject _gemPrefab;
-        
+
+        public delegate void SpawnGem(Vector3 pos);
         public delegate void Magnet();
 
         public event Magnet MagnetEvent;

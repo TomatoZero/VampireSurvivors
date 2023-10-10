@@ -1,14 +1,16 @@
 ﻿using System;
 using Interface;
+using PickUpItems;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Player
 {
     public class MagnetController : MonoBehaviour, IUpdateStats
     {
-        [SerializeField] private LayerMask _gemLayer;
+        [FormerlySerializedAs("_gemLayer")] [SerializeField] private LayerMask _pickUpItemLayer;
         [SerializeField] private UnityEvent<int> _pickUpGemEvent;
 
         private float _area;
@@ -21,10 +23,12 @@ namespace Player
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (((1 << other.gameObject.layer) & _gemLayer) != 0)
+            if (((1 << other.gameObject.layer) & _pickUpItemLayer) != 0)
             {
-                Destroy(other.gameObject);
-                _pickUpGemEvent.Invoke(5);
+                if(other.TryGetComponent(out PickUpItemMoveController moveController))
+                {
+                    moveController.EnableItem(transform);
+                }
             }
         }
 

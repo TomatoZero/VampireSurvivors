@@ -18,12 +18,6 @@ namespace Player
         private float _currentHealth;
         private bool _isRecovering = false;
 
-        private void Start()
-        {
-            _currentHealth = _maxHealth;
-            InvokeHealthChaneEvent();
-        }
-
         public void Heal(float hp)
         {
             if (hp < 0) throw new ArgumentException();

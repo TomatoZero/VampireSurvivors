@@ -11,8 +11,7 @@ namespace Player
     public class MagnetController : MonoBehaviour, IUpdateStats
     {
         [FormerlySerializedAs("_gemLayer")] [SerializeField] private LayerMask _pickUpItemLayer;
-        [SerializeField] private UnityEvent<int> _pickUpGemEvent;
-
+        
         private float _area;
         private Vector3 _scale;
 
@@ -21,7 +20,7 @@ namespace Player
             _scale = transform.localScale;
         }
 
-        private void OnTriggerStay2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (((1 << other.gameObject.layer) & _pickUpItemLayer) != 0)
             {

@@ -389,24 +389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36eb9c84f1eb874cac61267d0a7757c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gemLayer:
+  _pickUpItemLayer:
     serializedVersion: 2
     m_Bits: 256
-  _pickUpGemEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 243864186}
-        m_TargetAssemblyTypeName: Player.PlayerLevelController, Assembly-CSharp
-        m_MethodName: IncreaseXp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!58 &153110270
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -838,9 +823,7 @@ GameObject:
   - component: {fileID: 243864179}
   - component: {fileID: 243864185}
   - component: {fileID: 243864184}
-  - component: {fileID: 243864181}
-  - component: {fileID: 243864182}
-  - component: {fileID: 243864183}
+  - component: {fileID: 243864187}
   - component: {fileID: 243864186}
   m_Layer: 6
   m_Name: Player
@@ -917,206 +900,10 @@ Transform:
   - {fileID: 818073540}
   - {fileID: 1630951817}
   - {fileID: 153110268}
+  - {fileID: 887640470}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &243864181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243864176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9490fd127ac1bb74dba336231595498c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerStatsData: {fileID: 11400000, guid: 9a25615ed015fdb46803dd11d732b0e0, type: 2}
-  _setupStatsEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 818073541}
-        m_TargetAssemblyTypeName: Player.MovementController, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 243864182}
-        m_TargetAssemblyTypeName: Player.HealthController, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 243864183}
-        m_TargetAssemblyTypeName: Player.DamageController, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1630951818}
-        m_TargetAssemblyTypeName: DefaultNamespace.Inventory, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 153110269}
-        m_TargetAssemblyTypeName: Player.MagnetController, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _statsUpdateEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 818073541}
-        m_TargetAssemblyTypeName: Player.MovementController, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 243864182}
-        m_TargetAssemblyTypeName: Player.HealthController, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 243864183}
-        m_TargetAssemblyTypeName: Player.DamageController, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1630951818}
-        m_TargetAssemblyTypeName: DefaultNamespace.Inventory, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 153110269}
-        m_TargetAssemblyTypeName: Player.MagnetController, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _inventory: {fileID: 1630951818}
---- !u!114 &243864182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243864176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a113e588f45a81f4fa1244c77d0eca8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerHealthChangeEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1202144008}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _playerDie:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &243864183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243864176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b001c2628816e4c86850316830962d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _takeDamageEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 243864182}
-        m_TargetAssemblyTypeName: Player.HealthController, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!50 &243864184
 Rigidbody2D:
   serializedVersion: 4
@@ -1198,73 +985,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 243864176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f47d7475b419224418f7bd0267771fe3, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b001c2628816e4c86850316830962d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelUpEvent:
+  _takeDamageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 243864181}
-        m_TargetAssemblyTypeName: Player.PlayerStatsController, Assembly-CSharp
-        m_MethodName: LevelUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 515382333}
-        m_TargetAssemblyTypeName: DefaultNamespace.ItemHandler, Assembly-CSharp
-        m_MethodName: ShowLevelUps
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 868637076}
-        m_TargetAssemblyTypeName: DefaultNamespace.TimeController, Assembly-CSharp
-        m_MethodName: TurnOffTime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _levelUpEndEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 868637076}
-        m_TargetAssemblyTypeName: DefaultNamespace.TimeController, Assembly-CSharp
-        m_MethodName: TurnOnTime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _xpChangeEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2037392019}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
+      - m_Target: {fileID: 887640472}
+        m_TargetAssemblyTypeName: Player.HealthController, Assembly-CSharp
+        m_MethodName: TakeDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &243864187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243864176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a7c029bd186ae43b87f970f22c4824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickUpItemLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _xpGainEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 887640469}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2647,6 +2410,291 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a56a73a8e88839c41ba6152b060e0980, type: 3}
+--- !u!1 &887640469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887640470}
+  - component: {fileID: 887640473}
+  - component: {fileID: 887640472}
+  - component: {fileID: 887640471}
+  m_Layer: 6
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887640470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887640469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 243864180}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887640471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887640469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47d7475b419224418f7bd0267771fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelUpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Player.PlayerStatsController, Assembly-CSharp
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 515382333}
+        m_TargetAssemblyTypeName: DefaultNamespace.ItemHandler, Assembly-CSharp
+        m_MethodName: ShowLevelUps
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 868637076}
+        m_TargetAssemblyTypeName: DefaultNamespace.TimeController, Assembly-CSharp
+        m_MethodName: TurnOffTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _levelUpEndEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 868637076}
+        m_TargetAssemblyTypeName: DefaultNamespace.TimeController, Assembly-CSharp
+        m_MethodName: TurnOnTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _xpChangeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2037392019}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &887640472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887640469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a113e588f45a81f4fa1244c77d0eca8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealthChangeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1202144008}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _playerDie:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &887640473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887640469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9490fd127ac1bb74dba336231595498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStatsData: {fileID: 11400000, guid: 9a25615ed015fdb46803dd11d732b0e0, type: 2}
+  _setupStatsEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 818073541}
+        m_TargetAssemblyTypeName: Player.MovementController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 243864186}
+        m_TargetAssemblyTypeName: Player.DamageController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 887640472}
+        m_TargetAssemblyTypeName: Player.HealthController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1630951818}
+        m_TargetAssemblyTypeName: DefaultNamespace.Inventory, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 153110269}
+        m_TargetAssemblyTypeName: Player.MagnetController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _statsUpdateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 818073541}
+        m_TargetAssemblyTypeName: Player.MovementController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 243864186}
+        m_TargetAssemblyTypeName: Player.DamageController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 887640472}
+        m_TargetAssemblyTypeName: Player.HealthController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1630951818}
+        m_TargetAssemblyTypeName: DefaultNamespace.Inventory, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 153110269}
+        m_TargetAssemblyTypeName: Player.MagnetController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _inventory: {fileID: 1630951818}
 --- !u!1 &919877462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,7 +3736,7 @@ MonoBehaviour:
   _updateStatsEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 243864181}
+      - m_Target: {fileID: 887640473}
         m_TargetAssemblyTypeName: Player.PlayerStatsController, Assembly-CSharp
         m_MethodName: AddBonusesEventHandler
         m_Mode: 0
@@ -3703,7 +3751,7 @@ MonoBehaviour:
   _endSetupStatsEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 243864186}
+      - m_Target: {fileID: 887640471}
         m_TargetAssemblyTypeName: Player.PlayerLevelController, Assembly-CSharp
         m_MethodName: LevelUpEnd
         m_Mode: 1
@@ -4209,7 +4257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -68.9}
+  m_AnchoredPosition: {x: 50, y: -68.899994}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967017968
@@ -4256,7 +4304,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 243864186}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player.PlayerLevelController, Assembly-CSharp
         m_MethodName: LevelUp
         m_Mode: 1

@@ -25,7 +25,7 @@ namespace DefaultNamespace
         {
             var instance = Instantiate(_gemPrefab, pos, quaternion.identity, transform);
             
-            if (instance.TryGetComponent(out GemDataController gemData))
+            if (instance.TryGetComponent(out GemActionController gemData))
             {
                 gemData.Setup(GetXpBonus());
             }

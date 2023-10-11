@@ -1,4 +1,6 @@
-﻿using Interface;
+﻿using System;
+using System.Collections;
+using Interface;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,14 +12,27 @@ namespace Player
         [SerializeField] private UnityEvent<float> _takeDamageEvent;
 
         private float _armor;
+        private bool _isInvincible;
+
+        private void OnEnable()
+        {
+            _isInvincible = false;
+        }
 
         public void TakeDamage(float damage)
         {
+            if(_isInvincible) return;
             if(damage - _armor <= 0) return;
             
             _takeDamageEvent.Invoke(damage - _armor);
         }
 
+        public void MakeInvincibleFor(float seconds)
+        {
+            _isInvincible = true;
+            StartCoroutine(BecomeNotInvincibleAfter(seconds));
+        }
+        
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _armor = newInstance.GetStatByName(Stats.Stats.Armor).Value;
@@ -26,6 +41,14 @@ namespace Player
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _armor = newInstance.GetStatByName(Stats.Stats.Armor).Value;
+        }
+
+        private IEnumerator BecomeNotInvincibleAfter(float seconds)
+        {
+            Debug.Log("11111111111");
+            yield return new WaitForSeconds(seconds);
+            Debug.Log("222222222222");
+            _isInvincible = false;
         }
     }
 }

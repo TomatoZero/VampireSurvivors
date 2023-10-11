@@ -18,19 +18,20 @@ namespace Weapons
 
         private void Awake()
         {
-            if(_statsData is null)
+            if (_statsData is null)
             {
                 return;
             }
-            
+
             _instance = new WeaponInstance(_statsData);
         }
 
         public void LevelUp()
         {
             _instance.LevelUp();
+            _updateStatData.Invoke(_instance);
         }
-        
+
         public void SetupStatEventHandler(ObjectInstance playerInstance)
         {
             _setupStatData.Invoke(_instance);
@@ -44,14 +45,14 @@ namespace Weapons
 
             foreach (var statData in currentStats)
             {
-                if(statData.Stat == Stats.Stats.Luck) _instance.SetStatByName(statData.Stat, statData.Value);   
+                if (statData.Stat == Stats.Stats.Luck) _instance.SetStatByName(statData.Stat, statData.Value);
             }
 
             foreach (var bonus in playerInstance.CurrentBonus)
             {
                 _instance.AddValueToBonus(bonus.Stat, bonus.Value);
             }
-            
+
             _updateStatData.Invoke(_instance);
         }
     }

@@ -30,7 +30,7 @@ namespace Stats.Instances
 
             return new StatData();
         }
-        
+
         public virtual StatData GetStatByName(Stats stat)
         {
             foreach (var statData in _currentStats)
@@ -42,12 +42,12 @@ namespace Stats.Instances
         }
 
         public abstract void LevelUp();
-        
+
         protected virtual void SetStat(StatData statData)
         {
             SetStatByName(statData.Stat, statData.Value);
         }
-        
+
         public virtual void SetStatByName(Stats stat, float value)
         {
             foreach (var statData in _currentStats)
@@ -63,7 +63,7 @@ namespace Stats.Instances
             foreach (var stat in _statsData.DefaultStatsData)
                 _currentStats.Add((StatData)stat.Clone());
         }
-        
+
         protected float CalculateNewValue(float defaultValue, float addPercent)
         {
             var addValue = (defaultValue * addPercent) / 100;

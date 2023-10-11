@@ -28,7 +28,6 @@ namespace Stats.Instances
             if (_statsData.MaxLvl <= _currentLvl) return;
 
             var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 1];
-
             foreach (var statData in lvlUpStatsData.BonusStat)
             {
                 AddValueToBonus(statData.Stat, statData.Value);

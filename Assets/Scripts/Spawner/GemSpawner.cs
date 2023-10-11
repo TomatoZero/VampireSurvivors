@@ -33,6 +33,7 @@ namespace DefaultNamespace
             if (instance.TryGetComponent(out PickUpItemMoveController gemMove))
             {
                 MagnetEvent += gemMove.EnableItem;
+                gemMove.ItemDestroyEvent += Unsubscribe;
             }
         }
 
@@ -46,6 +47,11 @@ namespace DefaultNamespace
             Delegate[] clientList = MagnetEvent.GetInvocationList();
             foreach (var d in clientList)
                 MagnetEvent -= (d as Magnet);
+        }
+        
+        private void Unsubscribe(Magnet magnetEvent)
+        {
+            MagnetEvent -= magnetEvent;
         }
     }
 }

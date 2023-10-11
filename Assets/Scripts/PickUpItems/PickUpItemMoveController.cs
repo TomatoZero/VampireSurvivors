@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using DefaultNamespace;
+using UnityEngine;
 
 namespace PickUpItems
 {
@@ -10,7 +12,11 @@ namespace PickUpItems
         private Transform _playerTransform;
         private Vector2 _moveDirection;
         private float _speed;
+        
+        public delegate void ItemDestroy(GemSpawner.Magnet magnetEvent);
 
+        public event ItemDestroy ItemDestroyEvent;
+        
         private void Awake()
         {
             _speed = _defaultSpeed;
@@ -38,7 +44,16 @@ namespace PickUpItems
 
         public void DestroyItem()
         {
-            
+            ItemDestroyEvent.Invoke(EnableItem);
+            UnsubscribeFromEvent();
+            Destroy(gameObject);
+        }
+        
+        private void UnsubscribeFromEvent()
+        {
+            Delegate[] clientList = ItemDestroyEvent.GetInvocationList();
+            foreach (var d in clientList)
+                ItemDestroyEvent -= (d as ItemDestroy);
         }
     }
 }

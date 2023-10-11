@@ -44,16 +44,17 @@ namespace PickUpItems
 
         public void DestroyItem()
         {
-            ItemDestroyEvent.Invoke(EnableItem);
+            ItemDestroyEvent?.Invoke(EnableItem);
             UnsubscribeFromEvent();
             Destroy(gameObject);
         }
         
         private void UnsubscribeFromEvent()
         {
-            Delegate[] clientList = ItemDestroyEvent.GetInvocationList();
-            foreach (var d in clientList)
-                ItemDestroyEvent -= (d as ItemDestroy);
+            Delegate[] clientList = ItemDestroyEvent?.GetInvocationList();
+            if (clientList != null)
+                foreach (var d in clientList)
+                    ItemDestroyEvent -= (d as ItemDestroy);
         }
     }
 }

@@ -6,7 +6,6 @@ namespace PickUpItems.Gem
     public class GemActionController : PickUpItemActionController
     {
         [SerializeField] private GemDataController _gemData;
-        [SerializeField] private PickUpItemMoveController _moveController;
         
         private protected override void ItemAction(Collision2D collision2D)
         {
@@ -14,7 +13,6 @@ namespace PickUpItems.Gem
             if (levelController is not null)
             {
                 levelController.IncreaseXp(_gemData.XpBonus);
-                _moveController.DestroyItem();
             }
         }
     }

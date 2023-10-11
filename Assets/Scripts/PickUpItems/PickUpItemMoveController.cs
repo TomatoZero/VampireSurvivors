@@ -35,5 +35,10 @@ namespace PickUpItems
 
             this.enabled = true;
         }
+
+        public void DestroyItem()
+        {
+            
+        }
     }
 }

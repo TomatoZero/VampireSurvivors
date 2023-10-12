@@ -70,6 +70,7 @@ namespace DefaultNamespace
                 select item).First();
 
             levelUpItem.LevelUp();
+            _updateStatsEvent.Invoke(levelUpItem.CurrentStats);
             _endSetupStatsEvent.Invoke();
         }
 

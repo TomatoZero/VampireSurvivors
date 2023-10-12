@@ -36,6 +36,22 @@ namespace Player
         public void AddBonusesEventHandler(List<StatData> bonusFromNewItem)
         {
             _instance.AddBonusesFromItem(bonusFromNewItem);
+            
+            // var s = "";
+            // foreach (var stat in _instance.CurrentStats)
+            // {
+            //     s += stat + "\n";
+            // }
+            //
+            // s += "\nBonus\n";
+            //
+            // foreach (var stat in _instance.CurrentBonus)
+            // {
+            //     s += stat + "\n";
+            // }
+            //
+            // Debug.Log(s);
+            
             _statsUpdateEvent.Invoke(_instance);
         }
     }

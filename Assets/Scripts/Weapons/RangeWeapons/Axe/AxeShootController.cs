@@ -27,13 +27,7 @@ namespace Weapons.RangeWeapons.Axe
             }
             StartTimerEvent.Invoke();
         }
-
-        // private protected override void CreateInstance()
-        // {
-        //     var instance = Instantiate(Prefab, transform.position, Quaternion.identity, ParticlesParent);
-        //     SetUpParticle(instance);
-        // }
-
+        
         public override void SetupStatEventHandler(ObjectInstance newInstance)
         {
             var interval = newInstance.GetStatByName(Stats.Stats.ProjectilesInterval).Value;

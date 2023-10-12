@@ -33,7 +33,7 @@ namespace Stats.Instances
 
                 foreach (var statData in lvlUpStatsData.BonusStat)
                 {
-                    AddValueToBonus(statData.Stat, statData.Value);
+                    AddValueToLevelUpBonus(statData.Stat, statData.Value);
                 }
             }
 
@@ -43,8 +43,7 @@ namespace Stats.Instances
         protected override void SetupStat()
         {
             base.SetupStat();
-            CurrentBonus = new List<StatData>();
-
+            
             foreach (var bonus in PlayerStatsData.BonusStats)
             {
                 CurrentBonus.Add((StatData)bonus.Clone());
@@ -76,6 +75,11 @@ namespace Stats.Instances
                     SetStatByName(stat, newValue);
                     break;
             }
+        }
+
+        private protected override bool IsNecessaryStat(Stats statData)
+        {
+            return true;
         }
     }
 }

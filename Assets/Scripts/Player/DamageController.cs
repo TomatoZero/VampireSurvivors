@@ -45,9 +45,7 @@ namespace Player
 
         private IEnumerator BecomeNotInvincibleAfter(float seconds)
         {
-            Debug.Log("11111111111");
             yield return new WaitForSeconds(seconds);
-            Debug.Log("222222222222");
             _isInvincible = false;
         }
     }

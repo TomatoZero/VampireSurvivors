@@ -14,7 +14,6 @@ namespace Stats.Instances
 
         protected override void SetupStat()
         {
-            CurrentBonus = new List<StatData>();
             base.SetupStat();
         }
 
@@ -49,6 +48,24 @@ namespace Stats.Instances
                     base.SetStatByName(stat, newValue);
                     break;
             }
+        }
+
+        private protected override bool IsNecessaryStat(Stats statData)
+        {
+            switch (statData)
+            {
+                case Stats.MaxHealth:
+                case Stats.MoveSpeed:
+                case Stats.Armor:
+                case Stats.Magnet:
+                case Stats.Revival:
+                case Stats.Recovery:
+                case Stats.Reroll:
+                case Stats.Skip:
+                    return false;
+            }
+
+            return true;
         }
 
         private bool CheckExceptions(StatData statData)

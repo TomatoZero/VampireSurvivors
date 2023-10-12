@@ -13,6 +13,9 @@ namespace UI
         [SerializeField] private UnityEvent<BonusData> _upgradeItemEvent;
         [SerializeField] private UnityEvent _hideAllExceptHUDEvent;
         [SerializeField] private UnityEvent _showLevelUpUiEvent;
+        [Space, Header("PauseMenu")]
+        [SerializeField] private UnityEvent _showPauseMenu;
+        [SerializeField] private UnityEvent _hidePauseMenu;
         
         public void UpdateStatEventHandler(PlayerInstance instance)
         {
@@ -34,6 +37,11 @@ namespace UI
         {
             _upgradeItemEvent.Invoke(data);
             _hideAllExceptHUDEvent.Invoke();
+        }
+
+        public void ShowPauseMenu()
+        {
+            
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using UI.Structs;
+﻿using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +8,7 @@ namespace UI.LevelUpMenu
     {
         [SerializeField] private UnityEvent<BonusData> _upgradeItemEvent;
         [SerializeField] private BonusPanel _bonusPanel;
-
+        
         public delegate void SelectBonusDelegate(BonusData bonus);
 
         private void Awake()

@@ -50,12 +50,26 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
 
         public void SetCurrentStats(PlayerInstance playerInstance)
         {
+            var s = "";
             foreach (var stat in playerInstance.CurrentStats)
             {
                 SetStat(stat);
+                s += stat + "\n";
             }
+            
+            Debug.Log(s);
         }
 
+        public void ShowCurrentStats()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void HideCurrentStats()
+        {
+            gameObject.SetActive(false);
+        }
+        
         private void SetStat(StatData statData)
         {
             switch (statData.Stat)

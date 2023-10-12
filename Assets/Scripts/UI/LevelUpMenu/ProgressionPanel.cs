@@ -18,13 +18,21 @@ namespace UI.LevelUpMenu
 
         public void SetupUpgradesEventHandler(BonusData[] upgrade)
         {
-            gameObject.SetActive(true);
             _bonusPanel.SetBonus(upgrade);
         }
 
-        public void SelectBonus(BonusData bonus)
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+        
+        public void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        private void SelectBonus(BonusData bonus)
+        {
             _upgradeItemEvent.Invoke(bonus);
         }
     }

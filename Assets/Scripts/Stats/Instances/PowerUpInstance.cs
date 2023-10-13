@@ -92,14 +92,10 @@ namespace Stats.Instances
 
         protected virtual StatData GetStatFromCurrenBonus(Stats stats)
         {
-            var s = "";
             foreach (var bonus in CurrentBonus)
             {
-                s += bonus + "\n";
                 if (bonus.Stat == stats) return bonus;
             }
-
-            Debug.Log(s);
 
             return new StatData();
         }

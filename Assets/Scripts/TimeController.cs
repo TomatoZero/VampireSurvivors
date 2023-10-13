@@ -25,6 +25,17 @@ namespace DefaultNamespace
 
             Time.timeScale = 0;
         }
-        
+
+        public void TurnTime()
+        {
+            if(Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ MonoBehaviour:
     - _stat: 4
       _value: 40
     - _stat: 19
-      _value: 2
+      _value: 10
   - _bonusStat:
     - _stat: 5
       _value: -0.1

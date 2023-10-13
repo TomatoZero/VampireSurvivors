@@ -1,4 +1,5 @@
-﻿using Stats.Instances;
+﻿using System;
+using Stats.Instances;
 using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,7 +17,16 @@ namespace UI
         [Space, Header("PauseMenu")]
         [SerializeField] private UnityEvent _showPauseMenu;
         [SerializeField] private UnityEvent _hidePauseMenu;
-        
+
+        private bool _isUpgradeOpen;
+        private bool _isStatMenuOpen;
+
+        private void Awake()
+        {
+            _isUpgradeOpen = false;
+            _isStatMenuOpen = false;
+        }
+
         public void UpdateStatEventHandler(PlayerInstance instance)
         {
             _updateStats.Invoke(instance);
@@ -26,11 +36,14 @@ namespace UI
         {
             _setUpdates.Invoke(bonusData);
             _showLevelUpUiEvent.Invoke();
+            _isUpgradeOpen = true;
         }
 
         public void HideAllExceptHUD()
         {
             _hideAllExceptHUDEvent.Invoke();
+            _isUpgradeOpen = false;
+            _isStatMenuOpen = false;
         }
 
         public void UpgradeItemEventHandler(BonusData data)
@@ -39,9 +52,20 @@ namespace UI
             _hideAllExceptHUDEvent.Invoke();
         }
 
-        public void ShowPauseMenu()
+        public void TurnPauseMenu()
         {
+            if(_isUpgradeOpen) return;
             
+            if (_isStatMenuOpen)
+            {
+                _hideAllExceptHUDEvent.Invoke();
+                _isStatMenuOpen = false;
+            }
+            else
+            {
+                _showPauseMenu.Invoke();
+                _isStatMenuOpen = true;
+            }
         }
     }
 }

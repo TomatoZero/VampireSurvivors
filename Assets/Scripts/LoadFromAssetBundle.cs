@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
@@ -23,6 +24,8 @@ namespace DefaultNamespace
             _assetBundlePath =
                 Path.Combine(Application.streamingAssetsPath, "weaponsassetbundle");
             _assetBundleFolderPath = Path.Combine(Application.streamingAssetsPath);
+            
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
 
         public GameObject LoadPrefab(string bundleName, string prefabName)
@@ -88,6 +91,11 @@ namespace DefaultNamespace
             return weaponManifest;
         }
 
+        private void OnSceneUnloaded(Scene unloadedScene)
+        {
+            UnloadDependencies();
+        }
+        
         private void UnloadDependencies()
         {
             foreach (var bundle in _loadedAssetBundles)

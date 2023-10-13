@@ -7,6 +7,7 @@ namespace UI.LevelUpMenu
     public class ProgressionPanel : MonoBehaviour
     {
         [SerializeField] private UnityEvent<BonusData> _upgradeItemEvent;
+        [SerializeField] private UnityEvent _hideLevelUpEvent;
         [SerializeField] private BonusPanel _bonusPanel;
         
         public delegate void SelectBonusDelegate(BonusData bonus);
@@ -34,6 +35,7 @@ namespace UI.LevelUpMenu
         private void SelectBonus(BonusData bonus)
         {
             _upgradeItemEvent.Invoke(bonus);
+            _hideLevelUpEvent.Invoke();
         }
     }
 }

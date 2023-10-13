@@ -41,9 +41,9 @@ namespace UI
 
         public void HideAllExceptHUD()
         {
-            _hideAllExceptHUDEvent.Invoke();
             _isUpgradeOpen = false;
             _isStatMenuOpen = false;
+            _hideAllExceptHUDEvent.Invoke();
         }
 
         public void UpgradeItemEventHandler(BonusData data)
@@ -58,7 +58,7 @@ namespace UI
             
             if (_isStatMenuOpen)
             {
-                _hideAllExceptHUDEvent.Invoke();
+                _hidePauseMenu.Invoke();
                 _isStatMenuOpen = false;
             }
             else

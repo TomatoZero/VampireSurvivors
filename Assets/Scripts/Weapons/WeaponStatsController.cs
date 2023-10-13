@@ -30,7 +30,7 @@ namespace Weapons
         {
             _instance.LevelUp();
             _updateStatData.Invoke(_instance);
-            DebugPrint("Level up");
+            // DebugPrint("Level up");
         }
 
         public void SetupStatEventHandler(ObjectInstance playerInstance)
@@ -55,7 +55,7 @@ namespace Weapons
             }
 
             _updateStatData.Invoke(_instance);
-            DebugPrint("Update");
+            // DebugPrint("Update");
         }
 
         private void DebugPrint(string type)

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Stats.ScriptableObjects;
-using UnityEngine;
 
 namespace Stats.Instances
 {
@@ -21,6 +20,10 @@ namespace Stats.Instances
             get => _currentBonus;
             private protected set => _currentBonus = value;
         }
+
+        public List<StatData> LevelUpBonus => _levelUpBonus;
+
+        public List<StatData> OutsideBonuses => _outsideBonuses;
 
         protected PowerUpInstance(ObjectStatsData statsData) : base(statsData)
         {
@@ -137,13 +140,13 @@ namespace Stats.Instances
             {
                 var levelUp = GetBonusValue(listWithSecondPart, stat);
                 statFromCurrent.Value = levelUp + value;
+                UpdateStatWithBonus(stat, statFromCurrent.Value);
             }
             else
             {
                 CurrentBonus.Add(new StatData(stat, value));
+                UpdateStatWithBonus(stat, value);
             }
-
-            UpdateStatWithBonus(stat, value);
         }
 
         private protected abstract void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue);

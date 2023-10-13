@@ -30,6 +30,7 @@ namespace Weapons
         {
             _instance.LevelUp();
             _updateStatData.Invoke(_instance);
+            DebugPrint("Level up");
         }
 
         public void SetupStatEventHandler(ObjectInstance playerInstance)
@@ -54,6 +55,40 @@ namespace Weapons
             }
 
             _updateStatData.Invoke(_instance);
+            DebugPrint("Update");
+        }
+
+        private void DebugPrint(string type)
+        {
+            var s = $"{type}\nStats: \n";
+
+            foreach (var stat in _instance.CurrentStats)
+            {
+                s += stat + "\n";
+            }
+
+            s += "\nLevel up bonus \n\n";
+            
+            foreach (var stat in _instance.LevelUpBonus)
+            {
+                s += stat + "\n";
+            }
+
+            s += "\nOutside bonus \n\n";
+            
+            foreach (var stat in _instance.OutsideBonuses)
+            {
+                s += stat + "\n";
+            }
+
+            s += "\nCurrent bonus\n\n";
+
+            foreach (var stat in _instance.CurrentBonus)
+            {
+                s += stat + "\n";   
+            }
+                
+            Debug.Log(s);
         }
     }
 }

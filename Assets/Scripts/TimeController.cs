@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
     public class TimeController : MonoBehaviour
     {
+        private void OnEnable()
+        {
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+        }
+
         public void TurnOnTime()
         {
-            if(Time.timeScale == 1)
+            if (Time.timeScale == 1)
             {
                 Debug.LogWarning("TimeScale already set to 1");
                 return;
@@ -14,10 +20,10 @@ namespace DefaultNamespace
 
             Time.timeScale = 1;
         }
-        
+
         public void TurnOffTime()
         {
-            if(Time.timeScale == 0)
+            if (Time.timeScale == 0)
             {
                 Debug.LogWarning("TimeScale already set to 0");
                 return;
@@ -28,7 +34,7 @@ namespace DefaultNamespace
 
         public void TurnTime()
         {
-            if(Time.timeScale == 1)
+            if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
             }
@@ -36,6 +42,11 @@ namespace DefaultNamespace
             {
                 Time.timeScale = 1;
             }
+        }
+
+        private void OnSceneUnloaded(Scene unloadedScene)
+        {
+            TurnOnTime();
         }
     }
 }

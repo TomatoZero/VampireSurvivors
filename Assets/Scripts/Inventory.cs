@@ -13,8 +13,10 @@ namespace DefaultNamespace
     {
         [SerializeField] private UnityEvent<List<StatData>> _updateStatsEvent;
         [SerializeField] private UnityEvent _endSetupStatsEvent;
+        [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayCurrentItemsEvent;
         [SerializeField] private List<WeaponStatsController> _weapons;
-        [SerializeField] private List<ItemInstance> _items;
+
+        private List<ItemInstance> _items;
 
         private delegate void StatsUpdate(PlayerInstance instance);
 
@@ -29,6 +31,7 @@ namespace DefaultNamespace
 
         private void Awake()
         {
+            DisplayCurrentItems();
         }
 
         private void OnEnable()
@@ -45,22 +48,14 @@ namespace DefaultNamespace
             _items.Add(item);
             _updateStatsEvent.Invoke(item.CurrentStats);
             _endSetupStatsEvent.Invoke();
+            DisplayCurrentItems();
         }
 
         public void AddWeapon(WeaponStatsController weapon)
         {
             AddWeapon(weapon, _playerInstance);
             _endSetupStatsEvent.Invoke();
-        }
-
-        public void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
-        {
-            _weapons.Add(weapon);
-
-            SetupStatEvent += weapon.SetupStatEventHandler;
-            UpdateStatEvent += weapon.UpdateStatsEventHandler;
-
-            weapon.SetupStatEventHandler(playerInstance);
+            DisplayCurrentItems();
         }
 
         public void LevelUpItem(string name)
@@ -72,6 +67,7 @@ namespace DefaultNamespace
             levelUpItem.LevelUp();
             _updateStatsEvent.Invoke(levelUpItem.CurrentStats);
             _endSetupStatsEvent.Invoke();
+            DisplayCurrentItems();
         }
 
         public void LevelUpWeapon(string name)
@@ -82,6 +78,7 @@ namespace DefaultNamespace
 
             levelUpWeapon.LevelUp();
             _endSetupStatsEvent.Invoke();
+            DisplayCurrentItems();
         }
 
         public List<StatData> GetAllItemBonuses()
@@ -107,16 +104,6 @@ namespace DefaultNamespace
             return allBonus;
         }
 
-        private int FindStatIdInList(List<StatData> list, Stats.Stats stat)
-        {
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                if (list[i].Stat == stat) return i;
-            }
-
-            return -1;
-        }
-
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _playerInstance = (PlayerInstance)newInstance;
@@ -127,6 +114,38 @@ namespace DefaultNamespace
         {
             _playerInstance = (PlayerInstance)newInstance;
             UpdateStatEvent?.Invoke(_playerInstance);
+        }
+
+        private void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
+        {
+            _weapons.Add(weapon);
+
+            SetupStatEvent += weapon.SetupStatEventHandler;
+            UpdateStatEvent += weapon.UpdateStatsEventHandler;
+
+            weapon.SetupStatEventHandler(playerInstance);
+        }
+
+        private int FindStatIdInList(List<StatData> list, Stats.Stats stat)
+        {
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                if (list[i].Stat == stat) return i;
+            }
+
+            return -1;
+        }
+
+        private void DisplayCurrentItems()
+        {
+            var weapons = new List<WeaponInstance>();
+
+            foreach (var weapon in _weapons)
+            {
+                weapons.Add(weapon.Instance);
+            }
+
+            _displayCurrentItemsEvent.Invoke(weapons, _items);
         }
     }
 }

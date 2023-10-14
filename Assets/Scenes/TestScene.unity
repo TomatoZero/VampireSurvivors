@@ -449,9 +449,9 @@ MonoBehaviour:
   m_Follow: {fileID: 243864180}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 16.6
     NearClipPlane: 0.3
-    FarClipPlane: 1092.83
+    FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -2298,10 +2298,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1092.83
+  far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 16.6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3719,7 +3719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7138719032291688959, guid: be5e80f40fcc8594791545e132ca2137, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.576584
+      value: -19.5766
       objectReference: {fileID: 0}
     - target: {fileID: 7199823889472441131, guid: be5e80f40fcc8594791545e132ca2137, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3847,7 +3847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331272400869143415, guid: be5e80f40fcc8594791545e132ca2137, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.454124
+      value: -16.454132
       objectReference: {fileID: 0}
     - target: {fileID: 8355337654427917532, guid: be5e80f40fcc8594791545e132ca2137, type: 3}
       propertyPath: m_AnchorMax.y

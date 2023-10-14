@@ -3,18 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Gem
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy & Weapon
+  - 
   - Water
   - UI
-  - Player
-  - Player Weapon
-  - PickUpItem
   - 
   - 
   - 
@@ -29,6 +25,9 @@ TagManager:
   - 
   - 
   - 
+  - Layer 1
+  - Layer 2
+  - Layer 3
   - 
   - 
   - 
@@ -42,9 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Game
-    uniqueID: 1324987441
+  - name: Layer 1
+    uniqueID: 2425651459
     locked: 0
-  - name: UI
-    uniqueID: 3312853119
+  - name: Layer 2
+    uniqueID: 4250941897
+    locked: 0
+  - name: Layer 3
+    uniqueID: 4189426099
     locked: 0

@@ -32,6 +32,7 @@ namespace DefaultNamespace
         private void Awake()
         {
             DisplayCurrentItems();
+            _items = new List<ItemInstance>();
         }
 
         private void OnEnable()

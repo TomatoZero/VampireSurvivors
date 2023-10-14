@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -11,16 +10,6 @@ namespace UI
         public void ResumeGame()
         {
             _resumeGameEvent.Invoke();
-        }
-
-        public void ExitDame()
-        {
-            Application.Quit();
-        }
-
-        public void RestartGame()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void Show()

@@ -3,6 +3,7 @@ using Stats.Instances;
 using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace UI
@@ -66,6 +67,16 @@ namespace UI
                 _showPauseMenu.Invoke();
                 _isStatMenuOpen = true;
             }
+        }
+        
+        public void ExitDame()
+        {
+            Application.Quit();
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

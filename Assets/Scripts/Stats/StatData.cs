@@ -8,6 +8,7 @@ namespace Stats
     {
         [SerializeField] private Stats _stat;
         [SerializeField] private float _value;
+        [SerializeField] private bool _isPercent;
 
         public Stats Stat
         {
@@ -21,6 +22,11 @@ namespace Stats
             set => _value = value;
         }
 
+        public bool IsPercent
+        {
+            get => _isPercent;
+            set => _isPercent = value;
+        }
 
         public StatData()
         {

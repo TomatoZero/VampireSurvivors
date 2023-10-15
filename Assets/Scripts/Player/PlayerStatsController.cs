@@ -36,7 +36,9 @@ namespace Player
         {
             var itemBonus = _inventory.GetAllItemBonuses();
             _instance.AddBonusesFromItems(itemBonus.allClearBonus, itemBonus.allPercentBonus);
-
+            
+            
+            
             // var s = "";
             // foreach (var stat in _instance.CurrentStats)
             // {

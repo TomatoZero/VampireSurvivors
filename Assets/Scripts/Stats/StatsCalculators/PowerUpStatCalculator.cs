@@ -21,15 +21,14 @@ namespace Stats.StatsCalculators
 
         public void RewriteOrAddOutsideBonus(Stats stat, float value, bool isPercent)
         {
+            _percentBonusFromOutside = new Dictionary<Stats, float>();
+            _clearBonusFromOutside = new Dictionary<Stats, float>();
+
             if (isPercent)
-            {
                 _percentBonusFromOutside[stat] = value;
-            }
             else
-            {
                 _clearBonusFromOutside[stat] = value;
-            }
-        } 
+        }
 
         private protected override float GetClearBonusValue(Stats stat)
         {

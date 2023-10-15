@@ -24,6 +24,8 @@ namespace Stats.Instances.PowerUp
 
             foreach (var percentBonus in allPercentItemBonus)
                 PowerUpStatCalculator.RewriteOrAddOutsideBonus(percentBonus.Key, percentBonus.Value, false);
+            
+            UpdateCurrentStats();
         }
 
         public override void LevelUp()

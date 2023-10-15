@@ -69,15 +69,15 @@ namespace Stats.StatsCalculator
 
         private void CombineDictionariesInFirst(Dictionary<Stats, float> first, Dictionary<Stats, float> second)
         {
-            foreach (var kvp in first)
+            foreach (var kvp in second)
             {
-                if (second.ContainsKey(kvp.Key))
+                if (first.ContainsKey(kvp.Key))
                 {
-                    second[kvp.Key] += kvp.Value;
+                    first[kvp.Key] += kvp.Value;
                 }
                 else
                 {
-                    second[kvp.Key] = kvp.Value;
+                    first[kvp.Key] = kvp.Value;
                 }
             }
         }

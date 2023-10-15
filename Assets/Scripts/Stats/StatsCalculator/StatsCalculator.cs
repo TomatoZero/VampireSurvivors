@@ -17,8 +17,10 @@ namespace Stats.StatsCalculator
 
         public Dictionary<Stats, float> DefaultsStatClear => _defaultsStatClear;
         public Dictionary<Stats, float> DefaultsStatPercent => _defaultsStatPercent;
+        
         public Dictionary<Stats, float> LevelUpClearBonus => _levelUpClearBonus;
         public Dictionary<Stats, float> LevelUpPercentBonus => _levelUpPercentBonus;
+        
         public Dictionary<Stats, float> ClearBonusFromOutside => _clearBonusFromOutside;
         public Dictionary<Stats, float> PercentBonusFromOutside => _percentBonusFromOutside;
         
@@ -33,6 +35,30 @@ namespace Stats.StatsCalculator
             _percentBonusFromOutside = new Dictionary<Stats, float>();
         }
 
+        public void AddLevelUpBonus(StatData statData)
+        {
+            if (statData.IsPercent)
+            {
+                AddValueInDictionary(_levelUpPercentBonus, statData);
+            }
+            else
+            {
+                AddValueInDictionary(_levelUpClearBonus, statData);
+            }
+        }
+
+        public void AddBonusFromOutside(StatData statData)
+        {
+            if (statData.IsPercent)
+            {
+                _percentBonusFromOutside[statData.Stat] = statData.Value;
+            }
+            else
+            {
+                _clearBonusFromOutside[statData.Stat] = statData.Value;
+            }   
+        }
+        
         public virtual List<StatData> CalculateBonuses()
         {
             var allUsingStats = GetAllUsingStat();
@@ -76,17 +102,6 @@ namespace Stats.StatsCalculator
             return percentBonus;
         }
 
-        private protected float GetValueFromList(Stats stat, List<StatData> list)
-        {
-            foreach (var statData in list)
-            {
-                if (statData.Stat == stat)
-                    return statData.Value;
-            }
-
-            return 0;
-        }
-
         private protected float GetValueFormDictionary(Stats stats, Dictionary<Stats, float> dictionary)
         {
             if (dictionary.TryGetValue(stats, out var value))
@@ -95,6 +110,14 @@ namespace Stats.StatsCalculator
             }
 
             return 0;
+        }
+
+        private protected void AddValueInDictionary(Dictionary<Stats, float> dictionary, StatData data)
+        {
+            if (dictionary.ContainsKey(data.Stat))
+                dictionary[data.Stat] += data.Value;
+            else
+                dictionary[data.Stat] = data.Value;
         }
 
         private HashSet<Stats> GetAllUsingStat()

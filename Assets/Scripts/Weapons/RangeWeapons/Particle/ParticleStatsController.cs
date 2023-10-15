@@ -1,4 +1,5 @@
 ﻿using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
 

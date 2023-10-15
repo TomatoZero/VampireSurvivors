@@ -1,5 +1,6 @@
 ﻿using Interface;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UnityEngine;
 
 namespace Weapons

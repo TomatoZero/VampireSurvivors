@@ -1,5 +1,6 @@
 ﻿using System;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;

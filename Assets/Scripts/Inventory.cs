@@ -3,6 +3,7 @@ using System.Linq;
 using Interface;
 using Stats;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
 using Weapons;

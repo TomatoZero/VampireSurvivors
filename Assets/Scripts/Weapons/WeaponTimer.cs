@@ -2,6 +2,7 @@
 using System.Collections;
 using Interface;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;

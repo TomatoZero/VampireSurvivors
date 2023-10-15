@@ -1,85 +1,50 @@
 ﻿using System.Collections.Generic;
 using Stats.ScriptableObjects;
+using Stats.StatsCalculators;
 
-namespace Stats.Instances
+namespace Stats.Instances.PowerUp
 {
     public class PlayerInstance : PowerUpInstance
     {
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
+        public PlayerStatCalculator PlayerStatCalculator => (PlayerStatCalculator)StatsCalculator;
+
 
         public PlayerInstance(PlayerStatsData playerStatsData, List<StatData> bonusFromItems) : base(playerStatsData)
         {
-            foreach (var bonusFromItem in bonusFromItems)
-            {
-                AddValueToBonus(bonusFromItem.Stat, bonusFromItem.Value);
-            }
+            AddBonusesFromItem(bonusFromItems);
+        }
+
+        private protected override void Setup()
+        {
+            var playerStatCalculator = new PlayerStatCalculator(this);
+            _currentStats = playerStatCalculator.CalculateCurrentStats();
+            SetStatCalculator(playerStatCalculator);
         }
 
         public virtual void AddBonusesFromItem(List<StatData> bonusFromItems)
         {
             foreach (var bonusFromItem in bonusFromItems)
             {
-                AddValueToBonus(bonusFromItem.Stat, bonusFromItem.Value);
+                PowerUpStatCalculator.RewriteOrAddOutsideBonus(bonusFromItem);
             }
         }
         
         public override void LevelUp()
         {
-            if (_statsData.MaxLvl <= _currentLvl) return;
+            if (_statsData.MaxLvl <= CurrentLvl) return;
 
-            if ((_currentLvl + 1) % 10 == 0)
+            if ((CurrentLvl + 1) % 10 == 0)
             {
-                var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 1];
+                var lvlUpStatsData = _statsData.LevelUpBonuses[CurrentLvl - 1];
 
                 foreach (var statData in lvlUpStatsData.BonusStat)
                 {
-                    AddValueToLevelUpBonus(statData.Stat, statData.Value);
+                    PowerUpStatCalculator.AddLevelUpBonus(statData);
                 }
             }
 
-            _currentLvl++;
-        }
-
-        protected override void SetupStat()
-        {
-            base.SetupStat();
-            
-            foreach (var bonus in PlayerStatsData.BonusStats)
-            {
-                CurrentBonus.Add((StatData)bonus.Clone());
-            }
-
-            foreach (var currentBonus in CurrentBonus)
-            {
-                UpdateStatWithBonus(currentBonus.Stat, currentBonus.Value);
-            }
-        }
-
-        private protected override void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
-        {
-            float newValue = 0;
-            switch (stat)
-            {
-                case Stats.MaxHealth:
-                case Stats.MoveSpeed:
-                    newValue = CalculateNewValue(defaultValue, bonusValue);
-                    SetStatByName(stat, newValue);
-                    break;
-                case Stats.Recovery:
-                case Stats.Armor:
-                case Stats.Luck:
-                case Stats.Growth:
-                case Stats.Greed:
-                case Stats.Curse:
-                    newValue = defaultValue + bonusValue;
-                    SetStatByName(stat, newValue);
-                    break;
-            }
-        }
-
-        private protected override bool IsNecessaryStat(Stats statData)
-        {
-            return true;
+            IncreaseLevel();
         }
     }
 }

@@ -12,6 +12,11 @@ namespace Stats.Instances
         {
         }
 
+        private protected override void Setup()
+        {
+            //TODO: something with enemy stats
+        }
+
         public override void LevelUp()
         {
             throw new Exception("Enemy shouldn't have level up");

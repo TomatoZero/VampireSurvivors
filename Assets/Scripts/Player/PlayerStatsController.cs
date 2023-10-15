@@ -2,6 +2,7 @@
 using DefaultNamespace;
 using Stats;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using Stats.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;

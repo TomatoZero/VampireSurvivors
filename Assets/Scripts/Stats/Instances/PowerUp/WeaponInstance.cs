@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Stats.ScriptableObjects;
 
-namespace Stats.Instances
+namespace Stats.Instances.PowerUp
 {
     public class WeaponInstance : PowerUpInstance
     {
@@ -11,46 +10,8 @@ namespace Stats.Instances
         public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {
         }
-
-        protected override void SetupStat()
-        {
-            base.SetupStat();
-        }
-
-        protected override void SetStat(StatData statData)
-        {
-            SetStatByName(statData.Stat, statData.Value);
-        }
-
-        public override void SetStatByName(Stats stat, float value)
-        {
-            if (CheckIgnore(stat)) return;
-            if (!CheckExceptions(new StatData(stat, value))) return;
-
-            base.SetStatByName(stat, value);
-        }
-
-        private protected override void UpdateStatWithBonus(Stats stat, float bonusValue, float defaultValue)
-        {
-            float newValue = 0;
-            switch (stat)
-            {
-                case Stats.Damage:
-                case Stats.ProjectilesSpeed:
-                case Stats.Area:
-                case Stats.Duration:
-                case Stats.Cooldown:
-                    newValue = CalculateNewValue(defaultValue, bonusValue);
-                    SetStatByName(stat, newValue);
-                    break;
-                case Stats.Amount:
-                    newValue = bonusValue + defaultValue;
-                    base.SetStatByName(stat, newValue);
-                    break;
-            }
-        }
-
-        private protected override bool IsNecessaryStat(Stats statData)
+        
+        private protected  bool IsNecessaryStat(Stats statData)
         {
             switch (statData)
             {
@@ -88,7 +49,7 @@ namespace Stats.Instances
             var defaultChance = GetDefaultStatByName(Stats.Chance);
             var newChance = statData.Value * defaultChance.Value;
 
-            base.SetStatByName(Stats.Chance, newChance);
+            
         }
 
         private bool CheckIgnore(Stats stat)

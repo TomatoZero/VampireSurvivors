@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Stats.ScriptableObjects;
+using Stats.StatsCalculators;
 
 namespace Stats.Instances
 {
@@ -9,17 +10,22 @@ namespace Stats.Instances
     {
         private protected ObjectStatsData _statsData;
         private protected List<StatData> _currentStats;
-        private protected int _currentLvl = 1;
+        private  int _currentLvl = 1;
+        private StatsCalculator _statsCalculator;
 
         public ObjectStatsData StatsData => _statsData;
         public int CurrentLvl => _currentLvl;
         public int MaxLevel => _statsData.MaxLvl;
+        public StatsCalculator StatsCalculator => _statsCalculator;
+        
 
         public ObjectInstance(ObjectStatsData statsData)
         {
             _statsData = statsData;
-            SetupStat();
+            Setup();
         }
+
+        private protected abstract void Setup();
 
         public virtual StatData GetDefaultStatByName(Stats stat)
         {
@@ -41,33 +47,16 @@ namespace Stats.Instances
             return new StatData();
         }
 
+        private protected void IncreaseLevel()
+        {
+            _currentLvl++;
+        }
+
+        private protected void SetStatCalculator(StatsCalculator calculator)
+        {
+            _statsCalculator = calculator;
+        }
+        
         public abstract void LevelUp();
-
-        protected virtual void SetStat(StatData statData)
-        {
-            SetStatByName(statData.Stat, statData.Value);
-        }
-
-        public virtual void SetStatByName(Stats stat, float value)
-        {
-            foreach (var statData in _currentStats)
-            {
-                if (statData.Stat.Equals(stat)) statData.Value = value;
-            }
-        }
-
-        protected virtual void SetupStat()
-        {
-            _currentStats = new List<StatData>();
-
-            foreach (var stat in _statsData.DefaultStatsData)
-                _currentStats.Add((StatData)stat.Clone());
-        }
-
-        protected float CalculateNewValue(float defaultValue, float addPercent)
-        {
-            var addValue = (defaultValue * addPercent) / 100;
-            return defaultValue + addValue;
-        }
     }
 }

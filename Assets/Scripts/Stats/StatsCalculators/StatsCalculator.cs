@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
 
-namespace Stats.StatsCalculator
+namespace Stats.StatsCalculators
 {
     public class StatsCalculator
     {
@@ -10,10 +10,7 @@ namespace Stats.StatsCalculator
 
         private Dictionary<Stats, float> _levelUpClearBonus;
         private Dictionary<Stats, float> _levelUpPercentBonus;
-
-        private Dictionary<Stats, float> _clearBonusFromOutside;
-        private Dictionary<Stats, float> _percentBonusFromOutside;
-
+        
         private Dictionary<Stats, float> _clearBonuses;
         private Dictionary<Stats, float> _percentBonuses;
 
@@ -32,15 +29,15 @@ namespace Stats.StatsCalculator
         // public Dictionary<Stats, float> ClearBonusFromOutside => _clearBonusFromOutside;
         // public Dictionary<Stats, float> PercentBonusFromOutside => _percentBonusFromOutside;
 
+        public Dictionary<Stats, float> ClearBonuses => _clearBonuses;
+        public Dictionary<Stats, float> PercentBonuses => _percentBonuses;
 
-        protected StatsCalculator(ObjectInstance objectInstance)
+
+        public StatsCalculator(ObjectInstance objectInstance)
         {
             SeparateDefaultStats(objectInstance.StatsData.DefaultStatsData);
             _levelUpClearBonus = new Dictionary<Stats, float>();
             _levelUpPercentBonus = new Dictionary<Stats, float>();
-
-            _clearBonusFromOutside = new Dictionary<Stats, float>();
-            _percentBonusFromOutside = new Dictionary<Stats, float>();
         }
 
         public void AddLevelUpBonus(StatData statData)
@@ -55,19 +52,7 @@ namespace Stats.StatsCalculator
             }
         }
 
-        public void RewriteOrAddOutsideBonus(StatData statData)
-        {
-            if (statData.IsPercent)
-            {
-                _percentBonusFromOutside[statData.Stat] = statData.Value;
-            }
-            else
-            {
-                _clearBonusFromOutside[statData.Stat] = statData.Value;
-            }
-        }
-
-        public virtual List<StatData> CalculateBonuses()
+        public virtual List<StatData> CalculateCurrentStats()
         {
             _stats = new HashSet<Stats>();
             GetClearBonuses();
@@ -120,46 +105,42 @@ namespace Stats.StatsCalculator
             _stats.UnionWith(statsInClearBonus);
         }
 
-        private float GetAllPercentBonusValue(Stats stat)
+        private protected virtual float GetAllPercentBonusValue(Stats stat)
         {
             var levelUpPercentBonus = GetValueFormDictionary(stat, _levelUpPercentBonus);
-            var percentBonusFromOutside = GetValueFormDictionary(stat, _percentBonusFromOutside);
             var percentDefaultStat = GetValueFormDictionary(stat, _defaultsStatPercent);
 
-            return levelUpPercentBonus + percentBonusFromOutside + percentDefaultStat;
+            return levelUpPercentBonus + percentDefaultStat;
+        }
+        
+        private protected virtual float GetClearBonusValue(Stats stat)
+        {
+            var levelUpClearBonus = GetValueFormDictionary(stat, _levelUpClearBonus);
+            var defaultClearStat = GetValueFormDictionary(stat, _defaultsStatClear);
+
+            return levelUpClearBonus + defaultClearStat;
         }
 
-        private HashSet<Stats> GetClearStats()
+        private protected virtual HashSet<Stats> GetClearStats()
         {
             var stats = new HashSet<Stats>();
 
             foreach (var data in _defaultsStatClear) stats.Add(data.Key);
             foreach (var data in _levelUpClearBonus) stats.Add(data.Key);
-            foreach (var data in _clearBonusFromOutside) stats.Add(data.Key);
 
             return stats;
         }
 
-        private HashSet<Stats> GetPercentBonusStats()
+        private protected virtual HashSet<Stats> GetPercentBonusStats()
         {
             var stats = new HashSet<Stats>();
 
             foreach (var data in _defaultsStatPercent) stats.Add(data.Key);
             foreach (var data in _levelUpPercentBonus) stats.Add(data.Key);
-            foreach (var data in _percentBonusFromOutside) stats.Add(data.Key);
-
+            
             return stats;
         }
-
-        private protected virtual float GetClearBonusValue(Stats stat)
-        {
-            var levelUpClearBonus = GetValueFormDictionary(stat, _levelUpClearBonus);
-            var clearBonusFromOutside = GetValueFormDictionary(stat, _clearBonusFromOutside);
-            var defaultClearStat = GetValueFormDictionary(stat, _defaultsStatClear);
-
-            return levelUpClearBonus + clearBonusFromOutside + defaultClearStat;
-        }
-
+        
         private protected float GetValueFormDictionary(Stats stats, Dictionary<Stats, float> dictionary)
         {
             if (dictionary.TryGetValue(stats, out var value))

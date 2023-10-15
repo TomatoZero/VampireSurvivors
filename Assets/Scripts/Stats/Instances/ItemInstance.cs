@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Stats.ScriptableObjects;
-using UnityEngine;
+using Stats.StatsCalculators;
 
 namespace Stats.Instances
 {
@@ -12,24 +12,29 @@ namespace Stats.Instances
 
         public ItemInstance(ObjectStatsData statsData) : base(statsData)
         {
-            
         }
-        
+
+        private protected override void Setup()
+        {
+            var statsCalculator = new StatsCalculator(this);
+            _currentStats = statsCalculator.CalculateCurrentStats();
+            SetStatCalculator(statsCalculator);
+        }
+
         public override void LevelUp()
         {
-            if(_statsData.MaxLvl <= _currentLvl) return;
-            
+            if (_statsData.MaxLvl <= CurrentLvl) return;
+
             // Debug.Log($"_statsData.LevelUpBonuses[{_currentLvl - 1}] = {_statsData.LevelUpBonuses[_currentLvl - 1].BonusStat[0].Value}");
-            
-            var lvlUpStatsData = _statsData.LevelUpBonuses[_currentLvl - 1];
+
+            var lvlUpStatsData = _statsData.LevelUpBonuses[CurrentLvl - 1];
 
             foreach (var statData in lvlUpStatsData.BonusStat)
             {
-                var currentValue = GetStatByName(statData.Stat).Value;
-                SetStatByName(statData.Stat, currentValue + statData.Value);
+                StatsCalculator.AddLevelUpBonus(statData);
             }
-            
-            _currentLvl++;
+
+            IncreaseLevel();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Stats;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UnityEngine;
 
 namespace DefaultNamespace.UI.CurrentStatsMenu
@@ -52,12 +53,17 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
         {
             foreach (var stat in playerInstance.CurrentStats)
             {
-                SetStat(stat);
+                SetStat(stat.Stat, stat.Value, stat.IsPercent);
             }
 
-            foreach (var stat in playerInstance.CurrentBonus)
+            foreach (var stat in playerInstance.PlayerStatCalculator.ClearBonuses)
             {
-                SetBonus(stat);
+                SetBonus(stat.Key, stat.Value, false);
+            }
+            
+            foreach (var stat in playerInstance.PlayerStatCalculator.PercentBonuses)
+            {
+                SetBonus(stat.Key, stat.Value, true);
             }
         }
 
@@ -71,58 +77,58 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
             gameObject.SetActive(false);
         }
         
-        private void SetStat(StatData statData)
+        private void SetStat(Stats.Stats stat, float value, bool isPercent)
         {
-            switch (statData.Stat)
+            switch (stat)
             {
                 case Stats.Stats.MaxHealth:
-                    _maxHealth.Setup("Max health", $"{statData.Value}");
+                    _maxHealth.Setup("Max health", $"{value}");
                     break;
                 case Stats.Stats.MoveSpeed:
-                    _moveSpeed.Setup("Move speed", $"+{statData.Value}%");
+                    _moveSpeed.Setup("Move speed", $"+{value}%");
                     break;
                 case Stats.Stats.Recovery:
-                    _recovery.Setup("Recovery", $"+{statData.Value}");
+                    _recovery.Setup("Recovery", $"+{stat}");
                     break;
                 case Stats.Stats.Armor:
-                    _armor.Setup("Armor", $"+{statData.Value}");
+                    _armor.Setup("Armor", $"+{stat}");
                     break;
                 case Stats.Stats.Luck:
-                    _luck.Setup("Luck",$"+{statData.Value}%");
+                    _luck.Setup("Luck",$"+{stat}%");
                     break;
                 case Stats.Stats.Growth:
-                    _growth.Setup("Growth", $"+{statData.Value}%");
+                    _growth.Setup("Growth", $"+{stat}%");
                     break;
                 case Stats.Stats.Greed:
-                    _greed.Setup("Greed", $"+{statData.Value}%");
+                    _greed.Setup("Greed", $"+{stat}%");
                     break;
             }
         }
 
-        private void SetBonus(StatData statData)
+        private void SetBonus(Stats.Stats stat, float value, bool isPercent)
         {
-            switch (statData.Stat)
+            switch (stat)
             {
                 case Stats.Stats.Damage:
-                    _might.Setup("Damage", $"+{statData.Value}%");
+                    _might.Setup("Damage", $"+{value}%");
                     break;
                 case Stats.Stats.Area:
-                    _area.Setup("Area", $"+{statData.Value}%");
+                    _area.Setup("Area", $"+{value}%");
                     break;
                 case Stats.Stats.ProjectilesSpeed:
-                    _speed.Setup("Speed", $"+{statData.Value}%");
+                    _speed.Setup("Speed", $"+{value}%");
                     break;
                 case Stats.Stats.Duration:
-                    _duration.Setup("Duration", $"+{statData.Value}%");
+                    _duration.Setup("Duration", $"+{value}%");
                     break;
                 case Stats.Stats.Amount:
-                    _amount.Setup("Amount", $"+{statData.Value}");
+                    _amount.Setup("Amount", $"+{value}");
                     break;
                 case Stats.Stats.Cooldown:
-                    _cooldown.Setup("Countdown", $"+{statData.Value}%");
+                    _cooldown.Setup("Countdown", $"+{value}%");
                     break;
                 case Stats.Stats.Revival:
-                    _revival.Setup("Revival", $"+{statData.Value}");
+                    _revival.Setup("Revival", $"+{value}");
                     break;
             }
         }

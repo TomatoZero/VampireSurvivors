@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using DefaultNamespace;
-using Stats;
-using Stats.Instances;
+﻿using DefaultNamespace;
 using Stats.Instances.PowerUp;
 using Stats.ScriptableObjects;
 using UnityEngine;
@@ -15,16 +12,17 @@ namespace Player
         [SerializeField] private UnityEvent<PlayerInstance> _setupStatsEvent;
         [SerializeField] private UnityEvent<PlayerInstance> _statsUpdateEvent;
         [SerializeField] private Inventory _inventory;
-        
+
         private PlayerInstance _instance;
 
         private void Awake()
-        {}
+        {
+        }
 
         private void Start()
         {
             var itemBonus = _inventory.GetAllItemBonuses();
-            _instance = new PlayerInstance(_playerStatsData, itemBonus);
+            _instance = new PlayerInstance(_playerStatsData, itemBonus.allClearBonus, itemBonus.allPercentBonus);
             _setupStatsEvent.Invoke(_instance);
         }
 
@@ -34,10 +32,11 @@ namespace Player
             _statsUpdateEvent.Invoke(_instance);
         }
 
-        public void AddBonusesEventHandler(List<StatData> bonusFromNewItem)
+        public void UpdateStatsEventHandler()
         {
-            _instance.AddBonusesFromItem(bonusFromNewItem);
-            
+            var itemBonus = _inventory.GetAllItemBonuses();
+            _instance.AddBonusesFromItems(itemBonus.allClearBonus, itemBonus.allPercentBonus);
+
             // var s = "";
             // foreach (var stat in _instance.CurrentStats)
             // {
@@ -52,7 +51,7 @@ namespace Player
             // }
             //
             // Debug.Log(s);
-            
+
             _statsUpdateEvent.Invoke(_instance);
         }
     }

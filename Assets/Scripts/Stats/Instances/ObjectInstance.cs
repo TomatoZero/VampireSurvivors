@@ -9,7 +9,6 @@ namespace Stats.Instances
     public abstract class ObjectInstance
     {
         private protected ObjectStatsData _statsData;
-        private protected List<StatData> _currentStats;
         private  int _currentLvl = 1;
         private StatsCalculator _statsCalculator;
 
@@ -27,6 +26,17 @@ namespace Stats.Instances
 
         private protected abstract void Setup();
 
+        public void UpdateClearAndPercentStats()
+        {
+            StatsCalculator.CalculatePercentBonuses();
+            StatsCalculator.CalculateClearBonuses();
+        }
+
+        public void UpdateCurrentStats()
+        {
+            StatsCalculator.CalculateCurrentStats();
+        }
+        
         public virtual StatData GetDefaultStatByName(Stats stat)
         {
             foreach (var statData in _statsData.DefaultStatsData)
@@ -39,7 +49,7 @@ namespace Stats.Instances
 
         public virtual StatData GetStatByName(Stats stat)
         {
-            foreach (var statData in _currentStats)
+            foreach (var statData in _statsCalculator.CurrentStats)
             {
                 if (statData.Stat.Equals(stat)) return statData;
             }

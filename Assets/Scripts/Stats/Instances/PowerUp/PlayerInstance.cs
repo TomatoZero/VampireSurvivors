@@ -10,26 +10,22 @@ namespace Stats.Instances.PowerUp
         public PlayerStatCalculator PlayerStatCalculator => (PlayerStatCalculator)StatsCalculator;
 
 
-        public PlayerInstance(PlayerStatsData playerStatsData, List<StatData> bonusFromItems) : base(playerStatsData)
+        public PlayerInstance(PlayerStatsData playerStatsData, Dictionary<Stats, float> allClearItemBonus,
+            Dictionary<Stats, float> allPercentItemBonus) : base(playerStatsData)
         {
-            AddBonusesFromItem(bonusFromItems);
+            AddBonusesFromItems(allClearItemBonus, allPercentItemBonus);
         }
 
-        private protected override void Setup()
+        public virtual void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
+            Dictionary<Stats, float> allPercentItemBonus)
         {
-            var playerStatCalculator = new PlayerStatCalculator(this);
-            _currentStats = playerStatCalculator.CalculateCurrentStats();
-            SetStatCalculator(playerStatCalculator);
+            foreach (var clearBonus in allClearItemBonus)
+                PowerUpStatCalculator.RewriteOrAddOutsideBonus(clearBonus.Key, clearBonus.Value, false);
+
+            foreach (var percentBonus in allPercentItemBonus)
+                PowerUpStatCalculator.RewriteOrAddOutsideBonus(percentBonus.Key, percentBonus.Value, false);
         }
 
-        public virtual void AddBonusesFromItem(List<StatData> bonusFromItems)
-        {
-            foreach (var bonusFromItem in bonusFromItems)
-            {
-                PowerUpStatCalculator.RewriteOrAddOutsideBonus(bonusFromItem);
-            }
-        }
-        
         public override void LevelUp()
         {
             if (_statsData.MaxLvl <= CurrentLvl) return;
@@ -45,6 +41,13 @@ namespace Stats.Instances.PowerUp
             }
 
             IncreaseLevel();
+        }
+
+        private protected override void Setup()
+        {
+            var playerStatCalculator = new PlayerStatCalculator(this);
+            playerStatCalculator.CalculateCurrentStats();
+            SetStatCalculator(playerStatCalculator);
         }
     }
 }

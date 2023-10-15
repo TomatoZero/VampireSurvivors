@@ -5136,7 +5136,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 887640473}
         m_TargetAssemblyTypeName: Player.PlayerStatsController, Assembly-CSharp
-        m_MethodName: AddBonusesEventHandler
+        m_MethodName: UpdateStatsEventHandler
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

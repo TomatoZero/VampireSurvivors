@@ -12,7 +12,7 @@ namespace DefaultNamespace
 {
     public class Inventory : MonoBehaviour, IUpdateStats
     {
-        [SerializeField] private UnityEvent<List<StatData>> _updateStatsEvent;
+        [SerializeField] private UnityEvent _updateStatsEvent;
         [SerializeField] private UnityEvent _endSetupStatsEvent;
         [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayCurrentItemsEvent;
         [SerializeField] private List<WeaponStatsController> _weapons;
@@ -47,8 +47,9 @@ namespace DefaultNamespace
 
         public void AddItem(ItemInstance item)
         {
+            item.UpdateClearAndPercentStats();
             _items.Add(item);
-            _updateStatsEvent.Invoke(item.CurrentStats);
+            _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();
         }
@@ -67,7 +68,7 @@ namespace DefaultNamespace
                 select item).First();
 
             levelUpItem.LevelUp();
-            _updateStatsEvent.Invoke(levelUpItem.CurrentStats);
+            _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();
         }
@@ -83,27 +84,31 @@ namespace DefaultNamespace
             DisplayCurrentItems();
         }
 
-        public List<StatData> GetAllItemBonuses()
+        public (Dictionary<Stats.Stats, float> allClearBonus, Dictionary<Stats.Stats, float> allPercentBonus) GetAllItemBonuses()
         {
-            var allBonus = new List<StatData>();
+            var allClearBonus = new Dictionary<Stats.Stats, float>();
+            var allPercentBonus = new Dictionary<Stats.Stats, float>();
 
             foreach (var item in _items)
             {
-                foreach (var itemCurrentStat in item.CurrentStats)
+                foreach (var clearBonus in item.StatsCalculator.ClearBonuses)
                 {
-                    var statId = FindStatIdInList(allBonus, itemCurrentStat.Stat);
+                    if (allClearBonus.ContainsKey(clearBonus.Key))
+                        allClearBonus[clearBonus.Key] += clearBonus.Value;
+                    else
+                        allClearBonus[clearBonus.Key] = clearBonus.Value;
+                }
 
-                    if (statId == -1)
-                    {
-                        allBonus.Add((StatData)itemCurrentStat.Clone());
-                        continue;
-                    }
-
-                    allBonus[statId].Value += itemCurrentStat.Value;
+                foreach (var percentBonus in item.StatsCalculator.PercentBonuses)
+                {
+                    if (allPercentBonus.ContainsKey(percentBonus.Key))
+                        allPercentBonus[percentBonus.Key] += percentBonus.Value;
+                    else
+                        allPercentBonus[percentBonus.Key] = percentBonus.Value;
                 }
             }
 
-            return allBonus;
+            return (allClearBonus, allPercentBonus);
         }
 
         public void SetupStatEventHandler(ObjectInstance newInstance)

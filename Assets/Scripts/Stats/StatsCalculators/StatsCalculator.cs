@@ -10,28 +10,20 @@ namespace Stats.StatsCalculators
 
         private Dictionary<Stats, float> _levelUpClearBonus;
         private Dictionary<Stats, float> _levelUpPercentBonus;
-        
+
         private Dictionary<Stats, float> _clearBonuses;
         private Dictionary<Stats, float> _percentBonuses;
 
         private HashSet<Stats> _stats;
+        private List<StatData> _currentStats;
 
         private delegate float GetAllBonuses(Stats stat);
 
         private delegate HashSet<Stats> GetAllUsingStats();
 
-        // public Dictionary<Stats, float> DefaultsStatClear => _defaultsStatClear;
-        // public Dictionary<Stats, float> DefaultsStatPercent => _defaultsStatPercent;
-        //
-        // public Dictionary<Stats, float> LevelUpClearBonus => _levelUpClearBonus;
-        // public Dictionary<Stats, float> LevelUpPercentBonus => _levelUpPercentBonus;
-        //
-        // public Dictionary<Stats, float> ClearBonusFromOutside => _clearBonusFromOutside;
-        // public Dictionary<Stats, float> PercentBonusFromOutside => _percentBonusFromOutside;
-
         public Dictionary<Stats, float> ClearBonuses => _clearBonuses;
         public Dictionary<Stats, float> PercentBonuses => _percentBonuses;
-
+        public List<StatData> CurrentStats => _currentStats;
 
         public StatsCalculator(ObjectInstance objectInstance)
         {
@@ -52,11 +44,11 @@ namespace Stats.StatsCalculators
             }
         }
 
-        public virtual List<StatData> CalculateCurrentStats()
+        public virtual void CalculateCurrentStats()
         {
             _stats = new HashSet<Stats>();
-            GetClearBonuses();
-            GetPercentBonuses();
+            CalculateClearBonuses();
+            CalculatePercentBonuses();
 
             var currentStats = new List<StatData>();
             foreach (var stat in _stats)
@@ -70,7 +62,7 @@ namespace Stats.StatsCalculators
                 currentStats.Add(new StatData(stat, finalValue, false));
             }
 
-            return currentStats;
+            _currentStats = currentStats;
         }
 
         private float GetValueFromDictionary(Dictionary<Stats, float> dictionary, Stats stat)
@@ -80,12 +72,12 @@ namespace Stats.StatsCalculators
             return 0;
         }
 
-        private void GetClearBonuses()
+        public void CalculateClearBonuses()
         {
             GetBonuses(_clearBonuses, GetClearBonusValue, GetClearStats);
         }
 
-        private void GetPercentBonuses()
+        public void CalculatePercentBonuses()
         {
             GetBonuses(_percentBonuses, GetAllPercentBonusValue, GetPercentBonusStats);
         }
@@ -112,7 +104,7 @@ namespace Stats.StatsCalculators
 
             return levelUpPercentBonus + percentDefaultStat;
         }
-        
+
         private protected virtual float GetClearBonusValue(Stats stat)
         {
             var levelUpClearBonus = GetValueFormDictionary(stat, _levelUpClearBonus);
@@ -137,10 +129,10 @@ namespace Stats.StatsCalculators
 
             foreach (var data in _defaultsStatPercent) stats.Add(data.Key);
             foreach (var data in _levelUpPercentBonus) stats.Add(data.Key);
-            
+
             return stats;
         }
-        
+
         private protected float GetValueFormDictionary(Stats stats, Dictionary<Stats, float> dictionary)
         {
             if (dictionary.TryGetValue(stats, out var value))

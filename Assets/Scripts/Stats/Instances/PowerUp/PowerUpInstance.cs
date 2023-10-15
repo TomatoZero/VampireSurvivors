@@ -6,12 +6,6 @@ namespace Stats.Instances.PowerUp
 {
     public abstract class PowerUpInstance : ObjectInstance
     {
-        public List<StatData> CurrentStats
-        {
-            get => _currentStats;
-            private protected set => _currentStats = value;
-        }
-
         public PowerUpStatCalculator PowerUpStatCalculator => (PowerUpStatCalculator)StatsCalculator;
 
         protected PowerUpInstance(ObjectStatsData statsData) : base(statsData)
@@ -20,7 +14,7 @@ namespace Stats.Instances.PowerUp
         private protected override void Setup()
         {
             var powerUpStatCalculator = new PowerUpStatCalculator(this);
-            _currentStats = powerUpStatCalculator.CalculateCurrentStats();
+            powerUpStatCalculator.CalculateCurrentStats();
             SetStatCalculator(powerUpStatCalculator);
         }
 

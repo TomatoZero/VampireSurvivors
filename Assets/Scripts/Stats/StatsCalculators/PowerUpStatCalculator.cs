@@ -16,20 +16,20 @@ namespace Stats.StatsCalculators
 
         public void RewriteOrAddOutsideBonus(StatData statData)
         {
-            if (statData.IsPercent)
+            RewriteOrAddOutsideBonus(statData.Stat, statData.Value, statData.IsPercent);
+        }
+
+        public void RewriteOrAddOutsideBonus(Stats stat, float value, bool isPercent)
+        {
+            if (isPercent)
             {
-                _percentBonusFromOutside[statData.Stat] = statData.Value;
+                _percentBonusFromOutside[stat] = value;
             }
             else
             {
-                _clearBonusFromOutside[statData.Stat] = statData.Value;
+                _clearBonusFromOutside[stat] = value;
             }
-        }
-
-        public override List<StatData> CalculateCurrentStats()
-        {
-            return base.CalculateCurrentStats();
-        }
+        } 
 
         private protected override float GetClearBonusValue(Stats stat)
         {

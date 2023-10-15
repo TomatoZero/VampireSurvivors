@@ -51,7 +51,7 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
 
         public void SetCurrentStats(PlayerInstance playerInstance)
         {
-            foreach (var stat in playerInstance.CurrentStats)
+            foreach (var stat in playerInstance.StatsCalculator.CurrentStats)
             {
                 SetStat(stat.Stat, stat.Value, stat.IsPercent);
             }

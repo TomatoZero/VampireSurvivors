@@ -32,20 +32,21 @@ namespace Stats
         {
         }
 
-        public StatData(Stats stat, float value)
+        public StatData(Stats stat, float value, bool isPercent)
         {
             _stat = stat;
             _value = value;
+            _isPercent = isPercent;
         }
 
         public object Clone()
         {
-            return new StatData(_stat, _value);
+            return new StatData(_stat, _value, _isPercent);
         }
 
         public override string ToString()
         {
-            return $"stat {_stat} value {_value}";
+            return $"stat {_stat} value {_value} is percent {_isPercent}";
         }
     }
 }

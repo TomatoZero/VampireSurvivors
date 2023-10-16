@@ -14,28 +14,25 @@ namespace Stats.StatsCalculators
             _percentBonusFromOutside = new Dictionary<Stats, float>();
         }
 
-        public void RewriteOrAddOutsideBonus(StatData statData)
-        {
-            RewriteOrAddOutsideBonus(statData.Stat, statData.Value, statData.IsPercent);
-        }
-
-        public void RewriteOrAddOutsideBonus(Stats stat, float value, bool isPercent)
+        public void RewriteOrAddOutsideBonus(Dictionary<Stats, float> allClearItemBonus,
+            Dictionary<Stats, float> allPercentItemBonus)
         {
             _percentBonusFromOutside = new Dictionary<Stats, float>();
             _clearBonusFromOutside = new Dictionary<Stats, float>();
 
-            if (isPercent)
-                _percentBonusFromOutside[stat] = value;
-            else
-                _clearBonusFromOutside[stat] = value;
+            foreach (var bonus in allClearItemBonus)
+                _clearBonusFromOutside[bonus.Key] = bonus.Value;
+            
+            foreach (var bonus in allPercentItemBonus)
+                _percentBonusFromOutside[bonus.Key] = bonus.Value;
         }
 
         public override string ShowCurrentStats(string additionalInfo)
         {
             var str = base.ShowCurrentStats(additionalInfo);
 
-            str += $"ClearBonusFromOutside {GetDictionaryInString(_clearBonusFromOutside)}\n";
-            str += $"PercentBonusFromOutside {GetDictionaryInString(_percentBonusFromOutside)}\n";
+            str += $"ClearBonusFromOutside {GetDictionaryInString(_clearBonusFromOutside)}\n\n";
+            str += $"PercentBonusFromOutside {GetDictionaryInString(_percentBonusFromOutside)}\n\n";
             
             return str;
         }

@@ -88,19 +88,19 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
                     _moveSpeed.Setup("Move speed", $"+{value}%");
                     break;
                 case Stats.Stats.Recovery:
-                    _recovery.Setup("Recovery", $"+{stat}");
+                    _recovery.Setup("Recovery", $"+{value}");
                     break;
                 case Stats.Stats.Armor:
-                    _armor.Setup("Armor", $"+{stat}");
+                    _armor.Setup("Armor", $"+{value}");
                     break;
                 case Stats.Stats.Luck:
-                    _luck.Setup("Luck",$"+{stat}%");
+                    _luck.Setup("Luck",$"+{value}%");
                     break;
                 case Stats.Stats.Growth:
-                    _growth.Setup("Growth", $"+{stat}%");
+                    _growth.Setup("Growth", $"+{value}%");
                     break;
                 case Stats.Stats.Greed:
-                    _greed.Setup("Greed", $"+{stat}%");
+                    _greed.Setup("Greed", $"+{value}%");
                     break;
             }
         }

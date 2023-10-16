@@ -88,10 +88,10 @@ namespace Stats.StatsCalculators
                 str += stat + "\n";
             }
 
-            str += $"ClearBonuses:\n {GetDictionaryInString(_clearBonuses)}\n";
-            str += $"PercentBonuses:\n {GetDictionaryInString(_percentBonuses)}\n";
-            str += $"LevelUpClearBonus:\n {GetDictionaryInString(_levelUpClearBonus)}\n";
-            str += $"LevelUpPercentBonus:\n {GetDictionaryInString(_levelUpPercentBonus)}\n";
+            str += $"\nClearBonuses:\n {GetDictionaryInString(_clearBonuses)}\n\n";
+            str += $"PercentBonuses:\n {GetDictionaryInString(_percentBonuses)}\n\n";
+            str += $"LevelUpClearBonus:\n {GetDictionaryInString(_levelUpClearBonus)}\n\n";
+            str += $"LevelUpPercentBonus:\n {GetDictionaryInString(_levelUpPercentBonus)}\n\n";
             return str;
         }
 

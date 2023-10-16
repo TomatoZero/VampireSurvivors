@@ -19,12 +19,7 @@ namespace Stats.Instances.PowerUp
         public virtual void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
             Dictionary<Stats, float> allPercentItemBonus)
         {
-            foreach (var clearBonus in allClearItemBonus)
-                PowerUpStatCalculator.RewriteOrAddOutsideBonus(clearBonus.Key, clearBonus.Value, false);
-
-            foreach (var percentBonus in allPercentItemBonus)
-                PowerUpStatCalculator.RewriteOrAddOutsideBonus(percentBonus.Key, percentBonus.Value, false);
-            
+            PlayerStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
             UpdateCurrentStats();
         }
 

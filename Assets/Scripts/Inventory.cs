@@ -49,7 +49,7 @@ namespace DefaultNamespace
         {
             item.UpdateClearAndPercentStats();
             
-            var str = item.StatsCalculator.ShowCurrentStats("Player Update");
+            var str = item.StatsCalculator.ShowCurrentStats("New Item");
             Debug.Log(str);
             
             _items.Add(item);
@@ -73,7 +73,7 @@ namespace DefaultNamespace
 
             levelUpItem.LevelUp();
             
-            var str = levelUpItem.StatsCalculator.ShowCurrentStats("Player Update");
+            var str = levelUpItem.StatsCalculator.ShowCurrentStats("Item Level Up");
             Debug.Log(str);
             
             _updateStatsEvent.Invoke();
@@ -97,6 +97,8 @@ namespace DefaultNamespace
             var allClearBonus = new Dictionary<Stats.Stats, float>();
             var allPercentBonus = new Dictionary<Stats.Stats, float>();
 
+            Debug.Log($"Items count: {_items.Count}");
+            
             foreach (var item in _items)
             {
                 foreach (var clearBonus in item.StatsCalculator.ClearBonuses)
@@ -116,6 +118,24 @@ namespace DefaultNamespace
                 }
             }
 
+            // var str = "Inventory all bonuses\n";
+
+            // str += $"\nClearBonuses:\n {GetDictionaryInString(allClearBonus)}\n\n";
+            // str += $"\nClearBonuses:\n {GetDictionaryInString(allPercentBonus)}\n\n";
+            
+            // Debug.Log(str);
+            
+            string GetDictionaryInString<T,TT>(Dictionary<T,TT> dictionary)
+            {
+                var str = "";
+                foreach (var stat in dictionary)
+                {
+                    str += $"Stat: {stat.Key} Value: {stat.Value}\n";
+                }
+
+                return str;
+            }
+            
             return (allClearBonus, allPercentBonus);
         }
 

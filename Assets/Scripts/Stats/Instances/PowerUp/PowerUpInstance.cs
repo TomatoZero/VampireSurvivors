@@ -31,11 +31,6 @@ namespace Stats.Instances.PowerUp
             IncreaseLevel();
         }
 
-        public virtual void AddValueToBonus(StatData statData)
-        {
-            PowerUpStatCalculator.RewriteOrAddOutsideBonus(statData);
-        }
-
         private protected virtual void AddValueToLevelUpBonus(StatData statData)
         {
             PowerUpStatCalculator.AddLevelUpBonus(statData);

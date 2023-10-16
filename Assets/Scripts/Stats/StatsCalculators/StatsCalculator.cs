@@ -26,9 +26,21 @@ namespace Stats.StatsCalculators
         public Dictionary<Stats, float> PercentBonuses => _percentBonuses;
         public List<StatData> CurrentStats => _currentStats;
 
+        private protected Dictionary<Stats, float> DefaultsStatClear
+        {
+            get => _defaultsStatClear;
+            set => _defaultsStatClear = value;
+        }
+
+        private protected virtual Dictionary<Stats, float> DefaultsStatPercent
+        {
+            get => _defaultsStatPercent;
+            set => _defaultsStatPercent = value;
+        }
+
         public StatsCalculator(ObjectInstance objectInstance)
         {
-            SeparateDefaultStats(objectInstance.StatsData.DefaultStatsData);
+            SeparateDefaultStats(objectInstance);
             _levelUpClearBonus = new Dictionary<Stats, float>();
             _levelUpPercentBonus = new Dictionary<Stats, float>();
         }
@@ -180,8 +192,10 @@ namespace Stats.StatsCalculators
                 dictionary[data.Stat] = data.Value;
         }
 
-        private void SeparateDefaultStats(List<StatData> defaultStat)
+        private protected virtual void SeparateDefaultStats(ObjectInstance instance)
         {
+            var defaultStat = instance.StatsData.DefaultStatsData;
+            
             _defaultsStatPercent = new Dictionary<Stats, float>();
             _defaultsStatClear = new Dictionary<Stats, float>();
             

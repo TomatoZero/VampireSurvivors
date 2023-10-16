@@ -1,5 +1,6 @@
 ﻿using System;
 using Stats.ScriptableObjects;
+using Stats.StatsCalculators;
 
 namespace Stats.Instances
 {
@@ -11,7 +12,9 @@ namespace Stats.Instances
 
         private protected override void Setup()
         {
-            //TODO: something with enemy stats
+            var statCalculator = new StatsCalculator(this);
+            statCalculator.CalculateCurrentStats();
+            SetStatCalculator(statCalculator);
         }
 
         public override void LevelUp()

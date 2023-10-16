@@ -23,13 +23,13 @@ MonoBehaviour:
     _isPercent: 0
   - _stat: 12
     _value: 10
-    _isPercent: 1
+    _isPercent: 0
   - _stat: 11
     _value: 0
     _isPercent: 0
   - _stat: 16
-    _value: 10
-    _isPercent: 1
+    _value: 1
+    _isPercent: 0
   _levelUpBonuses:
   - _bonusStat:
     - _stat: 19
@@ -92,5 +92,8 @@ MonoBehaviour:
     _value: 10
     _isPercent: 1
   - _stat: 8
+    _value: 10
+    _isPercent: 1
+  - _stat: 16
     _value: 10
     _isPercent: 1

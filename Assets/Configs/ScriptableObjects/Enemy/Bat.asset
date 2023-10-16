@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d19e1bb94e8e349b629ad96712e650, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
+  _ico: {fileID: 0}
   _name: Bat
   _defaultStatsData:
   - _stat: 0
     _value: 10
+    _isPercent: 0
   - _stat: 12
     _value: 5
+    _isPercent: 1
   - _stat: 19
     _value: 1
+    _isPercent: 0
+  _levelUpBonuses: []

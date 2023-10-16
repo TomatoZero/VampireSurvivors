@@ -48,6 +48,10 @@ namespace DefaultNamespace
         public void AddItem(ItemInstance item)
         {
             item.UpdateClearAndPercentStats();
+            
+            var str = item.StatsCalculator.ShowCurrentStats("Player Update");
+            Debug.Log(str);
+            
             _items.Add(item);
             _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
@@ -68,6 +72,10 @@ namespace DefaultNamespace
                 select item).First();
 
             levelUpItem.LevelUp();
+            
+            var str = levelUpItem.StatsCalculator.ShowCurrentStats("Player Update");
+            Debug.Log(str);
+            
             _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();

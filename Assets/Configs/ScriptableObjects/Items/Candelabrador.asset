@@ -17,16 +17,21 @@ MonoBehaviour:
   _defaultStatsData:
   - _stat: 4
     _value: 10
+    _isPercent: 1
   _levelUpBonuses:
   - _bonusStat:
     - _stat: 4
       _value: 10
+      _isPercent: 1
   - _bonusStat:
     - _stat: 4
       _value: 10
+      _isPercent: 1
   - _bonusStat:
     - _stat: 4
       _value: 10
+      _isPercent: 1
   - _bonusStat:
     - _stat: 4
       _value: 10
+      _isPercent: 1

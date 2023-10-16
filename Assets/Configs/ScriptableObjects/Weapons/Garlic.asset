@@ -17,46 +17,64 @@ MonoBehaviour:
   _defaultStatsData:
   - _stat: 19
     _value: 5
+    _isPercent: 1
   - _stat: 4
     _value: 3
+    _isPercent: 1
   - _stat: 13
     _value: 0
+    _isPercent: 0
   - _stat: 5
     _value: 1.3
+    _isPercent: 0
   _levelUpBonuses:
   - _bonusStat:
     - _stat: 4
       _value: 40
+      _isPercent: 1
     - _stat: 19
       _value: 10
+      _isPercent: 1
   - _bonusStat:
     - _stat: 5
       _value: -0.1
+      _isPercent: 1
     - _stat: 19
       _value: 1
+      _isPercent: 1
   - _bonusStat:
     - _stat: 4
       _value: 20
+      _isPercent: 1
     - _stat: 19
       _value: 1
+      _isPercent: 1
   - _bonusStat:
     - _stat: 11
       _value: -0.1
+      _isPercent: 1
     - _stat: 19
       _value: 2
+      _isPercent: 1
   - _bonusStat:
     - _stat: 4
       _value: 20
+      _isPercent: 1
     - _stat: 19
       _value: 1
+      _isPercent: 1
   - _bonusStat:
     - _stat: 11
       _value: -0.1
+      _isPercent: 1
     - _stat: 19
       _value: 1
+      _isPercent: 1
   - _bonusStat:
     - _stat: 4
       _value: 20
+      _isPercent: 1
     - _stat: 19
       _value: 1
+      _isPercent: 1
   _ignoreStat: 0f0000000e00000003000000

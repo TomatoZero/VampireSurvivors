@@ -24,36 +24,28 @@ namespace Player
             var itemBonus = _inventory.GetAllItemBonuses();
             _instance = new PlayerInstance(_playerStatsData, itemBonus.allClearBonus, itemBonus.allPercentBonus);
             _setupStatsEvent.Invoke(_instance);
+            
+            var str = _instance.StatsCalculator.ShowCurrentStats("Player Start");
+            Debug.Log(str);
         }
 
         public void LevelUp()
         {
             _instance.LevelUp();
             _statsUpdateEvent.Invoke(_instance);
+            
+            var str = _instance.StatsCalculator.ShowCurrentStats("Player Level Up");
+            Debug.Log(str);
         }
 
         public void UpdateStatsEventHandler()
         {
             var itemBonus = _inventory.GetAllItemBonuses();
             _instance.AddBonusesFromItems(itemBonus.allClearBonus, itemBonus.allPercentBonus);
-            
-            
-            
-            // var s = "";
-            // foreach (var stat in _instance.CurrentStats)
-            // {
-            //     s += stat + "\n";
-            // }
-            //
-            // s += "\nBonus\n";
-            //
-            // foreach (var stat in _instance.CurrentBonus)
-            // {
-            //     s += stat + "\n";
-            // }
-            //
-            // Debug.Log(s);
 
+            var str = _instance.StatsCalculator.ShowCurrentStats("Player Update");
+            Debug.Log(str);
+            
             _statsUpdateEvent.Invoke(_instance);
         }
     }

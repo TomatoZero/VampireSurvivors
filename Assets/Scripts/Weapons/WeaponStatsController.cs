@@ -31,7 +31,6 @@ namespace Weapons
         {
             _instance.LevelUp();
             _updateStatData.Invoke(_instance);
-            // DebugPrint("Level up");
         }
 
         public void SetupStatEventHandler(ObjectInstance playerInstance)
@@ -44,8 +43,9 @@ namespace Weapons
         {
             var playerInstance = (PlayerInstance)newInstance;
 
+            //TODO: Bonus From Outside
+            
             _updateStatData.Invoke(_instance);
-            // DebugPrint("Update");
         }
     }
 }

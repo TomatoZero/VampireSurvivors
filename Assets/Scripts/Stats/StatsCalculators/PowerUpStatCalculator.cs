@@ -30,6 +30,16 @@ namespace Stats.StatsCalculators
                 _clearBonusFromOutside[stat] = value;
         }
 
+        public override string ShowCurrentStats(string additionalInfo)
+        {
+            var str = base.ShowCurrentStats(additionalInfo);
+
+            str += $"ClearBonusFromOutside {GetDictionaryInString(_clearBonusFromOutside)}\n";
+            str += $"PercentBonusFromOutside {GetDictionaryInString(_percentBonusFromOutside)}\n";
+            
+            return str;
+        }
+
         private protected override float GetClearBonusValue(Stats stat)
         {
             var clearBonusFromOutside = GetValueFormDictionary(stat, _clearBonusFromOutside);

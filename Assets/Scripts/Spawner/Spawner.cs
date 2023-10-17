@@ -23,7 +23,7 @@ namespace DefaultNamespace
 
         private void Awake()
         {
-            _delay = new WaitForSeconds(1f);
+            _delay = new WaitForSeconds(.5f);
         }
 
         private void Start()

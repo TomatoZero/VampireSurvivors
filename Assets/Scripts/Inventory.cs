@@ -92,8 +92,6 @@ namespace DefaultNamespace
         {
             var allClearBonus = new Dictionary<Stats.Stats, float>();
             var allPercentBonus = new Dictionary<Stats.Stats, float>();
-
-            Debug.Log($"Items count: {_items.Count}");
             
             foreach (var item in _items)
             {
@@ -113,25 +111,6 @@ namespace DefaultNamespace
                         allPercentBonus[percentBonus.Key] = percentBonus.Value;
                 }
             }
-
-            // var str = "Inventory all bonuses\n";
-
-            // str += $"\nClearBonuses:\n {GetDictionaryInString(allClearBonus)}\n\n";
-            // str += $"\nClearBonuses:\n {GetDictionaryInString(allPercentBonus)}\n\n";
-            
-            // Debug.Log(str);
-            
-            string GetDictionaryInString<T,TT>(Dictionary<T,TT> dictionary)
-            {
-                var str = "";
-                foreach (var stat in dictionary)
-                {
-                    str += $"Stat: {stat.Key} Value: {stat.Value}\n";
-                }
-
-                return str;
-            }
-            
             return (allClearBonus, allPercentBonus);
         }
 

@@ -74,10 +74,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
+    type: 3}
   m_Color: {r: 0.040236473, g: 1, b: 0, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,19 +210,7 @@ MonoBehaviour:
         m_CallState: 2
   _durationEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5271642463339395286}
-        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponAreaController, Assembly-CSharp
-        m_MethodName: ForbidDamageEventHandler
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5223928323674036190
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +242,7 @@ Transform:
   m_Children:
   - {fileID: 8065749759187161417}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3507945380370831046
 MonoBehaviour:

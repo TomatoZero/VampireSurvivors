@@ -50,7 +50,6 @@ namespace DefaultNamespace
                 return false;
             }
         }
-
         
         public void UpgradeEventHandler(BonusData item)
         {
@@ -73,7 +72,7 @@ namespace DefaultNamespace
                 throw new NullReferenceException(
                     "Upgrade item have to ber some where in _currentWeaponAndItems or in _newerUsed");
             }
-
+            
             _newerUsed.Remove(removeItem);
             AddNewItem(item);
         }

@@ -43,32 +43,8 @@ namespace Player
         {
             var itemBonus = _inventory.GetAllItemBonuses();
             
-            var str = "Inventory all bonuses\n";
-
-            str += $"\nClearBonuses:\n {GetDictionaryInString(itemBonus.allClearBonus)}\n\n";
-            str += $"\nPercentBonus:\n {GetDictionaryInString(itemBonus.allPercentBonus)}\n\n";
-            
-            Debug.Log(str);
-            
             _instance.AddBonusesFromItems(itemBonus.allClearBonus, itemBonus.allPercentBonus);
-
-            
-            // var str = _instance.StatsCalculator.ShowCurrentStats("Player Update");
-            // Debug.Log(str);
-            
             _statsUpdateEvent.Invoke(_instance);
-            
-            
-            string GetDictionaryInString<T,TT>(Dictionary<T,TT> dictionary)
-            {
-                var str = "";
-                foreach (var stat in dictionary)
-                {
-                    str += $"Stat: {stat.Key} Value: {stat.Value}\n";
-                }
-
-                return str;
-            }
         }
     }
 }

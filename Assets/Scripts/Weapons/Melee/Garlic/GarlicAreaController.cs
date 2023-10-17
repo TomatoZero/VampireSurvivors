@@ -1,4 +1,5 @@
-﻿using Stats.Instances;
+﻿using System;
+using Stats.Instances;
 using UnityEngine;
 
 namespace Weapons.Melee.Garlic
@@ -15,15 +16,14 @@ namespace Weapons.Melee.Garlic
 
         protected override void OnTriggerStay2D(Collider2D other)
         {
+            if (((1 << other.gameObject.layer) & _enemyAndWeapon) == 0) return;
             if (!CanDamage) return;
+            Debug.Log($"22222222222");
 
-            if (((1 << other.gameObject.layer) & _enemyAndWeapon) != 0)
-            {
-                CanDamage = false;
-                var enemyInside = ScanForEnemy();
-                _hitEnemyEvent.Invoke(enemyInside);
-                _startCountdownEvent.Invoke();
-            }
+            CanDamage = false;
+            var enemyInside = ScanForEnemy();
+            _hitEnemyEvent.Invoke(enemyInside);
+            _startCountdownEvent.Invoke();
         }
 
         public override void SetupStatEventHandler(ObjectInstance newInstance)
@@ -34,7 +34,7 @@ namespace Weapons.Melee.Garlic
 
         protected override Collider2D[] ScanForEnemy()
         {
-            return Physics2D.OverlapCircleAll(transform.position, _scale.y / 2, _enemyAndWeapon);
+            return Physics2D.OverlapCircleAll(transform.position, transform.localScale.y /2 , _enemyAndWeapon);
         }
 
         private void UpdateLocalScale()

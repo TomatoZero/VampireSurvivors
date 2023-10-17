@@ -24,9 +24,9 @@ namespace Weapons
         private Coroutine _durationCoroutine;
         private Coroutine _timerCoroutine;
         
-        private bool _isCountdownActive = false;
-        private bool _isDurationActive = false;
-        private bool _isTimerActive = false;
+        private bool _isCountdownActive;
+        private bool _isDurationActive;
+        private bool _isTimerActive;
         
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
@@ -34,17 +34,21 @@ namespace Weapons
 
             _duration = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Duration).Value);
             _countdown = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value);
+
+            _isCountdownActive = false;
+            _isDurationActive = false;
+            _isTimerActive = false;
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            StopActiveCoroutine();
+            // StopActiveCoroutine();
             var weaponInstance = (WeaponInstance)newInstance;
 
             _duration = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Duration).Value);
             _countdown = new WaitForSeconds(weaponInstance.GetStatByName(Stats.Stats.Cooldown).Value);
 
-            ResumeActiveCoroutine();
+            // ResumeActiveCoroutine();
         }
 
         public void StartCountdownTimer()

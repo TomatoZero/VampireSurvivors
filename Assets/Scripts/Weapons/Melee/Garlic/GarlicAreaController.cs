@@ -18,7 +18,6 @@ namespace Weapons.Melee.Garlic
         {
             if (((1 << other.gameObject.layer) & _enemyAndWeapon) == 0) return;
             if (!CanDamage) return;
-            Debug.Log($"22222222222");
 
             CanDamage = false;
             var enemyInside = ScanForEnemy();

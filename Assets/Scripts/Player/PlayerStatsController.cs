@@ -25,18 +25,12 @@ namespace Player
             var itemBonus = _inventory.GetAllItemBonuses();
             _instance = new PlayerInstance(_playerStatsData, itemBonus.allClearBonus, itemBonus.allPercentBonus);
             _setupStatsEvent.Invoke(_instance);
-            
-            var str = _instance.StatsCalculator.ShowCurrentStats("Player Start");
-            Debug.Log(str);
         }
 
         public void LevelUp()
         {
             _instance.LevelUp();
             _statsUpdateEvent.Invoke(_instance);
-            
-            var str = _instance.StatsCalculator.ShowCurrentStats("Player Level Up");
-            Debug.Log(str);
         }
 
         public void UpdateStatsEventHandler()

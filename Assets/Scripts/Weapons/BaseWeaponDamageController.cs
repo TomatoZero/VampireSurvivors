@@ -12,8 +12,7 @@ namespace Weapons
         private float _damage;
 
         public virtual void Damage(Collider2D[] enemy)
-        {           
-            Debug.Log($"Damage {_damage} {enemy.Length}");
+        {
             foreach (var oneEnemy in enemy)
             {
                 if(oneEnemy is not null) Damage(oneEnemy);

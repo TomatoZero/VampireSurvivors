@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1365433889
+CRC: 2440102437
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0e6131b2eed3eb5e5e8ec0a6486f9d60
+    Hash: 8f7352cd7eae390b9a18575d5fc2802d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 060fb500dfa831af7d32d1ac91f65bd6
@@ -59,7 +59,7 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.UnityEvent`1[UnityEngine.Collider2D[]]
 Assets:
-- Assets/Prefab/Weapon/Range/AxeWeapon.prefab
+- Assets/Prefab/Weapon/Range/Axe.prefab
 - Assets/Prefab/Weapon/Melee/Garlic.prefab
 - Assets/Prefab/Weapon/Melee/LightningRing.prefab
 Dependencies:

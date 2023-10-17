@@ -1,17 +1,29 @@
 using System;
+using System.Collections.Generic;
 using Stats.ScriptableObjects;
+using Stats.StatsCalculators;
 
 namespace Stats.Instances.PowerUp
 {
     public class WeaponInstance : PowerUpInstance
     {
+        public PowerUpStatCalculator PowerUpStatCalculator => (PowerUpStatCalculator)StatsCalculator;
+        
         private WeaponStatsData WeaponStatsData => (WeaponStatsData)_statsData;
-
+        
+        
         public WeaponInstance(WeaponStatsData statsData) : base(statsData)
         {
         }
-        
-        private protected  bool IsNecessaryStat(Stats statData)
+
+        public override void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
+            Dictionary<Stats, float> allPercentItemBonus)
+        {
+            PowerUpStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
+            UpdateCurrentStats();
+        }
+
+        private protected bool IsNecessaryStat(Stats statData)
         {
             switch (statData)
             {
@@ -48,8 +60,6 @@ namespace Stats.Instances.PowerUp
         {
             var defaultChance = GetDefaultStatByName(Stats.Chance);
             var newChance = statData.Value * defaultChance.Value;
-
-            
         }
 
         private bool CheckIgnore(Stats stat)

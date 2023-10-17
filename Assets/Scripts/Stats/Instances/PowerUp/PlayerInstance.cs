@@ -16,7 +16,7 @@ namespace Stats.Instances.PowerUp
             AddBonusesFromItems(allClearItemBonus, allPercentItemBonus);
         }
 
-        public virtual void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
+        public override void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
             Dictionary<Stats, float> allPercentItemBonus)
         {
             PlayerStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);

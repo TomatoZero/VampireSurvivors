@@ -9,7 +9,8 @@ namespace Stats.Instances.PowerUp
         public PowerUpStatCalculator PowerUpStatCalculator => (PowerUpStatCalculator)StatsCalculator;
 
         protected PowerUpInstance(ObjectStatsData statsData) : base(statsData)
-        { }
+        {
+        }
 
         private protected override void Setup()
         {
@@ -17,6 +18,9 @@ namespace Stats.Instances.PowerUp
             powerUpStatCalculator.CalculateCurrentStats();
             SetStatCalculator(powerUpStatCalculator);
         }
+
+        public abstract void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
+            Dictionary<Stats, float> allPercentItemBonus);
 
         public override void LevelUp()
         {

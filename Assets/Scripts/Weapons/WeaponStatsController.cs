@@ -43,7 +43,10 @@ namespace Weapons
         {
             var playerInstance = (PlayerInstance)newInstance;
 
-            //TODO: Bonus From Outside
+            var allClearBonusFromOutside = playerInstance.PlayerStatCalculator.ClearBonuses;
+            var allPercentBonusFromOutside = playerInstance.PlayerStatCalculator.PercentBonuses;
+            
+            _instance.AddBonusesFromItems(allClearBonusFromOutside, allPercentBonusFromOutside);
             
             _updateStatData.Invoke(_instance);
         }

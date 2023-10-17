@@ -20,7 +20,7 @@ MonoBehaviour:
     _isPercent: 1
   - _stat: 4
     _value: 3
-    _isPercent: 1
+    _isPercent: 0
   - _stat: 13
     _value: 0
     _isPercent: 0

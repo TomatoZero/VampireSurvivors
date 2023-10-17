@@ -48,10 +48,6 @@ namespace DefaultNamespace
         public void AddItem(ItemInstance item)
         {
             item.UpdateClearAndPercentStats();
-            
-            var str = item.StatsCalculator.ShowCurrentStats("New Item");
-            Debug.Log(str);
-            
             _items.Add(item);
             _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();

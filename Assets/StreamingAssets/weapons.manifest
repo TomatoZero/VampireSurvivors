@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2987651633
+CRC: 878475243
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f653bb6feba8c05e6d831ca616f5f95
+    Hash: 80ecf77c90f4f8b04430add8d708f415
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e872f443f30bcdff40d55de3c24cd733
+    Hash: 060fb500dfa831af7d32d1ac91f65bd6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -55,7 +55,7 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.UnityEvent
 - AssemblyName: UnityEngine.CoreModule
-  ClassName: UnityEngine.Events.UnityEvent`1[Stats.Instances.WeaponInstance]
+  ClassName: UnityEngine.Events.UnityEvent`1[Stats.Instances.PowerUp.WeaponInstance]
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.UnityEvent`1[UnityEngine.Collider2D[]]
 Assets:

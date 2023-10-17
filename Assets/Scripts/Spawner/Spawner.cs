@@ -62,7 +62,7 @@ namespace DefaultNamespace
 
         private Vector3 GetRandomPos()
         {
-            var x = Random.Range(0,3);
+            var x = Random.Range(0,4);
             return _spawners[x].position;
         }
 

@@ -4,16 +4,26 @@ using UnityEngine;
 namespace Stats.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Buff", menuName = "ScriptableObject/Buff/Buff", order = 1)]
-    public abstract class BuffData : ScriptableObject
+    public class BuffData : ScriptableObject
     {
+        [SerializeField] private string _name;
+        [SerializeField] private string _ico;
+        [SerializeField] private StatData _statData;
         [SerializeField] private float _duration;
         [SerializeField] private bool _isDurationStacked;
         [SerializeField] private bool _isEffectStacked;
 
+
+        public string Name => _name;
+        public string Ico => _ico;
+        public StatData StatData => _statData;
         public float Duration => _duration;
         public bool IsDurationStacked => _isDurationStacked;
         public bool IsEffectStacked => _isEffectStacked;
 
-        public abstract TimedBuffInstance InitializeBuff(GameObject obj);
+        public TimedBuffInstance InitializeBuff()
+        {
+            return new TimedBuffInstance(this);
+        }
     }
 }

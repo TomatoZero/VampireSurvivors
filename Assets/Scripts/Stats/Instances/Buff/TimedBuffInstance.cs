@@ -1,51 +1,60 @@
-﻿using Interface;
+﻿using System.Collections;
 using Stats.ScriptableObjects;
 using UnityEngine;
 
 namespace Stats.Instances.Buff
 {
-    public abstract class TimedBuffInstance
+    public class TimedBuffInstance
     {
         private readonly BuffData _buff;
-        
-        private float _duration;
-        private int _effectStacks;
-        private readonly ICanGetBuff _buffClass;
-        private bool _isFinished;
-        
 
-        public TimedBuffInstance(BuffData buff, ICanGetBuff buffClass)
+        private float _duration;
+        private float _currentDuration;
+        private int _effectStacks;
+
+        public BuffData Buff => _buff;
+        public float Duration => _duration;
+        public float CurrentDuration => _currentDuration;
+        public int EffectStacks => _effectStacks;
+
+        public delegate void TimerChane(TimedBuffInstance instance);
+
+        public event TimerChane TimerChaneEvent;
+
+
+        public TimedBuffInstance(BuffData buff)
         {
             _buff = buff;
-            _buffClass = buffClass;
-            _isFinished = false;
         }
 
-        public void Tick(float delta)
+        public IEnumerator StartCountdown()
         {
-            _duration -= delta;
-            if (_duration <= 0)
+            while (true)
             {
-                End();
-                _isFinished = true;
+                yield return new WaitForSeconds(.1f);
+                _currentDuration += .1f;
+                TimerChaneEvent?.Invoke(this);
+
+                if (_currentDuration >= _duration)
+                    break;
             }
         }
 
         public void Activate()
         {
-            if (_buff.IsEffectStacked || _duration <= 0)
+            if (_buff.IsEffectStacked || _currentDuration <= 0)
             {
-                ApplyEffect();
                 _effectStacks++;
             }
-        
-            if (_buff.IsDurationStacked || _duration <= 0)
+
+            if (_buff.IsDurationStacked || _currentDuration <= 0)
             {
                 _duration += _buff.Duration;
             }
+            else
+            {
+                _currentDuration = 0;
+            }
         }
-        
-        protected abstract void ApplyEffect();
-        public abstract void End();
     }
 }

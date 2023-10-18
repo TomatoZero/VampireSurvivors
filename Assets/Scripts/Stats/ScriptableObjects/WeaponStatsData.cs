@@ -7,7 +7,7 @@ namespace Stats.ScriptableObjects
     public class WeaponStatsData : ObjectStatsData
     {
         [SerializeField] private List<Stats> _ignoreStat;
-
+        
         public List<Stats> IgnoreStat => _ignoreStat;
     }
 }

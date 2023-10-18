@@ -8,13 +8,25 @@ namespace Stats.StatsCalculators
         private Dictionary<Stats, float> _clearBonusFromOutside;
         private Dictionary<Stats, float> _percentBonusFromOutside;
 
+        private protected Dictionary<Stats, float> ClearBonusFromOutside
+        {
+            get => _clearBonusFromOutside;
+            set => _clearBonusFromOutside = value;
+        }
+
+        private protected Dictionary<Stats, float> PercentBonusFromOutside
+        {
+            get => _percentBonusFromOutside;
+            set => _percentBonusFromOutside = value;
+        }
+
         public PowerUpStatCalculator(ObjectInstance objectInstance) : base(objectInstance)
         {
             _clearBonusFromOutside = new Dictionary<Stats, float>();
             _percentBonusFromOutside = new Dictionary<Stats, float>();
         }
 
-        public void RewriteOrAddOutsideBonus(Dictionary<Stats, float> allClearItemBonus,
+        public virtual void RewriteOrAddOutsideBonus(Dictionary<Stats, float> allClearItemBonus,
             Dictionary<Stats, float> allPercentItemBonus)
         {
             _percentBonusFromOutside = new Dictionary<Stats, float>();

@@ -7,7 +7,7 @@ namespace Stats.Instances.PowerUp
 {
     public class WeaponInstance : PowerUpInstance
     {
-        public PowerUpStatCalculator PowerUpStatCalculator => (PowerUpStatCalculator)StatsCalculator;
+        public WeaponStatCalculator WeaponStatCalculator => (WeaponStatCalculator)StatsCalculator;
         
         private WeaponStatsData WeaponStatsData => (WeaponStatsData)_statsData;
         
@@ -16,10 +16,17 @@ namespace Stats.Instances.PowerUp
         {
         }
 
+        private protected override void Setup()
+        {
+            var weaponStatCalculator = new WeaponStatCalculator(this, WeaponStatsData);
+            weaponStatCalculator.CalculateCurrentStats();
+            SetStatCalculator(weaponStatCalculator);
+        }
+
         public override void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
             Dictionary<Stats, float> allPercentItemBonus)
         {
-            PowerUpStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
+            WeaponStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
             UpdateCurrentStats();
         }
 

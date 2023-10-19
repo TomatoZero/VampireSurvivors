@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebf0b8a9aecabe4b8922c3b262dd27d, type: 3}
   m_Name: Duplicator
   m_EditorClassIdentifier: 
+  _ico: {fileID: 21300000, guid: 615716f1f4100fc4c8b5ff29dad32eef, type: 3}
   _name: Duplicator
   _defaultStatsData:
   - _stat: 14
     _value: 1
+    _isPercent: 0
   _levelUpBonuses:
   - _bonusStat:
     - _stat: 14
       _value: 1
+      _isPercent: 0

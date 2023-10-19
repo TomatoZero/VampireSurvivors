@@ -32,7 +32,6 @@ namespace DefaultNamespace
 
         private void Awake()
         {
-            DisplayCurrentItems();
             _items = new List<ItemInstance>();
         }
 
@@ -115,6 +114,7 @@ namespace DefaultNamespace
         {
             _playerInstance = (PlayerInstance)newInstance;
             SetupStatEvent?.Invoke(_playerInstance);
+            DisplayCurrentItems();
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)

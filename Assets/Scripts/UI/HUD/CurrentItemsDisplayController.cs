@@ -19,12 +19,15 @@ namespace UI.HUD
         {
             _freeWeaponsDisplay = new Queue<ItemDisplayController>();
             _freeItemsDisplay = new Queue<ItemDisplayController>();
+
+            foreach (var display in _displayWeapons) _freeWeaponsDisplay.Enqueue(display);
+            foreach (var display in _displayItems) _freeItemsDisplay.Enqueue(display);
         }
 
         public void SetItems(List<WeaponInstance> weapons, List<ItemInstance> items)
         {
-            SetupItems(weapons.Cast<ObjectInstance>().ToList(), _displayWeapons, _freeWeaponsDisplay);
-            SetupItems(items.Cast<ObjectInstance>().ToList(), _displayItems, _freeItemsDisplay);
+            if(weapons is not null) SetupItems(weapons?.Cast<ObjectInstance>().ToList(), _displayWeapons, _freeWeaponsDisplay);
+            if(items is not null) SetupItems(items.Cast<ObjectInstance>().ToList(), _displayItems, _freeItemsDisplay);
         }
 
         private void SetupItems(List<ObjectInstance> items, List<ItemDisplayController> display,
@@ -32,15 +35,21 @@ namespace UI.HUD
         {
             foreach (var item in items)
             {
+                if(item is null) continue;
+                var found = false;
+                
                 foreach (var displayController in display)
                 {
                     if (displayController.Instance == item)
                     {
                         displayController.UpdateLevel(item.CurrentLvl);
-                        return;
+                        found = true;
+                        break;
                     }
                 }
 
+                if (found) continue;
+                
                 if (allFreeDisplay.TryDequeue(out ItemDisplayController freeDisplay))
                 {
                     freeDisplay.Set(item);

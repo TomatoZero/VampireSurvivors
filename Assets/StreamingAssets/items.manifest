@@ -1,17 +1,21 @@
 ManifestFileVersion: 0
-CRC: 1603831641
+CRC: 2171744536
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 67d770e03e332ec046685564aa787845
+    Hash: 1222bae020e5805bb5581a8629ef843d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2e1d3a8cbacbfc89276aa64849459b68
+    Hash: e329dff020532aeac088f452a19a5997
 HashAppended: 0
 ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 8ebf0b8a9aecabe4b8922c3b262dd27d, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
 - AssemblyName: Assembly-CSharp

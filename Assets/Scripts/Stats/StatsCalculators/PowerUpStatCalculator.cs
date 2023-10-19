@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
+using UnityEngine;
 
 namespace Stats.StatsCalculators
 {

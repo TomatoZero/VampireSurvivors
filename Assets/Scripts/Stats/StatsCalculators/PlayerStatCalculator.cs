@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
+using UnityEngine;
 
 namespace Stats.StatsCalculators
 {
@@ -42,11 +43,21 @@ namespace Stats.StatsCalculators
             var clearBuff = GetValueFormDictionary(stat, _clearBuffs);
             return base.GetClearBonusValue(stat) + clearBuff;
         }
-
+        
         private protected override float GetPercentBonusValue(Stats stat)
         {
             var percentBuff = GetValueFormDictionary(stat, _percentBuffs);
-            return base.GetClearBonusValue(stat) + percentBuff;
+            return base.GetPercentBonusValue(stat) + percentBuff;
+        }
+
+        public override string ShowCurrentStats(string additionalInfo)
+        {
+            var str = base.ShowCurrentStats(additionalInfo);
+
+            str += $"ClearBuff {GetDictionaryInString(_clearBuffs)}\n\n";
+            str += $"PercentBuff {GetDictionaryInString(_percentBuffs)}\n\n";
+            
+            return str;
         }
     }
 }

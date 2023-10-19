@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Stats.Instances.Buff;
 using Stats.ScriptableObjects;
 using UnityEngine;
@@ -37,9 +38,9 @@ namespace Player
                 _buffs.Add(buff, buffInstance);
                 AddBuffStat(buff);
                 ShowNewBuff(buffInstance);
+                buffInstance.RemoveBuff += RemoveBuff;
                 
                 _buffs[buff].Activate();
-                
 
                 StartCoroutine(_buffs[buff].StartCountdown());
             }
@@ -70,15 +71,27 @@ namespace Player
                 dictionary.Add(buffData.StatData.Stat, buffData.StatData.Value);
             }
         }
-
-        private void RemoveBuffStat(BuffData buff)
+        
+        private void RemoveBuff(TimedBuffInstance buff)
         {
-            if (!_clearBuff.ContainsKey(buff.StatData.Stat))
+            if (!buff.Buff.StatData.IsPercent)
             {
-                return;
+                if (_clearBuff.ContainsKey(buff.Buff.StatData.Stat))
+                    _clearBuff[buff.Buff.StatData.Stat] -= buff.Buff.StatData.Value;
+                else
+                    throw new Exception("Stat was not found");
+            }
+            else
+            {
+                if (_percentBuff.ContainsKey(buff.Buff.StatData.Stat))
+                    _percentBuff[buff.Buff.StatData.Stat] -= buff.Buff.StatData.Value;
+                else
+                    throw new Exception("Stat was not found");
             }
 
-            _clearBuff[buff.StatData.Stat] -= buff.StatData.Value;
+            if (_buffs.ContainsKey(buff.Buff))
+                _buffs.Remove(buff.Buff);
+            
             _buffChangeEvent.Invoke(_clearBuff, _percentBuff);
         }
 

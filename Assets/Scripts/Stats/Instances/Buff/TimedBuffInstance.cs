@@ -18,8 +18,10 @@ namespace Stats.Instances.Buff
         public int EffectStacks => _effectStacks;
 
         public delegate void TimerChane(float currentTime);
-
+        public delegate void BuffEnd(TimedBuffInstance buffInstance);
+        
         public event TimerChane TimerChaneEvent;
+        public event BuffEnd RemoveBuff;
 
 
         public TimedBuffInstance(BuffData buff)
@@ -36,7 +38,10 @@ namespace Stats.Instances.Buff
                 TimerChaneEvent?.Invoke(_currentDuration / _duration);
 
                 if (_currentDuration >= _duration)
+                {
+                    RemoveBuff?.Invoke(this);
                     break;
+                }
             }
         }
 

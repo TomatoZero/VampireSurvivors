@@ -12,7 +12,7 @@ namespace Weapons.RangeWeapons.Particle
         [SerializeField] private UnityEvent _destroyParticleEvent;
         [SerializeField] private LayerMask _enemyAndWeapon;
 
-        private int _maxPierce;
+        private int _maxPierce = 10;
         private int _currentPierce;
             
         private protected UnityEvent<Collider2D> HitEnemyEventHandler
@@ -55,11 +55,13 @@ namespace Weapons.RangeWeapons.Particle
         public virtual void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _maxPierce = (int)newInstance.GetStatByName(Stats.Stats.Pierce).Value;
+            _currentPierce = 0;
         }
 
         public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _maxPierce = (int)newInstance.GetStatByName(Stats.Stats.Pierce).Value;
+            _currentPierce = 0;
         }
     }
 }

@@ -69,9 +69,6 @@ namespace DefaultNamespace
 
             levelUpItem.LevelUp();
             
-            var str = levelUpItem.StatsCalculator.ShowCurrentStats("Item Level Up");
-            Debug.Log(str);
-            
             _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();

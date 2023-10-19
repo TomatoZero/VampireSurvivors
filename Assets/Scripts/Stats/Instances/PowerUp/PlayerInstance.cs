@@ -23,6 +23,13 @@ namespace Stats.Instances.PowerUp
             UpdateCurrentStats();
         }
 
+        public void AddBuffs(Dictionary<Stats, float> allClearBuff,
+            Dictionary<Stats, float> allPercentBuff)
+        {
+            PlayerStatCalculator.RewriteOrAddBuffs(allClearBuff, allPercentBuff);
+            UpdateCurrentStats();
+        }
+
         public override void LevelUp()
         {
             if (_statsData.MaxLvl <= CurrentLvl) return;

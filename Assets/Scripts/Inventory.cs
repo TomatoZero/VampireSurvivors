@@ -136,16 +136,6 @@ namespace DefaultNamespace
             weapon.SetupStatEventHandler(playerInstance);
         }
 
-        private int FindStatIdInList(List<StatData> list, Stats.Stats stat)
-        {
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                if (list[i].Stat == stat) return i;
-            }
-
-            return -1;
-        }
-
         private void DisplayCurrentItems()
         {
             var weapons = new List<WeaponInstance>();

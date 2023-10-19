@@ -55,10 +55,10 @@ namespace Stats.StatsCalculators
             return base.GetClearBonusValue(stat) + clearBonusFromOutside;
         }
 
-        private protected override float GetAllPercentBonusValue(Stats stat)
+        private protected override float GetPercentBonusValue(Stats stat)
         {
             var percentBonusFromOutside = GetValueFormDictionary(stat, _percentBonusFromOutside);
-            return base.GetAllPercentBonusValue(stat) + percentBonusFromOutside;
+            return base.GetPercentBonusValue(stat) + percentBonusFromOutside;
         }
 
         private protected override HashSet<Stats> GetClearStats()

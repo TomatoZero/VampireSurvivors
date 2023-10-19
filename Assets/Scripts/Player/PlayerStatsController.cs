@@ -36,8 +36,15 @@ namespace Player
         public void UpdateStatsEventHandler()
         {
             var itemBonus = _inventory.GetAllItemBonuses();
-            
+
             _instance.AddBonusesFromItems(itemBonus.allClearBonus, itemBonus.allPercentBonus);
+            _statsUpdateEvent.Invoke(_instance);
+        }
+
+        public void UpdateBuffStatsEventHandler(Dictionary<Stats.Stats, float> clearBuff,
+            Dictionary<Stats.Stats, float> percentBuff)
+        {
+            _instance.AddBuffs(clearBuff, percentBuff);
             _statsUpdateEvent.Invoke(_instance);
         }
     }

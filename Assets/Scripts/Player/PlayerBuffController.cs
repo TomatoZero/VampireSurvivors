@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Stats;
+﻿using System.Collections.Generic;
 using Stats.Instances.Buff;
 using Stats.ScriptableObjects;
 using UnityEngine;
@@ -11,15 +9,19 @@ namespace Player
     public class PlayerBuffController : MonoBehaviour
     {
         [SerializeField] private UnityEvent<TimedBuffInstance> _buffTimerChangeEvent;
-        [SerializeField] private UnityEvent<Dictionary<Stats.Stats, float>> _buffChangeEvent;
-        
+
+        [SerializeField]
+        private UnityEvent<Dictionary<Stats.Stats, float>, Dictionary<Stats.Stats, float>> _buffChangeEvent;
+
         private Dictionary<BuffData, TimedBuffInstance> _buffs;
-        private Dictionary<Stats.Stats, float> _currentBuff;
+        private Dictionary<Stats.Stats, float> _clearBuff;
+        private Dictionary<Stats.Stats, float> _percentBuff;
 
         private void Awake()
         {
             _buffs = new Dictionary<BuffData, TimedBuffInstance>();
-            _currentBuff = new Dictionary<Stats.Stats, float>();
+            _clearBuff = new Dictionary<Stats.Stats, float>();
+            _percentBuff = new Dictionary<Stats.Stats, float>();
         }
 
         public void AddBuff(BuffData buff)
@@ -34,10 +36,10 @@ namespace Player
                 var buffInstance = buff.InitializeBuff();
                 _buffs.Add(buff, buffInstance);
                 AddBuffStat(buff);
-                
+
                 _buffs[buff].Activate();
                 _buffs[buff].TimerChaneEvent += TimerChaneEventHandler;
-                
+
                 StartCoroutine(_buffs[buff].StartCountdown());
             }
         }
@@ -52,31 +54,37 @@ namespace Player
                 RemoveBuffStat(instance.Buff);
             }
         }
-        
+
         private void AddBuffStat(BuffData buffData)
         {
-            if (_currentBuff.ContainsKey(buffData.StatData.Stat))
+            if (buffData.StatData.IsPercent) AddValueInDictionary(_percentBuff, buffData);
+            else AddValueInDictionary(_clearBuff, buffData);
+
+            _buffChangeEvent.Invoke(_clearBuff, _percentBuff);
+        }
+
+        private void AddValueInDictionary(Dictionary<Stats.Stats, float> dictionary, BuffData buffData)
+        {
+            if (dictionary.ContainsKey(buffData.StatData.Stat))
             {
-                if(buffData.IsEffectStacked)
-                    _currentBuff[buffData.StatData.Stat] += buffData.StatData.Value;
+                if (buffData.IsEffectStacked)
+                    dictionary[buffData.StatData.Stat] += buffData.StatData.Value;
             }
             else
             {
-                _currentBuff.Add(buffData.StatData.Stat, buffData.StatData.Value);
+                dictionary.Add(buffData.StatData.Stat, buffData.StatData.Value);
             }
-            
-            _buffChangeEvent.Invoke(_currentBuff);
         }
 
         private void RemoveBuffStat(BuffData buff)
         {
-            if (!_currentBuff.ContainsKey(buff.StatData.Stat))
+            if (!_clearBuff.ContainsKey(buff.StatData.Stat))
             {
                 return;
             }
-            
-            _currentBuff[buff.StatData.Stat] -= buff.StatData.Value;
-            _buffChangeEvent.Invoke(_currentBuff);
+
+            _clearBuff[buff.StatData.Stat] -= buff.StatData.Value;
+            _buffChangeEvent.Invoke(_clearBuff, _percentBuff);
         }
     }
 }

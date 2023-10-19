@@ -102,7 +102,7 @@ namespace Stats.StatsCalculators
 
         public void CalculatePercentBonuses()
         {
-            GetBonuses(ref _percentBonuses, GetAllPercentBonusValue, GetPercentBonusStats);
+            GetBonuses(ref _percentBonuses, GetPercentBonusValue, GetPercentBonusStats);
         }
 
         private protected string GetDictionaryInString<T,TT>(Dictionary<T,TT> dictionary)
@@ -138,7 +138,7 @@ namespace Stats.StatsCalculators
             _stats.UnionWith(statsInClearBonus);
         }
 
-        private protected virtual float GetAllPercentBonusValue(Stats stat)
+        private protected virtual float GetPercentBonusValue(Stats stat)
         {
             var levelUpPercentBonus = GetValueFormDictionary(stat, _levelUpPercentBonus);
             var percentDefaultStat = GetValueFormDictionary(stat, _defaultsStatPercent);

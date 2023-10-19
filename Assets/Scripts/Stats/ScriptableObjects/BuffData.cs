@@ -7,7 +7,7 @@ namespace Stats.ScriptableObjects
     public class BuffData : ScriptableObject
     {
         [SerializeField] private string _name;
-        [SerializeField] private string _ico;
+        [SerializeField] private Sprite _ico;
         [SerializeField] private StatData _statData;
         [SerializeField] private float _duration;
         [SerializeField] private bool _isDurationStacked;
@@ -15,7 +15,7 @@ namespace Stats.ScriptableObjects
 
 
         public string Name => _name;
-        public string Ico => _ico;
+        public Sprite Ico => _ico;
         public StatData StatData => _statData;
         public float Duration => _duration;
         public bool IsDurationStacked => _isDurationStacked;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d19e1bb94e8e349b629ad96712e650, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
-  _ico: {fileID: 0}
+  _ico: {fileID: -1881920110, guid: 1f1d7ebf174d424489a747133f4e72b6, type: 3}
   _name: Bat
   _defaultStatsData:
   - _stat: 0

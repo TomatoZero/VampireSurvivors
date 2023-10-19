@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1edb25991ddf845b85a89d747c07b4, type: 3}
   m_Name: Garlic
   m_EditorClassIdentifier: 
-  _ico: {fileID: 0}
+  _ico: {fileID: 21300000, guid: 9d28212a574822f48987a73f2af7982b, type: 3}
   _name: Garlic
   _defaultStatsData:
   - _stat: 19

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebf0b8a9aecabe4b8922c3b262dd27d, type: 3}
   m_Name: Pummarola
   m_EditorClassIdentifier: 
-  _ico: {fileID: 0}
+  _ico: {fileID: 21300000, guid: 3f5497e7904f27e48a5ceb48ab924dc1, type: 3}
   _name: Pummarola
   _defaultStatsData:
   - _stat: 11

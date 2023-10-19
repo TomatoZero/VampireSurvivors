@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1edb25991ddf845b85a89d747c07b4, type: 3}
   m_Name: LightningRing
   m_EditorClassIdentifier: 
-  _ico: {fileID: 0}
+  _ico: {fileID: 21300000, guid: f6426bc40f93179468fcdfe5e7fcbc0a, type: 3}
   _name: Lightning Ring
   _defaultStatsData:
   - _stat: 19

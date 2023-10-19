@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5647082478373057298}
   - component: {fileID: 2643467363750992183}
   - component: {fileID: 3457661769882566487}
-  - component: {fileID: 206849695225025150}
+  - component: {fileID: 864222265722836696}
   m_Layer: 8
   m_Name: Invincible
   m_TagString: Untagged
@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 3363070913440516071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.0619287, y: 0.30257234, z: 0}
-  m_LocalScale: {x: 0.5010734, y: 0.7149, z: 0.7149}
+  m_LocalScale: {x: 0.5625, y: 0.625, z: 0.7149}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &571967406556227987
 SpriteRenderer:
@@ -74,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de73ed180fb291e49971c0e94334440f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0076283813, y: -0.0038141608}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.7142857, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.7323176, y: 2.0145645}
   m_EdgeRadius: 0
 --- !u!50 &2643467363750992183
 Rigidbody2D:
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2643467363750992183}
-  _defaultSpeed: 5
---- !u!114 &206849695225025150
+  _defaultSpeed: 10
+--- !u!114 &864222265722836696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,11 +183,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3363070913440516071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f3f7ce9aae63243949ff17fda80533, type: 3}
+  m_Script: {fileID: 11500000, guid: 59866bb0306755146b217e8a3c231da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
   _moveController: {fileID: 3457661769882566487}
-  _invincibleTime: 5
+  _buffData: {fileID: 11400000, guid: 5c96d153a7ad3c14289fcec09ceab612, type: 2}

@@ -19,7 +19,7 @@ MonoBehaviour:
     _value: 100
     _isPercent: 0
   - _stat: 1
-    _value: 0
+    _value: 100
     _isPercent: 0
   - _stat: 12
     _value: 10

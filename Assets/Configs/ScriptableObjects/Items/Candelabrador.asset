@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebf0b8a9aecabe4b8922c3b262dd27d, type: 3}
   m_Name: Candelabrador
   m_EditorClassIdentifier: 
-  _ico: {fileID: 0}
+  _ico: {fileID: 21300000, guid: 3e29301bac1ada046b40af3a70c80ed5, type: 3}
   _name: Candelabrador
   _defaultStatsData:
   - _stat: 4

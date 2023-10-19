@@ -15,6 +15,7 @@ namespace UI.HUD
         private void Awake()
         {
             _freeDisplays = new Queue<BuffDisplayController>();
+            _buffQueue = new Queue<TimedBuffInstance>();
             foreach (var displayController in _currentDisplaysBuff)
             {
                 _freeDisplays.Enqueue(displayController);

@@ -36,7 +36,7 @@ namespace Player
                 var buffInstance = buff.InitializeBuff();
                 _buffs.Add(buff, buffInstance);
                 AddBuffStat(buff);
-
+                
                 _buffs[buff].Activate();
                 _buffs[buff].TimerChaneEvent += TimerChaneEventHandler;
 
@@ -85,6 +85,26 @@ namespace Player
 
             _clearBuff[buff.StatData.Stat] -= buff.StatData.Value;
             _buffChangeEvent.Invoke(_clearBuff, _percentBuff);
+        }
+
+        private void PrintDictionary()
+        {
+            var str = "PlayerBffController:\n\n";
+            str += "ClearBuff:\n";
+
+            foreach (var buff in _clearBuff)
+            {
+                str += $"Stat: {buff.Key}, Value: {buff.Value}\n";
+            }
+
+            str += "\nPercentBuff: \n";
+            
+            foreach (var buff in _percentBuff)
+            {
+                str += $"Stat: {buff.Key}, Value: {buff.Value}\n";
+            }
+            
+            Debug.Log(str);
         }
     }
 }

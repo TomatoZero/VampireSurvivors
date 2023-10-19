@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02540f0905c9c944b34c396fdd22c6e, type: 3}
   m_Name: Invincible
   m_EditorClassIdentifier: 
-  _name: 
-  _ico: 
+  _name: Invincible
+  _ico: {fileID: 0}
   _statData:
-    _stat: 0
-    _value: 0
+    _stat: 1
+    _value: 999
     _isPercent: 0
-  _duration: 0
+  _duration: 2
   _isDurationStacked: 0
   _isEffectStacked: 0

@@ -36,23 +36,18 @@ namespace Player
                 var buffInstance = buff.InitializeBuff();
                 _buffs.Add(buff, buffInstance);
                 AddBuffStat(buff);
+                ShowNewBuff(buffInstance);
                 
                 _buffs[buff].Activate();
-                _buffs[buff].TimerChaneEvent += TimerChaneEventHandler;
+                
 
                 StartCoroutine(_buffs[buff].StartCountdown());
             }
         }
 
-        private void TimerChaneEventHandler(TimedBuffInstance instance)
+        private void ShowNewBuff(TimedBuffInstance instance)
         {
             _buffTimerChangeEvent.Invoke(instance);
-
-            if (instance.CurrentDuration >= instance.Duration)
-            {
-                _buffs.Remove(instance.Buff);
-                RemoveBuffStat(instance.Buff);
-            }
         }
 
         private void AddBuffStat(BuffData buffData)

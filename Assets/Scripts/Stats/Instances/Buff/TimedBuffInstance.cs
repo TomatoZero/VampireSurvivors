@@ -17,7 +17,7 @@ namespace Stats.Instances.Buff
         public float CurrentDuration => _currentDuration;
         public int EffectStacks => _effectStacks;
 
-        public delegate void TimerChane(TimedBuffInstance instance);
+        public delegate void TimerChane(float currentTime);
 
         public event TimerChane TimerChaneEvent;
 
@@ -33,7 +33,7 @@ namespace Stats.Instances.Buff
             {
                 yield return new WaitForSeconds(.1f);
                 _currentDuration += .1f;
-                TimerChaneEvent?.Invoke(this);
+                TimerChaneEvent?.Invoke(_currentDuration / _duration);
 
                 if (_currentDuration >= _duration)
                     break;

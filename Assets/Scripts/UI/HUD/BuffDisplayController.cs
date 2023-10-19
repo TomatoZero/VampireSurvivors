@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Stats.Instances.Buff;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -9,14 +11,39 @@ namespace UI.HUD
         [SerializeField] private Image _buffIco;
         [SerializeField] private UnityEvent<float> _buffTimeChangeEvent;
 
-        public void Setup(Sprite ico)
+        private TimedBuffInstance _timedBuffInstance;
+
+        public TimedBuffInstance TimedBuffInstance => _timedBuffInstance;
+
+        public delegate void BuffEnd(TimedBuffInstance buffInstance);
+        public event BuffEnd BuffEndEvent;
+
+        public void Setup(TimedBuffInstance timedBuffInstance)
         {
-            _buffIco.sprite = ico;
+            _buffIco.sprite = timedBuffInstance.Buff.Ico;
+            timedBuffInstance.TimerChaneEvent += UpdateLeftTime;
+            ShowBuffDisplay();
         }
 
-        public void UpdateLeftTime(float value)
+        private void UpdateLeftTime(float value)
         {
+            if (Math.Abs(value - 1) < 0.1)
+            {
+                BuffEndEvent?.Invoke(_timedBuffInstance);
+                HideBuffDisplay();
+            }
+            
             _buffTimeChangeEvent.Invoke(value);
+        }
+
+        private void ShowBuffDisplay()
+        {
+            gameObject.SetActive(true);
+        }
+
+        private void HideBuffDisplay()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

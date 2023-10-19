@@ -10,10 +10,15 @@ namespace UI.HUD
         [SerializeField] private Image _itemIco;
         [SerializeField] private TMP_Text _level;
 
+        private ObjectInstance _instance;
+
+        public ObjectInstance Instance => _instance;
+
         public void Set(ObjectInstance instance)
         {
             _itemIco.sprite = instance.StatsData.Ico;
             _level.text = $"Level {instance.CurrentLvl}";
+            _instance = instance;
         }
         
         public void Setup(Sprite ico, int level)

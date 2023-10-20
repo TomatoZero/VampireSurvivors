@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Stats.Instances;
+using Stats.Instances.Buff;
 using Stats.Instances.PowerUp;
 using UI.Structs;
 using UnityEngine;
@@ -12,13 +13,24 @@ namespace UI
     public class GameUIController : MonoBehaviour
     {
         [SerializeField] private UnityEvent<PlayerInstance> _updateStats;
-        [FormerlySerializedAs("_showUpdates")] [SerializeField] private UnityEvent<BonusData[]> _setUpdates;
+
+        [FormerlySerializedAs("_showUpdates")] [SerializeField]
+        private UnityEvent<BonusData[]> _setUpdates;
+
         [SerializeField] private UnityEvent<BonusData> _upgradeItemEvent;
         [SerializeField] private UnityEvent _hideAllExceptHUDEvent;
         [SerializeField] private UnityEvent _showLevelUpUiEvent;
-        [Space, Header("PauseMenu")]
-        [SerializeField] private UnityEvent _showPauseMenu;
+
+        [Space, Header("PauseMenu")] [SerializeField]
+        private UnityEvent _showPauseMenu;
+
         [SerializeField] private UnityEvent _hidePauseMenu;
+
+        [Space, Header("HUD")] [SerializeField]
+        private UnityEvent<float> _setCurrentXp;
+
+        [SerializeField] private UnityEvent<TimedBuffInstance> _showBuff;
+        [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayItemsEvent;
 
         private bool _isUpgradeOpen;
         private bool _isStatMenuOpen;
@@ -56,8 +68,8 @@ namespace UI
 
         public void TurnPauseMenu()
         {
-            if(_isUpgradeOpen) return;
-            
+            if (_isUpgradeOpen) return;
+
             if (_isStatMenuOpen)
             {
                 _hidePauseMenu.Invoke();
@@ -69,7 +81,7 @@ namespace UI
                 _isStatMenuOpen = true;
             }
         }
-        
+
         public void ExitDame()
         {
             Application.Quit();
@@ -78,6 +90,21 @@ namespace UI
         public void RestartGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void SetCurrentXp(float value)
+        {
+            _setCurrentXp.Invoke(value);
+        }
+
+        public void ShowBuff(TimedBuffInstance buff)
+        {
+            _showBuff.Invoke(buff);
+        }
+
+        public void DisplayItemsEvent(List<WeaponInstance> weapons, List<ItemInstance> items)
+        {
+            _displayItemsEvent.Invoke(weapons, items);
         }
     }
 }

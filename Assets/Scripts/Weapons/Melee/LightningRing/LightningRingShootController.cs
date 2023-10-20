@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interface;
 using Stats.Instances;
@@ -30,18 +31,25 @@ namespace Weapons.Melee.LightningRing
 
         public void Shoot()
         {
-            ScanForEnemyOnScreen();
+            StartCoroutine(ShootWithDelay());
+        }
 
+        private IEnumerator ShootWithDelay()
+        {
+            ScanForEnemyOnScreen();
+            
             if (_allEnemyLightningHit is null || _allEnemyLightningHit.Count == 0)
             {
                 _startTimerEvent.Invoke();
-                return;
+                yield break;
             }
             
+            yield return new WaitForSeconds(.1f);
+
             _hitEnemy.Invoke(_allEnemyLightningHit.ToArray());
             _startTimerEvent.Invoke();
         }
-
+        
         private void ScanForEnemyOnScreen()
         {
             _allEnemyLightningHit = new List<Collider2D>();
@@ -80,13 +88,11 @@ namespace Weapons.Melee.LightningRing
 
         private void AddEnemyAroundTarget()
         {
-            Collider2D[] additionalEnemy;
-            
             for (int i = 0; i < _amount; i++)
             {
                 if(_enemyLightningHitPosition[i].Equals(null)) continue;
                 
-                additionalEnemy = ScanForEnemyInCircle(_enemyLightningHitPosition[i]);
+                var additionalEnemy = ScanForEnemyInCircle(_enemyLightningHitPosition[i]);
 
                 if (additionalEnemy.Length == 0) continue;
 
@@ -110,6 +116,8 @@ namespace Weapons.Melee.LightningRing
             _area = (int)newInstance.GetStatByName(Stats.Stats.Area).Value;
             _enemyLightningHitPosition = new Vector2[_amount];
             _startTimerEvent.Invoke();
+            
+            Debug.Log($"Area {_area}");
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
@@ -117,6 +125,8 @@ namespace Weapons.Melee.LightningRing
             _amount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = (int)newInstance.GetStatByName(Stats.Stats.Area).Value;
             _enemyLightningHitPosition = new Vector2[_amount];
+            
+            Debug.Log($"Area {_area}");
         }
     }
 }

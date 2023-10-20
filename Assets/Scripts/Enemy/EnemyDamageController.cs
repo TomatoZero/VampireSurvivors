@@ -12,8 +12,6 @@ namespace Enemy
         
         public void TakeDamage(float damage)
         {
-            if(damage - _armor <= 0) return;
-            
             _takeDamageEvent.Invoke(damage - _armor);
         }
 

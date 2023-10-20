@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 854816886873684062}
   - component: {fileID: 3141500322408028876}
   - component: {fileID: 1049857373489393855}
+  - component: {fileID: 1510764080313987150}
   m_Layer: 6
   m_Name: LightningRing
   m_TagString: Untagged
@@ -158,6 +159,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _hitPosition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1510764080313987150}
+        m_TargetAssemblyTypeName: Weapons.Melee.LightningRing.LightningRingEffect,
+          Assembly-CSharp
+        m_MethodName: SpawnLightning
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _startTimerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -216,3 +233,17 @@ MonoBehaviour:
   _durationEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1510764080313987150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605986440672456456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53d8ee3f5e465e41b48ea6b53379994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleEffect: {fileID: 3221597471936648861, guid: 296c41ad836c925469af1afa8d53f2d2,
+    type: 3}

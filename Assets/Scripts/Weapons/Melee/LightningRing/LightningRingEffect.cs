@@ -16,10 +16,15 @@ namespace Weapons.Melee.LightningRing
 
         public void SpawnLightning(Vector2[] positions)
         {
+            if(positions is null) return;
+            
             foreach (var position in positions)
             {
-                var particle = GetParticle();
-                particle.Set(position);
+                if(position != Vector2.zero)
+                {
+                    var particle = GetParticle();
+                    particle.Set(position + new Vector2(0, 3));
+                }
             }
         }
 

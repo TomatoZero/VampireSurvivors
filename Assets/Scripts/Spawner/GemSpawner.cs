@@ -17,7 +17,7 @@ namespace DefaultNamespace
 
         public void MagnetPickUp(Transform player, float speed)
         {
-            MagnetEvent.Invoke(player, speed);
+            MagnetEvent?.Invoke(player, speed);
             UnsubscribeFromEvent();
         }
 
@@ -44,7 +44,9 @@ namespace DefaultNamespace
 
         private void UnsubscribeFromEvent()
         {
-            Delegate[] clientList = MagnetEvent.GetInvocationList();
+            var clientList = MagnetEvent?.GetInvocationList();
+
+            if (clientList == null) return;
             foreach (var d in clientList)
                 MagnetEvent -= (d as Magnet);
         }

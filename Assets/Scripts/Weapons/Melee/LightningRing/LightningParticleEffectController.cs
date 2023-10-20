@@ -23,7 +23,7 @@ namespace Weapons.Melee.LightningRing
 
         void OnParticleSystemStopped()
         {
-            Debug.Log("System has stopped!");
+            EffectEndEvent?.Invoke(this);
         }
 
         private void TurnOn()

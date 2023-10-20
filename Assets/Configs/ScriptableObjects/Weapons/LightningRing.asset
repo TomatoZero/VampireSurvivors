@@ -17,7 +17,7 @@ MonoBehaviour:
   _defaultStatsData:
   - _stat: 19
     _value: 15
-    _isPercent: 1
+    _isPercent: 0
   - _stat: 4
     _value: 1
     _isPercent: 1

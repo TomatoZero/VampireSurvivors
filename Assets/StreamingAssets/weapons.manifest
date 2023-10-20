@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1826958252
+CRC: 365125465
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: deb7d74a0495d7220ec9694bc3c61121
+    Hash: c9cc7b6406bbd5cd31ce7c706c1147cf
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 060fb500dfa831af7d32d1ac91f65bd6
+    Hash: cc2d4e91685f347b1191ca349d6214dc
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -58,6 +58,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.Events.UnityEvent`1[Stats.Instances.PowerUp.WeaponInstance]
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.UnityEvent`1[UnityEngine.Collider2D[]]
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent`1[UnityEngine.Vector2[]]
 Assets:
 - Assets/Prefab/Weapon/Range/Axe.prefab
 - Assets/Prefab/Weapon/Melee/Garlic.prefab

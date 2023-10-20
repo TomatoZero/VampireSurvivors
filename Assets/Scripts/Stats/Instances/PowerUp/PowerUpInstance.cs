@@ -32,6 +32,7 @@ namespace Stats.Instances.PowerUp
                 AddValueToLevelUpBonus(statData);
             }
 
+            PowerUpStatCalculator.CalculateCurrentStats();
             IncreaseLevel();
         }
 

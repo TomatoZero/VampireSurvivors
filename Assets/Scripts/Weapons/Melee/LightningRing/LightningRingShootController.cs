@@ -18,7 +18,7 @@ namespace Weapons.Melee.LightningRing
         private readonly Vector2 _boxSize = new Vector2(35, 20);
 
         private int _amount;
-        private int _area;
+        private float _area;
 
         private Vector2[] _enemyLightningHitPosition;
         private List<Collider2D> _allEnemyLightningHit;
@@ -113,20 +113,16 @@ namespace Weapons.Melee.LightningRing
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _amount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
-            _area = (int)newInstance.GetStatByName(Stats.Stats.Area).Value;
+            _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _enemyLightningHitPosition = new Vector2[_amount];
             _startTimerEvent.Invoke();
-            
-            Debug.Log($"Area {_area}");
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _amount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
-            _area = (int)newInstance.GetStatByName(Stats.Stats.Area).Value;
+            _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _enemyLightningHitPosition = new Vector2[_amount];
-            
-            Debug.Log($"Area {_area}");
         }
     }
 }

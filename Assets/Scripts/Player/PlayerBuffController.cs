@@ -77,14 +77,14 @@ namespace Player
             if (!buff.Buff.StatData.IsPercent)
             {
                 if (_clearBuff.ContainsKey(buff.Buff.StatData.Stat))
-                    _clearBuff[buff.Buff.StatData.Stat] -= buff.Buff.StatData.Value;
+                    RemoveValueFromDictionary(_clearBuff, buff.Buff);
                 else
                     throw new Exception("Stat was not found");
             }
             else
             {
                 if (_percentBuff.ContainsKey(buff.Buff.StatData.Stat))
-                    _percentBuff[buff.Buff.StatData.Stat] -= buff.Buff.StatData.Value;
+                    RemoveValueFromDictionary(_percentBuff, buff.Buff);
                 else
                     throw new Exception("Stat was not found");
             }
@@ -95,6 +95,14 @@ namespace Player
             _buffChangeEvent.Invoke(_clearBuff, _percentBuff);
         }
 
+        private void RemoveValueFromDictionary(Dictionary<Stats.Stats, float> dictionary, BuffData buffData)
+        {
+            dictionary[buffData.StatData.Stat] -= buffData.StatData.Value;
+
+            if (dictionary[buffData.StatData.Stat] == 0)
+                dictionary.Remove(buffData.StatData.Stat);
+        }
+        
         private void PrintDictionary()
         {
             var str = "PlayerBffController:\n\n";

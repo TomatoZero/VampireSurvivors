@@ -8,14 +8,7 @@ namespace UI.LevelUpMenu
 {
     public class OptionController : MonoBehaviour
     {
-        [Header("Sprite for weapon")] [SerializeField]
-        private Sprite _weaponFrame;
-
         [SerializeField] private Sprite _weaponBackground;
-
-        [Header("Sprite for Items")] [SerializeField]
-        private Sprite _itemFrame;
-
         [SerializeField] private Sprite _itemBackground;
 
         [Header("Component reference")]
@@ -24,7 +17,6 @@ namespace UI.LevelUpMenu
         [SerializeField] private TMP_Text _level;
         [SerializeField] private TMP_Text _description;
         [SerializeField] private Button _button;
-        [SerializeField] private Image _frame;
         [SerializeField] private Image _background;
 
         private BonusData _data;
@@ -41,20 +33,18 @@ namespace UI.LevelUpMenu
             _name.text = data.StatsData.Name;
             _level.text = $"New level: {data.Level}";
 
-            SetFrameAndBackground(data);
+            SetBackground(data);
             SetDescription(data);
         }
 
-        private void SetFrameAndBackground(BonusData data)
+        private void SetBackground(BonusData data)
         {
             if (data.IsWeapon)
             {
-                _frame.sprite = _weaponFrame;
                 _background.sprite = _weaponBackground;
             }
             else
             {
-                _frame.sprite = _itemFrame;
                 _background.sprite = _itemBackground;
             }
         }

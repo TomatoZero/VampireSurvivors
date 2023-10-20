@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ico: {fileID: 21300000, guid: 3e29301bac1ada046b40af3a70c80ed5, type: 3}
   _name: Candelabrador
+  _description: Augments area of attacks by 10%.
   _defaultStatsData:
   - _stat: 4
     _value: 10

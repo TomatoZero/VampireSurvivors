@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ico: {fileID: 21300000, guid: 3f5497e7904f27e48a5ceb48ab924dc1, type: 3}
   _name: Pummarola
+  _description: Character recovers 0.2 HP per second.
   _defaultStatsData:
   - _stat: 11
     _value: 0.2

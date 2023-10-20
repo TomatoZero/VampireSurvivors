@@ -31,24 +31,6 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
         [SerializeField] private StatDisplay _greed;
         [SerializeField] private StatDisplay _revival;
 
-        // private void OnEnable()
-        // {
-        //     _maxHealth.Setup("Max health", "0");
-        //     _recovery.Setup("Recovery", "0");
-        //     _armor.Setup("Armor", "0");
-        //     _moveSpeed.Setup("Move speed", "0");
-        //     _might.Setup("Damage", "+0");
-        //     _area.Setup("Area", "+0");
-        //     _speed.Setup("Speed", "+0");
-        //     _duration.Setup("Duration", "+0");
-        //     _amount.Setup("Amount", "+0");
-        //     _cooldown.Setup("Countdown", "+0");
-        //     _luck.Setup("Luck","+0");
-        //     _growth.Setup("Growth", "+0");
-        //     _greed.Setup("Greed", "+0");
-        //     _revival.Setup("Revival", "0");
-        // }
-
         public void SetCurrentStats(PlayerInstance playerInstance)
         {
             foreach (var stat in playerInstance.StatsCalculator.CurrentStats)
@@ -132,5 +114,6 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
                     break;
             }
         }
+        
     }
 }

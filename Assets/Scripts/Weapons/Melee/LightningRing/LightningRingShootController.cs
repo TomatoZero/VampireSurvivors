@@ -11,6 +11,7 @@ namespace Weapons.Melee.LightningRing
     {
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private UnityEvent<Collider2D[]> _hitEnemy;
+        [SerializeField] private UnityEvent<Vector2[]> _hitPosition;
         [SerializeField] private UnityEvent _startTimerEvent;
 
         private readonly Vector2 _boxSize = new Vector2(35, 20);
@@ -53,6 +54,7 @@ namespace Weapons.Melee.LightningRing
             }
 
             AddEnemyTarget(allEnemyAtScreen);
+            SetShootPositions();
             AddEnemyAroundTarget();
         }
 
@@ -90,6 +92,11 @@ namespace Weapons.Melee.LightningRing
 
                 _allEnemyLightningHit.AddRange(additionalEnemy);
             }
+        }
+
+        private void SetShootPositions()
+        {
+            _hitPosition.Invoke(_enemyLightningHitPosition);
         }
 
         private Collider2D[] ScanForEnemyInCircle(Vector2 position)

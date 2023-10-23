@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 4068605122
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 79f39dbd685e98cd38cb6614212e8319
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e867e592279263d78d055f98f08cc93f
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ebf0b8a9aecabe4b8922c3b262dd27d, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Stats.LevelUpBonuses
+- AssemblyName: Assembly-CSharp
+  ClassName: Stats.StatData
+Assets:
+- Assets/Configs/ScriptableObjects/Items/Pummarola.asset
+- Assets/Configs/ScriptableObjects/Items/Duplicator.asset
+- Assets/Configs/ScriptableObjects/Items/Candelabrador.asset
+Dependencies:
+- D:/User/source/Unity/VampireSurvivors/Assets/StreamingAssets/AssetsBundle/itemsico

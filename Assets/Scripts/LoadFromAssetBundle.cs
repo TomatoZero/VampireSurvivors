@@ -12,19 +12,27 @@ namespace DefaultNamespace
         private string _assetBundleManifestPath;
 
         private List<AssetBundle> _loadedAssetBundles;
+        private char _separator;
 
         private void Awake()
         {
             _loadedAssetBundles = new List<AssetBundle>();
+            _separator = Path.AltDirectorySeparatorChar;
         }
 
         private void OnEnable()
         {
-            _assetBundleManifestPath = $"{Application.streamingAssetsPath}/StreamingAssets";
+            _assetBundleManifestPath =
+                $"{Application.streamingAssetsPath}{_separator}AssetsBundle{_separator}AssetsBundle";
             _assetBundlePath =
-                Path.Combine(Application.streamingAssetsPath, "weaponsassetbundle");
-            _assetBundleFolderPath = Path.Combine(Application.streamingAssetsPath);
-            
+                $"{Application.streamingAssetsPath}{_separator}AssetsBundle{_separator}weaponsassetbundle";
+            _assetBundleFolderPath = $"{Application.streamingAssetsPath}{_separator}AssetsBundle";
+
+
+            Debug.Log($"_assetBundleManifestPath: {_assetBundleManifestPath}\n" +
+                      $"_assetBundlePath: {_assetBundlePath}\n" +
+                      $"_assetBundleFolderPath: {_assetBundleFolderPath}");
+
             SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
 
@@ -34,7 +42,7 @@ namespace DefaultNamespace
 
             if (assetBundle is null)
             {
-                SetupPath(bundleName, prefabName);
+                SetupPath(bundleName);
                 assetBundle = LoadFromDisk(bundleName);
 
                 if (assetBundle == null)
@@ -56,7 +64,7 @@ namespace DefaultNamespace
 
             if (assetBundle is null)
             {
-                SetupPath(bundleName, objectName);
+                SetupPath(bundleName);
                 assetBundle = LoadFromDisk(bundleName);
 
                 if (assetBundle == null)
@@ -85,7 +93,7 @@ namespace DefaultNamespace
             var dependencies = manifest.GetAllDependencies(dependenciesFor);
             foreach (var dependency in dependencies)
             {
-                _loadedAssetBundles.Add(AssetBundle.LoadFromFile($"{_assetBundleFolderPath}/{dependency}"));
+                _loadedAssetBundles.Add(AssetBundle.LoadFromFile($"{_assetBundleFolderPath}{_separator}{dependency}"));
             }
 
             return weaponManifest;
@@ -95,7 +103,7 @@ namespace DefaultNamespace
         {
             UnloadDependencies();
         }
-        
+
         private void UnloadDependencies()
         {
             foreach (var bundle in _loadedAssetBundles)
@@ -126,10 +134,11 @@ namespace DefaultNamespace
             return myLoadedAssetBundle.LoadAsset<ScriptableObject>(fileName);
         }
 
-        private void SetupPath(string bundleName, string prefabName)
+        private void SetupPath(string bundleName)
         {
-            _assetBundlePath = $"{Application.streamingAssetsPath}/{bundleName}";
-            _assetBundleFolderPath = $"{Application.streamingAssetsPath}";
+            _assetBundlePath =
+                $"{Application.streamingAssetsPath}{_separator}AssetsBundle{_separator}{bundleName}";
+            _assetBundleFolderPath = $"{Application.streamingAssetsPath}{_separator}AssetsBundle";
         }
     }
 }

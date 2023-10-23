@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2351906163
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fe1468d551611fc0a414dde3cb181ccd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/Sprites/Items/Weapon/SPR_LightningRing.png
+- Assets/Art/Sprites/Items/Weapon/SPR_FlameLantern.png
+- Assets/Art/Sprites/Items/Weapon/SPR_GarlicBottle.png
+- Assets/Art/Sprites/Items/Weapon/SPR_Axe.png
+Dependencies: []

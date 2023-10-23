@@ -28,11 +28,6 @@ namespace DefaultNamespace
                 $"{Application.streamingAssetsPath}{_separator}AssetsBundle{_separator}weaponsassetbundle";
             _assetBundleFolderPath = $"{Application.streamingAssetsPath}{_separator}AssetsBundle";
 
-
-            Debug.Log($"_assetBundleManifestPath: {_assetBundleManifestPath}\n" +
-                      $"_assetBundlePath: {_assetBundlePath}\n" +
-                      $"_assetBundleFolderPath: {_assetBundleFolderPath}");
-
             SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
 

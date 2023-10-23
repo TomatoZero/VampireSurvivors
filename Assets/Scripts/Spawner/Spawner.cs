@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace DefaultNamespace
+namespace Spawner
 {
     public class Spawner : MonoBehaviour
     {
@@ -14,6 +15,7 @@ namespace DefaultNamespace
         [SerializeField] private GameObject _enemyPrefab;
         [SerializeField] private List<Transform> _spawners;
         [SerializeField] private GemSpawner _gemSpawner;
+        [SerializeField] private UnityEvent _enemyDie;
         
         private int _enemyCount;
         private int _enemyCountPerSpawn;
@@ -72,6 +74,7 @@ namespace DefaultNamespace
             moveController.SetPlayer(_player);
             var healthController = instance.GetComponent<EnemyHealthController>();
             healthController.AddDieListener(_gemSpawner.Spawn);
+            healthController.EnemyDie.AddListener(_ => _enemyDie.Invoke());
         }
     }
 }

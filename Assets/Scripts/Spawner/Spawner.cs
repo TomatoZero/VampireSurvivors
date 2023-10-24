@@ -16,16 +16,18 @@ namespace Spawner
         [SerializeField] private List<Transform> _spawners;
         [SerializeField] private GemSpawner _gemSpawner;
         [SerializeField] private UnityEvent _enemyDie;
-        
+        [SerializeField] private UnityEvent<string> _showKilledEnemyCount;
+
         private int _enemyCount;
         private int _enemyCountPerSpawn;
         private WaitForSeconds _delay;
+        private int _killedEnemyCount;
 
         private int _radius;
 
         private void Awake()
         {
-            _delay = new WaitForSeconds(.25f);
+            _delay = new WaitForSeconds(1f);
         }
 
         private void Start()
@@ -37,7 +39,7 @@ namespace Spawner
         {
             _delay = new WaitForSeconds(value);
         }
-        
+
         public void EnemyDieEventHandler()
         {
             if (_enemyCount <= 0) throw new Exception("No live enemy");
@@ -58,13 +60,13 @@ namespace Spawner
         {
             var spawnPos = GetRandomPos();
             spawnPos.z = 0;
-            var instance = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity , transform);
+            var instance = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity, transform);
             SetUpInstance(instance);
         }
 
         private Vector3 GetRandomPos()
         {
-            var x = Random.Range(0,4);
+            var x = Random.Range(0, 4);
             return _spawners[x].position;
         }
 
@@ -75,6 +77,13 @@ namespace Spawner
             var healthController = instance.GetComponent<EnemyHealthController>();
             healthController.AddDieListener(_gemSpawner.Spawn);
             healthController.EnemyDie.AddListener(_ => _enemyDie.Invoke());
+            healthController.EnemyDie.AddListener(_ => EnemyDied());
+        }
+
+        private void EnemyDied()
+        {
+            _killedEnemyCount++;
+            _showKilledEnemyCount.Invoke($"x{_killedEnemyCount}");
         }
     }
 }

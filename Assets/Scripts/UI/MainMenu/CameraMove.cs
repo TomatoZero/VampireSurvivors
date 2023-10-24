@@ -17,7 +17,6 @@ namespace UI.MainMenu
         private void OnCollisionStay2D(Collision2D other)
         {
             _moveDirection = GetMoveDirection();
-            Debug.Log(_moveDirection);
         }
 
         private Vector3 GetMoveDirection()

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI.MainMenu
 {
@@ -6,7 +7,7 @@ namespace UI.MainMenu
     {
         public void StartGame()
         {
-            
+            SceneManager.LoadScene("Level1");
         }
 
         public void CloseGame()

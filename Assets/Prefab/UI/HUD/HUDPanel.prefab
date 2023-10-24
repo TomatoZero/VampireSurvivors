@@ -698,7 +698,17 @@ PrefabInstance:
     - target: {fileID: 8269326256205353678, guid: af173eb27fbb34941a463da693d13e11,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269326256205353678, guid: af173eb27fbb34941a463da693d13e11,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269326256205353678, guid: af173eb27fbb34941a463da693d13e11,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8269326256205353678, guid: af173eb27fbb34941a463da693d13e11,
         type: 3}

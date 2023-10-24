@@ -8,6 +8,8 @@ namespace UI.LevelUpMenu
     {
         [SerializeField] private UnityEvent<BonusData> _upgradeItemEvent;
         [SerializeField] private UnityEvent _hideLevelUpEvent;
+        [SerializeField] private UnityEvent _showEvent;
+        [SerializeField] private UnityEvent _hideEvent;
         [SerializeField] private BonusPanel _bonusPanel;
         
         public delegate void SelectBonusDelegate(BonusData bonus);
@@ -24,12 +26,12 @@ namespace UI.LevelUpMenu
 
         public void Show()
         {
-            gameObject.SetActive(true);
+            _showEvent.Invoke();
         }
         
         public void Hide()
         {
-            gameObject.SetActive(false);
+            _hideEvent.Invoke();
         }
 
         private void SelectBonus(BonusData bonus)

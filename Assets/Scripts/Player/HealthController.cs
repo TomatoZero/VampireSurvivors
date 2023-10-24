@@ -11,9 +11,9 @@ namespace Player
     {
         [SerializeField] private UnityEvent<float> _playerHealthChangeEvent;
         [SerializeField] private UnityEvent _playerDie;
-        
+
         private float _maxHealth;
-        private float _recovery;    //per second
+        private float _recovery; //per second
 
         private float _currentHealth;
         private bool _isRecovering = false;
@@ -34,17 +34,17 @@ namespace Player
 
             InvokeHealthChaneEvent();
         }
-        
+
         public void TakeDamage(float damage)
         {
             if (damage < 0) throw new ArgumentException();
             if (_currentHealth <= 0) throw new Exception("Player hp less or equal zero");
-            
+
             _currentHealth -= damage;
-            
+
             TryTurnOnRecover();
-            
-            if(_currentHealth <= 0) _playerDie.Invoke();
+
+            if (_currentHealth <= 0) _playerDie.Invoke();
 
             InvokeHealthChaneEvent();
         }
@@ -54,7 +54,7 @@ namespace Player
             _maxHealth = newInstance.GetStatByName(Stats.Stats.MaxHealth).Value;
             _currentHealth = _maxHealth;
             _recovery = newInstance.GetStatByName(Stats.Stats.Recovery).Value;
-            
+
             InvokeHealthChaneEvent();
         }
 
@@ -68,20 +68,20 @@ namespace Player
 
         private void TryTurnOfRecover()
         {
-            if(!_isRecovering || _recovery == 0) return;
-            
+            if (!_isRecovering || _recovery == 0) return;
+
             StopCoroutine(RecoverHpPerSecond());
             _isRecovering = false;
         }
 
         private void TryTurnOnRecover()
         {
-            if(_isRecovering || _recovery == 0) return;
-            
+            if (_isRecovering || _recovery == 0) return;
+
             StartCoroutine(RecoverHpPerSecond());
             _isRecovering = true;
         }
-        
+
         private IEnumerator RecoverHpPerSecond()
         {
             while (true)

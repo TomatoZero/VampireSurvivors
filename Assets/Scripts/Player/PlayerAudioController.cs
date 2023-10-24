@@ -8,7 +8,7 @@ namespace Player
 
         [SerializeField] private AudioClip _hurtClip;
         [SerializeField] private AudioClip _levelUpClip;
-        
+
         public void HurtEventHandler()
         {
             _audioSource.PlayOneShot(_hurtClip);

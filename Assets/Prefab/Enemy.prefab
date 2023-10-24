@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7029371290155515856}
   - component: {fileID: 1644086945089121225}
   - component: {fileID: 3705887431967156318}
+  - component: {fileID: 7544011976903821873}
   - component: {fileID: 5313770834093867142}
   - component: {fileID: 5481473773550966399}
   - component: {fileID: 1965635460351017860}
   - component: {fileID: 7060518623316448801}
   - component: {fileID: 5509264651093906407}
-  - component: {fileID: 7544011976903821873}
   - component: {fileID: 8133399628358465453}
   m_Layer: 3
   m_Name: Enemy
@@ -155,6 +155,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &7544011976903821873
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931309193437794864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de968ab21e0cbba479f0e126ce81256a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5313770834093867142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,27 +388,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!95 &7544011976903821873
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5931309193437794864}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: de968ab21e0cbba479f0e126ce81256a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8133399628358465453
 MonoBehaviour:
   m_ObjectHideFlags: 0

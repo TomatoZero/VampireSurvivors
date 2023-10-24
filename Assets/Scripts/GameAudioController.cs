@@ -15,7 +15,7 @@ namespace DefaultNamespace
             _audioSource.clip = _battleClip;
             _audioSource.Play();
         }
-        
+
         public void GameOver()
         {
             _audioSource.Stop();

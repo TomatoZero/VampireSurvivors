@@ -3,6 +3,7 @@ using Stats;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DefaultNamespace.UI.CurrentStatsMenu
 {
@@ -31,6 +32,9 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
         [SerializeField] private StatDisplay _greed;
         [SerializeField] private StatDisplay _revival;
 
+        [Header("Events")] [SerializeField] private UnityEvent _showEvent;
+        [SerializeField] private UnityEvent _hideEvent;
+        
         public void SetCurrentStats(PlayerInstance playerInstance)
         {
             foreach (var stat in playerInstance.StatsCalculator.CurrentStats)
@@ -51,12 +55,12 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
 
         public void ShowCurrentStats()
         {
-            gameObject.SetActive(true);
+            _showEvent.Invoke();
         }
 
         public void HideCurrentStats()
         {
-            gameObject.SetActive(false);
+            _hideEvent.Invoke();
         }
         
         private void SetStat(Stats.Stats stat, float value, bool isPercent)

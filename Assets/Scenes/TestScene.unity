@@ -1403,6 +1403,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1375772252}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1223086431}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _hideEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1421,6 +1445,30 @@ MonoBehaviour:
       - m_Target: {fileID: 910947876}
         m_TargetAssemblyTypeName: UI.Appear.FadeAppear, Assembly-CSharp
         m_MethodName: CloseEventHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1375772252}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1223086431}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2253,6 +2301,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 877270921}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &684993872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 910947872}
+    m_Modifications:
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -326
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -353.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06995147
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635092600949940411, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelUpParticle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 133c07bfb7137ef4398571e38ce9f608, type: 3}
 --- !u!1 &696407214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3710,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1375772250}
+  - {fileID: 1223086429}
   m_Father: {fileID: 297320238}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3601,7 +3729,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910947871}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -6333,6 +6461,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1223086429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+    type: 3}
+  m_PrefabInstance: {fileID: 1641170092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1223086431 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+    type: 3}
+  m_PrefabInstance: {fileID: 1641170092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1226448357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6716,6 +6856,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5371844578685388951, guid: 213348d574af8314cb55bb0cae40b102,
     type: 3}
   m_PrefabInstance: {fileID: 1324225105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1375772250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+    type: 3}
+  m_PrefabInstance: {fileID: 684993872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1375772252 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+    type: 3}
+  m_PrefabInstance: {fileID: 684993872}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1383564992
 PrefabInstance:
@@ -7816,6 +7968,129 @@ MonoBehaviour:
         m_CallState: 2
   _weapons:
   - {fileID: 313032193}
+--- !u!1001 &1641170092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 910947872}
+    m_Modifications:
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 291
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -353.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06995147
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370802047775208489, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693631879636548777, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693631879636548777, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -44025399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693631879636548777, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866434628309284023, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635092600949940411, guid: 133c07bfb7137ef4398571e38ce9f608,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelUpParticle (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 133c07bfb7137ef4398571e38ce9f608, type: 3}
 --- !u!1 &1692078619
 GameObject:
   m_ObjectHideFlags: 0

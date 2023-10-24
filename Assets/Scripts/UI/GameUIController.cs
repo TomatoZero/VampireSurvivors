@@ -106,5 +106,10 @@ namespace UI
         {
             _displayItemsEvent.Invoke(weapons, items);
         }
+
+        public void GameOver()
+        {
+            
+        }
     }
 }

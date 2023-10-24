@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace UI
@@ -20,13 +19,12 @@ namespace UI
             Show();
             _showPanelEvent.Invoke();
         }
-        
+
         public void HidePanelEventHandler()
         {
             _hidePanelEvent.Invoke();
-            // Hide();
         }
-        
+
         private void Show()
         {
             gameObject.SetActive(true);

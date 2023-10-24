@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace UI
+namespace UI.Appear
 {
     public class PanelAppearController : MonoBehaviour
     {

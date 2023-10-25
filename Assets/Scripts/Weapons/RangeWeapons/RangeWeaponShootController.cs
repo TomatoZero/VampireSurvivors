@@ -13,6 +13,7 @@ namespace Weapons.RangeWeapons
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _particlesParent;
         [SerializeField] private UnityEvent _startTimerEvent;
+        [SerializeField] private UnityEvent _shootEvent;
 
         private WeaponInstance _instance;
         private int _amount;
@@ -66,6 +67,8 @@ namespace Weapons.RangeWeapons
                 var particle = (GameObject)_unusedParticles.Dequeue();
                 UpdateParticle(particle);
             }
+            
+            _shootEvent.Invoke();
         }
 
         private protected virtual void SetUpParticle(GameObject instance)

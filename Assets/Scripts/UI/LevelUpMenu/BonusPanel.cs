@@ -23,16 +23,30 @@ namespace UI.LevelUpMenu
                 Debug.LogWarning($"Bonus data is null");
                 return;
             }
-
+            
             if (data.Length != _options.Count)
             {
                 Debug.LogWarning($"Data length and _options count are not equal");
                 return;
             }
 
+            var emptyCount = 0;
             for (int i = 0; i < _options.Count; i++)
             {
-                _options[i].SetData(data[i]);
+                if (data[i].StatsData == null)
+                {
+                    emptyCount++;
+                    _options[i].SetEmpty("", "", false);
+                }
+                else
+                {
+                    _options[i].SetData(data[i]);
+                }
+            }
+
+            if (emptyCount is 3)
+            {
+                _options[1].SetEmpty("Congrats", "All weapon and items have max level", true);
             }
         }
         

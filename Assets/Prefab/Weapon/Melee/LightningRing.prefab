@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8199495815063581379
+--- !u!1 &89935521669497803
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1080769141241043525}
-  - component: {fileID: 6390857642652804263}
-  - component: {fileID: 4953953848573410238}
-  - component: {fileID: 6622363297976556377}
-  - component: {fileID: 3692070868706314981}
-  - component: {fileID: 628592582900726196}
-  - component: {fileID: 553043419539734954}
-  - component: {fileID: 5126136024003819873}
+  - component: {fileID: 3050887051973229813}
+  - component: {fileID: 3398238138811575005}
+  - component: {fileID: 6954264989998012092}
+  - component: {fileID: 4383940987247194440}
+  - component: {fileID: 5441253836906939617}
+  - component: {fileID: 4696825799002590400}
+  - component: {fileID: 100606864787839595}
+  - component: {fileID: 5601447718957358922}
   m_Layer: 7
   m_Name: LightningRing
   m_TagString: Untagged
@@ -23,13 +23,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1080769141241043525
+--- !u!4 &3050887051973229813
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,13 +38,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &6390857642652804263
+--- !u!82 &3398238138811575005
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -134,13 +134,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4953953848573410238
+--- !u!114 &6954264989998012092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d736f9ecbccbccf48b12640b1ae54e78, type: 3}
@@ -150,7 +150,7 @@ MonoBehaviour:
   _setupStatData:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6622363297976556377}
+      - m_Target: {fileID: 4383940987247194440}
         m_TargetAssemblyTypeName: Weapons.RangeWeapons.RangeWeaponShootController,
           Assembly-CSharp
         m_MethodName: SetupStatEventHandler
@@ -163,7 +163,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3692070868706314981}
+      - m_Target: {fileID: 5441253836906939617}
         m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
         m_MethodName: SetupStatEventHandler
         m_Mode: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 628592582900726196}
+      - m_Target: {fileID: 4696825799002590400}
         m_TargetAssemblyTypeName: Weapons.WeaponTimer, Assembly-CSharp
         m_MethodName: SetupStatEventHandler
         m_Mode: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   _updateStatData:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6622363297976556377}
+      - m_Target: {fileID: 4383940987247194440}
         m_TargetAssemblyTypeName: Weapons.RangeWeapons.RangeWeaponShootController,
           Assembly-CSharp
         m_MethodName: UpdateStatsEventHandler
@@ -203,7 +203,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3692070868706314981}
+      - m_Target: {fileID: 5441253836906939617}
         m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
         m_MethodName: UpdateStatsEventHandler
         m_Mode: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 628592582900726196}
+      - m_Target: {fileID: 4696825799002590400}
         m_TargetAssemblyTypeName: Weapons.WeaponTimer, Assembly-CSharp
         m_MethodName: UpdateStatsEventHandler
         m_Mode: 0
@@ -227,13 +227,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6622363297976556377
+--- !u!114 &4383940987247194440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f287663bf6cd084689faa45149f4fb0, type: 3}
@@ -245,7 +245,7 @@ MonoBehaviour:
   _hitEnemy:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3692070868706314981}
+      - m_Target: {fileID: 5441253836906939617}
         m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
         m_MethodName: Damage
         m_Mode: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   _hitPosition:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 553043419539734954}
+      - m_Target: {fileID: 100606864787839595}
         m_TargetAssemblyTypeName: Weapons.Melee.LightningRing.LightningRingEffect,
           Assembly-CSharp
         m_MethodName: SpawnLightning
@@ -273,7 +273,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5126136024003819873}
+      - m_Target: {fileID: 5601447718957358922}
         m_TargetAssemblyTypeName: Weapons.WeaponAudioController, Assembly-CSharp
         m_MethodName: Hit
         m_Mode: 1
@@ -288,7 +288,7 @@ MonoBehaviour:
   _startTimerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 628592582900726196}
+      - m_Target: {fileID: 4696825799002590400}
         m_TargetAssemblyTypeName: Weapons.WeaponTimer, Assembly-CSharp
         m_MethodName: StartCountdownTimer
         m_Mode: 1
@@ -300,25 +300,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3692070868706314981
+--- !u!114 &5441253836906939617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c0ed9b9ba73be9449f639887a75527e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &628592582900726196
+--- !u!114 &4696825799002590400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 461121ab70350724aafe4274f7ac6870, type: 3}
@@ -327,7 +327,7 @@ MonoBehaviour:
   _countdownEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6622363297976556377}
+      - m_Target: {fileID: 4383940987247194440}
         m_TargetAssemblyTypeName: Weapons.RangeWeapons.LightningRing.LightningRingShootController,
           Assembly-CSharp
         m_MethodName: Shoot
@@ -343,31 +343,31 @@ MonoBehaviour:
   _durationEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &553043419539734954
+--- !u!114 &100606864787839595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a53d8ee3f5e465e41b48ea6b53379994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleEffect: {fileID: 3221597471936648861, guid: 296c41ad836c925469af1afa8d53f2d2,
+  _particleEffect: {fileID: 311463843151986791, guid: 296c41ad836c925469af1afa8d53f2d2,
     type: 3}
---- !u!114 &5126136024003819873
+--- !u!114 &5601447718957358922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199495815063581379}
+  m_GameObject: {fileID: 89935521669497803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59265e88522f33241a26b1b908cece47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 6390857642652804263}
+  _audioSource: {fileID: 3398238138811575005}
   _weaponHitClip: {fileID: 8300000, guid: 7ffa0b85ed21e064b80e7aa8794b89b7, type: 3}

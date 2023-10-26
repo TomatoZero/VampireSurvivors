@@ -35,6 +35,28 @@ namespace UI.LevelUpMenu
 
             SetBackground(data);
             SetDescription(data);
+            
+            _ico.color = Color.white;
+            _background.color = Color.white;
+            _button.interactable = true;
+        }
+
+        public void SetEmpty(string title ,string message, bool isInteractable)
+        {
+            _ico.sprite = null;
+            _ico.color = Color.clear;
+            
+            _background.sprite = null;
+            _background.color = Color.clear;
+            
+            _name.text = title;
+            _level.text = "";
+
+            _description.text = message;
+
+            _data = new BonusData();
+
+            _button.interactable = isInteractable;
         }
 
         private void SetBackground(BonusData data)

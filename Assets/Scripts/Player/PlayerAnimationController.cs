@@ -6,8 +6,8 @@ namespace Player
     {
         [SerializeField] private Animator _animator;
 
-        private Vector2 _prevDirection;
-
+        private Vector2 _prevDirection = Vector2.down;
+        
         public void SetMoveAnimationEventHandler(Vector2 moveDirection)
         {
             if (moveDirection != Vector2.zero)

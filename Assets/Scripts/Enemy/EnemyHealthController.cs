@@ -1,6 +1,7 @@
 ﻿using System;
 using DefaultNamespace;
 using Interface;
+using Spawner;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
@@ -52,7 +53,7 @@ namespace Enemy
             if(_currentHealth <= 0) _enemyDie.Invoke(transform.position);
         }
 
-        public void Die()
+        public void Kill()
         {
             gameObject.SetActive(false);
             Destroy(gameObject);

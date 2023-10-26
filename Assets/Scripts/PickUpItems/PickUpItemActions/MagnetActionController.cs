@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using Spawner;
 using UnityEngine;
 
 namespace PickUpItems.Magnet

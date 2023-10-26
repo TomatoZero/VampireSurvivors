@@ -1,6 +1,7 @@
 using Interface;
 using Stats.Instances;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Player
@@ -8,6 +9,7 @@ namespace Player
     public class MovementController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private UnityEvent<Vector2> _moveEvent;
 
         private Vector2 _moveDirection;
         private float _speed;
@@ -16,6 +18,7 @@ namespace Player
         {
             var newPos = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(newPos);
+            _moveEvent.Invoke(_moveDirection);
         }
 
         public void MoveEventHandler(InputAction.CallbackContext context)

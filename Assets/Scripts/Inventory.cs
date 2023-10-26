@@ -84,6 +84,11 @@ namespace DefaultNamespace
             DisplayCurrentItems();
         }
 
+        public void EndSetupStats()
+        {
+            _endSetupStatsEvent.Invoke();
+        }
+
         public (Dictionary<Stats.Stats, float> allClearBonus, Dictionary<Stats.Stats, float> allPercentBonus) GetAllItemBonuses()
         {
             var allClearBonus = new Dictionary<Stats.Stats, float>();

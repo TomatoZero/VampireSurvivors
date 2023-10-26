@@ -48,7 +48,7 @@ namespace Player
         {
             var scale = transform.localScale.y;
             transform.localScale -= new Vector3(scale, scale, 0);
-            transform.localScale += new Vector3(_area + 4, _area + 4, 0);
+            transform.localScale += new Vector3(_area + 8, _area + 8, 0);
         }
     }
 }

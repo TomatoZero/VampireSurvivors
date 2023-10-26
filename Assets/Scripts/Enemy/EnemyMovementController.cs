@@ -36,6 +36,11 @@ namespace Enemy
             _player = player;
         }
 
+        public void Die()
+        {
+            _speed = 0;
+        }
+        
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _speed = newInstance.GetStatByName(Stats.Stats.MoveSpeed).Value;

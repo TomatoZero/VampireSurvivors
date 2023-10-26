@@ -15,6 +15,7 @@ namespace DefaultNamespace
     public class ItemHandler : MonoBehaviour
     {
         [SerializeField] private UnityEvent<BonusData[]> _showUpgradeEvent;
+        [SerializeField] private UnityEvent _endSetupStats;
         [SerializeField] private LevelWeaponsAndItems _weaponsAndItems;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private Transform _inventoryObject;
@@ -53,6 +54,12 @@ namespace DefaultNamespace
         
         public void UpgradeEventHandler(BonusData item)
         {
+            if (item.StatsData == null)
+            {
+                _endSetupStats.Invoke();
+                return;
+            }
+            
             GetCurrentWeaponsAndItems();
             foreach (var instance in _currentWeaponAndItems)
             {
@@ -87,6 +94,7 @@ namespace DefaultNamespace
 
             var canBeUpgraded = FindPossibleUpgrade();
             var upgrades = GetUpgrade(canBeUpgraded);
+
             _showUpgradeEvent.Invoke(upgrades);
         }
 

@@ -1,10 +1,9 @@
-﻿using System;
-using PickUpItems;
+﻿using PickUpItems;
 using PickUpItems.Gem;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Spawner
 {
     public class GemSpawner : MonoBehaviour
     {
@@ -39,7 +38,7 @@ namespace DefaultNamespace
 
         private int GetXpBonus()
         {
-            return 5;
+            return 2;
         }
 
         private void UnsubscribeFromEvent()

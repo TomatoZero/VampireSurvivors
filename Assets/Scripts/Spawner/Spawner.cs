@@ -21,13 +21,15 @@ namespace Spawner
         private int _enemyCount;
         private int _enemyCountPerSpawn;
         private WaitForSeconds _delay;
+        private float _delayF;
         private int _killedEnemyCount;
 
         private int _radius;
 
         private void Awake()
         {
-            _delay = new WaitForSeconds(1f);
+            _delayF = 1.5f;
+            _delay = new WaitForSeconds(1.5f);
         }
 
         private void Start()
@@ -35,8 +37,18 @@ namespace Spawner
             StartCoroutine(SpawnPerDelay());
         }
 
+        private IEnumerator ChangeSpawnDelayPerMinute()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(30);
+                UpdateSpawnDelay(_delayF -= .2f);
+            }
+        }
+        
         public void UpdateSpawnDelay(float value)
         {
+            _delayF = value;
             _delay = new WaitForSeconds(value);
         }
 

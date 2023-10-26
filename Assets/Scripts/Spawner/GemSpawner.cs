@@ -38,7 +38,7 @@ namespace Spawner
 
         private int GetXpBonus()
         {
-            return 5;
+            return 2;
         }
 
         private void UnsubscribeFromEvent()

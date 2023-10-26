@@ -1,13 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace UI
 {
     public class Menu : MonoBehaviour
     {
+        [SerializeField] private GameObject _firsSelected;
         [SerializeField] private UnityEvent _showPanelEvent;
         [SerializeField] private UnityEvent _hidePanelEvent;
         [SerializeField] private UnityEvent _resumeGameEvent;
+
+        private void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(_firsSelected);
+        }
 
         public void ResumeGame()
         {

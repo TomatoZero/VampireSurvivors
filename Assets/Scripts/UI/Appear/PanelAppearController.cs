@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ namespace UI.Appear
 
         public void OpenEventHandler()
         {
+            gameObject.SetActive(true);
             _rectTransform.DOAnchorPos(Vector3.zero, _fadeTime).SetEase(_curve);
             _canvasGroup.DOFade(1, _fadeTime);
         }
@@ -29,6 +31,13 @@ namespace UI.Appear
         {
             _rectTransform.DOAnchorPos(-_rectTransform.transform.localPosition * _vector2, _fadeTime).SetEase(_curve);
             _canvasGroup.DOFade(0, _fadeTime);
+            StartCoroutine(DisableObject());
+        }
+
+        private IEnumerator DisableObject()
+        {
+            yield return new WaitForSeconds(_fadeTime);
+            gameObject.SetActive(false);
         }
     }
 }

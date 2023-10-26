@@ -1,13 +1,21 @@
 ﻿using System.Collections.Generic;
 using UI.Structs;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace UI.LevelUpMenu
 {
     public class BonusPanel : MonoBehaviour
     {
+        [SerializeField] private GameObject _firstSelected;
         [SerializeField] private List<OptionController> _options;
 
+        private void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(_firstSelected);
+
+        }
+        
         public void SetupButtonsClick(ProgressionPanel.SelectBonusDelegate selectBonus)
         {
             foreach (var option in _options)

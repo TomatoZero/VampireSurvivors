@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4293606560
+CRC: 93850423
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7dced58006f0210be2ecc860aa30725e
+    Hash: 77b938d403a934c16d7010680d710071
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9c3d7f2b05b6f10479cc9b6df0b4d018
@@ -23,6 +23,5 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/Configs/ScriptableObjects/Weapons/Axe.asset
 - Assets/Configs/ScriptableObjects/Weapons/LightningRing.asset
-- Assets/Configs/ScriptableObjects/Weapons/Garlic.asset
 Dependencies:
 - D:/User/source/Unity/VampireSurvivors/Assets/StreamingAssets/AssetsBundle/weaponsico

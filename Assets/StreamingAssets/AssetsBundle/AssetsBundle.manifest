@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 597434968
+CRC: 2780930388
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -7,6 +7,7 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: weaponscriptableobjects
         Dependency_1: weaponparticles
+        Dependency_2: weaponsico
     Info_1:
       Name: weaponscriptableobjects
       Dependencies:

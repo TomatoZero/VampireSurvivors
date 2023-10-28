@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1175166011
+CRC: 3022551139
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8f3fa43fba43325e30be1c5654d0d09d
+    Hash: d0d73f4a201c8c4f2baf0da114574605
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8f21194c64730f3059c8087ea7d07a90
@@ -81,3 +81,4 @@ Assets:
 Dependencies:
 - D:/User/source/Unity/VampireSurvivors/Assets/StreamingAssets/AssetsBundle/weaponparticles
 - D:/User/source/Unity/VampireSurvivors/Assets/StreamingAssets/AssetsBundle/weaponscriptableobjects
+- D:/User/source/Unity/VampireSurvivors/Assets/StreamingAssets/AssetsBundle/weaponsico

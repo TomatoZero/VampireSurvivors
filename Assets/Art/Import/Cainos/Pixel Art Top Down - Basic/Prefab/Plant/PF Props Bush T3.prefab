@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 2055102312182832481}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2055102311959635368
 SpriteRenderer:
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1869315837
+  m_SortingLayerID: -909085873
   m_SortingLayer: 1
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300140, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1869315837
+  m_SortingLayerID: -909085873
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300094, guid: 8501e10b1eafde34586080ba342fdc0e, type: 3}

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 7871751393751394548, guid: 39045379ddc3a024181c6d4c150fea49, type: 3}
-  _particlesParent: {fileID: 0}
+  _particlesParent: {fileID: 5292893391007998245}
   _startTimerEvent:
     m_PersistentCalls:
       m_Calls:

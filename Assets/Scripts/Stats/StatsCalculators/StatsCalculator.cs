@@ -102,7 +102,7 @@ namespace Stats.StatsCalculators
 
         public void CalculatePercentBonuses()
         {
-            GetBonuses(ref _percentBonuses, GetPercentBonusValue, GetPercentBonusStats);
+            GetBonuses(ref _percentBonuses, GetPercentBonusValue, GetPercentStats);
         }
 
         private protected string GetDictionaryInString<T,TT>(Dictionary<T,TT> dictionary)
@@ -164,7 +164,7 @@ namespace Stats.StatsCalculators
             return stats;
         }
 
-        private protected virtual HashSet<Stats> GetPercentBonusStats()
+        private protected virtual HashSet<Stats> GetPercentStats()
         {
             var stats = new HashSet<Stats>();
 

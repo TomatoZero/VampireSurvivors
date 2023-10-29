@@ -71,10 +71,12 @@ namespace Stats.StatsCalculators
             return stats;
         }
 
-        private protected override HashSet<Stats> GetPercentBonusStats()
+        private protected override HashSet<Stats> GetPercentStats()
         {
-            var stats = base.GetPercentBonusStats();
+            var stats = base.GetPercentStats();
+            
             foreach (var data in _percentBonusFromOutside) stats.Add(data.Key);
+            
             return stats;
         }
     }

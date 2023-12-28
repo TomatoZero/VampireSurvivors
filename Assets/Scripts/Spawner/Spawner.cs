@@ -10,7 +10,6 @@ namespace Spawner
 {
     public class Spawner : MonoBehaviour
     {
-        [SerializeField] private Camera _camera;
         [SerializeField] private Transform _player;
         [SerializeField] private GameObject _enemyPrefab;
         [SerializeField] private List<Transform> _spawners;
@@ -90,6 +89,14 @@ namespace Spawner
             healthController.AddDieListener(_gemSpawner.Spawn);
             healthController.EnemyDie.AddListener(_ => _enemyDie.Invoke());
             healthController.EnemyDie.AddListener(_ => EnemyDied());
+
+            // var enemyEvent = instance.GetComponent<EnemyEventController>();
+            // enemyEvent.Instantiate(_player.transform, DieMethod);
+        }
+
+        private void DieMethod(Vector3 arg0)
+        {
+            throw new NotImplementedException();
         }
 
         private void EnemyDied()

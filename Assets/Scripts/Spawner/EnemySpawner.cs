@@ -1,61 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enemy;
 using UnityEngine;
 using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
 namespace Spawner
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private int _initEnemyCount;
         [SerializeField] private Transform _player;
         [SerializeField] private List<Vector2> _spawnModifiers;
-        [SerializeField] private GameObject _spawnObject;
         [SerializeField] private UnityEvent<Vector3> _enemyDied;
 
-        private Queue<EnemyEventController> _unActiveEnemies;
+        private Dictionary<GameObject, Queue<EnemyEventController>> _objectPulls;
 
-        private void Awake()
+        public void Spawn(GameObject enemyPrefab)
         {
-            for (int i = 0; i < _initEnemyCount; i++)
+            if (_objectPulls.TryGetValue(enemyPrefab, out var pull))
             {
-                var enemy = CreateEnemy();
-                enemy.gameObject.SetActive(false);
-            }
-        }
-
-        private void Spawn()
-        {
-            if (_unActiveEnemies.TryDequeue(out EnemyEventController enemy))
-            {
-                enemy.gameObject.SetActive(true);
+                if (pull.TryDequeue(out var enemy))
+                    ActivateEnemy(enemy);
+                else
+                    CreateEnemy(enemyPrefab);
             }
             else
             {
-                CreateEnemy();
+                var newQueue = new Queue<EnemyEventController>();
+                _objectPulls.Add(enemyPrefab, newQueue);
+                CreateEnemy(enemyPrefab);
             }
         }
-        
-        private EnemyEventController CreateEnemy()
+
+        private EnemyEventController CreateEnemy(GameObject enemyPrefab)
         {
             var spawnPosition = _player.position + (Vector3)GetRandomPositionModifier();
-            var enemy = Instantiate(_spawnObject, spawnPosition, Quaternion.identity, transform);
+            var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, transform);
             var enemyEventModifier = enemy.GetComponent<EnemyEventController>();
             enemyEventModifier.Instantiate(_player, EnemyDied);
 
             return enemyEventModifier;
         }
 
+        private void ActivateEnemy(EnemyEventController enemy)
+        {
+            var spawnPosition = _player.position + (Vector3)GetRandomPositionModifier();
+            enemy.transform.position = spawnPosition;
+            enemy.gameObject.SetActive(true);
+        }
+
         private void EnemyDied(EnemyEventController eventController)
         {
-            eventController.gameObject.SetActive(false);
-            _unActiveEnemies.Enqueue(eventController);
-            
+            if (_objectPulls.TryGetValue(eventController.gameObject, out var pull))
+            {
+                eventController.gameObject.SetActive(false);
+                pull.Enqueue(eventController);
+            }
+            else
+            {
+                eventController.gameObject.SetActive(false);
+                Debug.LogError("Cant find pull");
+            }
+
             _enemyDied.Invoke(eventController.transform.position);
         }
-        
+
         private Vector2 GetRandomPositionModifier()
         {
             var x = Random.Range(0, _spawnModifiers.Count);

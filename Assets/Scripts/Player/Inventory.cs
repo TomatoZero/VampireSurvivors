@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Weapons;
 
-namespace DefaultNamespace
+namespace Player
 {
     public class Inventory : MonoBehaviour, IUpdateStats
     {

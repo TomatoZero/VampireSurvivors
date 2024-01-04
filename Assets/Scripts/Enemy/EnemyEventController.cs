@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ScriptableObjects;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Enemy
@@ -12,6 +13,11 @@ namespace Enemy
         {
             _enemyMovementController.SetPlayer(player);
             _enemyHealthController.EnemyDie.AddListener(_ => dieMethods(this));
+        }
+
+        public void SetData(EnemyStatsData statsData)
+        {
+            
         }
     }
 }

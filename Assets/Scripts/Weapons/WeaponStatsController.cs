@@ -2,7 +2,7 @@
 using Interface;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 

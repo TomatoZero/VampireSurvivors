@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Stats.Instances.Buff;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 

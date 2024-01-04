@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using Stats;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Stats.ScriptableObjects
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ObjectStatsData", menuName = "ScriptableObject/Stats/ObjectStatsData", order = 3)]
     public class ObjectStatsData : ScriptableObject

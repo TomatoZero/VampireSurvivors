@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using Stats.StatsCalculators;
 using UnityEngine;
 

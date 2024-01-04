@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace.StaticClass;
 using Stats.Instances;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;

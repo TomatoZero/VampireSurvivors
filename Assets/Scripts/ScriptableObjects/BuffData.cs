@@ -1,7 +1,8 @@
-﻿using Stats.Instances.Buff;
+﻿using Stats;
+using Stats.Instances.Buff;
 using UnityEngine;
 
-namespace Stats.ScriptableObjects
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Buff", menuName = "ScriptableObject/Buff/Buff", order = 1)]
     public class BuffData : ScriptableObject

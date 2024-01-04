@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Stats.ScriptableObjects
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "LevelWeaponsAndItems", menuName = "ScriptableObject/LevelWeaponsAndItems", order = 0)]
     public class LevelWeaponsAndItems : ScriptableObject

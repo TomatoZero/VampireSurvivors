@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 
 namespace Stats.StatsCalculators
 {

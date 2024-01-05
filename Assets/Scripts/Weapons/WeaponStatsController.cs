@@ -44,8 +44,8 @@ namespace Weapons
         {
             var playerInstance = (PlayerInstance)newInstance;
 
-            var allClearBonusFromOutside = playerInstance.PlayerStatCalculator.ClearBonuses;
-            var allPercentBonusFromOutside = playerInstance.PlayerStatCalculator.PercentBonuses;
+            var allClearBonusFromOutside = playerInstance.UnitStatCalculator.ClearBonuses;
+            var allPercentBonusFromOutside = playerInstance.UnitStatCalculator.PercentBonuses;
 
             _instance.AddBonusesFromItems(allClearBonusFromOutside, allPercentBonusFromOutside);
             

@@ -8,7 +8,7 @@ namespace Stats.Instances.PowerUp
     public class PlayerInstance : PowerUpInstance
     {
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
-        public PlayerStatCalculator PlayerStatCalculator => (PlayerStatCalculator)StatsCalculator;
+        public UnitStatCalculator UnitStatCalculator => (UnitStatCalculator)StatsCalculator;
 
 
         public PlayerInstance(PlayerStatsData playerStatsData, Dictionary<Stats, float> allClearItemBonus,
@@ -20,14 +20,14 @@ namespace Stats.Instances.PowerUp
         public override void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus,
             Dictionary<Stats, float> allPercentItemBonus)
         {
-            PlayerStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
+            UnitStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
             UpdateCurrentStats();
         }
 
         public void AddBuffs(Dictionary<Stats, float> allClearBuff,
             Dictionary<Stats, float> allPercentBuff)
         {
-            PlayerStatCalculator.RewriteOrAddBuffs(allClearBuff, allPercentBuff);
+            UnitStatCalculator.RewriteOrAddBuffs(allClearBuff, allPercentBuff);
             UpdateCurrentStats();
         }
 
@@ -50,7 +50,7 @@ namespace Stats.Instances.PowerUp
 
         private protected override void Setup()
         {
-            var playerStatCalculator = new PlayerStatCalculator(this);
+            var playerStatCalculator = new UnitStatCalculator(this);
             playerStatCalculator.CalculateCurrentStats();
             SetStatCalculator(playerStatCalculator);
         }

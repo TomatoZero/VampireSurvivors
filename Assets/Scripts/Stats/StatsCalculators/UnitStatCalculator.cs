@@ -4,12 +4,12 @@ using Stats.Instances.PowerUp;
 
 namespace Stats.StatsCalculators
 {
-    public class PlayerStatCalculator : PowerUpStatCalculator
+    public class UnitStatCalculator : PowerUpStatCalculator
     {
         private Dictionary<Stats, float> _clearBuffs;
         private Dictionary<Stats, float> _percentBuffs;
 
-        public PlayerStatCalculator(ObjectInstance objectInstance) : base(objectInstance)
+        public UnitStatCalculator(ObjectInstance objectInstance) : base(objectInstance)
         {
             _clearBuffs = new Dictionary<Stats, float>();
             _percentBuffs = new Dictionary<Stats, float>();

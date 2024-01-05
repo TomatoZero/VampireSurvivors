@@ -1,5 +1,5 @@
 ﻿using Stats;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 
 namespace UI.Structs
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using Stats.StatsCalculators;
 
 namespace Stats.Instances
@@ -17,6 +17,7 @@ namespace Stats.Instances
             SetStatCalculator(statCalculator);
         }
 
+        //TODO: fix this part. SOLID break. Liskov principle  
         public override void LevelUp()
         {
             throw new Exception("Enemy shouldn't have level up");

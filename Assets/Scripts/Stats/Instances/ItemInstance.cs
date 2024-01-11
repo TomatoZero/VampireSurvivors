@@ -1,5 +1,5 @@
 ﻿using System;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using Stats.StatsCalculators;
 
 namespace Stats.Instances

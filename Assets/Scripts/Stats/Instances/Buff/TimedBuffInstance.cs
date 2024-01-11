@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Stats.Instances.Buff

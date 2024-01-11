@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace.StaticClass;
+using Player;
 using Stats.Instances;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UI.Structs;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,6 +41,8 @@ namespace DefaultNamespace
                 if (IsContainInWeapons(item)) continue;
                 _newerUsed.Add(item);
             }
+
+            return;
 
             bool IsContainInWeapons(ObjectStatsData item)
             {

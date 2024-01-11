@@ -1,5 +1,5 @@
 ﻿using Stats.Instances;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 

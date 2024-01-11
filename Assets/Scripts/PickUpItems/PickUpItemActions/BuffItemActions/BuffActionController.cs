@@ -1,5 +1,5 @@
 ﻿using Player;
-using Stats.ScriptableObjects;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace PickUpItems.PickUpItemActions.BuffItemActions

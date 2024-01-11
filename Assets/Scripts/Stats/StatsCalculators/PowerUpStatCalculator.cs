@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
-using UnityEngine;
 
 namespace Stats.StatsCalculators
 {
@@ -35,7 +34,7 @@ namespace Stats.StatsCalculators
 
             foreach (var bonus in allClearItemBonus)
                 _clearBonusFromOutside[bonus.Key] = bonus.Value;
-            
+
             foreach (var bonus in allPercentItemBonus)
                 _percentBonusFromOutside[bonus.Key] = bonus.Value;
         }
@@ -46,7 +45,7 @@ namespace Stats.StatsCalculators
 
             str += $"ClearBonusFromOutside {GetDictionaryInString(_clearBonusFromOutside)}\n\n";
             str += $"PercentBonusFromOutside {GetDictionaryInString(_percentBonusFromOutside)}\n\n";
-            
+
             return str;
         }
 
@@ -74,9 +73,9 @@ namespace Stats.StatsCalculators
         private protected override HashSet<Stats> GetPercentStats()
         {
             var stats = base.GetPercentStats();
-            
+
             foreach (var data in _percentBonusFromOutside) stats.Add(data.Key);
-            
+
             return stats;
         }
     }

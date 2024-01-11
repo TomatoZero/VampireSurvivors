@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using ScriptableObjects;
 using Stats.StatsCalculators;
-using UnityEngine;
 
 namespace Stats.Instances.PowerUp
 {
     public class PlayerInstance : PowerUpInstance
     {
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
-        public UnitStatCalculator UnitStatCalculator => (UnitStatCalculator)StatsCalculator;
+        public PlayerStatCalculator UnitStatCalculator => (PlayerStatCalculator)StatsCalculator;
 
 
         public PlayerInstance(PlayerStatsData playerStatsData, Dictionary<Stats, float> allClearItemBonus,
@@ -50,7 +49,7 @@ namespace Stats.Instances.PowerUp
 
         private protected override void Setup()
         {
-            var playerStatCalculator = new UnitStatCalculator(this);
+            var playerStatCalculator = new PlayerStatCalculator(this);
             playerStatCalculator.CalculateCurrentStats();
             SetStatCalculator(playerStatCalculator);
         }

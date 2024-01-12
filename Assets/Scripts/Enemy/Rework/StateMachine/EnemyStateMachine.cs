@@ -1,7 +1,7 @@
 ﻿using System;
 using Interface;
 
-namespace Enemy.Rework
+namespace Enemy.Rework.StateMachine
 {
     [Serializable]
     public class EnemyStateMachine

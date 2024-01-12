@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0a3a1320d81e541a00c7647c8ead26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStatsData: {fileID: 11400000, guid: 50fe6551ce2f3754bb792e0746fcaaba, type: 2}
+  _enemyStatsData: {fileID: 11400000, guid: 1122ddef73f305443b0a303bdfb2b7d6, type: 2}
   _setupStatsEvent:
     m_PersistentCalls:
       m_Calls:

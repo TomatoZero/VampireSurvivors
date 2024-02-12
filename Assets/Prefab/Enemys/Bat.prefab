@@ -149,6 +149,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _killEnemyEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5390060471588868260}
+        m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
+        m_MethodName: Kill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3070736181015131097
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +235,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7226627083000781507}
   - component: {fileID: 2723263794830787972}
-  - component: {fileID: 2877274368981047091}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -243,8 +257,10 @@ Transform:
   - {fileID: 5595898158579221451}
   - {fileID: 1440128103871366867}
   - {fileID: 1517823692767851156}
+  - {fileID: 4965149104995620103}
+  - {fileID: 804508714921697393}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2723263794830787972
 Rigidbody2D:
@@ -273,24 +289,151 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2877274368981047091
+--- !u!1 &6288435199999232033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4965149104995620103}
+  m_Layer: 3
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4965149104995620103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288435199999232033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7226627083000781507}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8081735516988460468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 804508714921697393}
+  - component: {fileID: 229683243886122481}
+  m_Layer: 3
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &804508714921697393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081735516988460468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7226627083000781507}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229683243886122481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817560859082510348}
+  m_GameObject: {fileID: 8081735516988460468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b81b146210ed3f4cbda546e518e4282, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a0a3a1320d81e541a00c7647c8ead26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageEvent:
+  _enemyStatsData: {fileID: 11400000, guid: 1122ddef73f305443b0a303bdfb2b7d6, type: 2}
+  _setupStatsEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5390060471588868260}
         m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
-        m_MethodName: TakeDamage
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3135271569683872712}
+        m_TargetAssemblyTypeName: Enemy.EnemyDamageController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7461565946875488490}
+        m_TargetAssemblyTypeName: Enemy.EnemyMovementController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _statsUpdateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5390060471588868260}
+        m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3135271569683872712}
+        m_TargetAssemblyTypeName: Enemy.EnemyDamageController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7461565946875488490}
+        m_TargetAssemblyTypeName: Enemy.EnemyMovementController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -311,6 +454,7 @@ GameObject:
   - component: {fileID: 1440128103871366867}
   - component: {fileID: 2040781389121757242}
   - component: {fileID: 5390060471588868260}
+  - component: {fileID: 3135271569683872712}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -382,4 +526,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7461565946875488490}
+        m_TargetAssemblyTypeName: Enemy.EnemyMovementController, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4156644827688992479}
+        m_TargetAssemblyTypeName: Enemy.EnemyAnimatorController, Assembly-CSharp
+        m_MethodName: DieEventHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3135271569683872712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647418238504822292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b81b146210ed3f4cbda546e518e4282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _takeDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5390060471588868260}
+        m_TargetAssemblyTypeName: Enemy.EnemyHealthController, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

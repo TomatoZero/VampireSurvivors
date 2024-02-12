@@ -55,8 +55,10 @@ namespace Enemy
 
         public void Kill()
         {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            Debug.Log($"fmklfmlekf");
+            
+            transform.parent.gameObject.SetActive(false);
+            Destroy(transform.parent.gameObject);
         }
 
         public void AddDieListener(GemSpawner.SpawnGem method)

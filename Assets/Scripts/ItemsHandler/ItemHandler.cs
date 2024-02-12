@@ -21,6 +21,7 @@ namespace DefaultNamespace
         [SerializeField] private Inventory _inventory;
         [SerializeField] private Transform _inventoryObject;
         [SerializeField] private LoadFromAssetBundle _loadFromAsset;
+        [SerializeField] private WeaponsOnLevel _weaponsOnLevel;
 
         private List<ObjectInstance> _currentWeaponAndItems;
         private List<ObjectStatsData> _newerUsed;
@@ -126,9 +127,11 @@ namespace DefaultNamespace
         {
             if (item.IsWeapon)
             {
-                var prefab = _loadFromAsset.LoadPrefab("weapons",
-                    $"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}.prefab");
-                AddNewWeapon(prefab);
+                // var prefab = _loadFromAsset.LoadPrefab("weapons",
+                //     $"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}.prefab");
+                
+                var prefab = _weaponsOnLevel.LoadPrefab($"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}");
+               AddNewWeapon(prefab);
             }
             else
             {

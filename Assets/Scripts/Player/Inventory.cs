@@ -130,11 +130,14 @@ namespace Player
 
         private void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
         {
+            Debug.Log($"playerInstance {playerInstance}");
+            Debug.Log($"weapon {weapon}");
+            
             _weapons.Add(weapon);
 
             SetupStatEvent += weapon.SetupStatEventHandler;
             UpdateStatEvent += weapon.UpdateStatsEventHandler;
-
+            
             weapon.SetupStatEventHandler(playerInstance);
         }
 

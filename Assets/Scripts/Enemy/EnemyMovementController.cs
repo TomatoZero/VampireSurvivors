@@ -5,22 +5,21 @@ using UnityEngine.Events;
 
 namespace Enemy
 {
-    [RequireComponent(typeof(EnemyStatsController))]
     public class EnemyMovementController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private UnityEvent<Vector2> _moveDirectionEvent;
         
-        private Transform _player;
+        [SerializeField] private Transform _player;
 
         private Vector2 _nextPosition;
         private Vector2 _moveDirection;
 
-        private float _speed;
+        private float _speed = 1;
 
         private void Awake()
         {
-            _player = transform;
+            // _player = transform;
         }
 
         private void FixedUpdate()
@@ -29,6 +28,8 @@ namespace Enemy
             _nextPosition = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_nextPosition);
             _moveDirectionEvent.Invoke(_moveDirection);
+            
+            Debug.Log($"_moveDirection {_moveDirection}");
         }
 
         public void SetPlayer(Transform player)

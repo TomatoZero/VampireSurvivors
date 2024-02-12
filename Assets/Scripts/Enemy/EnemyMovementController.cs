@@ -15,7 +15,7 @@ namespace Enemy
         private Vector2 _nextPosition;
         private Vector2 _moveDirection;
 
-        private float _speed = 1;
+        private float _speed;
 
         private void Awake()
         {
@@ -28,8 +28,6 @@ namespace Enemy
             _nextPosition = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_nextPosition);
             _moveDirectionEvent.Invoke(_moveDirection);
-            
-            Debug.Log($"_moveDirection {_moveDirection}");
         }
 
         public void SetPlayer(Transform player)

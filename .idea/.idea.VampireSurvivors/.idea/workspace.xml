@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Enemys/Bat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Enemys/Bat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/EnemyRework/EnemyRework1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/EnemyRework/EnemyRework1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/GameScene/LevelDebug.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/GameScene/LevelDebug.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyStatsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyStatsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stats/Instances/EnemyInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stats/Instances/EnemyInstance.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,7 @@
       <workItem from="1705046250471" duration="1489000" />
       <workItem from="1705053864452" duration="3854000" />
       <workItem from="1706265140545" duration="30000" />
-      <workItem from="1707724282815" duration="6188000" />
+      <workItem from="1707724282815" duration="13916000" />
     </task>
     <servers />
   </component>

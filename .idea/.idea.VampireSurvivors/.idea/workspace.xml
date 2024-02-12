@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Rework/EnemyStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Rework/StateMachine/EnemyStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Rework/EnemyStateMachine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Rework/StateMachine/EnemyStateMachine.cs.meta" afterDir="false" />
-    </list>
+    <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,6 +93,7 @@
       <updated>1705046247575</updated>
       <workItem from="1705046250471" duration="1489000" />
       <workItem from="1705053864452" duration="3854000" />
+      <workItem from="1706265140545" duration="30000" />
     </task>
     <servers />
   </component>

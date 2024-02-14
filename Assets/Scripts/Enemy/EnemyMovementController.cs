@@ -16,6 +16,9 @@ namespace Enemy
         private Vector2 _moveDirection;
 
         private float _speed;
+        private float _distanceToPlayer;
+
+        public float DistanceToPlayer => _distanceToPlayer;
 
         private void Awake()
         {
@@ -24,7 +27,9 @@ namespace Enemy
 
         private void FixedUpdate()
         {
-            _moveDirection = (_player.position - transform.position).normalized;
+            var vectorToPlayer = (_player.position - transform.position).normalized;
+            _distanceToPlayer = vectorToPlayer.magnitude;
+            _moveDirection = vectorToPlayer.normalized;
             _nextPosition = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_nextPosition);
             _moveDirectionEvent.Invoke(_moveDirection);

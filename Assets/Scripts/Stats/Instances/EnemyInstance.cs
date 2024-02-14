@@ -9,7 +9,7 @@ namespace Stats.Instances
     public class EnemyInstance : PowerUpInstance
     {
         public EnemyStatsData EnemyStatsData => (EnemyStatsData)_statsData;
-        public PowerUpStatCalculator PowerUpStatCalculator => (PowerUpStatCalculator)StatsCalculator;
+        public PowerUpStatCalculator PowerUpStatCalculator => (UnitStatCalculator)StatsCalculator;
         
         public EnemyInstance(EnemyStatsData statsData) : base(statsData)
         {
@@ -17,7 +17,7 @@ namespace Stats.Instances
 
         private protected override void Setup()
         {
-            var statCalculator = new PowerUpStatCalculator(this);
+            var statCalculator = new UnitStatCalculator(this);
             statCalculator.CalculateCurrentStats();
             SetStatCalculator(statCalculator);
         }

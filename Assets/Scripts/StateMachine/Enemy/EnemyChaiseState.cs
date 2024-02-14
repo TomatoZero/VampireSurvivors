@@ -5,13 +5,13 @@ namespace StateMachine.Enemy
 {
     public class EnemyChaiseState : IState
     {
-        private EnemyReferenceController _enemyReference;
+        private EnemyStateMachineController _enemyStateMachine;
         
         public States CurrentState => States.Chaise;
 
-        public EnemyChaiseState(EnemyReferenceController enemyReference)
+        public EnemyChaiseState(EnemyStateMachineController enemyStateMachine)
         {
-            _enemyReference = enemyReference;
+            _enemyStateMachine = enemyStateMachine;
         }
         
         public void Enter()

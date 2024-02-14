@@ -6,13 +6,13 @@ using UnityEngine;
 namespace StateMachine
 {
     [Serializable]
-    public class StateMachine
+    public class EnemyStateMachine
     {
         private IState _currentState;
         private List<IState> _states;
         
 
-        public StateMachine(List<IState> states, States startState)
+        public EnemyStateMachine(List<IState> states, States startState)
         {
             _states = states;
         }

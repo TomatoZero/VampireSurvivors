@@ -55,8 +55,6 @@ namespace Enemy
 
         public void Kill()
         {
-            Debug.Log($"fmklfmlekf");
-            
             transform.parent.gameObject.SetActive(false);
             Destroy(transform.parent.gameObject);
         }

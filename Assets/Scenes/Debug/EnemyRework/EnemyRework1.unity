@@ -293,6 +293,16 @@ PrefabInstance:
       propertyPath: _enemyDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6280491932295330229, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280491932295330229, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -909085873
+      objectReference: {fileID: 0}
     - target: {fileID: 7226627083000781507, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
         type: 3}
       propertyPath: m_RootOrder

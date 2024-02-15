@@ -13,7 +13,7 @@ namespace StateMachine.Enemy
         {
             _enemyStateMachine = enemyStateMachine;
         }
-        
+
         public void Enter()
         {
             throw new NotImplementedException();

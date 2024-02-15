@@ -4,16 +4,20 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyStateMachineController : MonoBehaviour
+    public abstract class EnemyStateMachineController : MonoBehaviour
     {
-        [SerializeField] private EnemyStateMachineController _enemyStateMachineController;
-        [SerializeField] private List<States> _states;
+        [SerializeField] private EnemyMovementController _movementController;
 
-        private EnemyStateMachine _stateMachine;
-
-        private void Awake()
+        protected EnemyMovementController MovementController
         {
-            var states = new List<IState>();
+            get => _movementController;
+            set => _movementController = value;
         }
+        
+        protected EnemyStateMachine StateMachine { get; set; }
+        protected List<IState> States { get; set; }
+
+        protected abstract void CreateStates();
+        protected abstract void CreateStateMachine();
     }
 }

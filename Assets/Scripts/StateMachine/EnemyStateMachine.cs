@@ -11,7 +11,6 @@ namespace StateMachine
         private IState _currentState;
         private List<IState> _states;
         
-
         public EnemyStateMachine(List<IState> states, States startState)
         {
             _states = states;

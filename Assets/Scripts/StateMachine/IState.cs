@@ -1,4 +1,6 @@
-﻿namespace StateMachine
+﻿using System;
+
+namespace StateMachine
 {
     public interface IState
     {

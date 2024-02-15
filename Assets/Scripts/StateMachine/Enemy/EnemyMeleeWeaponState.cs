@@ -4,32 +4,31 @@ using UnityEngine;
 
 namespace StateMachine.Enemy
 {
-    public class EnemyChaiseState : IState
+    public class EnemyMeleeWeaponState : IState
     {
         private readonly EnemyStateMachineController _enemyStateMachine;
         
-        public States CurrentState => States.Chaise;
+        public States CurrentState => States.MeleeWeapon;
+        
         public event Action<States> ChangeStateEvent;
 
-        public EnemyChaiseState(EnemyStateMachineController enemyStateMachine)
+        public EnemyMeleeWeaponState(EnemyStateMachineController enemyStateMachine)
         {
             _enemyStateMachine = enemyStateMachine;
         }
-
+        
         public void Enter()
         {
-            Debug.Log($"Enter State EnemyChaiseState");
+            Debug.Log($"Enter State EnemyMeleeWeaponState");
         }
 
         public void Update()
         {
             var distance = _enemyStateMachine.MovementController.DistanceToPlayer;
             
-            Debug.Log($"distance {distance}");
-            
-            if (distance < .1f )
+            if (distance is > .1f and < .5f)
             {
-                ChangeStateEvent?.Invoke(States.MeleeWeapon);        
+                ChangeStateEvent?.Invoke(States.Chaise);        
             }
             else if(distance > .5f)
             {
@@ -39,7 +38,7 @@ namespace StateMachine.Enemy
 
         public void Exit()
         {
-            Debug.Log($"Enter State EnemyChaiseState");
+            Debug.Log($"Exit State EnemyMeleeWeaponState");
         }
     }
 }

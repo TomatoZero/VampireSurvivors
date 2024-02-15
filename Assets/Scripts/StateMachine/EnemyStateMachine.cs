@@ -14,10 +14,8 @@ namespace StateMachine
         public EnemyStateMachine(List<IState> states, States startState)
         {
             _states = states;
-        }
-
-        public void Initialize(States startState)
-        {
+            SubscribeToEvents();
+            
             _currentState = FindState(startState);
             _currentState.Enter();
         }
@@ -45,7 +43,13 @@ namespace StateMachine
                 return _currentState;
             }
             
-            return _states.First(state => state.CurrentState == states);
+            return newState;
+        }
+
+        private void SubscribeToEvents()
+        {
+            foreach (var state in _states)
+                state.ChangeStateEvent += TransitionTo;
         }
     }
 }

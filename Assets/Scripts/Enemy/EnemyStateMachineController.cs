@@ -8,10 +8,10 @@ namespace Enemy
     {
         [SerializeField] private EnemyMovementController _movementController;
 
-        protected EnemyMovementController MovementController
+        public EnemyMovementController MovementController
         {
             get => _movementController;
-            set => _movementController = value;
+            protected set => _movementController = value;
         }
         
         protected EnemyStateMachine StateMachine { get; set; }

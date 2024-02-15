@@ -1,6 +1,8 @@
-using Enemy;
+using System.Collections.Generic;
+using StateMachine;
+using StateMachine.Enemy;
 
-namespace StateMachine.Enemy.Enemies
+namespace Enemy.StateMachine
 {
     public class BatStateMachine : EnemyStateMachineController
     {
@@ -10,9 +12,18 @@ namespace StateMachine.Enemy.Enemies
             CreateStateMachine();
         }
 
+        private void Update()
+        {
+            StateMachine.Update();
+        }
+
         protected override void CreateStates()
         {
+            States = new List<IState>();
+            
             States.Add(new EnemyChaiseState(this));
+            States.Add(new EnemyMeleeWeaponState(this));
+            States.Add(new EnemyLongDistanceWeaponState(this));
         }
 
         protected override void CreateStateMachine()

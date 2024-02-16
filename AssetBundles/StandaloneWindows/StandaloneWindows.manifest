@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 2223233505
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: weaponscriptableobjects
+      Dependencies:
+        Dependency_0: weaponsico
+    Info_1:
+      Name: items
+      Dependencies:
+        Dependency_0: itemsico
+    Info_2:
+      Name: weaponsico
+      Dependencies: {}
+    Info_3:
+      Name: weaponparticles
+      Dependencies:
+        Dependency_0: weaponsico
+    Info_4:
+      Name: itemsico
+      Dependencies: {}
+    Info_5:
+      Name: weapons
+      Dependencies:
+        Dependency_0: weaponscriptableobjects
+        Dependency_1: weaponsico
+        Dependency_2: weaponparticles

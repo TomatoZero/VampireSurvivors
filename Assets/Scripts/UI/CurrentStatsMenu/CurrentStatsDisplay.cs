@@ -42,12 +42,12 @@ namespace DefaultNamespace.UI.CurrentStatsMenu
                 SetStat(stat.Stat, stat.Value, stat.IsPercent);
             }
 
-            foreach (var stat in playerInstance.PlayerStatCalculator.ClearBonuses)
+            foreach (var stat in playerInstance.UnitStatCalculator.ClearBonuses)
             {
                 SetBonus(stat.Key, stat.Value, false);
             }
             
-            foreach (var stat in playerInstance.PlayerStatCalculator.PercentBonuses)
+            foreach (var stat in playerInstance.UnitStatCalculator.PercentBonuses)
             {
                 SetBonus(stat.Key, stat.Value, true);
             }

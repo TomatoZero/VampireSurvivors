@@ -112,6 +112,8 @@ namespace Weapons.Melee.LightningRing
 
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
+            Debug.Log($"newInstance {newInstance}");
+            
             _amount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _enemyLightningHitPosition = new Vector2[_amount];

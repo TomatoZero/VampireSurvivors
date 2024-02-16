@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/Enemy/EnemyChaiseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/Enemy/EnemyChaiseState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/Enemy/EnemyLongDistanceWeaponState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/Enemy/EnemyLongDistanceWeaponState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateMachine/Enemy/EnemyMeleeWeaponState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateMachine/Enemy/EnemyMeleeWeaponState.cs" afterDir="false" />
@@ -103,7 +102,7 @@
       <workItem from="1707724282815" duration="15858000" />
       <workItem from="1707896704717" duration="399000" />
       <workItem from="1707999706417" duration="7799000" />
-      <workItem from="1708068521869" duration="1466000" />
+      <workItem from="1708068521869" duration="1894000" />
     </task>
     <servers />
   </component>

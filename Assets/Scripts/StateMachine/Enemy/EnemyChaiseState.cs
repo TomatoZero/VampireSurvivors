@@ -25,8 +25,6 @@ namespace StateMachine.Enemy
         {
             var distance = _enemyStateMachine.MovementController.DistanceToPlayer;
             
-            Debug.Log($"distance {distance}");
-            
             if (distance < 3f )
             {
                 ChangeStateEvent?.Invoke(States.MeleeWeapon);        

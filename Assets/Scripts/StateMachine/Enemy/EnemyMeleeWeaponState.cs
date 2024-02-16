@@ -26,8 +26,6 @@ namespace StateMachine.Enemy
         {
             var distance = _enemyStateMachine.MovementController.DistanceToPlayer;
             
-            Debug.Log($"distance {distance}");
-            
             if (distance is > 3f and < 15f)
             {
                 ChangeStateEvent?.Invoke(States.Chaise);        

@@ -1,4 +1,5 @@
-﻿using Interface;
+﻿using System.Collections.Generic;
+using Interface;
 using Stats.Instances;
 using ScriptableObjects;
 using Stats.Instances.PowerUp;
@@ -37,11 +38,18 @@ namespace Enemy
         {
             var playerInstance = (PlayerInstance)newInstance;
 
-            var allClearBonusFromOutside = playerInstance.UnitStatCalculator.ClearBonuses;
-            var allPercentBonusFromOutside = playerInstance.UnitStatCalculator.PercentBonuses;
+            var allClearBonusFromOutside = playerInstance.PlayerStatCalculator.ClearBonuses;
+            var allPercentBonusFromOutside = playerInstance.PlayerStatCalculator.PercentBonuses;
 
             _instance.AddBonusesFromItems(allClearBonusFromOutside, allPercentBonusFromOutside);
             
+            _statsUpdateEvent.Invoke(_instance);
+        }
+        
+        public void UpdateBuffStatsEventHandler(Dictionary<Stats.Stats, float> clearBuff,
+            Dictionary<Stats.Stats, float> percentBuff)
+        {
+            _instance.AddBuffs(clearBuff, percentBuff);
             _statsUpdateEvent.Invoke(_instance);
         }
     }

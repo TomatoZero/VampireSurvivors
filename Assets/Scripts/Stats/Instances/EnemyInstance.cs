@@ -9,7 +9,7 @@ namespace Stats.Instances
     public class EnemyInstance : PowerUpInstance
     {
         public EnemyStatsData EnemyStatsData => (EnemyStatsData)_statsData;
-        public PowerUpStatCalculator PowerUpStatCalculator => (UnitStatCalculator)StatsCalculator;
+        public UnitStatCalculator PowerUpStatCalculator => (UnitStatCalculator)StatsCalculator;
         
         public EnemyInstance(EnemyStatsData statsData) : base(statsData)
         {
@@ -25,6 +25,13 @@ namespace Stats.Instances
         public override void AddBonusesFromItems(Dictionary<Stats, float> allClearItemBonus, Dictionary<Stats, float> allPercentItemBonus)
         {
             PowerUpStatCalculator.RewriteOrAddOutsideBonus(allClearItemBonus, allPercentItemBonus);
+            UpdateCurrentStats();
+        }
+        
+        public void AddBuffs(Dictionary<Stats, float> allClearBuff,
+            Dictionary<Stats, float> allPercentBuff)
+        {
+            PowerUpStatCalculator.RewriteOrAddBuffs(allClearBuff, allPercentBuff);
             UpdateCurrentStats();
         }
     }

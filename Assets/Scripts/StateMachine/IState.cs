@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using ScriptableObjects;
 
 namespace StateMachine
 {
@@ -6,7 +8,9 @@ namespace StateMachine
     {
         public States CurrentState { get; }
 
-        public event Action<States> ChangeStateEvent; 
+        public event Action<States> ChangeStateEvent;
+
+        public List<BuffData> Buffs { get; set; }
         
         public void Enter();
         public void Update();

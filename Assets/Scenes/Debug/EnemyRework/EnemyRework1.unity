@@ -370,9 +370,134 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7226627083000781507, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 340746121}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8081735516988460468, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 167284284}
   m_SourcePrefab: {fileID: 100100000, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698, type: 3}
+--- !u!4 &167284280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7226627083000781507, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+    type: 3}
+  m_PrefabInstance: {fileID: 167284279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &167284281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 229683243886122481, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+    type: 3}
+  m_PrefabInstance: {fileID: 167284279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167284282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0a3a1320d81e541a00c7647c8ead26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &167284282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8081735516988460468, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+    type: 3}
+  m_PrefabInstance: {fileID: 167284279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &167284283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7461565946875488490, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+    type: 3}
+  m_PrefabInstance: {fileID: 167284279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d510e68024aff743b8d059fab361b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &167284284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167284282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69137ca499fac65428cdb2502bd2f03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buffTimerChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _buffChangeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 167284281}
+        m_TargetAssemblyTypeName: Enemy.EnemyStatsController, Assembly-CSharp
+        m_MethodName: UpdateBuffStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &340746120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340746121}
+  - component: {fileID: 340746122}
+  m_Layer: 3
+  m_Name: StateMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340746121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340746120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 167284280}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340746122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340746120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afca2746202d4b6aba59fd314cf7f88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementController: {fileID: 167284283}
+  _buffController: {fileID: 167284284}
+  _chaiseStateBuff: []
+  _meleeWeaponStateBuff:
+  - {fileID: 11400000, guid: 644d82da1e39eb84388e0fcd74a1c8b4, type: 2}
+  _longDistanceWeaponStateBuff:
+  - {fileID: 11400000, guid: d244add504528dd4da636883dc02107a, type: 2}
 --- !u!1 &394242474
 GameObject:
   m_ObjectHideFlags: 0

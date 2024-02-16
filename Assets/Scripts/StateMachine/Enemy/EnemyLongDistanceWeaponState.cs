@@ -19,22 +19,24 @@ namespace StateMachine.Enemy
 
         public void Enter()
         {
-            Debug.Log($"Enter State EnemyMeleeWeaponState");
+            Debug.Log($"Enter State EnemyLongDistanceWeaponState");
         }
 
         public void Update()
         {
             var distance = _enemyStateMachine.MovementController.DistanceToPlayer;
             
-            if (distance < .5f)
+            Debug.Log($"distance {distance}");
+            
+            if (distance < 15f)
             {
-                ChangeStateEvent?.Invoke(States.LongDistanceWeapon);        
+                ChangeStateEvent?.Invoke(States.Chaise);        
             }
         }
 
         public void Exit()
         {
-            Debug.Log($"Enter State EnemyMeleeWeaponState");
+            Debug.Log($"Enter State EnemyLongDistanceWeaponState");
         }
     }
 }

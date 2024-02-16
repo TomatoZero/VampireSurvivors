@@ -26,11 +26,13 @@ namespace StateMachine.Enemy
         {
             var distance = _enemyStateMachine.MovementController.DistanceToPlayer;
             
-            if (distance is > .1f and < .5f)
+            Debug.Log($"distance {distance}");
+            
+            if (distance is > 3f and < 15f)
             {
                 ChangeStateEvent?.Invoke(States.Chaise);        
             }
-            else if(distance > .5f)
+            else if(distance > 15f)
             {
                 ChangeStateEvent?.Invoke(States.LongDistanceWeapon);        
             }

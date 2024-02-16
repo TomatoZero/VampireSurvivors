@@ -27,7 +27,7 @@ namespace Enemy
 
         private void FixedUpdate()
         {
-            var vectorToPlayer = (_player.position - transform.position).normalized;
+            var vectorToPlayer = (_player.position - transform.position);
             _distanceToPlayer = vectorToPlayer.magnitude;
             _moveDirection = vectorToPlayer.normalized;
             _nextPosition = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);

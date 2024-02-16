@@ -27,11 +27,11 @@ namespace StateMachine.Enemy
             
             Debug.Log($"distance {distance}");
             
-            if (distance < .1f )
+            if (distance < 3f )
             {
                 ChangeStateEvent?.Invoke(States.MeleeWeapon);        
             }
-            else if(distance > .5f)
+            else if(distance > 15f)
             {
                 ChangeStateEvent?.Invoke(States.LongDistanceWeapon);        
             }

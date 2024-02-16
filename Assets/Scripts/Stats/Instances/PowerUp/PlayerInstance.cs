@@ -8,8 +8,7 @@ namespace Stats.Instances.PowerUp
     {
         public PlayerStatsData PlayerStatsData => (PlayerStatsData)_statsData;
         public PlayerStatCalculator UnitStatCalculator => (PlayerStatCalculator)StatsCalculator;
-
-
+        
         public PlayerInstance(PlayerStatsData playerStatsData, Dictionary<Stats, float> allClearItemBonus,
             Dictionary<Stats, float> allPercentItemBonus) : base(playerStatsData)
         {

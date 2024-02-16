@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Stats.Instances.Buff;
 using ScriptableObjects;
+using Stats.Instances.Buff;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Player
+namespace Controllers
 {
-    public class PlayerBuffController : MonoBehaviour
+    public class BuffController : MonoBehaviour
     {
         [SerializeField] private UnityEvent<TimedBuffInstance> _buffTimerChangeEvent;
 
@@ -25,12 +25,13 @@ namespace Player
             _percentBuff = new Dictionary<Stats.Stats, float>();
         }
 
-        public void AddBuff(BuffData buff)
+        public TimedBuffInstance AddBuff(BuffData buff)
         {
             if (_buffs.ContainsKey(buff))
             {
                 _buffs[buff].Activate();
                 AddBuffStat(buff);
+                return _buffs[buff];
             }
             else
             {
@@ -43,6 +44,7 @@ namespace Player
                 _buffs[buff].Activate();
 
                 StartCoroutine(_buffs[buff].StartCountdown());
+                return _buffs[buff];
             }
         }
 

@@ -13,54 +13,39 @@ namespace Player
 
         public void MousePositionEventHandler(InputAction.CallbackContext context)
         {
-            _mousePosition = context.ReadValue<Vector2>();
+            var result = context.ReadValue<Vector2>();
+            _mousePosition = Camera.main.ScreenToWorldPoint(result);
         }
 
         public void FirstWeaponEventHandler(InputAction.CallbackContext context)
         {
-            if (context.started)
-            {
-                _weaponStartAction.Invoke(_mousePosition, 1);
-            }
-            else if (context.canceled)
-            {
-                _weaponActivate.Invoke(_mousePosition, 1);            
-            }
+            Invoke(context, 1);
         }
 
         public void SecondWeaponEventHandler(InputAction.CallbackContext context)
         {
-            if (context.started)
-            {
-                _weaponStartAction.Invoke(_mousePosition, 2);
-            }
-            else if (context.canceled)
-            {
-                _weaponActivate.Invoke(_mousePosition, 2);            
-            }
+            Invoke(context, 1);
         }
 
         public void ThirdWeaponEventHandler(InputAction.CallbackContext context)
         {
-            if (context.started)
-            {
-                _weaponStartAction.Invoke(_mousePosition, 3);
-            }
-            else if (context.canceled)
-            {
-                _weaponActivate.Invoke(_mousePosition, 3);            
-            }
+            Invoke(context, 1);
         }
 
         public void FourthWeaponEventHandler(InputAction.CallbackContext context)
         {
+            Invoke(context, 1);
+        }
+
+        private void Invoke(InputAction.CallbackContext context, int weaponNumber)
+        {
             if (context.started)
             {
-                _weaponStartAction.Invoke(_mousePosition, 4);
+                _weaponStartAction.Invoke(_mousePosition, weaponNumber);
             }
             else if (context.canceled)
             {
-                _weaponActivate.Invoke(_mousePosition, 4);            
+                _weaponActivate.Invoke(_mousePosition, weaponNumber);
             }
         }
     }

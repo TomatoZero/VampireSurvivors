@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/PlayerAim.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/PlayerAim.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/LightningRing/LightningRingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/LightningRing/LightningRingEffect.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyStatsData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Stats/StatsCalculators/PlayerStatCalculator.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -105,7 +106,7 @@
       <workItem from="1707999706417" duration="7799000" />
       <workItem from="1708068521869" duration="2505000" />
       <workItem from="1708075373324" duration="2132000" />
-      <workItem from="1708332830766" duration="2378000" />
+      <workItem from="1708332830766" duration="9557000" />
     </task>
     <servers />
   </component>

@@ -47,7 +47,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""FirstWeaponShoot"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""3e6eef6a-3d1b-4693-90be-20207130f054"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -56,7 +56,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""SecondWeaponShoot"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""faee9aaa-57c9-4758-ae28-7e53f9d1bb9a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -65,7 +65,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""ThirdWeaponShoot"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""de3507e5-6fcf-4db1-9c80-d43e2835ad51"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -74,7 +74,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""FourthWeaponShoot"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""91f209cf-8d75-4fdd-8388-f363b82e6637"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

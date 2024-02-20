@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Interface;
 using Stats;
@@ -16,7 +17,8 @@ namespace Player
         [SerializeField] private UnityEvent _endSetupStatsEvent;
         [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayCurrentItemsEvent;
         [SerializeField] private List<WeaponReferences> _weapons;
-
+        [SerializeField] private WeaponsShootController _weaponsShootController;
+        
         private List<ItemInstance> _items;
 
         private delegate void StatsUpdate(PlayerInstance instance);
@@ -35,12 +37,27 @@ namespace Player
             _items = new List<ItemInstance>();
         }
 
+        private void Start()
+        {
+            foreach (var weapon in _weapons)
+                _weaponsShootController.AddWeapon(weapon);
+        }
+
         private void OnEnable()
         {
             foreach (var weapon in _weapons)
             {
                 SetupStatEvent += weapon.StatsController.SetupStatEventHandler;
                 UpdateStatEvent += weapon.StatsController.UpdateStatsEventHandler;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var weapon in _weapons)
+            {
+                SetupStatEvent -= weapon.StatsController.SetupStatEventHandler;
+                UpdateStatEvent -= weapon.StatsController.UpdateStatsEventHandler;
             }
         }
 
@@ -139,6 +156,7 @@ namespace Player
             UpdateStatEvent += weapon.StatsController.UpdateStatsEventHandler;
             
             weapon.StatsController.SetupStatEventHandler(playerInstance);
+            _weaponsShootController.AddWeapon(weapon);
         }
 
         private void DisplayCurrentItems()

@@ -49,7 +49,7 @@ namespace DefaultNamespace
             {
                 foreach (var weapon in _inventory.Weapons)
                 {
-                    if (weapon.Instance.StatsData.Name == item.Name) return true;
+                    if (weapon.StatsController.Instance.StatsData.Name == item.Name) return true;
                 }
 
                 return false;
@@ -108,7 +108,7 @@ namespace DefaultNamespace
 
             foreach (var weapon in _inventory.Weapons)
             {
-                _currentWeaponAndItems.Add(weapon.Instance);
+                _currentWeaponAndItems.Add(weapon.StatsController.Instance);
             }
             
             foreach (var item in _inventory.Items)
@@ -143,7 +143,7 @@ namespace DefaultNamespace
         private void AddNewWeapon(GameObject prefab)
         {
             var weapon = Instantiate(prefab, _inventoryObject.position, Quaternion.identity, _inventoryObject);
-            var statController = weapon.GetComponent<WeaponStatsController>();
+            var statController = weapon.GetComponent<WeaponReferences>();
             _inventory.AddWeapon(statController);
         }
 

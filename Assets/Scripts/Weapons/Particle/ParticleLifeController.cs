@@ -4,13 +4,16 @@ using Interface;
 using Stats.Instances;
 using UnityEngine;
 
-namespace Weapons.RangeWeapons.Particle
+namespace Weapons.Particle
 {
     public class ParticleLifeController : MonoBehaviour, IUpdateStats
     {
         private WaitForSeconds _particleLifetime;
         private Coroutine _destroyObjectCoroutine;
-        
+
+        private ParticleReference _reference;
+
+        public event Action<ParticleReference> ParticleDieEvent; 
         public delegate void DestroyParticle(GameObject particle);
         public event DestroyParticle DestroyParticleEvent;
         
@@ -19,18 +22,27 @@ namespace Weapons.RangeWeapons.Particle
             _particleLifetime = new WaitForSeconds(1);
         }
 
+        public void SetReferenceScript(ParticleReference reference)
+        {
+            _reference = reference;
+        }
+        
         public void DestroyImmediately()
         {
             StopCoroutine(DestroyObject());
             gameObject.SetActive(false);
-            DestroyParticleEvent.Invoke(gameObject);
+            DestroyParticleEvent?.Invoke(gameObject);
+            
+            ParticleDieEvent?.Invoke(_reference);
         }
         
         private IEnumerator DestroyObject()
         {
             yield return _particleLifetime;
             gameObject.SetActive(false);
-            DestroyParticleEvent.Invoke(gameObject);
+            DestroyParticleEvent?.Invoke(gameObject);
+            
+            ParticleDieEvent?.Invoke(_reference);
         }
 
         public void SetupStatEventHandler(ObjectInstance newInstance)

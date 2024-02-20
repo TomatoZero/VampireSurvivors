@@ -4,6 +4,7 @@ using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapons.Particle;
 using Weapons.RangeWeapons.Particle;
 
 namespace Weapons.RangeWeapons

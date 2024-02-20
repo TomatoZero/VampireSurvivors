@@ -14,6 +14,7 @@ namespace Weapons.ThrowWeapon
         
         private float _area;
         private int _baseAmount;
+        private float _reloadTime;
 
         public void ShootTest(Vector2 mousePosition, int numb)
         {
@@ -42,16 +43,18 @@ namespace Weapons.ThrowWeapon
         {
             _baseAmount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
-           
-            _amoAmountControl.SetAmoData(_baseAmount, 1.25f);
+            _reloadTime = newInstance.GetStatByName(Stats.Stats.Reload).Value;
+            
+            _amoAmountControl.SetAmoData(_baseAmount, _reloadTime);
         }
 
         public override void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _baseAmount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
+            _reloadTime = newInstance.GetStatByName(Stats.Stats.Reload).Value;
             
-            _amoAmountControl.SetAmoData(_baseAmount, 1.25f);
+            _amoAmountControl.SetAmoData(_baseAmount, _reloadTime);
         }
     }
 }

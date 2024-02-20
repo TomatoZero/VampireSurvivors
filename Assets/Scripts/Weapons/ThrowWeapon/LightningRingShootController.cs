@@ -9,8 +9,6 @@ namespace Weapons.ThrowWeapon
     {
         [SerializeField] private LayerMask _enemyLayer;
         [SerializeField] private UnityEvent<Collider2D[]> _hitEnemy;
-        [SerializeField] private UnityEvent<Vector2> _hitPosition;
-        [SerializeField] private AmoAmountControl _amoAmountControl;
         
         private float _area;
         private int _baseAmount;
@@ -23,13 +21,13 @@ namespace Weapons.ThrowWeapon
         
         public override void ShootEventHandler(Vector2 mousePosition)
         {
-            if (_amoAmountControl.IsEnoughAmo)
+            if (AmoAmountControl.IsEnoughAmo)
             {
-                _amoAmountControl.TakeAmo();
+                AmoAmountControl.TakeAmo();
 
                 var enemies = ScanForEnemyInCircle(mousePosition);
                 
-                _hitPosition.Invoke(mousePosition);
+                HitPosition.Invoke(mousePosition);
                 _hitEnemy.Invoke(enemies);
             }
         }
@@ -45,7 +43,7 @@ namespace Weapons.ThrowWeapon
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _reloadTime = newInstance.GetStatByName(Stats.Stats.Reload).Value;
             
-            _amoAmountControl.SetAmoData(_baseAmount, _reloadTime);
+            AmoAmountControl.SetAmoData(_baseAmount, _reloadTime);
         }
 
         public override void UpdateStatsEventHandler(ObjectInstance newInstance)
@@ -54,7 +52,7 @@ namespace Weapons.ThrowWeapon
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _reloadTime = newInstance.GetStatByName(Stats.Stats.Reload).Value;
             
-            _amoAmountControl.SetAmoData(_baseAmount, _reloadTime);
+            AmoAmountControl.SetAmoData(_baseAmount, _reloadTime);
         }
     }
 }

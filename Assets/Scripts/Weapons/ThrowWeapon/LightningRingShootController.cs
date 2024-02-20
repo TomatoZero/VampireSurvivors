@@ -14,8 +14,6 @@ namespace Weapons.ThrowWeapon
         
         private float _area;
         private int _baseAmount;
-        
-        private int _currentAmount;
 
         public void ShootTest(Vector2 mousePosition, int numb)
         {
@@ -44,10 +42,8 @@ namespace Weapons.ThrowWeapon
         {
             _baseAmount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
-
-            _currentAmount = _baseAmount;
-            
-            _amoAmountControl.SetAmoData(_baseAmount, .25f);
+           
+            _amoAmountControl.SetAmoData(_baseAmount, 1.25f);
         }
 
         public override void UpdateStatsEventHandler(ObjectInstance newInstance)
@@ -55,7 +51,7 @@ namespace Weapons.ThrowWeapon
             _baseAmount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             
-            _amoAmountControl.SetAmoData(_baseAmount, .25f);
+            _amoAmountControl.SetAmoData(_baseAmount, 1.25f);
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapons
@@ -12,23 +11,23 @@ namespace Weapons
 
         private float _amoRestoreTime;
         private float _amoRestoreTimePassed;
-        
+
         private Coroutine _restoreAmoCoroutine;
 
-        public bool IsEnoughAmo => _currentAmount >= _baseAmount;
+        public bool IsEnoughAmo => _currentAmount > 0;
 
         public void SetAmoData(int amo, float amoRestoreTime)
         {
             _baseAmount = amo;
             _amoRestoreTime = amoRestoreTime;
-            
+
             if (_currentAmount < _baseAmount)
                 _currentAmount++;
         }
 
         public void TakeAmo()
         {
-            if(!IsEnoughAmo) return;
+            if (!IsEnoughAmo) return;
 
             _currentAmount--;
 
@@ -37,9 +36,9 @@ namespace Weapons
 
         private void TryStartRestoreProcess()
         {
-            if(_restoreAmoCoroutine is not null)
+            if (_restoreAmoCoroutine is not null)
                 StopCoroutine(_restoreAmoCoroutine);
-            
+
             _restoreAmoCoroutine = StartCoroutine(RestoreAmo());
         }
 
@@ -54,12 +53,13 @@ namespace Weapons
                     _currentAmount++;
                     _amoRestoreTimePassed = 0f;
                 }
-                
+
                 if (_currentAmount >= _baseAmount)
                 {
                     _amoRestoreTimePassed = 0f;
                     break;
                 }
+
                 yield return new WaitForSeconds(.1f);
             }
         }

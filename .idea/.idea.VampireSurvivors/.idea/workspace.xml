@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/EnemtRework/BatRework.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/EnemtRework/BatRework.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/Weapons/Garlic.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/Weapons/Garlic.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Weapon/Use/Particle/GarlickAmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Weapon/Use/Particle/GarlickAmo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/PlayerAim.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/PlayerAim.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleEnemyDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleLifeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleLifeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/ThrowWeaponShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/ThrowWeaponShootController.cs" afterDir="false" />
     </list>
@@ -108,6 +116,7 @@
       <workItem from="1708075373324" duration="2132000" />
       <workItem from="1708332830766" duration="9828000" />
       <workItem from="1708422249425" duration="13975000" />
+      <workItem from="1708509462274" duration="2801000" />
     </task>
     <servers />
   </component>

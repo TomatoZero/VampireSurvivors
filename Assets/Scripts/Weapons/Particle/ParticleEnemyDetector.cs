@@ -12,6 +12,9 @@ namespace Weapons.Particle
         [SerializeField] private protected UnityEvent<Collider2D[]> _hitEnemyEvent;
 
         private float _area;
+        private float _cooldown;
+
+        private WaitForSeconds _cooldownTime;
 
         private Coroutine _damageCoroutine;
         
@@ -44,7 +47,7 @@ namespace Weapons.Particle
                 if(result is not null)
                     _hitEnemyEvent.Invoke(result);
                 
-                yield return new WaitForSeconds(.05f);
+                yield return _cooldownTime;
             }
         }
         
@@ -56,11 +59,15 @@ namespace Weapons.Particle
         public void SetupStatEventHandler(ObjectInstance newInstance)
         {
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
+            _cooldown = newInstance.GetStatByName(Stats.Stats.Cooldown).Value;
+            _cooldownTime = new WaitForSeconds(_cooldown);
         }
 
         public void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
+            _cooldown = newInstance.GetStatByName(Stats.Stats.Cooldown).Value;
+            _cooldownTime = new WaitForSeconds(_cooldown);
         }
     }
 }

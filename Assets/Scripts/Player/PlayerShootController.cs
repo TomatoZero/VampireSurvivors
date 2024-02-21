@@ -24,17 +24,17 @@ namespace Player
 
         public void SecondWeaponEventHandler(InputAction.CallbackContext context)
         {
-            Invoke(context, 1);
+            Invoke(context, 2);
         }
 
         public void ThirdWeaponEventHandler(InputAction.CallbackContext context)
         {
-            Invoke(context, 1);
+            Invoke(context, 3);
         }
 
         public void FourthWeaponEventHandler(InputAction.CallbackContext context)
         {
-            Invoke(context, 1);
+            Invoke(context, 4);
         }
 
         private void Invoke(InputAction.CallbackContext context, int weaponNumber)

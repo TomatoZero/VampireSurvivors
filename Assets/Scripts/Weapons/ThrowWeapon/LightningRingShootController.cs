@@ -11,8 +11,6 @@ namespace Weapons.ThrowWeapon
         [SerializeField] private UnityEvent<Collider2D[]> _hitEnemy;
         
         private float _area;
-        private int _baseAmount;
-        private float _reloadTime;
 
         public void ShootTest(Vector2 mousePosition, int numb)
         {
@@ -39,20 +37,18 @@ namespace Weapons.ThrowWeapon
 
         public override void SetupStatEventHandler(ObjectInstance newInstance)
         {
-            _baseAmount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
+            base.UpdateStatsEventHandler(newInstance);
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
-            _reloadTime = newInstance.GetStatByName(Stats.Stats.Reload).Value;
             
-            AmoAmountControl.SetAmoData(_baseAmount, _reloadTime);
+            AmoAmountControl.SetAmoData(BaseAmount, ReloadTime);
         }
 
         public override void UpdateStatsEventHandler(ObjectInstance newInstance)
         {
-            _baseAmount = (int)newInstance.GetStatByName(Stats.Stats.Amount).Value;
+            base.UpdateStatsEventHandler(newInstance);
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
-            _reloadTime = newInstance.GetStatByName(Stats.Stats.Reload).Value;
             
-            AmoAmountControl.SetAmoData(_baseAmount, _reloadTime);
+            AmoAmountControl.SetAmoData(BaseAmount, ReloadTime);
         }
     }
 }

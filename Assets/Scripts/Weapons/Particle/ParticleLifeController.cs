@@ -26,14 +26,38 @@ namespace Weapons.Particle
         {
             _reference = reference;
         }
+
+        private void OnEnable()
+        {
+            _destroyObjectCoroutine = StartCoroutine(DestroyObject());
+        }
+
+        private void OnDisable()
+        {
+            StopCoroutine();
+        }
         
         public void DestroyImmediately()
         {
-            StopCoroutine(DestroyObject());
+            StopCoroutine();
             gameObject.SetActive(false);
             DestroyParticleEvent?.Invoke(gameObject);
             
             ParticleDieEvent?.Invoke(_reference);
+        }
+
+        private void TryStartCoroutine()
+        {
+            if(!gameObject.activeSelf) return;
+            if (_destroyObjectCoroutine is not null) StopCoroutine();
+
+            _destroyObjectCoroutine = StartCoroutine(DestroyObject());
+        }
+
+        private void StopCoroutine()
+        {
+            StopCoroutine(_destroyObjectCoroutine);
+            _destroyObjectCoroutine = null;
         }
         
         private IEnumerator DestroyObject()
@@ -58,11 +82,12 @@ namespace Weapons.Particle
         private void GetStatFromInstance(ObjectInstance newInstance)
         {
             if(_destroyObjectCoroutine is not null)
-                StopCoroutine(_destroyObjectCoroutine);
+                StopCoroutine();
             
             var lifetime = newInstance.GetStatByName(Stats.Stats.Duration).Value;
+            Debug.Log($"Duration {lifetime}");
             _particleLifetime = new WaitForSeconds(lifetime);
-            _destroyObjectCoroutine = StartCoroutine(DestroyObject());
+            TryStartCoroutine();
         }
     }
 }

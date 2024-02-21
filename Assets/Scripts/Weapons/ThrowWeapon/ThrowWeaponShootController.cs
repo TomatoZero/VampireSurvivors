@@ -15,6 +15,9 @@ namespace Weapons.ThrowWeapon
         private int _baseAmount;
         private float _reloadTime;
 
+        protected int BaseAmount => _baseAmount;
+        protected float ReloadTime => _reloadTime;
+
         public override void ShootEventHandler(Vector2 mousePosition)
         {
             if (_amoAmountControl.IsEnoughAmo)

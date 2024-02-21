@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Interface;
 using Stats.Instances;
@@ -8,6 +7,7 @@ namespace Weapons.Particle.Spawner
 {
     public abstract class ParticleSpawner : MonoBehaviour, IUpdateStats
     {
+        [SerializeField] private Transform _particleFather;
         [SerializeField] private GameObject _prefab;
 
         private Queue<ParticleReference> _particles;
@@ -26,11 +26,11 @@ namespace Weapons.Particle.Spawner
 
         private ParticleReference CrateInstance()
         {
-            var instance = Instantiate(_prefab, transform);
+            var instance = Instantiate(_prefab, _particleFather);
             var reference = instance.GetComponent<ParticleReference>();
-            
+
             reference.Disable();
-            
+
             reference.ParticleLifeController.ParticleDieEvent += ParticleDieEventHandler;
             return reference;
         }
@@ -38,7 +38,7 @@ namespace Weapons.Particle.Spawner
         public abstract void SetupStatEventHandler(ObjectInstance newInstance);
         public abstract void UpdateStatsEventHandler(ObjectInstance newInstance);
 
-        
+
         private protected virtual void ParticleDieEventHandler(ParticleReference particle)
         {
             particle.Disable();

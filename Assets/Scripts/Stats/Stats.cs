@@ -24,6 +24,7 @@
         Damage,
         Pierce,
         Chance,
-        CriticalHitMultiplier
+        CriticalHitMultiplier,
+        Reload
     }
 }

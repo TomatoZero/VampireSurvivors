@@ -914,11 +914,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3518952214490698796, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -909085873
-      objectReference: {fileID: 0}
     - target: {fileID: 3678701886321536881, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
         type: 3}
       propertyPath: _setupStatsEvent.m_PersistentCalls.m_Calls.Array.size

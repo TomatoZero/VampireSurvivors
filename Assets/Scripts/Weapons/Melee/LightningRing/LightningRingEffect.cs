@@ -20,14 +20,19 @@ namespace Weapons.Melee.LightningRing
             
             foreach (var position in positions)
             {
-                if(position != Vector2.zero)
-                {
-                    var particle = GetParticle();
-                    particle.Set(position + new Vector2(0, 3));
-                }
+                SpawnLightning(position);
             }
         }
-
+        
+        public void SpawnLightning(Vector2 positions)
+        {
+            if(positions != Vector2.zero)
+            {
+                var particle = GetParticle();
+                particle.Set(positions + new Vector2(0, 3));
+            }
+        }
+        
         private void SetFreeParticle(LightningParticleEffectController gameObject)
         {
             _freeParticle.Enqueue(gameObject);

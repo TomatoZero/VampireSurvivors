@@ -85,7 +85,6 @@ namespace Weapons.Particle
                 StopCoroutine();
             
             var lifetime = newInstance.GetStatByName(Stats.Stats.Duration).Value;
-            Debug.Log($"Duration {lifetime}");
             _particleLifetime = new WaitForSeconds(lifetime);
             TryStartCoroutine();
         }

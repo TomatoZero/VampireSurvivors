@@ -29,9 +29,9 @@ namespace Weapons
         {
             if (!IsEnoughAmo) return;
 
+            Debug.Log($"_currentAmount {_currentAmount} {_baseAmount}");
+            
             _currentAmount--;
-            Debug.Log($"_currentAmount {_currentAmount} _baseAmount {_baseAmount}");
-
             TryStartRestoreProcess();
         }
 
@@ -53,7 +53,6 @@ namespace Weapons
                 {
                     _currentAmount++;
                     _amoRestoreTimePassed = 0f;
-                    Debug.Log($"Restore _currentAmount {_currentAmount}");
                 }
 
                 if (_currentAmount >= _baseAmount)

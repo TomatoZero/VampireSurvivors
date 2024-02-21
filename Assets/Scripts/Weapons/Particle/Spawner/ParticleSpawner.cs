@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Interface;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 using UnityEngine;
+using Weapons.RangeWeapons.Particle;
 
 namespace Weapons.Particle.Spawner
 {
@@ -11,6 +13,7 @@ namespace Weapons.Particle.Spawner
         [SerializeField] private GameObject _prefab;
 
         private Queue<ParticleReference> _particles;
+        private WeaponInstance _instance;
 
         private void Start()
         {
@@ -35,9 +38,20 @@ namespace Weapons.Particle.Spawner
             return reference;
         }
 
-        public abstract void SetupStatEventHandler(ObjectInstance newInstance);
-        public abstract void UpdateStatsEventHandler(ObjectInstance newInstance);
+        protected void SetupParticle(ParticleStatsController statsController)
+        {
+            statsController.UpdateStats(_instance);
+        }
+        
+        public virtual void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            _instance = (WeaponInstance)newInstance;
+        }
 
+        public virtual void UpdateStatsEventHandler(ObjectInstance newInstance)
+        {
+            _instance = (WeaponInstance)newInstance;
+        }
 
         private protected virtual void ParticleDieEventHandler(ParticleReference particle)
         {

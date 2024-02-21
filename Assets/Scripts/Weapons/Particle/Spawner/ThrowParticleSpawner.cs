@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Weapons.Particle.Spawner
 {
-    public class FallParticleSpawner : ParticleSpawner
+    public class ThrowParticleSpawner : ParticleSpawner
     {
         private WeaponInstance _instance;
 
@@ -12,8 +12,12 @@ namespace Weapons.Particle.Spawner
             var particle = Spawn();
             SetupParticle(particle.StatsController);
 
-            particle.transform.position = mousePosition;
+            var direction = (mousePosition - (Vector2)transform.position).normalized;
+            
+            particle.transform.position = transform.position;
+            
             particle.Enable();
+            particle.Rigidbody.AddForce(direction);
         }
     }
 }

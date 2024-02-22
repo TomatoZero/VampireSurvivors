@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -909085873
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1881920110, guid: 83be0d6e4b5ed7c4c877e38f12dbd642, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -235,6 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7226627083000781507}
   - component: {fileID: 2723263794830787972}
+  - component: {fileID: 4934768781629686264}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -289,6 +290,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4934768781629686264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817560859082510348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f92ffa28e146a29aa3b05ba08b455c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementController: {fileID: 7461565946875488490}
+  _healthController: {fileID: 5390060471588868260}
 --- !u!1 &6288435199999232033
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +470,7 @@ GameObject:
   - component: {fileID: 2040781389121757242}
   - component: {fileID: 5390060471588868260}
   - component: {fileID: 3135271569683872712}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

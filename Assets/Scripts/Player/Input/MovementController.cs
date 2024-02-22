@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Player
+namespace Player.Input
 {
     public class MovementController : MonoBehaviour, IUpdateStats
     {

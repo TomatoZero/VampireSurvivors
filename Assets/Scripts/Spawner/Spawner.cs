@@ -83,12 +83,12 @@ namespace Spawner
 
         private void SetUpInstance(GameObject instance)
         {
-            var moveController = instance.GetComponent<EnemyMovementController>();
-            moveController.SetPlayer(_player);
-            var healthController = instance.GetComponent<EnemyHealthController>();
-            healthController.AddDieListener(_gemSpawner.Spawn);
-            healthController.EnemyDie.AddListener(_ => _enemyDie.Invoke());
-            healthController.EnemyDie.AddListener(_ => EnemyDied());
+            var enemy = instance.GetComponent<EnemyReference>();
+            enemy.MovementController.SetPlayer(_player);
+            
+            enemy.HealthController.AddDieListener(_gemSpawner.Spawn);
+            enemy.HealthController.EnemyDie.AddListener(_ => _enemyDie.Invoke());
+            enemy.HealthController.EnemyDie.AddListener(_ => EnemyDied());
 
             // var enemyEvent = instance.GetComponent<EnemyEventController>();
             // enemyEvent.Instantiate(_player.transform, DieMethod);

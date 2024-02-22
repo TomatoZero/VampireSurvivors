@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementController: {fileID: 7461565946875488490}
   _healthController: {fileID: 5390060471588868260}
-  _weaponController: {fileID: 0}
+  _weaponController: {fileID: 174476236554594581}
   _buffController: {fileID: 8835380204999425399}
 --- !u!1 &6288435199999232033
 GameObject:

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Interface;
-using Stats;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
@@ -15,10 +13,10 @@ namespace Player
     {
         [SerializeField] private UnityEvent _updateStatsEvent;
         [SerializeField] private UnityEvent _endSetupStatsEvent;
-        [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayCurrentItemsEvent;
+        [SerializeField] private UnityEvent<List<WeaponReferences>, List<ItemInstance>> _displayCurrentItemsEvent;
         [SerializeField] private List<WeaponReferences> _weapons;
         [SerializeField] private WeaponsShootController _weaponsShootController;
-        
+
         private List<ItemInstance> _items;
 
         private delegate void StatsUpdate(PlayerInstance instance);
@@ -84,7 +82,7 @@ namespace Player
                 select item).First();
 
             levelUpItem.LevelUp();
-            
+
             _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();
@@ -110,7 +108,7 @@ namespace Player
         {
             var allClearBonus = new Dictionary<Stats.Stats, float>();
             var allPercentBonus = new Dictionary<Stats.Stats, float>();
-            
+
             foreach (var item in _items)
             {
                 foreach (var clearBonus in item.StatsCalculator.ClearBonuses)
@@ -129,6 +127,7 @@ namespace Player
                         allPercentBonus[percentBonus.Key] = percentBonus.Value;
                 }
             }
+
             return (allClearBonus, allPercentBonus);
         }
 
@@ -149,26 +148,26 @@ namespace Player
         {
             Debug.Log($"playerInstance {playerInstance}");
             Debug.Log($"weapon {weapon}");
-            
+
             _weapons.Add(weapon);
 
             SetupStatEvent += weapon.StatsController.SetupStatEventHandler;
             UpdateStatEvent += weapon.StatsController.UpdateStatsEventHandler;
-            
+
             weapon.StatsController.SetupStatEventHandler(playerInstance);
             _weaponsShootController.AddWeapon(weapon);
         }
 
         private void DisplayCurrentItems()
         {
-            var weapons = new List<WeaponInstance>();
+            // var weapons = new List<WeaponInstance>();
+            //
+            // foreach (var weapon in _weapons)
+            // {
+            //     weapons.Add(weapon);
+            // }
 
-            foreach (var weapon in _weapons)
-            {
-                weapons.Add(weapon.StatsController.Instance);
-            }
-
-            _displayCurrentItemsEvent.Invoke(weapons, _items);
+            _displayCurrentItemsEvent.Invoke(_weapons, _items);
         }
     }
 }

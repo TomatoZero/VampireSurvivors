@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Weapons
 {
     public class AmoAmountControl : MonoBehaviour
     {
+        public event Action<int> AmoAmountUpdateEvent;
+
         private int _baseAmount;
         private int _currentAmount;
         private int _unActiveAmo;
@@ -14,7 +17,9 @@ namespace Weapons
 
         private Coroutine _restoreAmoCoroutine;
 
+        public int CurrentAmount => _currentAmount;
         public bool IsEnoughAmo => _currentAmount > 0;
+
 
         public void SetAmoData(int amo, float amoRestoreTime)
         {
@@ -22,7 +27,10 @@ namespace Weapons
             _amoRestoreTime = amoRestoreTime;
 
             if (_currentAmount < _baseAmount)
+            {
                 _currentAmount++;
+                AmoAmountUpdateEvent?.Invoke(_currentAmount);
+            }
         }
 
         public void TakeAmo()
@@ -30,6 +38,7 @@ namespace Weapons
             if (!IsEnoughAmo) return;
 
             _currentAmount--;
+            AmoAmountUpdateEvent?.Invoke(_currentAmount);
             TryStartRestoreProcess();
         }
 
@@ -51,6 +60,7 @@ namespace Weapons
                 {
                     _currentAmount++;
                     _amoRestoreTimePassed = 0f;
+                    AmoAmountUpdateEvent?.Invoke(_currentAmount);
                 }
 
                 if (_currentAmount >= _baseAmount)

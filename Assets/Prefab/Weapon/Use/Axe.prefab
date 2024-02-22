@@ -33,7 +33,7 @@ Transform:
   - {fileID: 275102948811222862}
   - {fileID: 3554391187668309491}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3273626857319302306
 MonoBehaviour:
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statsController: {fileID: 3425628728132002325}
   _shootController: {fileID: 6745352549979212220}
+  _amountControl: {fileID: 7061946839180665017}
 --- !u!1 &7754464043336747309
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,7 +131,7 @@ namespace DefaultNamespace
                 //     $"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}.prefab");
                 
                 var prefab = _weaponsOnLevel.LoadPrefab($"{RemoveWhitespaces.RemoveWhitespacesUsingRegex(item.StatsData.Name)}");
-               AddNewWeapon(prefab);
+                AddNewWeapon(prefab);
             }
             else
             {

@@ -582,18 +582,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &666227043 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3776042311369266439, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2027516588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d736f9ecbccbccf48b12640b1ae54e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1185191385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,11 +1026,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 666227043}
-    - target: {fileID: 7368640320358170598, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
-        type: 3}
-      propertyPath: _displayCurrentItemsEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7368640320358170598, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
         type: 3}

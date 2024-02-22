@@ -56,6 +56,8 @@ namespace Weapons.Particle
 
         private void StopCoroutine()
         {
+            if(_destroyObjectCoroutine == null) return;
+            
             StopCoroutine(_destroyObjectCoroutine);
             _destroyObjectCoroutine = null;
         }

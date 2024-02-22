@@ -29,8 +29,6 @@ namespace Weapons
         {
             if (!IsEnoughAmo) return;
 
-            Debug.Log($"_currentAmount {_currentAmount} {_baseAmount}");
-            
             _currentAmount--;
             TryStartRestoreProcess();
         }

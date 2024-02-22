@@ -22,7 +22,7 @@ namespace Enemy
 
         private void Awake()
         {
-            // _player = transform;
+            _player = transform;
         }
 
         private void FixedUpdate()

@@ -225,6 +225,56 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _player: {fileID: 0}
+--- !u!1 &3205082443536147774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5199726596101627935}
+  - component: {fileID: 6551760608135439624}
+  m_Layer: 3
+  m_Name: StateMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5199726596101627935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205082443536147774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7226627083000781507}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6551760608135439624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205082443536147774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afca2746202d4b6aba59fd314cf7f88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyReference: {fileID: 4934768781629686264}
+  _chaiseStateBuff: []
+  _meleeWeaponStateBuff:
+  - {fileID: 11400000, guid: 644d82da1e39eb84388e0fcd74a1c8b4, type: 2}
+  _longDistanceWeaponStateBuff:
+  - {fileID: 11400000, guid: d244add504528dd4da636883dc02107a, type: 2}
 --- !u!1 &4817560859082510348
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +310,7 @@ Transform:
   - {fileID: 1517823692767851156}
   - {fileID: 4965149104995620103}
   - {fileID: 804508714921697393}
+  - {fileID: 5199726596101627935}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -304,6 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementController: {fileID: 7461565946875488490}
   _healthController: {fileID: 5390060471588868260}
+  _weaponController: {fileID: 0}
+  _buffController: {fileID: 8835380204999425399}
 --- !u!1 &6288435199999232033
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4965149104995620103}
+  - component: {fileID: 174476236554594581}
   m_Layer: 3
   m_Name: Weapon
   m_TagString: Untagged
@@ -335,6 +389,19 @@ Transform:
   m_Father: {fileID: 7226627083000781507}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174476236554594581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288435199999232033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e99a6fbaf104fb4bfee1a5de75e58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _references: []
 --- !u!1 &8081735516988460468
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804508714921697393}
   - component: {fileID: 229683243886122481}
+  - component: {fileID: 8835380204999425399}
   m_Layer: 3
   m_Name: Stats
   m_TagString: Untagged
@@ -449,6 +517,36 @@ MonoBehaviour:
       - m_Target: {fileID: 7461565946875488490}
         m_TargetAssemblyTypeName: Enemy.EnemyMovementController, Assembly-CSharp
         m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8835380204999425399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081735516988460468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69137ca499fac65428cdb2502bd2f03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buffTimerChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _buffChangeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 229683243886122481}
+        m_TargetAssemblyTypeName: Enemy.EnemyStatsController, Assembly-CSharp
+        m_MethodName: UpdateBuffStatsEventHandler
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

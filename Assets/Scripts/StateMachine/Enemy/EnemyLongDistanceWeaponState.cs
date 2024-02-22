@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enemy;
+using Enemy.EnemyWeapons;
 using ScriptableObjects;
 using Stats.Instances.Buff;
 using UnityEngine;
@@ -30,6 +31,8 @@ namespace StateMachine.Enemy
         {
             Debug.Log($"Enter State EnemyLongDistanceWeaponState");
             
+            _enemyStateMachine.WeaponControl.ActivateWeapon(EnemyWeaponType.LongDistance);
+            
             foreach (var buff in Buffs)
                 _buffInstance.Add(_enemyStateMachine.BuffController.AddBuff(buff));
         }
@@ -47,6 +50,8 @@ namespace StateMachine.Enemy
         public void Exit()
         {
             Debug.Log($"Enter State EnemyLongDistanceWeaponState");
+            
+            _enemyStateMachine.WeaponControl.DeActivateWeapon(EnemyWeaponType.LongDistance);
             
             foreach (var buffInstance in _buffInstance)
                 buffInstance.StopBuff();

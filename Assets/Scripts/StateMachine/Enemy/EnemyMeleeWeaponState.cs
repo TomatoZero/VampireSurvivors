@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enemy;
+using Enemy.EnemyWeapons;
 using ScriptableObjects;
 using Stats.Instances.Buff;
 using UnityEngine;
@@ -31,6 +32,8 @@ namespace StateMachine.Enemy
 
             _buffInstance = new List<TimedBuffInstance>();
             
+            _enemyStateMachine.WeaponControl.ActivateWeapon(EnemyWeaponType.Melee);
+            
             foreach (var buff in Buffs)
                 _buffInstance.Add(_enemyStateMachine.BuffController.AddBuff(buff));
         }
@@ -53,6 +56,8 @@ namespace StateMachine.Enemy
         {
             Debug.Log($"Exit State EnemyMeleeWeaponState");
 
+            _enemyStateMachine.WeaponControl.DeActivateWeapon(EnemyWeaponType.Melee);
+            
             foreach (var buffInstance in _buffInstance)
                 buffInstance.StopBuff();
 

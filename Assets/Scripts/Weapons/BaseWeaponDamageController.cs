@@ -15,7 +15,11 @@ namespace Weapons
         {
             foreach (var oneEnemy in enemy)
             {
-                if(oneEnemy is not null) Damage(oneEnemy);
+                if(oneEnemy is not null)
+                {
+                    Debug.Log($"oneEnemy {oneEnemy}");
+                    Damage(oneEnemy);
+                }
             }
         }
 

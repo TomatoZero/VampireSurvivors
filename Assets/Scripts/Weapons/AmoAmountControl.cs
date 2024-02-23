@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class AmoAmountControl : MonoBehaviour
+    public class AmoAmountControl : MonoBehaviour  //Change name. to something what using for count amo and how many hit can do (melee)
     {
         public event Action<int> AmoAmountUpdateEvent;
 

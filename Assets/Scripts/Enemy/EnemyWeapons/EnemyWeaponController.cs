@@ -10,7 +10,9 @@ namespace Enemy.EnemyWeapons
     {
         [SerializeField] private List<WeaponReferences> _references;
 
-        public WeaponReferences CurrentWeapon;
+        private WeaponReferences _currentWeapon;
+        
+        public WeaponReferences CurrentWeapon => _currentWeapon;
         
         public void ActivateWeapon(EnemyWeaponType weaponType)
         {

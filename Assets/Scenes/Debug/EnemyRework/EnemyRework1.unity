@@ -665,6 +665,11 @@ PrefabInstance:
       objectReference: {fileID: 2027516590}
     - target: {fileID: 8647418238504822292, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
         type: 3}
+      propertyPath: m_Name
+      value: CollisionBat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647418238504822292, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
+        type: 3}
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
@@ -814,16 +819,64 @@ MonoBehaviour:
   m_GameObject: {fileID: 590629326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d736f9ecbccbccf48b12640b1ae54e78, type: 3}
+  m_Script: {fileID: 11500000, guid: 335e378a07e04030a263594d4ea54748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statsData: {fileID: 0}
+  _statsData: {fileID: 11400000, guid: d330c1fbde0de4b41a41a8bf6b2e9347, type: 2}
   _setupStatData:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 657949176}
+        m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 657949177}
+        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponShootController, Assembly-CSharp
+        m_MethodName: SetupStatEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _updateStatData:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 657949176}
+        m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 657949177}
+        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponShootController, Assembly-CSharp
+        m_MethodName: UpdateStatsEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &608110155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4965149104995620103, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
@@ -841,6 +894,7 @@ GameObject:
   - component: {fileID: 657949175}
   - component: {fileID: 657949176}
   - component: {fileID: 657949177}
+  - component: {fileID: 657949178}
   m_Layer: 3
   m_Name: Damage
   m_TagString: Untagged
@@ -907,37 +961,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _player: {fileID: 2027516590}
---- !u!1 &921384202
-GameObject:
+--- !u!114 &657949178
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 921384203}
-  m_Layer: 3
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &921384203
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921384202}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 923820065}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 657949174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154cc1e654a84c378d91a61f804de4bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &923820064
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +984,7 @@ GameObject:
   - component: {fileID: 923820065}
   - component: {fileID: 923820066}
   m_Layer: 3
-  m_Name: MeleeWeapon
+  m_Name: BaseEnemyMeleeWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,7 +1002,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 921384203}
   - {fileID: 657949175}
   - {fileID: 590629327}
   m_Father: {fileID: 608110155}
@@ -987,7 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statsController: {fileID: 590629328}
   _shootController: {fileID: 657949177}
-  _amountControl: {fileID: 0}
+  _amountControl: {fileID: 657949178}
 --- !u!4 &953531286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1837010960348372924, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
@@ -1440,6 +1474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238513146576741138, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980970086053330439, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
         type: 3}

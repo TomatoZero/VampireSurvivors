@@ -27,7 +27,7 @@ namespace StateMachine.Enemy
 
         public void Enter()
         {
-            Debug.Log("Enter State EnemyChaiseState");
+            // Debug.Log("Enter State EnemyChaiseState");
             
             foreach (var buff in Buffs)
                 _buffInstance.Add(_enemyStateMachine.BuffController.AddBuff(buff));
@@ -49,7 +49,7 @@ namespace StateMachine.Enemy
 
         public void Exit()
         {
-            Debug.Log("Enter State EnemyChaiseState");
+            // Debug.Log("Enter State EnemyChaiseState");
             
             foreach (var buffInstance in _buffInstance)
                 buffInstance.StopBuff();

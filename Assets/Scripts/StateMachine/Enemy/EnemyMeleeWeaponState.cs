@@ -28,7 +28,7 @@ namespace StateMachine.Enemy
         
         public void Enter()
         {
-            Debug.Log($"Enter State EnemyMeleeWeaponState");
+            // Debug.Log($"Enter State EnemyMeleeWeaponState");
 
             _buffInstance = new List<TimedBuffInstance>();
             
@@ -54,7 +54,7 @@ namespace StateMachine.Enemy
 
         public void Exit()
         {
-            Debug.Log($"Exit State EnemyMeleeWeaponState");
+            // Debug.Log($"Exit State EnemyMeleeWeaponState");
 
             _enemyStateMachine.WeaponControl.DeActivateWeapon(EnemyWeaponType.Melee);
             

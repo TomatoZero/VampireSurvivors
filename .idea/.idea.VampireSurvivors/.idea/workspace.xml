@@ -6,30 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/Weapons/Axe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/Weapons/Axe.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Weapon/Particle/AxeAmo3d.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Weapon/Particle/AxeAmo3d.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Fall.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall/FallParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Fall/FallParticleEnemyDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall/FallParticleEnemyDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Fall/FallParticleEnemyDetector.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleEnemyDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleEnemyDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleEnemyDetector.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleLifeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleLifeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleLifeController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleLifeController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleReference.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleReferences/ParticleReference.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleReference.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleReferences/ParticleReference.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleStatsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleStatsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleStatsController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleStatsController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleVisualController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleVisualController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleVisualController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleVisualController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/FallParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/FallParticleSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/FallParticleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/FallParticleSpawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ParticleSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ParticleSpawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ThrowParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ThrowParticleSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ThrowParticleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ThrowParticleSpawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Throw.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw/ThrowParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Throw/ThrowParticleEnemyDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw/ThrowParticleEnemyDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Throw/ThrowParticleEnemyDetector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +117,7 @@
       <workItem from="1708593487484" duration="19853000" />
       <workItem from="1708672697029" duration="12667000" />
       <workItem from="1708793797321" duration="648000" />
-      <workItem from="1708794665476" duration="2026000" />
+      <workItem from="1708794665476" duration="3770000" />
     </task>
     <servers />
   </component>

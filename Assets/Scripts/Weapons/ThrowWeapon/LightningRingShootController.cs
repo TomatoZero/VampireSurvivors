@@ -8,7 +8,7 @@ namespace Weapons.ThrowWeapon
     public class LightningRingShootController : ThrowWeaponShootController
     {
         [SerializeField] private LayerMask _enemyLayer;
-        [SerializeField] private UnityEvent<Collider2D[]> _hitEnemy;
+        [SerializeField] private UnityEvent<Collider[]> _hitEnemy;
         
         private float _area;
 
@@ -30,9 +30,9 @@ namespace Weapons.ThrowWeapon
             }
         }
         
-        private Collider2D[] ScanForEnemyInCircle(Vector2 position)
+        private Collider[] ScanForEnemyInCircle(Vector2 position)
         {
-            return Physics2D.OverlapCircleAll(position, _area / 2, _enemyLayer) ?? Array.Empty<Collider2D>();
+            return Physics.OverlapSphere(position, _area / 2, _enemyLayer) ?? Array.Empty<Collider>();
         }
 
         public override void SetupStatEventHandler(ObjectInstance newInstance)

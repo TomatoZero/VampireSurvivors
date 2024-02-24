@@ -7,13 +7,13 @@ namespace Enemy
 {
     public class EnemyMovementController : MonoBehaviour, IUpdateStats
     {
-        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private UnityEvent<Vector2> _moveDirectionEvent;
         
         [SerializeField] private Transform _player;
 
-        private Vector2 _nextPosition;
-        private Vector2 _moveDirection;
+        private Vector3 _nextPosition;
+        private Vector3 _moveDirection;
 
         private float _speed;
         private float _distanceToPlayer;

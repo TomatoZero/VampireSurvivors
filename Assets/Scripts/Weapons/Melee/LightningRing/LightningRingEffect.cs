@@ -33,6 +33,15 @@ namespace Weapons.Melee.LightningRing
             }
         }
         
+        public void SpawnLightning(Vector3 positions)
+        {
+            if(positions != Vector3.zero)
+            {
+                var particle = GetParticle();
+                particle.Set(positions + new Vector3(0, 3, 0));
+            }
+        }
+        
         private void SetFreeParticle(LightningParticleEffectController gameObject)
         {
             _freeParticle.Enqueue(gameObject);

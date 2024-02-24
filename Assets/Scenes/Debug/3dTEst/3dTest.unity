@@ -1894,6 +1894,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &261081802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+    type: 3}
+  m_PrefabInstance: {fileID: 1424303687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &261081803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2948617070399130695, guid: d99daf51b4206b94aa00fe7031721027,
+    type: 3}
+  m_PrefabInstance: {fileID: 1424303687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d49ab1a7bb4414bca5e045ff0c6c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &262472425
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,15 +3850,51 @@ MonoBehaviour:
     m_ActionId: 3e6eef6a-3d1b-4693-90be-20207130f054
     m_ActionName: PlayerControll/FirstWeaponShoot[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 475382744}
+        m_TargetAssemblyTypeName: Player._3D.PlayerShootController, Assembly-CSharp
+        m_MethodName: SecondWeaponEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: faee9aaa-57c9-4758-ae28-7e53f9d1bb9a
     m_ActionName: PlayerControll/SecondWeaponShoot[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 475382744}
+        m_TargetAssemblyTypeName: Player._3D.PlayerShootController, Assembly-CSharp
+        m_MethodName: ThirdWeaponEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: de3507e5-6fcf-4db1-9c80-d43e2835ad51
     m_ActionName: PlayerControll/ThirdWeaponShoot[/Keyboard/q]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 475382744}
+        m_TargetAssemblyTypeName: Player._3D.PlayerShootController, Assembly-CSharp
+        m_MethodName: FourthWeaponEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 91f209cf-8d75-4fdd-8388-f363b82e6637
     m_ActionName: PlayerControll/FourthWeaponShoot[/Keyboard/e]
   - m_PersistentCalls:
@@ -4318,6 +4372,24 @@ Transform:
   m_Father: {fileID: 1218207635}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &576823196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1012919227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &576823197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3273626857319302306, guid: 142ac28f995d1244fb00f6deef831cfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1012919227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d49ab1a7bb4414bca5e045ff0c6c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581010257
 GameObject:
   m_ObjectHideFlags: 0
@@ -7094,6 +7166,79 @@ Transform:
   m_Father: {fileID: 726574146}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1012919227
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1655956570}
+    m_Modifications:
+    - target: {fileID: 497144097614881908, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_Name
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630985057725283010, guid: 142ac28f995d1244fb00f6deef831cfe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 142ac28f995d1244fb00f6deef831cfe, type: 3}
 --- !u!1 &1013806285
 GameObject:
   m_ObjectHideFlags: 0
@@ -10196,6 +10341,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1424303687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1655956570}
+    m_Modifications:
+    - target: {fileID: 7237345771549545445, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_Name
+      value: LightningRing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695433170966606583, guid: d99daf51b4206b94aa00fe7031721027,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d99daf51b4206b94aa00fe7031721027, type: 3}
 --- !u!1 &1424568827
 GameObject:
   m_ObjectHideFlags: 0
@@ -11911,6 +12129,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1440314020}
+  - {fileID: 261081802}
+  - {fileID: 576823196}
   m_Father: {fileID: 1196570189}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11973,6 +12193,8 @@ MonoBehaviour:
       m_Calls: []
   _weapons:
   - {fileID: 1440314021}
+  - {fileID: 261081803}
+  - {fileID: 576823197}
   _weaponsShootController: {fileID: 1655956571}
 --- !u!1 &1668876189
 GameObject:

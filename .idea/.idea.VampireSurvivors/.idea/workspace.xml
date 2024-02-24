@@ -6,11 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/Weapons/Axe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/Weapons/Axe.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Weapon/Particle/AxeAmo3d.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Weapon/Particle/AxeAmo3d.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player3D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player3D.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/GameUICanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/GameUICanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/UI/HUD/HUDPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UI/HUD/HUDPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Weapon/Axe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Weapon/Axe.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Weapon/Garlic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Weapon/Garlic.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/GameScene/LevelDebug.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/GameScene/LevelDebug.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemsHandler/ItemHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemsHandler/ItemHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/BuffItemActions/BuffActionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/BuffItemActions/BuffActionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/GemActionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/GemActionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/HeartActionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/HeartActionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/InvincibleActionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/InvincibleActionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/MagnetActionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemActions/MagnetActionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemMoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUpItems/PickUpItemMoveController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeaponDamageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeaponDamageController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +129,7 @@
       <workItem from="1708593487484" duration="19853000" />
       <workItem from="1708672697029" duration="12667000" />
       <workItem from="1708793797321" duration="648000" />
-      <workItem from="1708794665476" duration="3770000" />
+      <workItem from="1708794665476" duration="6822000" />
     </task>
     <servers />
   </component>

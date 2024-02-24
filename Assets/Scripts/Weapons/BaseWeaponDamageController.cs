@@ -18,7 +18,6 @@ namespace Weapons
             {
                 if(oneEnemy is not null)
                 {
-                    Debug.Log($"oneEnemy {oneEnemy}");
                     Damage(oneEnemy);
                 }
             }
@@ -30,7 +29,6 @@ namespace Weapons
             {
                 if(oneEnemy is not null)
                 {
-                    Debug.Log($"oneEnemy {oneEnemy}");
                     Damage(oneEnemy);
                 }
             }

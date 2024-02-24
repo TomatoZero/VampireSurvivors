@@ -8,17 +8,15 @@ namespace PickUpItems
         [SerializeField] private PickUpItemMoveController _moveController;
 
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionEnter(Collision other)
         {
-            Debug.Log($"{gameObject.name} {other.gameObject.name}");
             if (((1 << other.gameObject.layer) & _playerLayer) != 0)
             {
-                Debug.Log($"++++++++++++ {gameObject.name} {other.gameObject.name}");
                 ItemAction(other);
                 _moveController.DestroyItem();
             }
         }
 
-        private protected abstract void ItemAction(Collision2D collision2D);
+        private protected abstract void ItemAction(Collision collision2D);
     }
 }

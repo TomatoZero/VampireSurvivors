@@ -8,7 +8,7 @@ namespace PickUpItems.PickUpItemActions.BuffItemActions
     {
         [SerializeField] private BuffData _buffData;
 
-        private protected override void ItemAction(Collision2D collision2D)
+        private protected override void ItemAction(Collision collision2D)
         {
             var reference = collision2D.gameObject.GetComponent<PlayerReference>();
             Debug.Log($"{gameObject.name} {collision2D.gameObject.name}");

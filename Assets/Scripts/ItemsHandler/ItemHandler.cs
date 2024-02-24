@@ -19,7 +19,6 @@ namespace DefaultNamespace
         [SerializeField] private UnityEvent _endSetupStats;
         [SerializeField] private LevelWeaponsAndItems _weaponsAndItems;
         [SerializeField] private Inventory _inventory;
-        [SerializeField] private Transform _inventoryObject;
         [SerializeField] private LoadFromAssetBundle _loadFromAsset;
         [SerializeField] private WeaponsOnLevel _weaponsOnLevel;
 
@@ -142,7 +141,7 @@ namespace DefaultNamespace
 
         private void AddNewWeapon(GameObject prefab)
         {
-            var weapon = Instantiate(prefab, _inventoryObject.position, Quaternion.identity, _inventoryObject);
+            var weapon = Instantiate(prefab, _inventory.gameObject.transform.position, Quaternion.identity, _inventory.gameObject.transform);
             var statController = weapon.GetComponent<WeaponReferences>();
             _inventory.AddWeapon(statController);
         }

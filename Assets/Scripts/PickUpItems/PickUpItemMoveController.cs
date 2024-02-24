@@ -1,5 +1,4 @@
 ﻿using System;
-using DefaultNamespace;
 using Spawner;
 using UnityEngine;
 
@@ -7,17 +6,17 @@ namespace PickUpItems
 {
     public class PickUpItemMoveController : MonoBehaviour
     {
-        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private float _defaultSpeed;
 
         private Transform _playerTransform;
-        private Vector2 _moveDirection;
+        private Vector3 _moveDirection;
         private float _speed;
-        
+
         public delegate void ItemDestroy(GemSpawner.Magnet magnetEvent);
 
         public event ItemDestroy ItemDestroyEvent;
-        
+
         private void Awake()
         {
             _speed = _defaultSpeed;
@@ -49,7 +48,7 @@ namespace PickUpItems
             UnsubscribeFromEvent();
             Destroy(gameObject);
         }
-        
+
         private void UnsubscribeFromEvent()
         {
             Delegate[] clientList = ItemDestroyEvent?.GetInvocationList();

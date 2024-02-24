@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 7915425080371474759}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &770073827011419240
 SpriteRenderer:
@@ -161,7 +161,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5994551151873939942
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using Controllers;
-using Player;
+﻿using Player;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -11,10 +10,12 @@ namespace PickUpItems.PickUpItemActions.BuffItemActions
 
         private protected override void ItemAction(Collision2D collision2D)
         {
-            var buffController = collision2D.gameObject.GetComponent<BuffController>();
-            if (buffController is not null)
+            var reference = collision2D.gameObject.GetComponent<PlayerReference>();
+            Debug.Log($"{gameObject.name} {collision2D.gameObject.name}");
+            if (reference is not null)
             {
-                buffController.AddBuff(_buffData);
+                Debug.Log($"{gameObject.name} found reference");
+                reference.BuffController.AddBuff(_buffData);
             }
         }
     }

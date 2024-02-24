@@ -2,7 +2,7 @@ using Interface;
 using Stats.Instances;
 using UnityEngine;
 
-namespace Weapons.Particle
+namespace Particle
 {
     public class ParticleVisualController : MonoBehaviour, IUpdateStats
     {

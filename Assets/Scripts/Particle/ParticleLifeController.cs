@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using Interface;
+using Particle.ParticleReferences;
 using Stats.Instances;
 using UnityEngine;
 
-namespace Weapons.Particle
+namespace Particle
 {
     public class ParticleLifeController : MonoBehaviour, IUpdateStats
     {
@@ -13,10 +14,12 @@ namespace Weapons.Particle
 
         private ParticleReference _reference;
 
-        public event Action<ParticleReference> ParticleDieEvent; 
+        public event Action<ParticleReference> ParticleDieEvent;
+
         public delegate void DestroyParticle(GameObject particle);
+
         public event DestroyParticle DestroyParticleEvent;
-        
+
         private void Awake()
         {
             _particleLifetime = new WaitForSeconds(1);
@@ -36,19 +39,19 @@ namespace Weapons.Particle
         {
             StopCoroutine();
         }
-        
+
         public void DestroyImmediately()
         {
             StopCoroutine();
             gameObject.SetActive(false);
             DestroyParticleEvent?.Invoke(gameObject);
-            
+
             ParticleDieEvent?.Invoke(_reference);
         }
 
         private void TryStartCoroutine()
         {
-            if(!gameObject.activeSelf) return;
+            if (!gameObject.activeSelf) return;
             if (_destroyObjectCoroutine is not null) StopCoroutine();
 
             _destroyObjectCoroutine = StartCoroutine(DestroyObject());
@@ -56,18 +59,18 @@ namespace Weapons.Particle
 
         private void StopCoroutine()
         {
-            if(_destroyObjectCoroutine == null) return;
-            
+            if (_destroyObjectCoroutine == null) return;
+
             StopCoroutine(_destroyObjectCoroutine);
             _destroyObjectCoroutine = null;
         }
-        
+
         private IEnumerator DestroyObject()
         {
             yield return _particleLifetime;
             gameObject.SetActive(false);
             DestroyParticleEvent?.Invoke(gameObject);
-            
+
             ParticleDieEvent?.Invoke(_reference);
         }
 
@@ -83,9 +86,9 @@ namespace Weapons.Particle
 
         private void GetStatFromInstance(ObjectInstance newInstance)
         {
-            if(_destroyObjectCoroutine is not null)
+            if (_destroyObjectCoroutine is not null)
                 StopCoroutine();
-            
+
             var lifetime = newInstance.GetStatByName(Stats.Stats.Duration).Value;
             _particleLifetime = new WaitForSeconds(lifetime);
             TryStartCoroutine();

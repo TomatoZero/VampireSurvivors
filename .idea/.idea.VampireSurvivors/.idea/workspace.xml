@@ -6,8 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/LightningRing/LightningParticleEffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/LightningRing/LightningParticleEffectController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/LightningRing/LightningRingEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/LightningRing/LightningRingEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Fall.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall/FallParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Fall/FallParticleEnemyDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall/FallParticleEnemyDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Fall/FallParticleEnemyDetector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleEnemyDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleEnemyDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleEnemyDetector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleLifeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleLifeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleLifeController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleLifeController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleReference.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleReferences/ParticleReference.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleReference.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleReferences/ParticleReference.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleStatsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleStatsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleStatsController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleStatsController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleVisualController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleVisualController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleVisualController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/ParticleVisualController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/FallParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/FallParticleSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/FallParticleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/FallParticleSpawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ParticleSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ParticleSpawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ThrowParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ThrowParticleSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ThrowParticleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Spawner/ThrowParticleSpawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Throw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw/ThrowParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Throw/ThrowParticleEnemyDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw/ThrowParticleEnemyDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Particle/Throw/ThrowParticleEnemyDetector.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,12 +40,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/252b0ee2a2ec40f09b1574797689fb0820800/02/54f20074/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2d036c16ca64e0eb93703a3b13e733a171c00/97/97c4a54f/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyStatsData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Stats/StatsCalculators/PlayerStatCalculator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Throw/Move/ParticleBaseMoveController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -35,30 +54,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/text-3d-scene",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/text-3d-scene&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\user\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\chima\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\chima\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\chima\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Unity\2022.3.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.2f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\source\UnityMine\VampireSurvivors -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\source\UnityMine\VampireSurvivors" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -66,7 +86,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Unity\2022.3.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.2f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\source\UnityMine\VampireSurvivors -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\source\UnityMine\VampireSurvivors" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -115,6 +135,8 @@
       <workItem from="1708509462274" duration="11801000" />
       <workItem from="1708593487484" duration="19853000" />
       <workItem from="1708672697029" duration="12667000" />
+      <workItem from="1708793797321" duration="648000" />
+      <workItem from="1708794665476" duration="2026000" />
     </task>
     <servers />
   </component>

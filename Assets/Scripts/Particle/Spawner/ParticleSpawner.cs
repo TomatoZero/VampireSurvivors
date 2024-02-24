@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Interface;
+using Particle.ParticleReferences;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
-using Weapons.RangeWeapons.Particle;
 
-namespace Weapons.Particle.Spawner
+namespace Particle.Spawner
 {
     public abstract class ParticleSpawner : MonoBehaviour, IUpdateStats
     {

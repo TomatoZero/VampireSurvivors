@@ -1,9 +1,8 @@
 using Interface;
 using Stats.Instances;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Weapons.Particle
+namespace Particle
 {
     public abstract class ParticleEnemyDetector : MonoBehaviour, IUpdateStats
     {
@@ -22,7 +21,7 @@ namespace Weapons.Particle
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _cooldown = newInstance.GetStatByName(Stats.Stats.Cooldown).Value;
             _cooldownTime = new WaitForSeconds(_cooldown);
-            
+
             UpdateLocalScale();
         }
 
@@ -31,10 +30,10 @@ namespace Weapons.Particle
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             _cooldown = newInstance.GetStatByName(Stats.Stats.Cooldown).Value;
             _cooldownTime = new WaitForSeconds(_cooldown);
-            
+
             UpdateLocalScale();
         }
-        
+
         private void UpdateLocalScale()
         {
             var scale = transform.localScale.y;

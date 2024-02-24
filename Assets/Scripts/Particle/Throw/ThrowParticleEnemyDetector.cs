@@ -2,17 +2,17 @@ using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Weapons.Particle.Throw
+namespace Particle.Throw
 {
     public class ThrowParticleEnemyDetector : ParticleEnemyDetector
     {
-        [SerializeField] private UnityEvent<Collider2D> _hitEnemyEvent;
+        [SerializeField] private UnityEvent<Collider> _hitEnemyEvent;
         [SerializeField] private UnityEvent _destroy;
         
         private int _hitTime;
         private int _currentHitTime;
         
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter(Collider other)
         {
             if (((1 << other.gameObject.layer) & _enemyAndWeapon) == 0) return;
 

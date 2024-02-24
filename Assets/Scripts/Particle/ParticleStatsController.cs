@@ -3,7 +3,7 @@ using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Weapons.RangeWeapons.Particle
+namespace Particle
 {
     public class ParticleStatsController : MonoBehaviour
     {

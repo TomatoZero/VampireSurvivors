@@ -1,17 +1,16 @@
 using UnityEngine;
-using Weapons.RangeWeapons.Particle;
 
-namespace Weapons.Particle
+namespace Particle.ParticleReferences
 {
     public class ParticleReference : MonoBehaviour
     {
         [SerializeField] private ParticleStatsController _statsController;
         [SerializeField] private ParticleLifeController _particleLifeController;
-        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private Rigidbody _rigidbody;
 
         public ParticleStatsController StatsController => _statsController;
         public ParticleLifeController ParticleLifeController => _particleLifeController;
-        public Rigidbody2D Rigidbody => _rigidbody;
+        public Rigidbody Rigidbody => _rigidbody;
 
         private void Start()
         {

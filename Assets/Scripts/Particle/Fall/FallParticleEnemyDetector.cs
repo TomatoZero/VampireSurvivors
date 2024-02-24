@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Weapons.Particle.Fall
+namespace Particle.Fall
 {
     public class FallParticleEnemyDetector : ParticleEnemyDetector
     {

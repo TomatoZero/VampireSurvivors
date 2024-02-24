@@ -1,7 +1,7 @@
 using Stats.Instances.PowerUp;
 using UnityEngine;
 
-namespace Weapons.Particle.Spawner
+namespace Particle.Spawner
 {
     public class FallParticleSpawner : ParticleSpawner
     {

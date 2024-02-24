@@ -6,12 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="2b78b11a-04ee-48e4-a256-fbcccc8b1e99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampireSurvivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Cold.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Cold.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Dry.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Dry.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Fall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Fall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Normal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BrokenVector/LowPolyTreePack/Materials/Normal.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ScriptableObjects/PlayerInputAction.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Weapon/Particle/GarlickAmo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Weapon/Particle/GarlickAmo.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Debug/3dTEst/3dTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MagnetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/MagnetController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/3D/MovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/3D/MovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/PlayerShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Input/PlayerShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponsShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponsShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeaponDamageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BaseWeaponDamageController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/MeleeWeaponShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melee/MeleeWeaponShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall/FallParticleEnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Fall/FallParticleEnemyDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleVisualController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/ParticleVisualController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/FallParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/FallParticleSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ParticleSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ThrowParticleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Particle/Spawner/ThrowParticleSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/LightningRingShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/ThrowWeaponShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ThrowWeapon/ThrowWeaponShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTopDownShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTopDownShootController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

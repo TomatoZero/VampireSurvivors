@@ -7,12 +7,14 @@ namespace Weapons.Particle.Spawner
     {
         private WeaponInstance _instance;
 
-        public override void Shoot(Vector2 mousePosition)
+        public override void Shoot(Vector3 mousePosition)
         {
             var particle = Spawn();
             SetupParticle(particle.StatsController);
 
-            var direction = (mousePosition - (Vector2)transform.position).normalized;
+            var direction = (mousePosition - transform.position).normalized;
+            
+            Debug.Log($"direction {direction}");
             
             particle.transform.position = transform.position;
             

@@ -7,12 +7,13 @@ namespace Weapons.Particle.Spawner
     {
         private WeaponInstance _instance;
 
-        public override void Shoot(Vector2 mousePosition)
+        public override void Shoot(Vector3 mousePosition)
         {
             var particle = Spawn();
             SetupParticle(particle.StatsController);
 
             particle.transform.position = mousePosition;
+            
             particle.Enable();
         }
     }

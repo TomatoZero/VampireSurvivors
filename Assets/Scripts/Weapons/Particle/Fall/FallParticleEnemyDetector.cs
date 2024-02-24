@@ -6,7 +6,7 @@ namespace Weapons.Particle.Fall
 {
     public class FallParticleEnemyDetector : ParticleEnemyDetector
     {
-        [SerializeField] private protected UnityEvent<Collider2D[]> _hitEnemyEvent;
+        [SerializeField] private protected UnityEvent<Collider[]> _hitEnemyEvent;
         
         private Coroutine _damageCoroutine;
 
@@ -43,9 +43,9 @@ namespace Weapons.Particle.Fall
             }
         }
 
-        private Collider2D[] ScanForEnemy()
+        private Collider[] ScanForEnemy()
         {
-            return Physics2D.OverlapCircleAll(transform.position, Area / 2, _enemyAndWeapon);
+            return Physics.OverlapSphere(transform.position, Area / 2, _enemyAndWeapon);
         }
     }
 }

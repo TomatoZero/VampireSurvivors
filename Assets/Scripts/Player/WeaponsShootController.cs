@@ -20,10 +20,10 @@ namespace Player
             _weaponReferences.Add(weapon);
         }
 
-        public void Shoot(Vector2 mousePos, int weaponNumber)
+        public void Shoot(Vector3 mousePos, int weaponNumber)
         {
             if (weaponNumber - 1 < 0 || weaponNumber - 1 >= _weaponReferences.Count) return;
-
+           
             _weaponReferences[weaponNumber - 1].ShootController.ShootEventHandler(mousePos);
         }
     }

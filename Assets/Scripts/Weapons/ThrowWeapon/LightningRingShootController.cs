@@ -17,7 +17,7 @@ namespace Weapons.ThrowWeapon
             ShootEventHandler(mousePosition);
         }
         
-        public override void ShootEventHandler(Vector2 mousePosition)
+        public override void ShootEventHandler(Vector3 mousePosition)
         {
             if (AmoAmountControl.IsEnoughAmo)
             {

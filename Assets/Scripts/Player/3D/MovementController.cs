@@ -19,8 +19,6 @@ namespace Player._3D
         {
             var newPos = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             
-            Debug.Log($"newPos {newPos}");
-            
             _rigidbody.MovePosition(newPos);
             _moveEvent.Invoke(_moveDirection2D);
         }

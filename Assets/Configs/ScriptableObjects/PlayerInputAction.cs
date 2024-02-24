@@ -89,6 +89,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoystickLook"",
+                    ""type"": ""Value"",
+                    ""id"": ""26f13d53-8c01-4e48-bb6b-5fb161976cd7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -413,11 +422,22 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c3bd2e5d-7e70-45f3-9080-2109b51ff263"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""65d347ef-f71b-4f53-8e26-a63e6109d9ab"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -452,6 +472,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FourthWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2dcbc4b1-8f88-4b5b-bbb0-e9b9d006242e"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;DualSence"",
+                    ""action"": ""JoystickLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -508,6 +539,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_PlayerControll_ThirdWeaponShoot = m_PlayerControll.FindAction("ThirdWeaponShoot", throwIfNotFound: true);
         m_PlayerControll_FourthWeaponShoot = m_PlayerControll.FindAction("FourthWeaponShoot", throwIfNotFound: true);
         m_PlayerControll_MousePosition = m_PlayerControll.FindAction("MousePosition", throwIfNotFound: true);
+        m_PlayerControll_JoystickLook = m_PlayerControll.FindAction("JoystickLook", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -576,6 +608,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControll_ThirdWeaponShoot;
     private readonly InputAction m_PlayerControll_FourthWeaponShoot;
     private readonly InputAction m_PlayerControll_MousePosition;
+    private readonly InputAction m_PlayerControll_JoystickLook;
     public struct PlayerControllActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -587,6 +620,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @ThirdWeaponShoot => m_Wrapper.m_PlayerControll_ThirdWeaponShoot;
         public InputAction @FourthWeaponShoot => m_Wrapper.m_PlayerControll_FourthWeaponShoot;
         public InputAction @MousePosition => m_Wrapper.m_PlayerControll_MousePosition;
+        public InputAction @JoystickLook => m_Wrapper.m_PlayerControll_JoystickLook;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControll; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -617,6 +651,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
+            @JoystickLook.started += instance.OnJoystickLook;
+            @JoystickLook.performed += instance.OnJoystickLook;
+            @JoystickLook.canceled += instance.OnJoystickLook;
         }
 
         private void UnregisterCallbacks(IPlayerControllActions instance)
@@ -642,6 +679,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
+            @JoystickLook.started -= instance.OnJoystickLook;
+            @JoystickLook.performed -= instance.OnJoystickLook;
+            @JoystickLook.canceled -= instance.OnJoystickLook;
         }
 
         public void RemoveCallbacks(IPlayerControllActions instance)
@@ -695,5 +735,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnThirdWeaponShoot(InputAction.CallbackContext context);
         void OnFourthWeaponShoot(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnJoystickLook(InputAction.CallbackContext context);
     }
 }

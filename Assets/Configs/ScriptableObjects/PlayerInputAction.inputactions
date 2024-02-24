@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "JoystickLook",
+                    "type": "Value",
+                    "id": "26f13d53-8c01-4e48-bb6b-5fb161976cd7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -391,11 +400,22 @@
                 },
                 {
                     "name": "",
+                    "id": "c3bd2e5d-7e70-45f3-9080-2109b51ff263",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstWeaponShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "65d347ef-f71b-4f53-8e26-a63e6109d9ab",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -430,6 +450,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "FourthWeaponShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2dcbc4b1-8f88-4b5b-bbb0-e9b9d006242e",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad;DualSence",
+                    "action": "JoystickLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

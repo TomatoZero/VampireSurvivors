@@ -7,10 +7,10 @@ namespace Weapons.ThrowWeapon
     public class ThrowWeaponShootController : WeaponTopDownShootController
     {
         [SerializeField] private AmoAmountControl _amoAmountControl;
-        [SerializeField] private UnityEvent<Vector2> _hitPosition;
+        [SerializeField] private UnityEvent<Vector3> _hitPosition;
 
         protected AmoAmountControl AmoAmountControl => _amoAmountControl;
-        protected UnityEvent<Vector2> HitPosition => _hitPosition;
+        protected UnityEvent<Vector3> HitPosition => _hitPosition;
 
         private int _baseAmount;
         private float _reloadTime;
@@ -18,7 +18,7 @@ namespace Weapons.ThrowWeapon
         protected int BaseAmount => _baseAmount;
         protected float ReloadTime => _reloadTime;
 
-        public override void ShootEventHandler(Vector2 mousePosition)
+        public override void ShootEventHandler(Vector3 mousePosition)
         {
             if (_amoAmountControl.IsEnoughAmo)
             {
@@ -27,7 +27,7 @@ namespace Weapons.ThrowWeapon
             }
         }
 
-        public virtual Vector2 GetFallPosition(Vector2 mousePosition)
+        public virtual Vector3 GetFallPosition(Vector3 mousePosition)
         {
             return transform.InverseTransformPoint(mousePosition);
         }

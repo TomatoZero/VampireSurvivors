@@ -23,8 +23,8 @@ namespace Weapons.Particle
         private void UpdateLocalScale()
         {
             var scale = transform.localScale.y;
-            transform.localScale -= new Vector3(scale, scale, 0);
-            transform.localScale += new Vector3(_area, _area, 0);
+            transform.localScale -= new Vector3(scale, scale, scale);
+            transform.localScale += new Vector3(_area, _area, _area);
         }
     }
 }

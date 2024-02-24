@@ -20,7 +20,7 @@ namespace Weapons.Particle.Spawner
             _particles = new Queue<ParticleReference>();
         }
 
-        public abstract void Shoot(Vector2 mousePosition);
+        public abstract void Shoot(Vector3 mousePosition);
 
         public ParticleReference Spawn()
         {

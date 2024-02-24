@@ -25,7 +25,7 @@ namespace Weapons.Melee
             ShootEventHandler(_player.position);
         }
 
-        public override void ShootEventHandler(Vector2 mousePosition)
+        public override void ShootEventHandler(Vector3 mousePosition)
         {
             if (_weapon.AmountControl.IsEnoughAmo)
             {
@@ -33,7 +33,7 @@ namespace Weapons.Melee
                 // Debug.Log($"mousePosition {mousePosition}");
 
                 
-                var direction = (mousePosition - (Vector2)transform.position).normalized;
+                var direction = (mousePosition - transform.position).normalized;
 
                 _cubePos = direction;
 

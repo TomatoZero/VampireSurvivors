@@ -1,4 +1,5 @@
-﻿using Spawner;
+﻿using DefaultNamespace;
+using Spawner;
 using UnityEngine;
 
 namespace PickUpItems.Magnet
@@ -11,8 +12,8 @@ namespace PickUpItems.Magnet
         {
             _gemSpawner = gemSpawner;
         }
-
-        private protected override void ItemAction(Collision collision2D)
+        
+        private protected override void ItemAction(Collision2D collision2D)
         {
             _gemSpawner.MagnetPickUp(collision2D.transform, 25);
         }

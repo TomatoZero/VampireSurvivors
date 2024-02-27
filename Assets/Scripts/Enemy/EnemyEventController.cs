@@ -8,7 +8,7 @@ namespace Enemy
     {
         [SerializeField] private EnemyMovementController _enemyMovementController;
         [SerializeField] private EnemyHealthController _enemyHealthController;
-
+        
         public void Instantiate(Transform player, UnityAction<EnemyEventController> dieMethods)
         {
             _enemyMovementController.SetPlayer(player);
@@ -17,6 +17,7 @@ namespace Enemy
 
         public void SetData(EnemyStatsData statsData)
         {
+            
         }
     }
 }

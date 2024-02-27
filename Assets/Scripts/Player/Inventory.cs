@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Interface;
-using Stats;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
@@ -14,8 +13,9 @@ namespace Player
     {
         [SerializeField] private UnityEvent _updateStatsEvent;
         [SerializeField] private UnityEvent _endSetupStatsEvent;
-        [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayCurrentItemsEvent;
-        [SerializeField] private List<WeaponStatsController> _weapons;
+        [SerializeField] private UnityEvent<List<WeaponReferences>, List<ItemInstance>> _displayCurrentItemsEvent;
+        [SerializeField] private List<WeaponReferences> _weapons;
+        [SerializeField] private WeaponsShootController _weaponsShootController;
 
         private List<ItemInstance> _items;
 
@@ -26,7 +26,7 @@ namespace Player
 
         private PlayerInstance _playerInstance;
 
-        public List<WeaponStatsController> Weapons => _weapons;
+        public List<WeaponReferences> Weapons => _weapons;
         public List<ItemInstance> Items => _items;
 
 
@@ -35,12 +35,27 @@ namespace Player
             _items = new List<ItemInstance>();
         }
 
+        private void Start()
+        {
+            foreach (var weapon in _weapons)
+                _weaponsShootController.AddWeapon(weapon);
+        }
+
         private void OnEnable()
         {
             foreach (var weapon in _weapons)
             {
-                SetupStatEvent += weapon.SetupStatEventHandler;
-                UpdateStatEvent += weapon.UpdateStatsEventHandler;
+                SetupStatEvent += weapon.StatsController.SetupStatEventHandler;
+                UpdateStatEvent += weapon.StatsController.UpdateStatsEventHandler;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var weapon in _weapons)
+            {
+                SetupStatEvent -= weapon.StatsController.SetupStatEventHandler;
+                UpdateStatEvent -= weapon.StatsController.UpdateStatsEventHandler;
             }
         }
 
@@ -53,7 +68,7 @@ namespace Player
             DisplayCurrentItems();
         }
 
-        public void AddWeapon(WeaponStatsController weapon)
+        public void AddWeapon(WeaponReferences weapon)
         {
             AddWeapon(weapon, _playerInstance);
             _endSetupStatsEvent.Invoke();
@@ -67,7 +82,7 @@ namespace Player
                 select item).First();
 
             levelUpItem.LevelUp();
-            
+
             _updateStatsEvent.Invoke();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();
@@ -76,10 +91,10 @@ namespace Player
         public void LevelUpWeapon(string name)
         {
             var levelUpWeapon = (from weapon in _weapons
-                where weapon.Instance.StatsData.Name == name
+                where weapon.StatsController.Instance.StatsData.Name == name
                 select weapon).First();
 
-            levelUpWeapon.LevelUp();
+            levelUpWeapon.StatsController.LevelUp();
             _endSetupStatsEvent.Invoke();
             DisplayCurrentItems();
         }
@@ -93,7 +108,7 @@ namespace Player
         {
             var allClearBonus = new Dictionary<Stats.Stats, float>();
             var allPercentBonus = new Dictionary<Stats.Stats, float>();
-            
+
             foreach (var item in _items)
             {
                 foreach (var clearBonus in item.StatsCalculator.ClearBonuses)
@@ -112,6 +127,7 @@ namespace Player
                         allPercentBonus[percentBonus.Key] = percentBonus.Value;
                 }
             }
+
             return (allClearBonus, allPercentBonus);
         }
 
@@ -128,26 +144,30 @@ namespace Player
             UpdateStatEvent?.Invoke(_playerInstance);
         }
 
-        private void AddWeapon(WeaponStatsController weapon, PlayerInstance playerInstance)
+        private void AddWeapon(WeaponReferences weapon, PlayerInstance playerInstance)
         {
+            Debug.Log($"playerInstance {playerInstance}");
+            Debug.Log($"weapon {weapon}");
+
             _weapons.Add(weapon);
 
-            SetupStatEvent += weapon.SetupStatEventHandler;
-            UpdateStatEvent += weapon.UpdateStatsEventHandler;
+            SetupStatEvent += weapon.StatsController.SetupStatEventHandler;
+            UpdateStatEvent += weapon.StatsController.UpdateStatsEventHandler;
 
-            weapon.SetupStatEventHandler(playerInstance);
+            weapon.StatsController.SetupStatEventHandler(playerInstance);
+            _weaponsShootController.AddWeapon(weapon);
         }
 
         private void DisplayCurrentItems()
         {
-            var weapons = new List<WeaponInstance>();
+            // var weapons = new List<WeaponInstance>();
+            //
+            // foreach (var weapon in _weapons)
+            // {
+            //     weapons.Add(weapon);
+            // }
 
-            foreach (var weapon in _weapons)
-            {
-                weapons.Add(weapon.Instance);
-            }
-
-            _displayCurrentItemsEvent.Invoke(weapons, _items);
+            _displayCurrentItemsEvent.Invoke(_weapons, _items);
         }
     }
 }

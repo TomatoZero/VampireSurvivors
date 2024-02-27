@@ -1,11 +1,14 @@
-﻿using Stats.Instances;
+﻿using System.Collections.Generic;
+using Interface;
+using Stats.Instances;
 using ScriptableObjects;
+using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Enemy
 {
-    public class EnemyStatsController : MonoBehaviour
+    public class EnemyStatsController : MonoBehaviour, IUpdateStats
     {
         [SerializeField] private EnemyStatsData _enemyStatsData;
         [SerializeField] private UnityEvent<EnemyInstance> _setupStatsEvent;
@@ -17,6 +20,37 @@ namespace Enemy
         {
             _instance = new EnemyInstance(_enemyStatsData);
             _setupStatsEvent.Invoke(_instance);
+        }
+
+        public void LevelUp()
+        {
+            _instance.LevelUp();
+            _statsUpdateEvent.Invoke(_instance);
+        }
+
+        public void SetupStatEventHandler(ObjectInstance newInstance)
+        {
+            _setupStatsEvent.Invoke(_instance);
+            UpdateStatsEventHandler(newInstance);
+        }
+
+        public void UpdateStatsEventHandler(ObjectInstance newInstance)
+        {
+            var playerInstance = (PlayerInstance)newInstance;
+
+            var allClearBonusFromOutside = playerInstance.PlayerStatCalculator.ClearBonuses;
+            var allPercentBonusFromOutside = playerInstance.PlayerStatCalculator.PercentBonuses;
+
+            _instance.AddBonusesFromItems(allClearBonusFromOutside, allPercentBonusFromOutside);
+            
+            _statsUpdateEvent.Invoke(_instance);
+        }
+        
+        public void UpdateBuffStatsEventHandler(Dictionary<Stats.Stats, float> clearBuff,
+            Dictionary<Stats.Stats, float> percentBuff)
+        {
+            _instance.AddBuffs(clearBuff, percentBuff);
+            _statsUpdateEvent.Invoke(_instance);
         }
     }
 }

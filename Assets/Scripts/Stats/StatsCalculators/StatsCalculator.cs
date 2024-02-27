@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
-using UnityEngine;
 
 namespace Stats.StatsCalculators
 {
@@ -62,7 +61,7 @@ namespace Stats.StatsCalculators
             _stats = new HashSet<Stats>();
             CalculateClearBonuses();
             CalculatePercentBonuses();
-            
+
             var currentStats = new List<StatData>();
             foreach (var stat in _stats)
             {
@@ -105,7 +104,7 @@ namespace Stats.StatsCalculators
             GetBonuses(ref _percentBonuses, GetPercentBonusValue, GetPercentStats);
         }
 
-        private protected string GetDictionaryInString<T,TT>(Dictionary<T,TT> dictionary)
+        private protected string GetDictionaryInString<T, TT>(Dictionary<T, TT> dictionary)
         {
             var str = "";
             foreach (var stat in dictionary)
@@ -115,7 +114,7 @@ namespace Stats.StatsCalculators
 
             return str;
         }
-        
+
         private float GetValueFromDictionary(Dictionary<Stats, float> dictionary, Stats stat)
         {
             if (dictionary.TryGetValue(stat, out float value)) return value;
@@ -195,10 +194,10 @@ namespace Stats.StatsCalculators
         private protected virtual void SeparateDefaultStats(ObjectInstance instance)
         {
             var defaultStat = instance.StatsData.DefaultStatsData;
-            
+
             _defaultsStatPercent = new Dictionary<Stats, float>();
             _defaultsStatClear = new Dictionary<Stats, float>();
-            
+
             foreach (var statData in defaultStat)
             {
                 if (statData.IsPercent)

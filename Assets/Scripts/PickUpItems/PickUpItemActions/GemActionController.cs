@@ -6,16 +6,17 @@ namespace PickUpItems.Gem
     public class GemActionController : PickUpItemActionController
     {
         private int _xpBonus = 5;
-        
-        private protected override void ItemAction(Collision2D collision2D)
+
+        private protected override void ItemAction(Collision collision2D)
         {
-            var levelController = collision2D.gameObject.GetComponentInChildren<PlayerLevelController>();
-            if (levelController is not null)
+            var reference = collision2D.gameObject.GetComponentInChildren<PlayerReference>();
+            if (reference is not null)
             {
-                levelController.IncreaseXp(_xpBonus);
+                Debug.Log($"ex++");
+                reference.LevelController.IncreaseXp(_xpBonus);
             }
         }
-        
+
         public void Setup(int xpBonus)
         {
             _xpBonus = xpBonus;

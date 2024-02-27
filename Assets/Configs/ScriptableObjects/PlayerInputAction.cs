@@ -44,6 +44,60 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstWeaponShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e6eef6a-3d1b-4693-90be-20207130f054"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondWeaponShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""faee9aaa-57c9-4758-ae28-7e53f9d1bb9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdWeaponShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""de3507e5-6fcf-4db1-9c80-d43e2835ad51"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FourthWeaponShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""91f209cf-8d75-4fdd-8388-f363b82e6637"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b55a0577-5f4e-40e1-b0f1-ef375015c67c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoystickLook"",
+                    ""type"": ""Value"",
+                    ""id"": ""26f13d53-8c01-4e48-bb6b-5fb161976cd7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -346,8 +400,8 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2c0386f8-6172-4123-94df-bbc3381b87d3"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""f3575ae5-3fdb-452f-a15d-b68f6080dd7d"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -357,12 +411,78 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f3575ae5-3fdb-452f-a15d-b68f6080dd7d"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""6b3e7dd6-7bd3-455b-a5a3-29ced613be39"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3bd2e5d-7e70-45f3-9080-2109b51ff263"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65d347ef-f71b-4f53-8e26-a63e6109d9ab"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Pause"",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22110300-5da0-40c6-9c11-bcf095f9d381"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9180daf4-13ff-4d52-9abe-4b08455fa971"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34923520-e565-4e61-af96-1007a979195b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FourthWeaponShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2dcbc4b1-8f88-4b5b-bbb0-e9b9d006242e"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;DualSence"",
+                    ""action"": ""JoystickLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -414,6 +534,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_PlayerControll = asset.FindActionMap("PlayerControll", throwIfNotFound: true);
         m_PlayerControll_Move = m_PlayerControll.FindAction("Move", throwIfNotFound: true);
         m_PlayerControll_Pause = m_PlayerControll.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerControll_FirstWeaponShoot = m_PlayerControll.FindAction("FirstWeaponShoot", throwIfNotFound: true);
+        m_PlayerControll_SecondWeaponShoot = m_PlayerControll.FindAction("SecondWeaponShoot", throwIfNotFound: true);
+        m_PlayerControll_ThirdWeaponShoot = m_PlayerControll.FindAction("ThirdWeaponShoot", throwIfNotFound: true);
+        m_PlayerControll_FourthWeaponShoot = m_PlayerControll.FindAction("FourthWeaponShoot", throwIfNotFound: true);
+        m_PlayerControll_MousePosition = m_PlayerControll.FindAction("MousePosition", throwIfNotFound: true);
+        m_PlayerControll_JoystickLook = m_PlayerControll.FindAction("JoystickLook", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -477,12 +603,24 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private List<IPlayerControllActions> m_PlayerControllActionsCallbackInterfaces = new List<IPlayerControllActions>();
     private readonly InputAction m_PlayerControll_Move;
     private readonly InputAction m_PlayerControll_Pause;
+    private readonly InputAction m_PlayerControll_FirstWeaponShoot;
+    private readonly InputAction m_PlayerControll_SecondWeaponShoot;
+    private readonly InputAction m_PlayerControll_ThirdWeaponShoot;
+    private readonly InputAction m_PlayerControll_FourthWeaponShoot;
+    private readonly InputAction m_PlayerControll_MousePosition;
+    private readonly InputAction m_PlayerControll_JoystickLook;
     public struct PlayerControllActions
     {
         private @PlayerInputAction m_Wrapper;
         public PlayerControllActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControll_Move;
         public InputAction @Pause => m_Wrapper.m_PlayerControll_Pause;
+        public InputAction @FirstWeaponShoot => m_Wrapper.m_PlayerControll_FirstWeaponShoot;
+        public InputAction @SecondWeaponShoot => m_Wrapper.m_PlayerControll_SecondWeaponShoot;
+        public InputAction @ThirdWeaponShoot => m_Wrapper.m_PlayerControll_ThirdWeaponShoot;
+        public InputAction @FourthWeaponShoot => m_Wrapper.m_PlayerControll_FourthWeaponShoot;
+        public InputAction @MousePosition => m_Wrapper.m_PlayerControll_MousePosition;
+        public InputAction @JoystickLook => m_Wrapper.m_PlayerControll_JoystickLook;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControll; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -498,6 +636,24 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @FirstWeaponShoot.started += instance.OnFirstWeaponShoot;
+            @FirstWeaponShoot.performed += instance.OnFirstWeaponShoot;
+            @FirstWeaponShoot.canceled += instance.OnFirstWeaponShoot;
+            @SecondWeaponShoot.started += instance.OnSecondWeaponShoot;
+            @SecondWeaponShoot.performed += instance.OnSecondWeaponShoot;
+            @SecondWeaponShoot.canceled += instance.OnSecondWeaponShoot;
+            @ThirdWeaponShoot.started += instance.OnThirdWeaponShoot;
+            @ThirdWeaponShoot.performed += instance.OnThirdWeaponShoot;
+            @ThirdWeaponShoot.canceled += instance.OnThirdWeaponShoot;
+            @FourthWeaponShoot.started += instance.OnFourthWeaponShoot;
+            @FourthWeaponShoot.performed += instance.OnFourthWeaponShoot;
+            @FourthWeaponShoot.canceled += instance.OnFourthWeaponShoot;
+            @MousePosition.started += instance.OnMousePosition;
+            @MousePosition.performed += instance.OnMousePosition;
+            @MousePosition.canceled += instance.OnMousePosition;
+            @JoystickLook.started += instance.OnJoystickLook;
+            @JoystickLook.performed += instance.OnJoystickLook;
+            @JoystickLook.canceled += instance.OnJoystickLook;
         }
 
         private void UnregisterCallbacks(IPlayerControllActions instance)
@@ -508,6 +664,24 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @FirstWeaponShoot.started -= instance.OnFirstWeaponShoot;
+            @FirstWeaponShoot.performed -= instance.OnFirstWeaponShoot;
+            @FirstWeaponShoot.canceled -= instance.OnFirstWeaponShoot;
+            @SecondWeaponShoot.started -= instance.OnSecondWeaponShoot;
+            @SecondWeaponShoot.performed -= instance.OnSecondWeaponShoot;
+            @SecondWeaponShoot.canceled -= instance.OnSecondWeaponShoot;
+            @ThirdWeaponShoot.started -= instance.OnThirdWeaponShoot;
+            @ThirdWeaponShoot.performed -= instance.OnThirdWeaponShoot;
+            @ThirdWeaponShoot.canceled -= instance.OnThirdWeaponShoot;
+            @FourthWeaponShoot.started -= instance.OnFourthWeaponShoot;
+            @FourthWeaponShoot.performed -= instance.OnFourthWeaponShoot;
+            @FourthWeaponShoot.canceled -= instance.OnFourthWeaponShoot;
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
+            @JoystickLook.started -= instance.OnJoystickLook;
+            @JoystickLook.performed -= instance.OnJoystickLook;
+            @JoystickLook.canceled -= instance.OnJoystickLook;
         }
 
         public void RemoveCallbacks(IPlayerControllActions instance)
@@ -556,5 +730,11 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnFirstWeaponShoot(InputAction.CallbackContext context);
+        void OnSecondWeaponShoot(InputAction.CallbackContext context);
+        void OnThirdWeaponShoot(InputAction.CallbackContext context);
+        void OnFourthWeaponShoot(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
+        void OnJoystickLook(InputAction.CallbackContext context);
     }
 }

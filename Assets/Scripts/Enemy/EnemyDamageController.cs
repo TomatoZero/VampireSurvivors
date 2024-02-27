@@ -12,6 +12,7 @@ namespace Enemy
         
         public void TakeDamage(float damage)
         {
+            Debug.Log($"damage {damage}");
             _takeDamageEvent.Invoke(damage - _armor);
         }
 

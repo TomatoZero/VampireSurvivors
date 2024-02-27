@@ -8,7 +8,7 @@ namespace PickUpItems
         [SerializeField] private PickUpItemMoveController _moveController;
 
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionEnter(Collision other)
         {
             if (((1 << other.gameObject.layer) & _playerLayer) != 0)
             {
@@ -17,6 +17,6 @@ namespace PickUpItems
             }
         }
 
-        private protected abstract void ItemAction(Collision2D collision2D);
+        private protected abstract void ItemAction(Collision collision2D);
     }
 }

@@ -56,8 +56,6 @@ namespace Weapons
 
         public virtual void Damage(IDamageable damageable)
         {
-            Debug.Log($"_damage {_damage}");
-            
             if (TryMakeCriticalHit()) damageable.TakeDamage(_damage * _criticalHitMultiplier);
             else damageable.TakeDamage(_damage);
         }

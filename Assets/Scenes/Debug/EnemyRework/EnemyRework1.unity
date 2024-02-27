@@ -760,7 +760,7 @@ SpriteRenderer:
   m_Size: {x: 204.8, y: 204.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &394242476
@@ -778,250 +778,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &590629326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 590629327}
-  - component: {fileID: 590629328}
-  m_Layer: 3
-  m_Name: Stats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &590629327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590629326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 923820065}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &590629328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590629326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 335e378a07e04030a263594d4ea54748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _statsData: {fileID: 11400000, guid: d330c1fbde0de4b41a41a8bf6b2e9347, type: 2}
-  _setupStatData:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 657949176}
-        m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 657949177}
-        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponShootController, Assembly-CSharp
-        m_MethodName: SetupStatEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _updateStatData:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 657949176}
-        m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 657949177}
-        m_TargetAssemblyTypeName: Weapons.Melee.MeleeWeaponShootController, Assembly-CSharp
-        m_MethodName: UpdateStatsEventHandler
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &608110155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4965149104995620103, guid: bc4a970cbeb0bdb4598ca2b9cbf4c698,
     type: 3}
   m_PrefabInstance: {fileID: 167284279}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &657949174
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 657949175}
-  - component: {fileID: 657949176}
-  - component: {fileID: 657949177}
-  - component: {fileID: 657949178}
-  m_Layer: 3
-  m_Name: Damage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &657949175
+--- !u!4 &923820065 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+    type: 3}
+  m_PrefabInstance: {fileID: 3348151968695719785}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657949174}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 923820065}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &657949176
+--- !u!114 &923820066 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6676601472681968601, guid: bc16371736bf5cb4c90ee6485737d184,
+    type: 3}
+  m_PrefabInstance: {fileID: 3348151968695719785}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657949174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0ed9b9ba73be9449f639887a75527e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &657949177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657949174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb4ee99345e45d0bc51b1325edd9092, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weapon: {fileID: 923820066}
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _hitEnemy:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 657949176}
-        m_TargetAssemblyTypeName: Weapons.BaseWeaponDamageController, Assembly-CSharp
-        m_MethodName: Damage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _player: {fileID: 2027516590}
---- !u!114 &657949178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657949174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154cc1e654a84c378d91a61f804de4bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &923820064
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 923820065}
-  - component: {fileID: 923820066}
-  m_Layer: 3
-  m_Name: BaseEnemyMeleeWeapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &923820065
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923820064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 657949175}
-  - {fileID: 590629327}
-  m_Father: {fileID: 608110155}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &923820066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923820064}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79d49ab1a7bb4414bca5e045ff0c6c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statsController: {fileID: 590629328}
-  _shootController: {fileID: 657949177}
-  _amountControl: {fileID: 657949178}
 --- !u!4 &953531286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1837010960348372924, guid: 8dc6c7d9810b2054dbbd93b4b03ee3d0,
@@ -1612,3 +1392,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5effa6969302a46b2cd3b243d3b33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3348151968695719785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 608110155}
+    m_Modifications:
+    - target: {fileID: 1126205277538488612, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseEnemyMeleeWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537942201827420286, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2027516590}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966110050710512788, guid: bc16371736bf5cb4c90ee6485737d184,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc16371736bf5cb4c90ee6485737d184, type: 3}

@@ -2,6 +2,7 @@ using System;
 using Stats.Instances;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Weapons.Melee
 {
@@ -9,9 +10,9 @@ namespace Weapons.Melee
     {
         [SerializeField] private WeaponReferences _weapon;
         [SerializeField] private LayerMask _enemyLayer;
-        [SerializeField] private UnityEvent<Collider2D[]> _hitEnemy;
+        [SerializeField] private UnityEvent<Collider[]> _hitEnemy;
 
-        [SerializeField] private Transform _player;
+        [FormerlySerializedAs("_player")] public Transform Player;
 
         private float _area;
         private int _baseAmount;
@@ -22,7 +23,9 @@ namespace Weapons.Melee
         
         private void Update()
         {
-            ShootEventHandler(_player.position);
+            if(Player is null) return;
+            
+            // ShootEventHandler(Player.position);
         }
 
         public override void ShootEventHandler(Vector3 mousePosition)
@@ -71,9 +74,9 @@ namespace Weapons.Melee
             _cubeSize = new Vector3(_area, _area, _area);
         }
 
-        private Collider2D[] ScanForEnemy(Vector2 position)
+        private Collider[] ScanForEnemy(Vector3 position)
         {
-            return Physics2D.OverlapBoxAll(position, _cubeSize, _enemyLayer) ?? Array.Empty<Collider2D>();
+            return Physics.OverlapSphere(position, _area, _enemyLayer) ?? Array.Empty<Collider>();
         }
 
         private void OnDrawGizmos()

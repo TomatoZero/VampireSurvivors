@@ -20,6 +20,8 @@ namespace Enemy
 
         public float DistanceToPlayer => _distanceToPlayer;
 
+        public Transform Player => _player;
+
         private void Awake()
         {
             // _player = transform;

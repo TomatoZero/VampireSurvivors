@@ -15,8 +15,6 @@ namespace Particle.Spawner
 
             var direction = (mousePosition - transform.position).normalized;
             
-            Debug.Log($"direction {direction}");
-
             particle.transform.position = transform.position;
             particle.Enable();
             particle.MoveController.Move(direction);

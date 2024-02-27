@@ -25,14 +25,16 @@ namespace Weapons.ThrowWeapon
 
                 var enemies = ScanForEnemyInCircle(mousePosition);
                 
+                Debug.Log($"enemies {enemies.Length} _area {_area} ");
+                
                 HitPosition.Invoke(mousePosition);
                 _hitEnemy.Invoke(enemies);
             }
         }
         
-        private Collider[] ScanForEnemyInCircle(Vector2 position)
+        private Collider[] ScanForEnemyInCircle(Vector3 position)
         {
-            return Physics.OverlapSphere(position, _area / 2, _enemyLayer) ?? Array.Empty<Collider>();
+            return Physics.OverlapSphere(position, _area, _enemyLayer) ?? Array.Empty<Collider>();
         }
 
         public override void SetupStatEventHandler(ObjectInstance newInstance)

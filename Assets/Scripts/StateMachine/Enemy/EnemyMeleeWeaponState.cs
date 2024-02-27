@@ -12,6 +12,7 @@ namespace StateMachine.Enemy
     {
         private readonly EnemyStateMachineController _enemyStateMachine;
         private List<TimedBuffInstance> _buffInstance;
+        private EnemyReference _enemyReference;
         
         public States CurrentState => States.MeleeWeapon;
         public event Action<States> ChangeStateEvent;

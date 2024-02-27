@@ -12,7 +12,6 @@ namespace PickUpItems.Gem
             var reference = collision2D.gameObject.GetComponentInChildren<PlayerReference>();
             if (reference is not null)
             {
-                Debug.Log($"ex++");
                 reference.LevelController.IncreaseXp(_xpBonus);
             }
         }

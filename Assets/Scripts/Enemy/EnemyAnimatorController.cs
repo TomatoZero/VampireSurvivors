@@ -7,7 +7,6 @@ namespace Enemy
     {
         [SerializeField] private UnityEvent<string, float> _setMoveDirectionAnimationEvent;
         [SerializeField] private UnityEvent<string, bool> _batDieEvent;
-        [SerializeField] private UnityEvent _killEnemyEventHandler;
 
         private Vector2 _prevDirection = Vector2.down;
 
@@ -27,11 +26,6 @@ namespace Enemy
         public void DieEventHandler()
         {
             _batDieEvent.Invoke("Die", true);
-        }
-
-        public void Kill()
-        {
-            _killEnemyEventHandler.Invoke();
         }
     }
 }

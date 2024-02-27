@@ -6,13 +6,13 @@ namespace PickUpItems.Invincibility
     public class InvincibleActionController : PickUpItemActionController
     {
         [SerializeField] private float _invincibleTime;
-
-        private protected override void ItemAction(Collision collision2D)
+        
+        private protected override void ItemAction(Collision2D collision2D)
         {
-            var reference = collision2D.gameObject.GetComponentInChildren<PlayerReference>();
-            if (reference is not null)
+            var damageController = collision2D.gameObject.GetComponentInChildren<DamageController>();
+            if (damageController is not null)
             {
-                reference.DamageController.MakeInvincibleFor(_invincibleTime);
+                damageController.MakeInvincibleFor(_invincibleTime);
             }
         }
 

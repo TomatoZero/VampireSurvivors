@@ -4,7 +4,6 @@ using Stats.Instances.Buff;
 using Stats.Instances.PowerUp;
 using UnityEngine;
 using UnityEngine.Events;
-using Weapons;
 
 namespace UI.HUD
 {
@@ -12,7 +11,7 @@ namespace UI.HUD
     {
         [SerializeField] private UnityEvent<float> _setCurrentXp;
         [SerializeField] private UnityEvent<TimedBuffInstance> _showBuff;
-        [SerializeField] private UnityEvent<List<WeaponReferences>, List<ItemInstance>> _displayItemsEvent;
+        [SerializeField] private UnityEvent<List<WeaponInstance>, List<ItemInstance>> _displayItemsEvent;
         
         public void SetCurrentXp(float xp)
         {
@@ -24,7 +23,7 @@ namespace UI.HUD
             _showBuff.Invoke(buff);
         }
 
-        public void DisplayItemsEvent(List<WeaponReferences> weapons, List<ItemInstance> items)
+        public void DisplayItemsEvent(List<WeaponInstance> weapons, List<ItemInstance> items)
         {
             _displayItemsEvent.Invoke(weapons, items);
         } 

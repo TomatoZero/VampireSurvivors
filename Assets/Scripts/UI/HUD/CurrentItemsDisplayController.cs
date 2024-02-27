@@ -4,7 +4,6 @@ using System.Linq;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
-using Weapons;
 
 namespace UI.HUD
 {
@@ -25,52 +24,12 @@ namespace UI.HUD
             foreach (var display in _displayItems) _freeItemsDisplay.Enqueue(display);
         }
 
-        // public void SetItems(List<WeaponReferences> weapons, List<WeaponReferences> items)
-        // {
-        //     
-        // }
-        
-        public void SetItems(List<WeaponReferences> weapons, List<ItemInstance> items)
+        public void SetItems(List<WeaponInstance> weapons, List<ItemInstance> items)
         {
-            if(weapons is not null) SetupWeapons(weapons, _displayWeapons, _freeWeaponsDisplay);
+            if(weapons is not null) SetupItems(weapons?.Cast<ObjectInstance>().ToList(), _displayWeapons, _freeWeaponsDisplay);
             if(items is not null) SetupItems(items.Cast<ObjectInstance>().ToList(), _displayItems, _freeItemsDisplay);
         }
 
-        private void SetupWeapons(List<WeaponReferences> items, List<ItemDisplayController> display,
-            Queue<ItemDisplayController> allFreeDisplay)
-        {
-            foreach (var item in items)
-            {
-                if(item is null) continue;
-                var found = false;
-                
-                foreach (var displayController in display)
-                {
-                    if(displayController is null || displayController.Instance is null) continue;
-                    
-                    if (displayController.Instance == item.Instance)
-                    {
-                        // displayController.UpdateLevel(item.Instance.CurrentLvl);
-                        displayController.Set(item);
-                        
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (found) continue;
-                
-                if (allFreeDisplay.TryDequeue(out ItemDisplayController freeDisplay))
-                {
-                    freeDisplay.Set(item);
-                }
-                else
-                {
-                    throw new Exception("To many items");
-                }
-            }
-        }
-        
         private void SetupItems(List<ObjectInstance> items, List<ItemDisplayController> display,
             Queue<ItemDisplayController> allFreeDisplay)
         {

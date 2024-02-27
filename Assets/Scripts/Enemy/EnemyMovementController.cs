@@ -5,31 +5,27 @@ using UnityEngine.Events;
 
 namespace Enemy
 {
+    [RequireComponent(typeof(EnemyStatsController))]
     public class EnemyMovementController : MonoBehaviour, IUpdateStats
     {
-        [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private UnityEvent<Vector2> _moveDirectionEvent;
         
-        [SerializeField] private Transform _player;
+        private Transform _player;
 
-        private Vector3 _nextPosition;
-        private Vector3 _moveDirection;
+        private Vector2 _nextPosition;
+        private Vector2 _moveDirection;
 
         private float _speed;
-        private float _distanceToPlayer;
-
-        public float DistanceToPlayer => _distanceToPlayer;
 
         private void Awake()
         {
-            // _player = transform;
+            _player = transform;
         }
 
         private void FixedUpdate()
         {
-            var vectorToPlayer = (_player.position - transform.position);
-            _distanceToPlayer = vectorToPlayer.magnitude;
-            _moveDirection = vectorToPlayer.normalized;
+            _moveDirection = (_player.position - transform.position).normalized;
             _nextPosition = _rigidbody.position + _moveDirection.normalized * ((_speed) * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_nextPosition);
             _moveDirectionEvent.Invoke(_moveDirection);

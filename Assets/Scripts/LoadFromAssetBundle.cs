@@ -46,7 +46,7 @@ namespace DefaultNamespace
                     return new GameObject();
                 }
 
-                // _loadedAssetBundles.Add(assetBundle);
+                _loadedAssetBundles.Add(assetBundle);
             }
 
             var prefab = LoadPrefab(assetBundle, prefabName);
@@ -88,7 +88,6 @@ namespace DefaultNamespace
             var dependencies = manifest.GetAllDependencies(dependenciesFor);
             foreach (var dependency in dependencies)
             {
-                Debug.Log($"dependency {dependency}");
                 _loadedAssetBundles.Add(AssetBundle.LoadFromFile($"{_assetBundleFolderPath}{_separator}{dependency}"));
             }
 
@@ -122,7 +121,6 @@ namespace DefaultNamespace
 
         private GameObject LoadPrefab(AssetBundle myLoadedAssetBundle, string fileName)
         {
-            //TODO: scriptable object dont loaded
             return myLoadedAssetBundle.LoadAsset<GameObject>(fileName);
         }
 

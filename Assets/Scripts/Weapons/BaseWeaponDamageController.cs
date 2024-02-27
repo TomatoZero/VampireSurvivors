@@ -1,5 +1,4 @@
 ﻿using Interface;
-using Player;
 using Stats.Instances;
 using Stats.Instances.PowerUp;
 using UnityEngine;
@@ -12,52 +11,24 @@ namespace Weapons
         private float _criticalHitMultiplier;
         private float _damage;
 
-        public virtual void Damage(Collider[] enemy)
-        {
-            foreach (var oneEnemy in enemy)
-            {
-                if(oneEnemy is not null)
-                {
-                    Damage(oneEnemy);
-                }
-            }
-        }
-        
         public virtual void Damage(Collider2D[] enemy)
         {
             foreach (var oneEnemy in enemy)
             {
-                if(oneEnemy is not null)
-                {
-                    Damage(oneEnemy);
-                }
+                if(oneEnemy is not null) Damage(oneEnemy);
             }
         }
 
         public virtual void Damage(Collider2D enemy)
         {
             if(enemy == null) return;
-
+            
             if (enemy.gameObject.TryGetComponent(out IDamageable damageController))
                 Damage(damageController);
-            else if (enemy.gameObject.TryGetComponent(out PlayerReference reference))
-                Damage(reference.DamageController);
-        }
-        
-        public virtual void Damage(Collider enemy)
-        {
-            if(enemy == null) return;
-
-            if (enemy.gameObject.TryGetComponent(out IDamageable damageController))
-                Damage(damageController);
-            else if (enemy.gameObject.TryGetComponent(out PlayerReference reference))
-                Damage(reference.DamageController);
         }
 
         public virtual void Damage(IDamageable damageable)
         {
-            Debug.Log($"_damage {_damage}");
-            
             if (TryMakeCriticalHit()) damageable.TakeDamage(_damage * _criticalHitMultiplier);
             else damageable.TakeDamage(_damage);
         }

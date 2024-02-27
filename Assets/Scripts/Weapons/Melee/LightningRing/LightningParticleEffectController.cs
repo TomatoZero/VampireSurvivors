@@ -20,12 +20,6 @@ namespace Weapons.Melee.LightningRing
             transform.position = position;
             TurnOn();
         }
-        
-        public void Set(Vector3 position)
-        {
-            transform.position = position;
-            TurnOn();
-        }
 
         void OnParticleSystemStopped()
         {

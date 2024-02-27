@@ -1,16 +1,17 @@
-﻿using Interface;
+﻿using System;
+using Interface;
 using PickUpItems;
 using Stats.Instances;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Player
 {
     public class MagnetController : MonoBehaviour, IUpdateStats
     {
-        [FormerlySerializedAs("_gemLayer")] [SerializeField]
-        private LayerMask _pickUpItemLayer;
-
+        [FormerlySerializedAs("_gemLayer")] [SerializeField] private LayerMask _pickUpItemLayer;
+        
         private float _area;
         private Vector3 _scale;
 
@@ -23,18 +24,7 @@ namespace Player
         {
             if (((1 << other.gameObject.layer) & _pickUpItemLayer) != 0)
             {
-                if (other.TryGetComponent(out PickUpItemMoveController moveController))
-                {
-                    moveController.EnableItem(transform);
-                }
-            }
-        }
-        
-        private void OnTriggerEnter(Collider other)
-        {
-            if (((1 << other.gameObject.layer) & _pickUpItemLayer) != 0)
-            {
-                if (other.TryGetComponent(out PickUpItemMoveController moveController))
+                if(other.TryGetComponent(out PickUpItemMoveController moveController))
                 {
                     moveController.EnableItem(transform);
                 }
@@ -53,7 +43,7 @@ namespace Player
             _area = newInstance.GetStatByName(Stats.Stats.Area).Value;
             UpdateLocalScale();
         }
-
+        
         private void UpdateLocalScale()
         {
             var scale = transform.localScale.y;

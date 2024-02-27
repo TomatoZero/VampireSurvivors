@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Stats.Instances;
+using Stats.Instances.PowerUp;
 
 namespace Stats.StatsCalculators
 {
@@ -19,6 +20,21 @@ namespace Stats.StatsCalculators
         {
             _clearBuffs = allClearBuff;
             _percentBuffs = allPercentBuff;
+        }
+
+        private protected override void SeparateDefaultStats(ObjectInstance instance)
+        {
+            base.SeparateDefaultStats(instance);
+
+            var playerBonusStat = ((PlayerInstance)instance).PlayerStatsData.BonusStats;
+
+            foreach (var statData in playerBonusStat)
+            {
+                if (statData.IsPercent)
+                    DefaultsStatPercent.Add(statData.Stat, statData.Value);
+                else
+                    DefaultsStatClear.Add(statData.Stat, statData.Value);
+            }
         }
 
         private protected override float GetClearBonusValue(Stats stat)
@@ -45,9 +61,9 @@ namespace Stats.StatsCalculators
         private protected override HashSet<Stats> GetPercentStats()
         {
             var stats = base.GetPercentStats();
-
+            
             foreach (var data in _percentBuffs) stats.Add(data.Key);
-
+            
             return stats;
         }
 

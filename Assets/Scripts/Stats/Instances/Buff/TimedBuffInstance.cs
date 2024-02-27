@@ -61,10 +61,5 @@ namespace Stats.Instances.Buff
                 _currentDuration = 0;
             }
         }
-
-        public void StopBuff()
-        {
-            RemoveBuff?.Invoke(this);
-        }
     }
 }
